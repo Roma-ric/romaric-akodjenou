@@ -14,7 +14,9 @@
 
 - Scroll : [container-scroll-animation](https://ui.aceternity.com/components/container-scroll-animation)
 
-- Project Popup : [expandable-card](https://ui.aceternity.com/components/expandable-card)
+- Project 
+    - Popup : [expandable-card](https://ui.aceternity.com/components/expandable-card)
+    - Card : [portfolio](https://merakiui.com/components/marketing/portfolio)
 
 - Mobile Menu : [dock](https://www.reactbits.dev/components/dock)
 
@@ -27,3 +29,5 @@
 - Text focus : [true-focus](https://www.reactbits.dev/text-animations/true-focus)
 
 - Skils Enum : [rotating-text](https://www.reactbits.dev/text-animations/rotating-text) 
+
+- Contact : [contact](https://merakiui.com/components/marketing/contact)
