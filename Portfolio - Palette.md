@@ -1,9 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+# Palette 
 
-@layer base {
-  :root {
+1- instanbul templace
+```css
+:root {
     --blue: #007bff;
     --indigo: #6610f2;
     --purple: #6f42c1;
@@ -23,18 +22,7 @@
     --info: #17a2b8;
     --warning: #ffc107;
     --danger: #dc3545;
-    --background: #f8f9fa;
-    --foreground: #1A1A1D;
-  }
-
-  .dark {
-    --background: #1A1A1D;
-    --foreground: #f8f9fa;
-  }
+    --light: #f8f9fa;
+    --dark: #343a40;
 }
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+```
