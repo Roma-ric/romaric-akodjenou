@@ -2,6 +2,7 @@
 
 import Head from 'next/head';
 import Hero from './components/portfolio/Hero';
+import About from './components/portfolio/About';
 
 export default function Home() {
 
@@ -15,6 +16,8 @@ export default function Home() {
       {/* Hero */}
       <Hero />
 
+      {/* About */}
+      <About />
       
     </div>
   );

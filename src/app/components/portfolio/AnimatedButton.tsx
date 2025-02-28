@@ -17,37 +17,55 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({
     anchor,
     className = ""
 }) => {
+    const [isHovered, setIsHovered] = React.useState(false);
+
+    const handleHoverStart = () => setIsHovered(true);
+    const handleHoverEnd = () => setIsHovered(false);
+
     return (
-        <motion.div
-            className={cn(`relative w-40 h-12 overflow-hidden flex items-center`, className)}
-            initial={{ width: "auto" }}
-            whileHover={{ width: 160 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+        <motion.button
+            className={cn(
+                "flex items-center justify-center rounded-full transition-colors", 
+                isHovered ? "bg-yellow-500" : "bg-black",
+                className
+            )}
             onClick={() => {
                 const element = document.getElementById(anchor);
                 element?.scrollIntoView({ behavior: "smooth" });
-            }
-            }
+            }}
+            onHoverStart={handleHoverStart}
+            onHoverEnd={handleHoverEnd}
+            initial={false}
+            animate={{
+                width: isHovered ? "auto" : "48px",
+                height: "48px",
+                paddingLeft: isHovered ? "12px" : "0px",
+                paddingRight: isHovered ? "12px" : "0px",
+            }}
+            transition={{
+                duration: 0.2,
+                ease: "easeInOut"
+            }}
         >
-            <motion.div
-                className="flex items-center justify-between bg-black dark:bg-yellow text-white rounded-full px-5 py-2 w-full h-full"
-                layout
+            <motion.span
+                className="font-bold text-sm whitespace-nowrap overflow-hidden uppercase text-white"
+                initial={false}
+                animate={{
+                    opacity: isHovered ? 1 : 0,
+                    width: isHovered ? "auto" : 0,
+                    marginLeft: isHovered ? "8px" : 0,
+                }}
+                transition={{
+                    duration: 0.2,
+                    ease: "easeInOut"
+                }}
             >
-                <motion.span
-                    className="font-bold text-base"
-                    layout
-                >
-                    {title}
-                </motion.span>
-
-                <motion.div
-                    className="bg-black dark:bg-white rounded-full p-1.5 flex items-center justify-center"
-                    layout
-                >
-                    {icon}
-                </motion.div>
-            </motion.div>
-        </motion.div>
+                {title}
+            </motion.span>
+            <div className="flex items-center justify-center w-6 h-6 flex-shrink-0">
+                {icon}
+            </div>
+        </motion.button>
     );
 };
 

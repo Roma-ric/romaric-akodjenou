@@ -70,6 +70,9 @@ export default {
 				'10xl': '8rem'
 			},
 			screens: {
+				"low-xs": {
+					max: '380px'
+				},
 				xs: {
 					max: '480px'
 				},

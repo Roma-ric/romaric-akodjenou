@@ -3,39 +3,38 @@ import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen bg-transparent flex flex-col md:flex-row overflow-hidden">
+    <div className="relative min-h-screen bg-transparent border-b dark:border-b-slate-700 flex flex-col md:flex-row overflow-hidden md:pb-16">
       {/* Couleur d'arrière-plan jaune */}
-      <div className="fixed h-[200%] w-full -rotate-[15deg] left-[-83%] top-[-50%] lg:hidden bg-black dark:bg-yellow-500 z-40 "></div>
+      <div className="absolute h-[200%] w-full -rotate-[15deg] left-[-83%] top-[-50%] lg:hidden bg-black dark:bg-yellow-500 z-40 "></div>
 
       {/* Contenu principal */}
-      <div className="relative w-full lg:overflow-y-auto z-40 h-screen lg:h-auto flex lg:flex-col lg:pb-10">
+      <div className="relative w-full lg:overflow-y-auto z-40 h-screen lg:h-auto flex lg:flex-col">
         {/* Section photo */}
-        <div className="w-1/2 lg:w-full z-40 flex pt-14 pb-5 justify-start lg:justify-center bg-transparent items-center relative p-8">
-          <div className="w-full h-full shadow-[0_0_7px_rgba(0,0,0,0.9)] lg:shadow-none hidden dark:block lg:block lg:dark:hidden lg:bg-transparent max-w-md rounded-[30px] overflow-hidden bg-black" //4px solid #252525
-          >
+        <div className="w-1/2 lg:w-full z-40 flex py-10 lg:pb-4 md:pt-14 md:pb-0 justify-start lg:justify-center bg-transparent items-center relative p-8">
+          <div className="w-full h-full shadow-[0_0_7px_rgba(0,0,0,0.9)] lg:shadow-none hidden dark:block lg:block lg:dark:hidden lg:bg-transparent max-w-md rounded-[30px] overflow-hidden bg-black">
             <img
               src="file/profile-black.png"
               alt="Romaric AKODJENOU"
-              className="w-full h-full lg:mx-auto lg:w-[16.875rem] lg:h-[16.875rem] lg:border-[4px] lg:border-[#252525] lg:rounded-full object-cover"
+              className="w-full h-full lg:mx-auto lg:w-[16.875rem] lg:h-[16.875rem] low-xs:w-[14.875rem] low-xs:h-[14.875rem] lg:border-[4px] lg:border-[#252525] lg:rounded-full object-cover"
             />
           </div>
           <div className="w-full h-full shadow-[0_0_7px_rgba(0,0,0,0.9)] lg:shadow-none block dark:hidden lg:hidden lg:dark:block lg:bg-transparent max-w-md rounded-[30px] overflow-hidden bg-black">
             <img
               src="file/profile-white.png"
               alt="Romaric AKODJENOU"
-              className="w-full h-full lg:mx-auto lg:w-[16.875rem] lg:h-[16.875rem]  lg:border-[4px] lg:border-[#252525]  lg:rounded-full object-cover"
+              className="w-full h-full lg:mx-auto lg:w-[16.875rem] lg:h-[16.875rem] low-xs:w-[14.875rem] low-xs:h-[14.875rem]  lg:border-[4px] lg:border-[#252525]  lg:rounded-full object-cover"
             />
           </div>
         </div>
 
         {/* Section texte */}
-        <div className="w-1/2 lg:w-full flex flex-col lg:items-center justify-center p-8 md:p-12 xl:mr-[7.5rem] mr-20 lg:mr-0 text-black dark:text-white">
+        <div className="w-1/2 lg:w-full flex flex-col lg:items-center justify-center p-8 md:p-12 md:pt-4 low-xs:px-8 xl:mr-[7.5rem] mr-20 lg:mr-0 text-black dark:text-white">
           <div className='lg:flex lg:flex-col lg:items-center'>
-            <h1 className="flex whitespace-nowrap text-yellow-500 items-center text-4xl lg:text-3xl md:text-xl font-bold mb-4">
-              <span className="mr-4">—</span>
+            <h1 className="flex whitespace-nowrap low-xs:text-center text-yellow-500 items-center text-4xl lg:text-3xl md:text-xl sm:text-lg low-xs:text-3xl font-bold mb-4">
+              <span className="mr-4 sm:hidden">—</span>
               I'M ROMARIC AKODJENOU.
             </h1>
-            <h2 className="text-4xl lg:text-3xl md:text-xl font-bold mb-6">
+            <h2 className="text-4xl lg:text-3xl md:text-xl sm:text-lg font-bold mb-6">
               WEB DEVELOPER
             </h2>
             <p className="text-lg mb-8 max-w-2xl lg:text-center lg:px-5">

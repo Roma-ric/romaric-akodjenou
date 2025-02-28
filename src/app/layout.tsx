@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./hooks/theme-context";
 import ThemeToggle from "./components/portfolio/ThemeToggle";
+import AnimatedButton from "./components/portfolio/AnimatedButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Romaric AKODJENOU",
-  description: "Portfolio - Romaric AKODJENOU",
+  title: "Next js ",
+  description: "Generate",
 };
 
 export default function RootLayout({
@@ -42,7 +43,7 @@ export default function RootLayout({
           </div>
 
           {/* Menu navigation latéral */}
-          <div className="fixed md:bg-black md:rounded-t-3xl md:-rounded-b-3xl after:w-[80%] md:dark:bg-white md:p-2 md:translate-y-0 md:flex-row md:bottom-0 md:right-auto md:inset-x-1/4 right-4 top-1/2 md:top-auto -translate-y-1/2 flex flex-col gap-4 z-40">
+          <div className="fixed md:hidden md:bg-black md:rounded-t-3xl md:-rounded-b-3xl md:dark:bg-white md:p-2 md:translate-y-0 md:flex-row md:bottom-0 md:right-auto right-4 top-1/2 md:top-auto -translate-y-1/2 flex flex-col gap-4 z-40">
             <div className="bg-black dark:bg-zinc-700 hover:bg-yellow-500 dark:hover:bg-yellow-500 p-3.5 rounded-full cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
