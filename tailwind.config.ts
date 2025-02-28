@@ -71,19 +71,15 @@ export default {
 			},
 			screens: {
 				xs: {
-					min: '385px',
 					max: '480px'
 				},
 				sm: {
-					min: '480.01px',
 					max: '640px'
 				},
 				md: {
-					min: '640.01px',
 					max: '768px'
 				},
 				lg: {
-					min: '768.01px',
 					max: '1024px'
 				},
 				xl: {
