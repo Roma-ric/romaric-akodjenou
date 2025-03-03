@@ -3,8 +3,9 @@ import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen bg-transparent border-b dark:border-b-slate-700 flex flex-col md:flex-row overflow-hidden md:pb-16">
+    <div className="relative min-h-screen bg-transparent dark:bg-grid-white/[0.2] bg-grid-black/[0.15] border-b dark:border-b-stone-800 flex flex-col md:flex-row overflow-hidden md:pb-16">
       {/* Couleur d'arrière-plan jaune */}
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <div className="absolute h-[200%] w-full -rotate-[15deg] left-[-83%] top-[-50%] lg:hidden bg-black dark:bg-yellow-500 z-40 "></div>
 
       {/* Contenu principal */}
