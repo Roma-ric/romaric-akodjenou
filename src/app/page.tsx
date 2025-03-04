@@ -6,9 +6,10 @@ import About from './components/portfolio/About';
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Projects from './components/portfolio/Project';
+import Projects from './components/portfolio/Projects';
 import Contact from './components/portfolio/Contact';
 import Blog from './components/portfolio/Blog';
+import Services from './components/portfolio/Services';
 
 export default function Home() {
 
@@ -39,6 +40,9 @@ export default function Home() {
 
       {/* About */}
       <About />
+
+      {/* Services */}
+      <Services />
 
       {/* Projects */}
       <Projects />

@@ -1,6 +1,7 @@
 import React from 'react';
 import SectionTitle from './SectionTitle';
 import { AnimatedTestimonials } from '../aceternity/animated-testimonials';
+import { HoverEffect } from '../aceternity/card-hover-effect';
 
 const Projects = () => {
 
@@ -42,14 +43,62 @@ const Projects = () => {
     },
   ];
 
+  const projects = [
+    {
+      title: "Stripe",
+      description:
+        "A technology company that builds economic infrastructure for the internet.",
+      link: "https://stripe.com",
+    },
+    {
+      title: "Netflix",
+      description:
+        "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
+      link: "https://netflix.com",
+    },
+    {
+      title: "Google",
+      description:
+        "A multinational technology company that specializes in Internet-related services and products.",
+      link: "https://google.com",
+    },
+    {
+      title: "Meta",
+      description:
+        "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
+      link: "https://meta.com",
+    },
+    {
+      title: "Amazon",
+      description:
+        "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
+      link: "https://amazon.com",
+    },
+    {
+      title: "Microsoft",
+      description:
+        "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+      link: "https://microsoft.com",
+    },
+  ];
+
   return (
     <div className="relative min-h-screen py-16 border-b dark:border-b-stone-800  bg-transparent flex flex-col md:flex-row overflow-hidden md:pb-16" id='projects'>
 
       <SectionTitle
-        text={"MY PORTFOLIO"}
+        text={"PORTFOLIO"}
         percentage={50}
         backgroundText='WORKS'
       />
+
+      <div className='w-[80%] mx-auto'>
+        <h2 className="text-5xl md:text-4xl font-bold text-neutral-800 dark:text-neutral-200 mt-16">
+          Projects
+        </h2>
+        <div className='mt-10'>
+          <HoverEffect items={projects} />
+        </div>
+      </div>
 
       <div className='w-[80%] mx-auto mt-10'>
         <h2 className="text-5xl md:text-4xl font-bold text-neutral-800 dark:text-neutral-200 mt-16">

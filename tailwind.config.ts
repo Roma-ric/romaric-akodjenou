@@ -95,11 +95,9 @@ export default {
 				},
 				xl: {
 					min: '1024.01px',
-					max: '1280px'
 				},
 				'2xl': {
 					min: '1280.01px',
-					max: '1536px'
 				},
 				'3xl': {
 					min: '1536.01px'
