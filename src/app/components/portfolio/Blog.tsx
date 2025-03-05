@@ -3,10 +3,10 @@ import SectionTitle from './SectionTitle';
 
 const Blog = () => {
   return (
-    <div className="relative min-h-screen py-16 bg-transparent flex flex-col md:flex-row overflow-hidden md:pb-16" id='blog'>
+    <div className="min-w-[20rem] bg-black dark:bg-white dark:border-white/[0.2] dark:bg-opacity-5 min-h-screen py-16 bg-transparent flex flex-col overflow-hidden" id='blog'>
 
       <SectionTitle
-        text={"MY BLOG"}
+        text={"BLOG"}
         percentage={50}
         backgroundText='POSTS'
       />

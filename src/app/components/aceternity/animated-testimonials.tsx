@@ -33,6 +33,25 @@ export const AnimatedTestimonials = ({
   };
 
   useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      switch (event.key) {
+        case 'ArrowRight':
+          handleNext();
+          break;
+        case 'ArrowLeft':
+          handlePrev();
+          break;
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleNext, handlePrev]);
+
+  useEffect(() => {
     if (autoplay) {
       const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
@@ -43,13 +62,13 @@ export const AnimatedTestimonials = ({
     return Math.floor(Math.random() * 21) - 10;
   };
   return (
-    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 xl:px-12 py-20">
-      <div className="flex w-full">
-        <div className="relative h-80 w-1/2 mb-10">
+    <div className="mx-auto antialiased font-sans px-4 py-20">
+      <div className="flex space-x-16 w-full">
+        <div className="relative h-80 aspect-square w-1/2 mb-10">
           <AnimatePresence>
             {testimonials.map((testimonial, index) => (
               <motion.div
-                key={testimonial.src}
+                key={index}
                 initial={{
                   opacity: 0,
                   scale: 0.9,
@@ -142,7 +161,7 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
+          <div className="flex gap-4 pt-12">
             <button
               onClick={handlePrev}
               className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"

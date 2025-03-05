@@ -7,6 +7,7 @@ import { Timeline } from '../aceternity/timeline';
 import Link from 'next/link';
 import { Download } from 'lucide-react';
 import SkillCard from './SkillCard';
+import Social from './Social';
 
 const About = () => {
 
@@ -15,103 +16,13 @@ const About = () => {
             title: "Explotel",
             content: (
                 <div>
-                    <div className='text-neutral-800 flex justify-between dark:text-neutral-200 text-2xl md:text-sm font-normal mb-4'>
+                    <div className='text-neutral-800 space-x-5 flex justify-between dark:text-neutral-200 text-2xl font-normal mb-4'>
                         <span>
                             Full Stack Developer
                         </span>
                         <span>
                             Sep 2024 - Mar 2025
                         </span>
-                    </div>
-                    <div className="flex space-x-8 gap-4 mb-10">
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-1.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-2.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-3.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-4.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                    </div>
-                    <div className="flex space-x-8 gap-4 mb-10">
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-1.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-2.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-3.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-4.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                    </div>
-                    <div className="flex space-x-8 gap-4 mb-10">
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-1.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-2.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-3.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-4.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
                     </div>
                 </div>
             ),
@@ -120,103 +31,13 @@ const About = () => {
             title: "Fidevo",
             content: (
                 <div>
-                    <div className='text-neutral-800 flex justify-between dark:text-neutral-200 text-2xl md:text-sm font-normal mb-4'>
+                    <div className='text-neutral-800  space-x-5  flex justify-between dark:text-neutral-200 text-2xl font-normal mb-4'>
                         <span>
                             Front End Developer
                         </span>
                         <span>
                             May 2024 - Present
                         </span>
-                    </div>
-                    <div className="flex space-x-8 gap-4 mb-10">
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-1.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-2.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-3.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-4.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                    </div>
-                    <div className="flex space-x-8 gap-4 mb-10">
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-1.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-2.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-3.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-4.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                    </div>
-                    <div className="flex space-x-8 gap-4 mb-10">
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-1.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-2.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-3.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/templates/startup-4.webp"
-                            alt="startup template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
                     </div>
                 </div>
             ),
@@ -225,73 +46,13 @@ const About = () => {
             title: "ROMAS Technnologie",
             content: (
                 <div>
-                    <div className='text-neutral-800 flex justify-between dark:text-neutral-200 text-2xl md:text-sm font-normal mb-4'>
+                    <div className='text-neutral-800 space-x-5  flex justify-between dark:text-neutral-200 text-2xl font-normal mb-4'>
                         <span>
                             Full Stack Developer
                         </span>
                         <span>
                             Mar 2024 - Jun 2024
                         </span>
-                    </div>
-                    <div className="flex space-x-8 gap-4 mb-10">
-                        <Image
-                            src="https://assets.aceternity.com/pro/hero-sections.png"
-                            alt="hero template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/features-section.png"
-                            alt="feature template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/pro/bento-grids.png"
-                            alt="bento template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/cards.png"
-                            alt="cards template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                    </div>
-                    <div className="flex space-x-8 gap-4 mb-10">
-                        <Image
-                            src="https://assets.aceternity.com/pro/hero-sections.png"
-                            alt="hero template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/features-section.png"
-                            alt="feature template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/pro/bento-grids.png"
-                            alt="bento template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/cards.png"
-                            alt="cards template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
                     </div>
                 </div>
             ),
@@ -300,7 +61,7 @@ const About = () => {
             title: "PayPlus Africa",
             content: (
                 <div>
-                    <div className='text-neutral-800 flex justify-between dark:text-neutral-200 text-2xl md:text-sm font-normal mb-4'>
+                    <div className='text-neutral-800 space-x-5  flex justify-between dark:text-neutral-200 text-2xl font-normal mb-4'>
                         <span>
                             Front End Developer
                         </span>
@@ -308,127 +69,8 @@ const About = () => {
                             Aug 2023 - Sep 2023
                         </span>
                     </div>
-                    <div className="flex space-x-8 gap-4 mb-10">
-                        <Image
-                            src="https://assets.aceternity.com/pro/hero-sections.png"
-                            alt="hero template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/features-section.png"
-                            alt="feature template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/pro/bento-grids.png"
-                            alt="bento template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/cards.png"
-                            alt="cards template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                    </div>
-                    <div className="flex space-x-8 gap-4 mb-10">
-                        <Image
-                            src="https://assets.aceternity.com/pro/hero-sections.png"
-                            alt="hero template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/features-section.png"
-                            alt="feature template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/pro/bento-grids.png"
-                            alt="bento template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                        <Image
-                            src="https://assets.aceternity.com/cards.png"
-                            alt="cards template"
-                            width={500}
-                            height={500}
-                            className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
-                        />
-                    </div>
                 </div>
             ),
-        },
-    ];
-
-    const social = [
-        {
-            title: "Facebook",
-            svg: (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-7 h-7" fill="currentColor" viewBox="0 0 32 32">
-                    <path d="m21.95 5.005-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.241-1.533 1.566-1.533l2.366-.001.01-4.256z" />
-                </svg>
-            ),
-            link: "https://www.facebook.com/profile.php?id=100067460893936",
-        },
-        {
-            title: "LinkedIn",
-            svg: (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                        fillRule="evenodd"
-                        d="M20 20h-4v-6.999c0-1.92-.847-2.991-2.366-2.991-1.653 0-2.634 1.116-2.634 2.991V20H7V7h4v1.462s1.255-2.202 4.083-2.202C17.912 6.26 20 7.986 20 11.558V20ZM2.442 4.921A2.451 2.451 0 0 1 0 2.46 2.451 2.451 0 0 1 2.442 0a2.451 2.451 0 0 1 2.441 2.46 2.45 2.45 0 0 1-2.441 2.461ZM0 20h5V7H0v13Z"
-                    />
-                </svg>
-            ),
-            link: "https://www.linkedin.com/in/romaric-akodjenou-52aa77268",
-        },
-        {
-            title: "GitHub",
-            svg: (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                        fillRule="evenodd"
-                        d="M10 0c5.523 0 10 4.59 10 10.253 0 4.529-2.862 8.371-6.833 9.728-.507.101-.687-.219-.687-.492 0-.338.012-1.442.012-2.814 0-.956-.32-1.58-.679-1.898 2.227-.254 4.567-1.121 4.567-5.059 0-1.12-.388-2.034-1.03-2.752.104-.259.447-1.302-.098-2.714 0 0-.838-.275-2.747 1.051A9.396 9.396 0 0 0 10 4.958a9.375 9.375 0 0 0-2.503.345C5.586 3.977 4.746 4.252 4.746 4.252c-.543 1.412-.2 2.455-.097 2.714-.639.718-1.03 1.632-1.03 2.752 0 3.928 2.335 4.808 4.556 5.067-.286.256-.545.708-.635 1.371-.57.262-2.018.715-2.91-.852 0 0-.529-.985-1.533-1.057 0 0-.975-.013-.068.623 0 0 .655.315 1.11 1.5 0 0 .587 1.83 3.369 1.21.005.857.014 1.665.014 1.909 0 .271-.184.588-.683.493C2.865 18.627 0 14.783 0 10.253 0 4.59 4.478 0 10 0"
-                    />
-                </svg>
-            ),
-            link: "https://github.com/Roma-ric",
-        },
-        {
-            title: "WhatsApp",
-            svg: (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                    <path
-                        fillRule="evenodd"
-                        d="M15.821 14.121c-.241.682-1.199 1.247-1.963 1.412-.523.11-1.205.199-3.503-.754C7.774 13.71 4.19 9.901 4.19 7.366c0-1.29.744-2.793 2.045-2.793.626 0 .764.012.97.507.241.582.829 2.016.899 2.163.289.603-.294.956-.717 1.482-.135.158-.288.329-.117.623.17.288.758 1.246 1.622 2.015 1.116.995 2.021 1.312 2.345 1.447.241.1.529.077.705-.111.223-.241.5-.641.782-1.036.199-.282.452-.317.717-.217.179.062 2.454 1.119 2.55 1.288.071.123.071.705-.17 1.387M10.002 0h-.005C4.484 0 0 4.485 0 10c0 2.187.705 4.215 1.904 5.86L.658 19.578l3.843-1.228A9.923 9.923 0 0 0 10.002 20C15.515 20 20 15.515 20 10S15.515 0 10.002 0"
-                    />
-                </svg>
-            ),
-            link: "https://wa.me/22966474345",
-        },
-        {
-            title: "Gmail",
-            svg: (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="currentColor" viewBox="0 0 512 512">
-                    <path
-                        d="M511.5 446.753V65.247H.5v381.506h511zm-73.255-78.201v74.224H79.53v-70.247h.615l1.816-.605 134.664-108.435 40.74 34.519 36.176-31.78 144.704 102.324zm0-13.124-137.114-95.917 137.114-118.819v214.736zM415.453 69.215 396.898 86.93l-8.811 8.569-8.205 8.532-8.514 7.944-7.898 7.945-7.6 7.33-7.004 7.33-7.294 6.725-6.688 6.725-12.462 12.519-11.867 11.298-5.457 5.197-4.871 5.188-5.16 4.285-4.574 4.266-8.195 7.954-3.959 3.354-3.344 3.371-3.344 2.72-2.748 3.074-5.16 4.284-2.123 1.509-1.527 1.845-1.816.912-1.221 1.229-1.518 1.211L101.102 68.609l314.351.606zM208.727 256.764 79.53 360.001l.298-212.893 128.899 109.656z"
-                    />
-                </svg>
-            ),
-            link: "mailto:romaricakodjenou54@gmail.com",
         },
     ];
 
@@ -524,7 +166,7 @@ const About = () => {
     ]
 
     return (
-        <div className="relative min-h-screen border-b dark:border-b-stone-800  py-16 bg-transparent flex flex-col md:flex-row overflow-hidden md:pb-16" id='about'>
+        <div className="min-w-[20rem] min-h-screen border-b dark:border-b-stone-800 py-16 bg-transparent flex flex-col overflow-hidden" id='about'>
 
             <SectionTitle
                 text={"ABOUT ME"}
@@ -532,21 +174,22 @@ const About = () => {
                 backgroundText='RESUME'
             />
 
-            <div className='w-[80%] flex justify-center items-end mx-auto mt-10'>
+            <div className='w-[70%] flex justify-center items-center mx-auto mt-10'>
                 <div className='flex mt-10 relative mr-24'>
-                    <img
-                        src="file/profile-white.png"
-                        alt="Romaric AKODJENOU"
-                        className="w-[27.5rem] h-[27.5rem] border block dark:hidden object-cover z-30"
-                    />
-                    <img
-                        src="file/profile-black.png"
-                        alt="Romaric AKODJENOU"
-                        className="w-[27.5rem] h-[27.5rem] hidden dark:block object-cover z-30"
-                    />
-                    <div className='absolute mt-7 ml-7 w-[27.5rem] h-[27.5rem] border-[6px] border-yellow-500' />
+                    <div className='border-[6px] rounded-[0%_20%_0%_20%] lg-max:rounded-[0%_70px_0%_70px] overflow-hidden border-yellow-500'>
+                        <img
+                            src="file/profile-white.png"
+                            alt="Romaric AKODJENOU"
+                            className="w-[27.5rem] h-[27.5rem] border block dark:hidden object-cover z-30"
+                        />
+                        <img
+                            src="file/profile-black.png"
+                            alt="Romaric AKODJENOU"
+                            className="w-[27.5rem] h-[27.5rem] hidden dark:block object-cover z-30"
+                        />
+                    </div>
                 </div>
-                <div className='flex flex-col text-xl'>
+                <div className='flex flex-col text-xl pt-10'>
                     <div className='flex flex-col space-y-2.5'>
                         <div className='flex space-x-8'>
                             <span className='text-stone-500 dark:text-stone-300'> First Name </span>
@@ -581,41 +224,33 @@ const About = () => {
                             <span> romaricakodjenou54@gmail.com </span>
                         </div>
                     </div>
-                    <div className="w-full flex mt-3 space-x-3">
-                        {
-                            social?.map((item, index) => (
-                                <a key={index} href={item?.link} target="_blank">
-                                    <div className="p-2 w-10 h-10 flex justify-center items-center bg-white bg-opacity-15 text-yellow-500 rounded-full">
-                                        {item?.svg}
-                                    </div>
-                                </a>
-                            ))
-                        }
+                    <div className=''>
+                    <Social />
                     </div>
-                    <Link href="/file/CV.pdf" target="_blank" className='lg:mx-auto mt-5'>
-                        <div className="inline-flex items-center text-lg text-black dark:text-white rounded-full bg-transparent border-2 border-yellow-500 bg-yellow-500 transition-colors duration-300 cursor-pointer px-6 lg:px-4 lg:py-2 py-2">
+                    <Link href="/file/CV.pdf" target="_blank" className='mt-5'>
+                        <div className="inline-flex items-center text-lg text-black dark:text-white rounded-full bg-transparent border-2 border-yellow-500 bg-yellow-500 transition-colors duration-300 cursor-pointer px-6 py-2">
                             <div className="rounded-full p-2 flex items-center justify-center">
                                 <Download />
                             </div>
-                            <span className="ml-2 font-semibold lg:text-md">DOWNLOAD MY CV </span>
+                            <span className="ml-2 font-semibold">DOWNLOAD MY CV </span>
                         </div>
                     </Link>
                 </div>
             </div>
 
-            <div className="w-[80%] mx-auto mt-10">
-                <h2 className="text-5xl md:text-4xl font-bold text-neutral-800 dark:text-neutral-200 mt-16">
+            <div className="w-[70%] lg-max:w-[80%]  mx-auto mt-10">
+                <h2 className="text-5xl font-bold text-neutral-800 dark:text-neutral-200 mt-16">
                     Experiences
                 </h2>
                 <Timeline data={experience_data} />
             </div>
 
-            <div className="w-[80%] mx-auto mt-10">
-                <h2 className="text-5xl md:text-4xl font-bold text-neutral-800 dark:text-neutral-200 mt-16">
+            <div className="w-[70%] lg-max:w-[80%] mx-auto mt-10">
+                <h2 className="text-5xl font-bold text-neutral-800 dark:text-neutral-200 mt-16">
                     Skills
                 </h2>
-                <div className='w-[70%] mt-10 mx-auto'>
-                    <div className="grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl">
+                <div className='w-[100%] mt-10 mx-auto'>
+                    <div className="grid gap-8 max-w-6xl">
                         {
                             skills.map((item, index) => (
                                 <Fragment key={index}>

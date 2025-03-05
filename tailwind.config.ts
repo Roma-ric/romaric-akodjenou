@@ -1,12 +1,11 @@
 import type { Config } from "tailwindcss";
 
-const svgToDataUri = require("mini-svg-data-uri");
+import svgToDataUri from "mini-svg-data-uri";
+import colors from "tailwindcss/colors";
 
-const colors = require("tailwindcss/colors");
 const {
 	default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette");
-
 
 export default {
 	content: [
@@ -78,30 +77,66 @@ export default {
 				'10xl': '8rem'
 			},
 			screens: {
-				"low-xs": {
-					max: '380px'
+				scr_0: {
+					max: "1430px",
 				},
-				xs: {
-					max: '480px'
+				scr_1: {
+					min: "1390px",
 				},
-				sm: {
-					max: '640px'
+				scr_1_0: {
+					max: "1300px",
 				},
-				md: {
-					max: '768px'
+				scr_1_1: {
+					min: "1300px",
 				},
-				lg: {
-					max: '1024px'
+				scr_1_2: {
+					max: "1285px",
 				},
-				xl: {
-					min: '1024.01px',
+				scr_1_3: {
+					min: "1200px",
 				},
-				'2xl': {
-					min: '1280.01px',
+				scr_2: {
+					max: "1200px",
 				},
-				'3xl': {
-					min: '1536.01px'
-				}
+				scr_2_0: {
+					max: "1100px",
+				},
+				scr_2_1: {
+					max: "945px",
+				},
+				scr_2_2: {
+					max: "850px",
+				},
+				scr_3: {
+					max: "780px",
+				},
+				scr_3_0: {
+					max: "767.5px",
+				},
+				scr_3_1: {
+					max: "600px",
+				},
+				scr_4: {
+					max: "575px",
+				},
+				scr_4_0: {
+					max: "500px",
+				},
+				scr_4_1: {
+					max: "475px",
+				},
+				scr_4_2: {
+					max: "445px",
+				},
+				scr_4_3: {
+					max: "400px",
+				},
+				scr_5: {
+					max: "370px",
+				},
+				scr_5_1: {
+					max: "330px",
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

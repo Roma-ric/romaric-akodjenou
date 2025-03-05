@@ -17,11 +17,11 @@ const Services = () => {
             icon: <Server className='w-8 h-8' />,
             description: 'Conception et implémentation d\'interfaces API robustes pour permettre une communication efficace entre différents systèmes.'
         },
-        {
-            label: 'Maîtrise des outils de versioning Git et GitHub',
-            icon: <GitBranch className='w-8 h-8' />,
-            description: 'Gestion de versions de code, collaboration et suivi des modifications avec des pratiques de développement modernes.'
-        },
+        // {
+        //     label: 'Maîtrise des outils de versioning Git et GitHub',
+        //     icon: <GitBranch className='w-8 h-8' />,
+        //     description: 'Gestion de versions de code, collaboration et suivi des modifications avec des pratiques de développement modernes.'
+        // },
         {
             label: 'Intégration et utilisation de templates',
             icon: <LayoutTemplate className='w-8 h-8' />,
@@ -32,11 +32,11 @@ const Services = () => {
             icon: <FileText className='w-8 h-8' />,
             description: 'Création de documentation claire et comprehensive pour faciliter la compréhension et la maintenance des applications.'
         },
-        {
-            label: 'Maîtrise des outils informatiques',
-            icon: <Computer className='w-8 h-8' />,
-            description: 'Expertise dans l\'utilisation d\'outils logiciels professionnels comme Microsoft Office et autres applications de productivité.'
-        },
+        // {
+        //     label: 'Maîtrise des outils informatiques',
+        //     icon: <Computer className='w-8 h-8' />,
+        //     description: 'Expertise dans l\'utilisation d\'outils logiciels professionnels comme Microsoft Office et autres applications de productivité.'
+        // },
         {
             label: 'Conception d\'affiches publicitaires',
             icon: <PenTool className='w-8 h-8' />,
@@ -56,7 +56,7 @@ const Services = () => {
     ];
 
     return (
-        <div className="relative min-h-screen border-b dark:border-b-stone-800  py-16 bg-transparent flex flex-col md:flex-row overflow-hidden md:pb-16" id='services'>
+        <div className="min-w-[20rem] min-h-screen border-b dark:border-b-stone-800 py-16 bg-transparent flex flex-col overflow-hidden" id='services'>
 
             <SectionTitle
                 text={"SERVICES"}
@@ -64,21 +64,21 @@ const Services = () => {
                 backgroundText='OFFERINGS'
             />
 
-            <div className='w-[80%] grid grid-cols-3 gap-5 mx-auto mt-20'>
+            <div className='w-[70%] lg-max:w-[80%] grid grid-cols-3 gap-5 mx-auto mt-20'>
                 {
                     services?.map((item, index) => (
-                        <div key={index} className="rounded-lg h-full w-full p-4 overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group relative z-20">
+                        <div key={index} className="rounded-lg h-full w-full p-4 overflow-hidden bg-black dark:bg-white dark:bg-opacity-10 border border-transparent dark:border-white/[0.2] group relative z-20">
                             <div className="relative z-50">
                                 <div className="p-4">
                                     <div className='relative w-max'>
                                         <div className='bg-yellow-500/[0.4] z-30 text-yellow-500 p-2.5 w-max rounded-md'>
                                             {item?.icon}
                                         </div>
-                                        {/* <div className='absolute top-0 bg-white bg-opacity-0 z-20 group-hover:blur-md p-2.5 w-max rounded-md'>
+                                        <div className='absolute top-0 bg-white/[0.1] group-hover:skew-x-0  transform transition-transform duration-300 scale-105 group-hover:scale-100 group-hover:skew-y-0 -skew-x-12 group-hover:mx-0 group-hover:mt-0 mx-1 -mt-2 skew-y-12 z-20 p-2.5 w-max rounded-md'>
                                             <div className='opacity-0'>
                                                 {item?.icon}
                                             </div>
-                                        </div> */}
+                                        </div>
                                     </div>
                                     <div className='mt-3'>
                                         <h2 className="text-xl font-bold text-white dark:text-white/[0.8] mb-2"> {item?.label}  </h2>

@@ -39,7 +39,7 @@ const AdaptiveText: React.FC<AdaptiveTextProps> = ({ text, percentage }) => {
         {text}
       </div>
       <div
-        className={`z-30 absolute h-full bg-white dark:bg-black`}
+        className={`z-30 absolute h-full bg-white dark:bg-black dark:bg-opacity-10`}
         style={{ width: `${percentage}%` }}
       ></div>
     </div>
