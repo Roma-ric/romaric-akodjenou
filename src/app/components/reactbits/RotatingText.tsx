@@ -28,15 +28,15 @@ export interface RotatingTextProps
     transition?: Transition;
     initial?: {
         y: string | number,
-        opacity: string | number,
+        opacity?: string | number,
     };
     animate?: {
         y: string | number,
-        opacity: string | number,
+        opacity?: string | number,
     };
     exit?: {
         y: string | number,
-        opacity: string | number,
+        opacity?: string | number,
     };
     animatePresenceMode?: "sync" | "wait";
     animatePresenceInitial?: boolean;
