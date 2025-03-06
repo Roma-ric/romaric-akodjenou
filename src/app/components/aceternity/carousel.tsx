@@ -67,7 +67,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
   const { fileSrc, description, title, link } = slide;
 
   return (
-    <div className="[perspective:1200px] [transform-style:preserve-3d]">
+    <div className="[perspective:1200px] [transform-style:preserve-3d] h-full">
       <li
         ref={slideRef}
         className="flex flex-1 flex-col items-center justify-between relative text-center text-white opacity-100 transition-all duration-300 ease-in-out w-[70vmin] h-[80%] mx-[4vmin] z-10 "
@@ -202,9 +202,9 @@ export function Carousel({ slides, currentIndex }: CarouselProps) {
   }, [handleNextClick, handlePreviousClick]);
 
   return (
-    <div className="relative">
+    <div className="relative h-full">
       <div
-        className="relative w-[70vmin] h-[70vmin] mx-auto"
+        className="relative w-[70vmin] h-[80vmin] mx-auto"
         aria-labelledby={`carousel-heading-${id}`}
       >
         <ul

@@ -75,10 +75,10 @@ export const HoverEffect = ({
                 )}
               </AnimatePresence>
             </DialogTrigger>
-            <DialogContent className="min-w-full min-h-full">
+            <DialogContent className="min-w-full min-h-screen">
               <DialogHeader>
                 <DialogTitle className="hidden">Details</DialogTitle>
-                <DialogDescription>
+                <DialogDescription className="h-full">
                   <Carousel slides={items} currentIndex={idx} />
                 </DialogDescription>
               </DialogHeader>
