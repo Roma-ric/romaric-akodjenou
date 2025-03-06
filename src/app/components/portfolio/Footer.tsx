@@ -1,5 +1,4 @@
 import React from 'react';
-import SectionTitle from './SectionTitle';
 import Social from './Social';
 
 const Footer = () => {
