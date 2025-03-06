@@ -2,7 +2,6 @@
 
 import React, { Fragment } from 'react';
 import SectionTitle from './SectionTitle';
-import Image from 'next/image';
 import { Timeline } from '../aceternity/timeline';
 import Link from 'next/link';
 import { Download } from 'lucide-react';

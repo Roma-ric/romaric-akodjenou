@@ -26,9 +26,18 @@ export interface RotatingTextProps
     > {
     texts: string[];
     transition?: Transition;
-    initial?: any;
-    animate?: any;
-    exit?: any;
+    initial?: {
+        y: string | number,
+        opacity: string | number,
+    };
+    animate?: {
+        y: string | number,
+        opacity: string | number,
+    };
+    exit?: {
+        y: string | number,
+        opacity: string | number,
+    };
     animatePresenceMode?: "sync" | "wait";
     animatePresenceInitial?: boolean;
     rotationInterval?: number;

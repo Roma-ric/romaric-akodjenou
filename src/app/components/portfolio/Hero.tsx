@@ -36,7 +36,7 @@ const Hero = () => {
           <div className='scr_2_0:flex scr_2_0:flex-col scr_2_0:items-center'>
             <h1 className="scr_4:text-center whitespace-nowrap text-yellow-500 items-center text-4xl scr_2_0:text-3xl font-bold mb-4">
               <span className="mr-4 scr_4:hidden">—</span>
-              I'M ROMARIC AKODJENOU.
+              I&apos;M ROMARIC AKODJENOU.
             </h1>
             <h2 className="text-4xl font-bold mb-6">
               <RotatingText
@@ -55,7 +55,7 @@ const Hero = () => {
             <p className="text-lg mb-8 max-w-2xl scr_2_0:text-center scr_2_0:px-5">
               I am a full-stack developer specializing in creating modern and
               high-performance web interfaces. Focused on innovation and efficiency,
-              I design solutions tailored to users' needs to enhance their daily experience.
+              I design solutions tailored to users&apos; needs to enhance their daily experience.
             </p>
 
             <Link href="#about" className='scr_2_0:mx-auto'>

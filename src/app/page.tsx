@@ -1,11 +1,9 @@
 'use client'
 
-import Head from 'next/head';
 import Hero from './components/portfolio/Hero';
 import About from './components/portfolio/About';
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 import Projects from './components/portfolio/Projects';
 import Contact from './components/portfolio/Contact';
 import Blog from './components/portfolio/Blog';
