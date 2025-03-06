@@ -8,42 +8,32 @@ const Services = () => {
 
     const services = [
         {
-            label: 'Création d\'applications web',
+            label: 'Web Application Development',
             icon: <Globe className='w-8 h-8' />,
-            description: 'Développement de sites web responsives et interactives utilisant les technologies frontend et backend JavaScript.'
+            description: 'Development of responsive and interactive websites using both frontend and backend JavaScript technologies.'
         },
         {
-            label: 'Création et utilisation d\'API REST',
+            label: 'Creation and Use of REST APIs',
             icon: <Server className='w-8 h-8' />,
-            description: 'Conception et implémentation d\'interfaces API robustes pour permettre une communication efficace entre différents systèmes.'
+            description: 'Design and implementation of robust API interfaces to enable efficient communication between different systems.'
         },
-        // {
-        //     label: 'Maîtrise des outils de versioning Git et GitHub',
-        //     icon: <GitBranch className='w-8 h-8' />,
-        //     description: 'Gestion de versions de code, collaboration et suivi des modifications avec des pratiques de développement modernes.'
-        // },
         {
-            label: 'Intégration et utilisation de templates',
+            label: 'Template Integration and Usage',
             icon: <LayoutTemplate className='w-8 h-8' />,
-            description: 'Utilisation et personnalisation de templates pour accélérer le développement et maintenir une cohérence visuelle.'
+            description: 'Use and customization of templates to speed up development and maintain visual consistency.'
         },
         {
-            label: 'Rédaction de documentation technique',
+            label: 'Technical Documentation Writing',
             icon: <FileText className='w-8 h-8' />,
-            description: 'Création de documentation claire et comprehensive pour faciliter la compréhension et la maintenance des applications.'
+            description: 'Creation of clear and comprehensive documentation to facilitate understanding and maintenance of applications.'
         },
-        // {
-        //     label: 'Maîtrise des outils informatiques',
-        //     icon: <Computer className='w-8 h-8' />,
-        //     description: 'Expertise dans l\'utilisation d\'outils logiciels professionnels comme Microsoft Office et autres applications de productivité.'
-        // },
         {
-            label: 'Conception d\'affiches publicitaires',
+            label: 'Advertising Poster Design',
             icon: <PenTool className='w-8 h-8' />,
-            description: 'Création de supports visuels attrayants, incluant affiches, cartes de visite, flyers et logos.'
+            description: 'Creation of attractive visual materials, including posters, business cards, flyers, and logos.'
         },
         {
-            label: 'Maintenance informatique',
+            label: 'IT Maintenance',
             icon: (
                 <svg className='w-8 h-8' data-slot="icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path clipRule="evenodd" fillRule="evenodd" d="M12 6.75a5.25 5.25 0 0 1 6.775-5.025.75.75 0 0 1 .313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 0 1 1.248.313 5.25 5.25 0 0 1-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 1 1 2.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0 1 12 6.75ZM4.117 19.125a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Z" />
@@ -51,12 +41,12 @@ const Services = () => {
                     <path clipRule="evenodd" fillRule="evenodd" d="m12.556 17.329 4.183 4.182a3.375 3.375 0 0 0 4.773-4.773l-3.306-3.305a6.803 6.803 0 0 1-1.53.043c-.394-.034-.682-.006-.867.042a.589.589 0 0 0-.167.063l-3.086 3.748Zm3.414-1.36a.75.75 0 0 1 1.06 0l1.875 1.876a.75.75 0 1 1-1.06 1.06L15.97 17.03a.75.75 0 0 1 0-1.06Z" />
                 </svg>
             ),
-            description: 'Support technique et maintenance de logiciels pour assurer leur performance et leur fiabilité continues.'
+            description: 'Technical support and maintenance of software to ensure continuous performance and reliability.'
         }
     ];
 
     return (
-        <div className="min-w-[20rem] min-h-screen border-b dark:border-b-stone-800 py-16 bg-transparent flex flex-col overflow-hidden" id='services'>
+        <div className=" min-h-screen  py-16 bg-transparent flex flex-col overflow-hidden" id='services'>
 
             <SectionTitle
                 text={"SERVICES"}
@@ -64,10 +54,10 @@ const Services = () => {
                 backgroundText='OFFERINGS'
             />
 
-            <div className='w-[70%] lg-max:w-[80%] grid grid-cols-3 gap-5 mx-auto mt-20'>
+            <div className='w-[70%] scr_2_2:w-[88%] scr_4:w-[95%] px-3 grid grid-cols-3 scr_2:grid-cols-2 scr_3_0:grid-cols-1 gap-5 mx-auto mt-20'>
                 {
                     services?.map((item, index) => (
-                        <div key={index} className="rounded-lg h-full w-full p-4 overflow-hidden bg-black dark:bg-white dark:bg-opacity-10 border border-transparent dark:border-white/[0.2] group relative z-20">
+                        <div key={index} className="rounded-lg h-full w-full p-4 overflow-hidden bg-black/[0.8] dark:bg-white dark:bg-opacity-10 border border-transparent dark:border-white/[0.2] group relative z-20">
                             <div className="relative z-50">
                                 <div className="p-4">
                                     <div className='relative w-max'>

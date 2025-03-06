@@ -32,7 +32,7 @@ export const HoverEffect = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-3 lg-max:grid-cols-2 gap-5 py-10",
+        "grid grid-cols-3 scr_2:grid-cols-2 scr_3_1:grid-cols-1 gap-5 py-10",
         className
       )}
     >

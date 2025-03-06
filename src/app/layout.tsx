@@ -7,7 +7,7 @@ import ThemeToggle from "./components/portfolio/ThemeToggle";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import { ArrowUp } from "lucide-react";
+import ScrollToTop from "./components/portfolio/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -117,7 +117,7 @@ export default function RootLayout({
           </div>
 
           {/* Menu navigation latéral */}
-          <div className="fixed scr_3:hidden scr_4_2:block right-4 top-1/2 -translate-y-1/2 flex flex-col items-end gap-4 z-40">
+          <div className="fixed scr_3:hidden right-4 top-1/2 -translate-y-1/2 flex flex-col items-end gap-4 z-50">
             {menu.map((item, index) => (
               <Link key={index} href={item?.endpoint} onClick={() => setCurrentAnchor(item?.endpoint)}>
                 <div className={`group w-max transform transition-transform duration-300 hover:-translate-y-1 ${currentAnchor === item?.endpoint ? 'bg-yellow-500 hover:bg-yellow-500' : 'bg-black dark:bg-zinc-700'} flex justify-end items-center hover:bg-yellow-500 dark:hover:bg-yellow-500 p-3.5 rounded-full cursor-pointer`}>
@@ -128,11 +128,7 @@ export default function RootLayout({
             ))}
           </div>
 
-          <button
-            onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-            className="fixed right-0 bottom-0 p-2 bg-black dark:bg-white rounded-full focus:outline-none focus:ring-0 z-40 m-5">
-            <ArrowUp className="w-5 h-5 text-white dark:text-black" />
-          </button>
+          <ScrollToTop />
 
         </ThemeProvider>
       </body >

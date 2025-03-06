@@ -15,7 +15,7 @@ const SectionTitle: React.FC<AdaptiveTextProps & { backgroundText: string }> = (
                     percentage={percentage}
                 />
             </div> {''}
-            <span className="absolute text-9xl ml-4 z-40 -mt-1.5 tracking-[0.3rem] pointer-events-none uppercase text-black dark:text-white text-opacity-[0.045] dark:text-opacity-[0.085]">{backgroundText}</span>
+            <span className="absolute text-9xl scr_2_0:text-[4.75rem] scr_4:text-[4rem] z-40 -mt-1.5 tracking-[0.1rem] pointer-events-none uppercase text-black dark:text-white text-opacity-[0.015] dark:text-opacity-[0.1]">{backgroundText}</span>
         </h1>
     )
 }

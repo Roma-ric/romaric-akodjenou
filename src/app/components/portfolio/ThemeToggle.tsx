@@ -9,7 +9,7 @@ export default function ThemeToggle(){
   return (
     <button
       onClick={toggleTheme}
-      className="fixed right-0 top-0 p-2 bg-black dark:bg-white rounded-full focus:outline-none focus:ring-0 z-40 m-5"
+      className="fixed right-0 top-0 p-2 bg-black dark:bg-white rounded-full focus:outline-none focus:ring-0 z-50 m-5"
       title={theme === 'dark' ? 'Passer au mode clair' : 'Passer au mode sombre'}
     >
       {theme === 'dark' ? (
