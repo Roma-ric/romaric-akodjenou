@@ -9,7 +9,7 @@ const Hero = () => {
     <div className="relative  min-h-screen bg-transparent dark:bg-grid-white/[0.2] bg-grid-black/[0.15] flex flex-col justify-center overflow-hidden">
       {/* Couleur d'arrière-plan jaune */}
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-      <div className="absolute h-[200%] scr_2_0:hidden w-full -rotate-[15deg] left-[-83%] top-[-50%] bg-black dark:bg-yellow-500 z-40 "></div>
+      <div className="absolute h-[200%] scr_2_0:hidden w-full -rotate-[15deg] left-[-83%] top-[-50%] bg-yellow-500 z-40 "></div>
 
       {/* Contenu principal */}
       <div className="relative w-full scr_2_0:overflow-y-auto scr_2_0:h-auto scr_2_0:flex-col z-40 h-screen flex">

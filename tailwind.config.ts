@@ -110,10 +110,16 @@ export default {
 				scr_3: {
 					max: "780px",
 				},
+				scr_3_O: {
+					max: "700px",
+				},
 				scr_3_0: {
 					max: "767.5px",
 				},
 				scr_3_1: {
+					max: "650px",
+				},
+				scr_3_2: {
 					max: "600px",
 				},
 				scr_4: {

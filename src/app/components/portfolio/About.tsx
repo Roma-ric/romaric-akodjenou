@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Download } from 'lucide-react';
 import SkillCard from './SkillCard';
 import Social from './Social';
+import CountUp from '../reactbits/CountUp';
 
 const About = () => {
 
@@ -99,7 +100,7 @@ const About = () => {
             ),
         },
     ];
-    
+
     const skills = [
         {
             name: 'HTML5',
@@ -244,50 +245,86 @@ const About = () => {
                         />
                     </div>
                 </div>
-                <div className='flex flex-col mx-auto text-xl scr_4:text-lg pt-10'>
-                    <div className='flex flex-col scr_4_3:-mr-3 scr_2_0:justify-center space-y-2.5'>
-                        <div className='flex space-x-8'>
-                            <span className='text-stone-500 dark:text-stone-300'> First Name </span>
-                            <span className='text-start'> Romaric </span>
+                <div className='flex flex-col w-full'>
+                    <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-neutral-800 dark:text-neutral-200">
+                        Personal infos
+                    </h2>
+                    <div className='flex flex-row scr_0:flex-col w-full items-center mb-5 scr_2_2:items-start justify-between space-x-10 scr_2_2:space-x-0'>
+                        <div className='flex text-xl scr_0:mb-5 scr_2_2:w-full scr_3_1:flex-col scr_2_0:items-start scr_0:mx-auto scr_4:text-lg pt-5 space-x-5 scr_3_1:space-x-0'>
+                            <div className='flex flex-col text-lg scr_2_0:justify-center space-y-3.5 mb-4'>
+                                <div className='flex space-x-3'>
+                                    <span className='text-stone-500 dark:text-stone-400 whitespace-nowrap'> First Name : </span>
+                                    <span className='text-start font-semibold whitespace-nowrap '> Romaric </span>
+                                </div>
+                                <div className='flex space-x-3'>
+                                    <span className='text-stone-500 dark:text-stone-400 whitespace-nowrap'> Last Name : </span>
+                                    <span className='font-semibold whitespace-nowrap '> AKODJENOU </span>
+                                </div>
+                                <div className='flex space-x-3'>
+                                    <span className='text-stone-500 dark:text-stone-400 whitespace-nowrap'> Birthdate : </span>
+                                    <span className='font-semibold whitespace-nowrap '> 09 September 2003 </span>
+                                </div>
+                                <div className='flex space-x-3'>
+                                    <span className='text-stone-500 dark:text-stone-400 whitespace-nowrap'> Nationality : </span>
+                                    <span className='font-semibold whitespace-nowrap '> Beninese </span>
+                                </div>
+                                <div className='flex space-x-3'>
+                                    <span className='text-stone-500 dark:text-stone-400 whitespace-nowrap'> Adresse : </span>
+                                    <span className='font-semibold whitespace-nowrap '> Calavi, Benin </span>
+                                </div>
+                            </div>
+                            <div className='flex flex-col text-lg scr_2_0:justify-center space-y-3.5 mb-4'>
+                                <div className='flex space-x-3'>
+                                    <span className='text-stone-500 dark:text-stone-400 whitespace-nowrap'> Freelance : </span>
+                                    <span className='font-semibold whitespace-nowrap '> Available </span>
+                                </div>
+                                <div className='flex space-x-3'>
+                                    <span className='text-stone-500 dark:text-stone-400 whitespace-nowrap'> Phone : </span>
+                                    <span className='font-semibold whitespace-nowrap '> +229 0166474345 </span>
+                                </div>
+                                <div className='flex space-x-3'>
+                                    <span className='text-stone-500 dark:text-stone-400 whitespace-nowrap'> Email : </span>
+                                    <span className='font-semibold whitespace-nowrap '> romaricakodjenou54@gmail.com </span>
+                                </div>
+                                <div className='flex space-x-3'>
+                                    <span className='text-stone-500 dark:text-stone-400 whitespace-nowrap'> langages : </span>
+                                    <span className='font-semibold whitespace-nowrap '> French, English </span>
+                                </div>
+                            </div>
                         </div>
-                        <div className='flex space-x-8'>
-                            <span className='text-stone-500 dark:text-stone-300'> Last Name </span>
-                            <span> AKODJENOU </span>
+                        <div className='grid grid-cols-2 scr_0:grid-cols-3 scr_2_1:grid-cols-2 scr_2_2:grid-cols-3 scr_3_O:grid-cols-2 scr_3:w-full scr_4:grid-cols-1 gap-5 h-max scr_2_2:w-[90%]'>
+                            <CountUp
+                                from={0}
+                                to={2}
+                                label='years of experience'
+                                separator="."
+                                direction="up"
+                                duration={1}
+                            />
+                            <CountUp
+                                from={0}
+                                to={5}
+                                label='completed projects'
+                                separator="."
+                                direction="up"
+                                duration={2}
+                            />
+                            <CountUp
+                                from={0}
+                                to={3}
+                                label='Happy customers'
+                                separator="."
+                                direction="up"
+                                duration={1.5}
+                            />
                         </div>
-                        <div className='flex space-x-8'>
-                            <span className='text-stone-500 dark:text-stone-300'> Birthdate </span>
-                            <span> 09 September 2003 </span>
-                        </div>
-                        <div className='flex space-x-8'>
-                            <span className='text-stone-500 dark:text-stone-300'> Nationality </span>
-                            <span> Beninese </span>
-                        </div>
-                        <div className='flex space-x-8'>
-                            <span className='text-stone-500 dark:text-stone-300'> Experience </span>
-                            <span> 2 years </span>
-                        </div>
-                        <div className='flex space-x-8'>
-                            <span className='text-stone-500 dark:text-stone-300'> Adresse </span>
-                            <span> Cotonou, Benin </span>
-                        </div>
-                        {/* <div className='flex space-x-8'>
-                            <span className='text-stone-500 dark:text-stone-300'> Phone </span>
-                            <span> +229 01 66 47 43 45 </span>
-                        </div>
-                        <div className='flex space-x-8'>
-                            <span className='text-stone-500 dark:text-stone-300'> Email </span>
-                            <span> romaricakodjenou54@gmail.com </span>
-                        </div> */}
                     </div>
-                    <div className='scr_2_0:mx-auto'>
-                        <Social />
-                    </div>
-                    <Link href="/file/CV.pdf" target="_blank" className='mt-5 scr_2_0:mx-auto'>
+                    <Link href="/file/CV.pdf" target="_blank" className='mt-5 mx-auto'>
                         <div className="inline-flex items-center text-lg scr_4:text-md text-black dark:text-white rounded-full bg-transparent border-2 border-yellow-500 bg-yellow-500 transition-colors duration-300 cursor-pointer px-6 scr_4:px-4 py-2 scr_4:py-1">
                             <div className="rounded-full p-2 pl-0 flex items-center justify-center">
                                 <Download />
                             </div>
-                            <span className="ml-2 font-semibold">DOWNLOAD MY CV </span>
+                            <span className="ml-2 font-semibold ">DOWNLOAD MY CV </span>
                         </div>
                     </Link>
                 </div>
@@ -305,7 +342,7 @@ const About = () => {
                     Skills
                 </h2>
                 <div className='w-[100%] mt-10 mx-auto'>
-                    <div className="grid grid-cols-5 scr_2:grid-cols-4 scr_2_2:grid-cols-3 scr_3_1:grid-cols-2 gap-5 max-w-6xl">
+                    <div className="grid grid-cols-5 scr_2:grid-cols-4 scr_2_2:grid-cols-3 scr_3_2:grid-cols-2 gap-5 max-w-6xl">
                         {
                             skills.map((item, index) => (
                                 <Fragment key={index}>
