@@ -45,47 +45,54 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "Stripe",
+      title: "Faiza Zeina",
       description:
-        "A technology company that builds economic infrastructure for the internet.",
-      link: "https://stripe.com",
+        "Presentation of the works of Faiza Zeina, a French artist specializing in digigraphy, linocut, painting, lithography, screen printing, engraving, and drawing.",
+      link: "https://faiza-mzeina.com",
       fileSrc: '/realisation/faiza-zeina.png'
     },
     {
-      title: "Netflix",
+      title: "Vote Carrefoot - Front end",
       description:
-        "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-      link: "https://netflix.com",
-      fileSrc: '/realisation/faiza-zeina.png'
+        "Voting platform for the best African football players through interactive monthly and annual elections.",
+      link: "https://vote.carrefoot.com",
+      fileSrc: '/realisation/vote-carrefoot.png'
     },
     {
-      title: "Google",
+      title: "Portfolio",
       description:
-        "A multinational technology company that specializes in Internet-related services and products.",
-      link: "https://google.com",
-      fileSrc: '/realisation/faiza-zeina.png'
+        "My portfolio.",
+      link: "https://romaric-akodjenou.vercel.app",
+      fileSrc: '/realisation/my-portfolio.png'
     },
     {
-      title: "Meta",
+      title: "Pronostic Carrefoot - Front end",
       description:
-        "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
-      link: "https://meta.com",
-      fileSrc: '/realisation/faiza-zeina.png'
+        "Platform allowing users to submit their predictions for football matches.",
+      link: "https://pronostic.carrefoot.com",
+      fileSrc: '/realisation/pronostic-carrefoot.png'
     },
     {
-      title: "Amazon",
+      title: "Explotel - Front end",
       description:
-        "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
-      link: "https://amazon.com",
-      fileSrc: '/realisation/faiza-zeina.png'
+        "Online ticketing platform to book, sell, and buy tickets for events, concerts, shows, and sports.",
+      link: "https://www.explotel.com",
+      fileSrc: '/realisation/explotel.png'
     },
-    {
-      title: "Microsoft",
-      description:
-        "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-      link: "https://microsoft.com",
-      fileSrc: '/realisation/faiza-zeina.png'
-    },
+    // {
+    //   title: "ROMAS Technologie",
+    //   description:
+    //     "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
+    //   link: "https://amazon.com",
+    //   fileSrc: '/realisation/faiza-zeina.png'
+    // },
+    // {
+    //   title: "Microsoft",
+    //   description:
+    //     "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
+    //   link: "https://microsoft.com",
+    //   fileSrc: '/realisation/faiza-zeina.png'
+    // },
   ];
 
   return (

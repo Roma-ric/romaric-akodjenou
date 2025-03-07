@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 
-interface CountUpProps {
+export interface CountUpProps {
     to: number;
     from?: number;
     label: string;

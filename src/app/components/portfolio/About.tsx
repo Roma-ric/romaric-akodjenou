@@ -6,7 +6,7 @@ import { Timeline } from '../aceternity/timeline';
 import Link from 'next/link';
 import { Download } from 'lucide-react';
 import SkillCard from './SkillCard';
-import CountUp from '../reactbits/CountUp';
+import CountUp, { CountUpProps } from '../reactbits/CountUp';
 
 const About = () => {
 
@@ -204,6 +204,33 @@ const About = () => {
         }
     ]
 
+    const stats : CountUpProps[] = [
+        {
+            from: 0,
+            to: 2,
+            label: 'years of experience',
+            separator: '.',
+            direction: 'up',
+            duration: 1,
+        },
+        {
+            from: 0,
+            to: 6,
+            label: 'completed projects',
+            separator: '.',
+            direction: 'up',
+            duration: 2,
+        },
+        {
+            from: 0,
+            to: 4,
+            label: 'Happy customers',
+            separator: '.',
+            direction: 'up',
+            duration: 1.5,
+        }
+    ];
+
     return (
         <div className=" min-h-screen  py-16 bg-transparent flex flex-col overflow-hidden" id='about'>
 
@@ -302,30 +329,17 @@ const About = () => {
                             </Link>
                         </div>
                         <div className='grid grid-cols-2 scr_0:grid-cols-3 scr_2_1:grid-cols-2 scr_2_2:grid-cols-3 scr_3_O:grid-cols-2 scr_3:w-full scr_4:grid-cols-1 gap-5 h-max scr_2_2:w-[90%]'>
-                            <CountUp
-                                from={0}
-                                to={2}
-                                label='years of experience'
-                                separator="."
-                                direction="up"
-                                duration={1}
-                            />
-                            <CountUp
-                                from={0}
-                                to={5}
-                                label='completed projects'
-                                separator="."
-                                direction="up"
-                                duration={2}
-                            />
-                            <CountUp
-                                from={0}
-                                to={3}
-                                label='Happy customers'
-                                separator="."
-                                direction="up"
-                                duration={1.5}
-                            />
+                            {stats.map((item, index) => (
+                                <CountUp
+                                    key={index}
+                                    from={item.from}
+                                    to={item.to}
+                                    label={item.label}
+                                    separator={item.separator}
+                                    direction={item.direction}
+                                    duration={item.duration}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
