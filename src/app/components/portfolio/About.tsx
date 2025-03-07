@@ -6,7 +6,6 @@ import { Timeline } from '../aceternity/timeline';
 import Link from 'next/link';
 import { Download } from 'lucide-react';
 import SkillCard from './SkillCard';
-import Social from './Social';
 import CountUp from '../reactbits/CountUp';
 
 const About = () => {
