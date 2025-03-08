@@ -85,14 +85,7 @@ const Projects = () => {
     //     "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
     //   link: "https://amazon.com",
     //   fileSrc: '/realisation/faiza-zeina.png'
-    // },
-    // {
-    //   title: "Microsoft",
-    //   description:
-    //     "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-    //   link: "https://microsoft.com",
-    //   fileSrc: '/realisation/faiza-zeina.png'
-    // },
+    // }
   ];
 
   return (

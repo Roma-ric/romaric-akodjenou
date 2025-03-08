@@ -328,7 +328,7 @@ const About = () => {
                                 </div>
                             </Link>
                         </div>
-                        <div className='grid grid-cols-2 scr_0:grid-cols-3 scr_2_1:grid-cols-2 scr_2_2:grid-cols-3 scr_3_O:grid-cols-2 scr_3:w-full scr_4:grid-cols-1 gap-5 h-max scr_2_2:w-[90%]'>
+                        <div className='grid grid-cols-[repeat(2,minmax(13rem,1fr))] scr_0:grid-cols-3 scr_2_1:grid-cols-2 scr_2_2:grid-cols-3 scr_3_O:grid-cols-2 scr_3:w-full scr_4:grid-cols-1 gap-5 h-max scr_2_2:w-[90%]'>
                             {stats.map((item, index) => (
                                 <CountUp
                                     key={index}
@@ -339,7 +339,7 @@ const About = () => {
                                     direction={item.direction}
                                     duration={item.duration}
                                 />
-                            ))}
+                            ))} 
                         </div>
                     </div>
                 </div>
