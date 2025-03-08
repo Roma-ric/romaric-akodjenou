@@ -68,7 +68,7 @@ const Social = () => {
             {
                 social?.map((item, index) => (
                     <a key={index} href={item?.link} target="_blank">
-                        <div className="p-2 w-10 h-10 flex justify-center items-center bg-black/[0.8] dark:bg-white dark:bg-opacity-15 text-yellow-500 rounded-full">
+                        <div className="p-2 w-10 h-10 flex justify-center items-center bg-black/[0.8] dark:bg-white dark:bg-opacity-15 text-white dark:text-yellow-500 rounded-full">
                             {item?.svg}
                         </div>
                     </a>

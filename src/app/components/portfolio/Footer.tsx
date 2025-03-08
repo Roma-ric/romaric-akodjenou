@@ -3,9 +3,9 @@ import Social from './Social';
 
 const Footer = () => {
   return (
-    <div className=" pt-16 pb-8 bg-transparent flex flex-col">
+    <div className=" pt-16 pb-8 bg-stone-200 dark:bg-transparent flex flex-col">
 
-      <div className='mx-auto relative rounded-full p-1 bg-transparent -mt-[6.5rem]'>
+      <div className='mx-auto relative rounded-full p-1 bg-transparent -mt-[6.7rem]'>
         <img
           src="file/profile-white.png"
           alt="Romaric AKODJENOU"
