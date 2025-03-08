@@ -34,7 +34,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   return (
     <div
-      className="w-full bg-white dark:bg-neutral-950 font-sans"
+      className="w-full dark:bg-neutral-950 font-sans"
       ref={containerRef}
     >
 
@@ -45,7 +45,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             className="flex justify-start pt-10 "
           >
             <div className="sticky mt-1.5 scr_2_2:-mt-[0.085rem] scr_4:-mt-[0.4rem] flex flex-col z-40 items-center top-40 self-start max-w-xs">
-              <div className="h-10 absolute -left-2.5 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
+              <div className="h-10 absolute -left-2.5 w-10 rounded-full dark:bg-black flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
               <h3 className="hidden text-5xl scr_2_0:text-4xl scr_2_2:text-3xl scr_4:text-xl font-bold text-neutral-500 dark:text-neutral-500 ">

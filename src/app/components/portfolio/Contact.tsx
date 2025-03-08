@@ -73,11 +73,11 @@ const Contact = () => {
               <div className='grid grid-cols-1 h-max w-max'>
                 <div className="grid grid-cols-[minmax(16rem,1fr] scr_2_1:grid-cols-2 scr_3_1:grid-cols-1 gap-8 h-max mb-5">
                   {contactMethods.map((method, index) => (
-                    <div key={index} className='bg-white/[0.1] rounded-lg p-5 border'>
+                    <div key={index} className='bg-black/[0.8] dark:bg-white/[0.1] rounded-lg p-5 border'>
                       <span className="inline-block p-3 text-yellow-500 rounded-full bg-yellow-100/[0.1] dark:bg-gray-800">
                         {method.icon}
                       </span>
-                      <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">{method.title}</h2>
+                      <h2 className="mt-4 text-base font-medium text-white">{method.title}</h2>
                       {/* <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{method.description}</p> */}
                       <p className="mt-2 text-sm text-yellow-500 dark:text-yellow-400">{method.contact}</p>
                     </div>
@@ -88,27 +88,27 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="p-4 py-6 scr_3_1:w-full bg-white/[0.1] border rounded-lg bg-gray-50 dark:bg-gray-800">
+              <div className="p-4 py-6 scr_3_1:w-full bg-black/[0.8] dark:bg-white/[0.1] border rounded-lg bg-gray-50 dark:bg-gray-800">
                 <form className=''>
                   <div className="-mx-2 flex scr_3_1:flex-col">
                     <div className="flex-1 px-2">
-                      <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">First Name</label>
+                      <label className="block mb-2 text-sm text-white">First Name</label>
                       <input type="text" placeholder="John " className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                     </div>
 
                     <div className="flex-1 px-2">
-                      <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Last Name</label>
+                      <label className="block mb-2 text-sm text-white">Last Name</label>
                       <input type="text" placeholder="Doe" className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                     </div>
                   </div>
 
                   <div className="mt-4">
-                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Email address</label>
+                    <label className="block mb-2 text-sm text-white">Email address</label>
                     <input type="email" placeholder="johndoe@example.com" className="block w-full px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40" />
                   </div>
 
                   <div className="w-full mt-4">
-                    <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">Message</label>
+                    <label className="block mb-2 text-sm text-white">Message</label>
                     <textarea className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
                   </div>
 

@@ -70,8 +70,8 @@ const Blog = () => {
               [0, 1, 2].map((item, index) => (
                 <div key={index}>
                   {blogList.map((item, index) => (
-                    <div key={`content-${index}`} className="mb-10 border group overflow-hidden relative rounded-lg w-full bg-white/[0.1]">
-                      <div className='absolute max-w-[2.65rem] top-0 z-40 right-0 m-3 bg-yellow-500 rounded-md p-2 uppercase'>
+                    <div key={`content-${index}`} className="mb-10 border group overflow-hidden relative rounded-lg w-full bg-black bg-opacity-10 dark:bg-white/[0.1]">
+                      <div className='absolute max-w-[2.65rem] top-0 z-40 text-white right-0 m-3 bg-yellow-500 rounded-md p-2 uppercase'>
                         {dayjs(item?.date)
                           .local()
                           .format("DD MMM")}

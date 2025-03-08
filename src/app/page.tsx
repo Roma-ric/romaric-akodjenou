@@ -31,7 +31,7 @@ export default function Home() {
   }, [router]);
 
   return (
-    <div className="min-h-screen transition-colors duration-300">
+    <div className="min-h-screen transition-colors duration-300 bg-black/[0.025]">
       
       {/* Hero */}
       <Hero />
