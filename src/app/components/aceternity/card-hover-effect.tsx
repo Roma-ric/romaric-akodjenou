@@ -1,4 +1,3 @@
-import { cn } from "lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { CircleArrowOutUpRight } from "lucide-react";
 import Image from "next/image";
@@ -12,6 +11,7 @@ import {
   DialogTrigger,
 } from "../ui/dialog"
 import { Carousel } from "./carousel";
+import { cn } from "../../../lib/utils";
 
 interface HoverEffectProps {
   items: {
