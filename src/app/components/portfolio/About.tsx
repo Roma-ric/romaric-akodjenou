@@ -297,7 +297,7 @@ const About = () => {
                                     </div>
                                     <div className='flex space-x-3'>
                                         <span className='text-stone-500 dark:text-stone-400 whitespace-nowrap'> Adresse : </span>
-                                        <span className='font-semibold whitespace-nowrap '> Calavi, Benin </span>
+                                        <span className='font-semibold whitespace-nowrap '> Abomey-Calavi, Benin </span>
                                     </div>
                                 </div>
                                 <div className='flex flex-col text-lg scr_2_0:justify-center space-y-3.5 mb-4'>

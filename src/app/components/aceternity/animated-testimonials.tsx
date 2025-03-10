@@ -32,24 +32,24 @@ export const AnimatedTestimonials = ({
     return index === active;
   };
 
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      switch (event.key) {
-        case 'ArrowRight':
-          handleNext();
-          break;
-        case 'ArrowLeft':
-          handlePrev();
-          break;
-      }
-    };
+  // useEffect(() => {
+  //   const handleKeyDown = (event: KeyboardEvent) => {
+  //     switch (event.key) {
+  //       case 'ArrowRight':
+  //         handleNext();
+  //         break;
+  //       case 'ArrowLeft':
+  //         handlePrev();
+  //         break;
+  //     }
+  //   };
 
-    window.addEventListener('keydown', handleKeyDown);
+  //   window.addEventListener('keydown', handleKeyDown);
 
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [handleNext, handlePrev]);
+  //   return () => {
+  //     window.removeEventListener('keydown', handleKeyDown);
+  //   };
+  // }, [handleNext, handlePrev]);
 
   useEffect(() => {
     if (autoplay) {

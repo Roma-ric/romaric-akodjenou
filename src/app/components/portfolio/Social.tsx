@@ -48,7 +48,7 @@ const Social = () => {
                     />
                 </svg>
             ),
-            link: "https://wa.me/22966474345",
+            link: "https://wa.me/22966474345?text=Bonjour,%20je%20vous%20contacte%20depuis%20votre%20portfolio.",
         },
         {
             title: "Gmail",

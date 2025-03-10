@@ -49,7 +49,7 @@ export const HoverEffect = ({
               <AnimatePresence>
                 {hoveredIndex === idx && (
                   <motion.div
-                    className="absolute z-30 mt-[0.355rem] cursor-pointer px-4 flex flex-col pb-4 justify-end text-center h-full w-full bg-neutral-800/[0.7] dark:bg-yellow-500/[0.5] rounded-xl"
+                    className="absolute z-30 mt-[0.355rem] cursor-pointer px-4 flex flex-col pb-4 justify-end text-center h-full w-full bg-neutral-800/[0.7] rounded-xl"
                     layoutId="hoverBackground"
                     initial={{ opacity: 0 }}
                     animate={{
@@ -70,7 +70,6 @@ export const HoverEffect = ({
                         <CircleArrowOutUpRight className="w-5 h-5 -ml-[0.05rem] -mb-0.5" />
                       </div>
                     </div>
-
                   </motion.div>
                 )}
               </AnimatePresence>
