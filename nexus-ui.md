@@ -17,7 +17,7 @@ export interface ActivityItem {
   count: number;
 }
 
-export interface ActivityGraphProps {
+export interface GithubContributionGraphProps {
   contributionsData?: ActivityItem[];
   years?: number[];
 }
@@ -28,7 +28,7 @@ export interface HoveredDayInfo {
   y: number;
 }
 
-export const ActivityGraph: React.FC<ActivityGraphProps> = ({
+export const GithubContributionGraph: React.FC<GithubContributionGraphProps> = ({
   contributionsData = [],
   years = [2025, 2024, 2023, 2022],
 }) => {
@@ -285,7 +285,7 @@ const App = () => {
   const sampleData = generateSampleData();
 
   return (
-    <ContributionGraph
+    <GithubContributionGraph
       contributionsData={sampleData}
       years={[2025, 2024, 2023, 2022]}
     />
@@ -293,4 +293,336 @@ const App = () => {
 };
 
 export default App;
+```
+
+- Count Down
+
+```tsx
+'use client'
+
+import React, { useState, useEffect } from 'react';
+
+interface CountdownProps {
+  targetDate?: string | Date | number;
+}
+
+const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
+  const [timeLeft, setTimeLeft] = useState<string>("En attente...");
+  
+  useEffect(() => {
+    if (!targetDate) {
+      setTimeLeft("Date non définie");
+      return;
+    }
+    
+    const dateB = new Date(targetDate);
+    
+    if (isNaN(dateB.getTime())) {
+      setTimeLeft("Date invalide");
+      return;
+    }
+    
+    const interval = setInterval(() => {
+      const now = new Date();
+      const diffInMs = Math.max(0, dateB.getTime() - now.getTime());
+      
+      if (diffInMs <= 0) {
+        setTimeLeft("Terminé!");
+        clearInterval(interval);
+        return;
+      }
+      
+      const days = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diffInMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diffInMs % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diffInMs % (1000 * 60)) / 1000);
+      const milliseconds = Math.floor(diffInMs % 1000);
+      
+      const formattedTime = `${days > 0 ? days + 'j ' : ''}${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}:${milliseconds.toString().padStart(3, '0')}`;
+      
+      setTimeLeft(formattedTime);
+    }, 10);
+    
+    return () => clearInterval(interval);
+  }, [targetDate]);
+  
+  return (
+    <div className="bg-black text-white px-2 py-0.5 rounded-md text-xs select-none leading-loose text-center">
+      {timeLeft}
+    </div>
+  );
+};
+
+export default Countdown;
+
+
+/*Exmple d'utilisation*/
+/**
+ * 
+'use client'
+
+import React, { useState } from 'react';
+import SimpleCountdown from './SimpleCountdown';
+
+export default function CountdownDemo() {
+  // Exemple de date cible (1 heure dans le futur)
+  const futureDate = new Date();
+  futureDate.setHours(futureDate.getHours() + 1);
+  
+  return (
+    <div className="p-4">
+      <h1 className="text-lg font-bold mb-4">Démonstration du compte à rebours</h1>
+      
+      <div className="space-y-4">
+        <div>
+          <p className="text-sm mb-1">Compte à rebours vers {futureDate.toLocaleString()}</p>
+          <SimpleCountdown targetDate={futureDate} />
+        </div>
+        
+        <div>
+          <p className="text-sm mb-1">Compte à rebours vers une date passée</p>
+          <SimpleCountdown targetDate="2023-01-01T00:00:00" />
+        </div>
+        
+        <div>
+          <p className="text-sm mb-1">Compte à rebours avec date non valide</p>
+          <SimpleCountdown targetDate="date-invalide" />
+        </div>
+        
+        <div>
+          <p className="text-sm mb-1">Compte à rebours sans date</p>
+          <SimpleCountdown />
+        </div>
+      </div>
+    </div>
+  );
+}
+ * **/
+
+```
+
+- QrCode
+```tsx
+"use client";
+
+import React, { useEffect, useRef, useState } from 'react';
+import QRCodeStyling, { CornerSquareType, DotType, DrawType, ErrorCorrectionLevel, FileExtension, GradientType, Mode, ShapeType, TypeNumber } from 'qr-code-styling';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+import { cn } from '@/lib/utils';
+
+const QRCode = ({ size, margin, data, type, className }: { size: number, margin: number, data: string, type: FileExtension, className?: string }) => {
+
+    const qrCodeRef = useRef<QRCodeStyling | null>(null);
+
+    const [_size, set_Size] = useState(size);
+    const [_margin, set_Margin] = useState(margin);
+    const [_data] = useState(data);
+    const [_type, set_Type] = useState<FileExtension>(type)
+
+    useEffect(() => {
+        const qr_config = {
+            type: "svg" as DrawType,
+            width: size,
+            height: size,
+            margin: margin,
+            data: _data,
+            image: "/images/default.png",
+            qrOptions: {
+                typeNumber: 0 as TypeNumber,
+                mode: "Byte" as Mode,
+                errorCorrectionLevel: "Q" as ErrorCorrectionLevel
+            },
+            imageOptions: {
+                hideBackgroundDots: true,
+                imageSize: 0.3,
+                margin: 0
+            },
+            dotsOptions: {
+                type: "rounded" as DotType,
+                color: "#0D0D0D",
+                gradient: {
+                    type: "linear" as GradientType,
+                    rotation: 0,
+                    colorStops: [
+                        { offset: 0, color: "#0D0D0D" },
+                        { offset: 1, color: "#0D0D0D" }
+                    ]
+                }
+            },
+            backgroundOptions: {
+                color: "#ffffff"
+            },
+            cornersSquareOptions: {
+                type: "extra-rounded" as CornerSquareType,
+                color: "#0D0D0D",
+                gradient: null
+            },
+            cornersDotOptions: {
+                color: "#0D0D0D",
+                gradient: null
+            }
+        };
+
+        qrCodeRef.current = new QRCodeStyling(qr_config);
+
+        const qrCodeContainer = document.getElementById("qr-code-container") as HTMLElement;
+        if (qrCodeContainer) {
+            qrCodeRef.current.append(qrCodeContainer);
+        }
+
+        return () => {
+            qrCodeContainer.innerHTML = "";
+            qrCodeRef.current = null;
+        };
+    }, []);
+
+    const handleDownload = (size: number, margin: number, type: FileExtension) => {
+        const qr_config = {
+            type: "svg" as DrawType,
+            width: size,
+            height: size,
+            margin: margin,
+            data: _data,
+            image: "/images/default.png",
+            qrOptions: {
+                typeNumber: 0 as TypeNumber,
+                mode: "Byte" as Mode,
+                errorCorrectionLevel: "Q" as ErrorCorrectionLevel
+            },
+            imageOptions: {
+                hideBackgroundDots: true,
+                imageSize: 0.3,
+                margin: 0
+            },
+            dotsOptions: {
+                type: "rounded" as DotType,
+                color: "#0D0D0D",
+                gradient: {
+                    type: "linear" as GradientType,
+                    rotation: 0,
+                    colorStops: [
+                        { offset: 0, color: "#0D0D0D" },
+                        { offset: 1, color: "#0D0D0D" }
+                    ]
+                }
+            },
+            backgroundOptions: {
+                color: "#ffffff"
+            },
+            cornersSquareOptions: {
+                type: "extra-rounded" as CornerSquareType,
+                color: "#0D0D0D",
+                gradient: null
+            },
+            cornersDotOptions: {
+                color: "#0D0D0D",
+                gradient: null
+            }
+        };
+
+        const qrCodeDownloadInstance = new QRCodeStyling(qr_config);
+        qrCodeDownloadInstance.download({ name: "qr-code", extension: type });
+    };
+
+    return (
+        <div className={cn("p-0 ", className)}>
+
+            <div id="qr-code-container" className='-ml-2'></div>
+
+            <div className='grid grid-cols-3 w-full mb-2'>
+                <div>
+                    <Label htmlFor='largeur'> Largeur </Label>
+                    <Input className='border-e-0 rounded-e-none' name='largeur' id='largeur' type="number" value={_size} onChange={(e) => set_Size(Number(e.target.value))} />
+                </div>
+                <div>
+                    <Label htmlFor='hauteur'> Hauteur </Label>
+                    <Input className='rounded-none' name='hauteur' id='hauteur' type="number" value={_size} onChange={(e) => set_Size(Number(e.target.value))} />
+                </div>
+                <div>
+                    <Label htmlFor='marge'> Marge </Label>
+                    <Input className='border-s-0 rounded-s-none' name='marge' id='marge' type="number" value={_margin} onChange={(e) => set_Margin(Number(e.target.value))} />
+                </div>
+            </div>
+
+            <div className='flex w-full  space-x-5 scrn_bk_4:space-x-0 scrn_bk_4:flex-col items-center mb-5'>
+                <Button className="w-1/2 scrn_bk_4:w-full h-11 order-1 scrn_bk_4:order-2" onClick={() => handleDownload(_size, _margin, _type)}>
+                    Télécharger le code Qr
+                </Button>
+                <Select defaultValue={_type} onValueChange={(e) => set_Type(e as FileExtension)} >
+                    <SelectTrigger className="w-1/2 scrn_bk_4:w-full scrn_bk_4:mb-2  order-2 scrn_bk_4:order-1">
+                        <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                        <SelectGroup>
+                            <SelectItem value="svg">SVG</SelectItem>
+                            <SelectItem value="png">PNG</SelectItem>
+                        </SelectGroup>
+                    </SelectContent>
+                </Select>
+            </div>
+        </div>
+    );
+};
+
+export default QRCode;
+
+/**Exemple**/
+/*
+<QRCode
+  size={200}
+  margin={0}
+  data={pub_link()}
+  type="svg"
+  className="w-full"
+/>
+*/
+```
+- Scroll To Top
+
+```tsx
+"use client";
+
+import { useState, useEffect } from "react";
+import { ArrowUp } from "lucide-react";
+
+const ScrollToTop = () => {
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const toggleVisibility = () => {
+            if (window.scrollY > window.innerHeight) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        window.addEventListener("scroll", toggleVisibility);
+        return () => window.removeEventListener("scroll", toggleVisibility);
+    }, []);
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    return (
+        <button
+            onClick={() => scrollToTop()}
+            className={`fixed ${isVisible ? 'block' : 'hidden'} right-0 bottom-12 p-2 bg-black dark:bg-white rounded-full focus:outline-none focus:ring-0 z-50 m-5`}>
+            <ArrowUp className="w-5 h-5 text-white dark:text-black" />
+        </button>
+    );
+};
+
+export default ScrollToTop;
 ```
