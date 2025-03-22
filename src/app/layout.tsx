@@ -6,7 +6,7 @@ import Head from "next/head";
 import ScrollToTop from "./components/portfolio/ScrollToTop";
 import type { Metadata } from "next";
 import Menu, { portfolio_menu } from "./components/portfolio/Menu";
-import CircularMenu, { CircularMenuItem } from "./components/portfolio/CircularMenu";
+import CircularMenu from "./components/portfolio/CircularMenu";
 
 export const metadata: Metadata = {
   title: "Romaric AKODJENOU",
