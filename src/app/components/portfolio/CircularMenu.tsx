@@ -270,7 +270,7 @@ const CircularMenu = ({
             <motion.path
               d={activePath}
               variants={pathVariants}
-              stroke="rgba(234, 179, 8, 0.6)"
+              // stroke="rgba(234, 179, 8, 0.6)"
               strokeWidth="2"
               fill="none"
               strokeDasharray="4,4"
