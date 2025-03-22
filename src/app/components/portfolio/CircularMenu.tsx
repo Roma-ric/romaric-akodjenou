@@ -320,7 +320,7 @@ const CircularMenu = ({
       </motion.button>
 
       <AnimatePresence>
-        {items.reverse().map((item, i) => (
+        {items.map((item, i) => (
           <Link key={i} href={item?.endpoint} onClick={() => setCurrentAnchor(item?.endpoint)}>
             <div key={i} className="absolute left-0 top-0 z-40">
               <Popover>
