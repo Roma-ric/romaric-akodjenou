@@ -1,7 +1,6 @@
 'use client'
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { useActiveSection } from "../../hooks/useActiveSection";
 import { navigateToSection } from "../../../lib/utils";
 

@@ -93,7 +93,7 @@ export const useActiveSection = (
           const id = hash.substring(1);
           const element = document.getElementById(id);
           if (element) {
-            const y = element.getBoundingClientRect().top + window.scrollY;
+            // const y = element.getBoundingClientRect().top + window.scrollY;
             // window.scrollTo({ top: y, behavior: "smooth" });
             setActiveAnchor(hash);
           }
