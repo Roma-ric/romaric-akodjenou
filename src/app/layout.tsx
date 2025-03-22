@@ -5,7 +5,7 @@ import ThemeToggle from "./components/portfolio/ThemeToggle";
 import Head from "next/head";
 import ScrollToTop from "./components/portfolio/ScrollToTop";
 import type { Metadata } from "next";
-import Menu, { portfolio_menu } from "./components/portfolio/Menu";
+import Menu from "./components/portfolio/Menu";
 import CircularMenu from "./components/portfolio/CircularMenu";
 
 export const metadata: Metadata = {
