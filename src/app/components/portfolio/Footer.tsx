@@ -3,7 +3,7 @@ import Social from './Social';
 
 const Footer = () => {
   return (
-    <div className=" pt-16 pb-8 bg-black bg-opacity-10 dark:bg-transparent flex flex-col">
+    <div className=" pt-16 pb-8 scr_3:pb-24 bg-black bg-opacity-10 dark:bg-transparent flex flex-col">
 
       <div className='mx-auto relative rounded-full p-1 bg-transparent -mt-[6.7rem]'>
         <img

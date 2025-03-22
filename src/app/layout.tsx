@@ -5,7 +5,8 @@ import ThemeToggle from "./components/portfolio/ThemeToggle";
 import Head from "next/head";
 import ScrollToTop from "./components/portfolio/ScrollToTop";
 import type { Metadata } from "next";
-import Menu from "./components/portfolio/Menu";
+import Menu, { portfolio_menu } from "./components/portfolio/Menu";
+import CircularMenu, { CircularMenuItem } from "./components/portfolio/CircularMenu";
 
 export const metadata: Metadata = {
   title: "Romaric AKODJENOU",
@@ -56,6 +57,15 @@ export default function RootLayout({
 
           {/* Menu navigation latéral */}
           <Menu />
+
+          {/* Menu navigation horizontale */}
+          <CircularMenu
+            items={portfolio_menu}
+            position='bottom'
+            area={180}
+            side='end'
+            radius={100}
+          />
 
           <ScrollToTop />
 
