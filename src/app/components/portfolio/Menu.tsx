@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useActiveSection } from "../../hooks/useActiveSection";
+import { navigateToSection } from "../../../lib/utils";
 
 export const portfolio_menu = [
     {
@@ -71,18 +73,13 @@ export const portfolio_menu = [
 
 const Menu = () => {
 
-    const [currentAnchor, setCurrentAnchor] = useState<string>('#home')
-
-    useEffect(() => {
-        const anchor = window.location.href.split(process.env.NEXT_PUBLIC_APP_LINK as string)[1]
-        setCurrentAnchor(anchor)
-    }, [])
+    const current_anchor = useActiveSection(portfolio_menu);
 
     return (
         <div className="fixed scr_3:hidden right-4 top-1/2 -translate-y-1/2 flex flex-col items-end gap-4 z-50">
             {portfolio_menu.map((item, index) => (
-                <Link key={index} href={item?.endpoint} onClick={() => setCurrentAnchor(item?.endpoint)}>
-                    <div className={`group w-max transform transition-transform duration-300 hover:-translate-y-1 ${currentAnchor === item?.endpoint ? 'bg-yellow-500 hover:bg-yellow-500' : 'bg-black dark:bg-zinc-700'} flex justify-end items-center hover:bg-yellow-500 dark:hover:bg-yellow-500 p-3.5 rounded-full cursor-pointer`}>
+                <Link key={index} href={item?.endpoint} onClick={() => navigateToSection(item?.endpoint)}>
+                    <div className={`group w-max transform transition-transform duration-300 hover:-translate-y-1 ${current_anchor === item?.endpoint ? 'bg-yellow-500 hover:bg-yellow-500' : 'bg-black dark:bg-zinc-700'} flex justify-end items-center hover:bg-yellow-500 dark:hover:bg-yellow-500 p-3.5 rounded-full cursor-pointer`}>
                         <span className="hidden group-hover:inline-block mr-4 text-white"> {item?.tooltip} </span>
                         {item?.icon}
                     </div>

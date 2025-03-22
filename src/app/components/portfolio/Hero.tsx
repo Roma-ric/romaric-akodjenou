@@ -6,7 +6,7 @@ import RotatingText from '../reactbits/RotatingText';
 
 const Hero = () => {
   return (
-    <div className="relative  min-h-screen bg-transparent dark:bg-grid-white/[0.2] bg-grid-black/[0.15] flex flex-col justify-center overflow-hidden">
+    <div className="relative  min-h-screen bg-transparent dark:bg-grid-white/[0.2] bg-grid-black/[0.15] flex flex-col justify-center overflow-hidden" id='home'>
       {/* Couleur d'arrière-plan jaune */}
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
       <div className="absolute h-[200%] scr_2_0:hidden w-full -rotate-[15deg] left-[-83%] top-[-50%] bg-yellow-500 z-40 "></div>

@@ -5,6 +5,9 @@ import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motio
 import { X, Menu } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import Link from 'next/link';
+import { portfolio_menu } from './Menu';
+import { useActiveSection } from '../../hooks/useActiveSection';
+import { navigateToSection } from '../../../lib/utils';
 
 export interface CircularMenuItem {
   icon: React.ReactNode;
@@ -14,7 +17,6 @@ export interface CircularMenuItem {
 }
 
 interface CircularMenuProps {
-  items: CircularMenuItem[];
   position?: 'left' | 'right' | 'top' | 'bottom';
   area?: 90 | 180 | 270 | 360;
   side?: 'start' | 'end' | 'center';
@@ -23,7 +25,6 @@ interface CircularMenuProps {
 }
 
 const CircularMenu = ({
-  items,
   position = 'right',
   area = 180,
   // side = 'end',
@@ -163,7 +164,7 @@ const CircularMenu = ({
   };
 
   useEffect(() => {
-    if (items.length <= 1) return;
+    if (portfolio_menu.length <= 1) return;
 
     const pathData = [];
     const adjustedRadius = radius;
@@ -189,10 +190,10 @@ const CircularMenu = ({
     }
 
     setActivePath(pathData.join(' '));
-  }, [items.length, area, position, radius]);
+  }, [portfolio_menu.length, area, position, radius]);
 
   const getCircularMenuItemPosition = (index: number) => {
-    const angle = (area / (items.length - 1 || 1)) * index;
+    const angle = (area / (portfolio_menu.length - 1 || 1)) * index;
     const adjustedAngle = angle * (Math.PI / 180);
     const baseX = Math.cos(adjustedAngle) * radius;
     const baseY = Math.sin(adjustedAngle) * radius;
@@ -247,12 +248,7 @@ const CircularMenu = ({
     }
   };
 
-  const [currentAnchor, setCurrentAnchor] = useState<string>('#home')
-
-  useEffect(() => {
-    const anchor = window.location.href.split(process.env.NEXT_PUBLIC_APP_LINK as string)[1]
-    setCurrentAnchor(anchor)
-  }, [])
+  const current_anchor = useActiveSection(portfolio_menu);
 
   return (
     <div className="fixed z-50 bottom-7 left-1/2 scr_3:block hidden -translate-x-1/2" ref={containerRef} onMouseMove={handleMouseMove}>
@@ -320,13 +316,13 @@ const CircularMenu = ({
       </motion.button>
 
       <AnimatePresence>
-        {items.map((item, i) => (
-          <Link key={i} href={item?.endpoint} onClick={() => setCurrentAnchor(item?.endpoint)}>
+        {portfolio_menu.map((item, i) => (
+          <Link key={i} href={item?.endpoint} onClick={() => navigateToSection(item?.endpoint)}>
             <div key={i} className="absolute left-0 top-0 z-40">
               <Popover>
                 <PopoverTrigger asChild>
                   <motion.div
-                    className={`flex h-10 w-10 items-center justify-center rounded-full text-white shadow-lg overflow-hidden ${currentAnchor === item?.endpoint ? 'bg-yellow-500 hover:bg-yellow-500' : 'bg-black dark:bg-zinc-700'}`}
+                    className={`flex h-10 w-10 items-center justify-center rounded-full text-white shadow-lg overflow-hidden ${current_anchor === item?.endpoint ? 'bg-yellow-500 hover:bg-yellow-500' : 'bg-black dark:bg-zinc-700'}`}
                     custom={i}
                     variants={menuVariants}
                     initial="closed"

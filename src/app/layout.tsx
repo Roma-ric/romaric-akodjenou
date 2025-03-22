@@ -60,7 +60,6 @@ export default function RootLayout({
 
           {/* Menu navigation horizontale */}
           <CircularMenu
-            items={portfolio_menu}
             position='bottom'
             area={180}
             side='end'
