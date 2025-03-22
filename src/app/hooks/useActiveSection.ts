@@ -97,7 +97,7 @@ export const useActiveSection = (
             // window.scrollTo({ top: y, behavior: "smooth" });
             setActiveAnchor(hash);
           }
-        }, 0);
+        }, 100);
       }
     }
 
