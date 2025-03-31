@@ -18,7 +18,7 @@ export const useActiveSection = (
   sectionsData: SectionData[],
   options = {
     threshold: 0.2,           
-    rootMargin: '-80px 0px',  
+    rootMargin: '-40px 0px',  
     debugMode: false,         
   }
 ): string => {

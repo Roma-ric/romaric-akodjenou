@@ -89,6 +89,7 @@ const Contact = () => {
               </div>
 
               <div className="p-4 py-6 scr_3_1:w-full bg-black/[0.8] dark:bg-white/[0.1] border rounded-lg bg-gray-50 dark:bg-gray-800">
+                <p className='pb-2 font-semibold'> This form is not working </p>
                 <form className=''>
                   <div className="-mx-2 flex scr_3_1:flex-col">
                     <div className="flex-1 px-2">
@@ -112,7 +113,7 @@ const Contact = () => {
                     <textarea className="block w-full h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Message"></textarea>
                   </div>
 
-                  <button className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-500 rounded-lg hover:bg-yellow-400 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-opacity-50">
+                  <button disabled className="w-full px-6 py-3 mt-4 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-yellow-500 rounded-lg hover:bg-yellow-400 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-opacity-50">
                     Send message
                   </button>
                 </form>
