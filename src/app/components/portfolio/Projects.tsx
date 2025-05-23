@@ -10,35 +10,35 @@ const Projects = () => {
       quote:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
       name: "Sarah Chen",
-      designation: "Product Manager at TechFlow",
+      designation: "Lorem, ipsum dolor sit amet",
       src: "/maquette/about-me2.png",
     },
     {
       quote:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
       name: "Lorem ipsum",
-      designation: "CTO at InnovateSphere",
+      designation: "Lorem, ipsum dolor sit amet",
       src: "/maquette/about-me2.png",
     },
     {
       quote:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
       name: "Lorem ipsum",
-      designation: "Operations Director at CloudScale",
+      designation: "Lorem, ipsum dolor sit amet",
       src: "/maquette/about-me2.png",
     },
     {
       quote:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
       name: "Lorem ipsum",
-      designation: "Engineering Lead at DataPro",
+      designation: "Lorem, ipsum dolor sit amet",
       src: "/maquette/about-me2.png",
     },
     {
       quote:
         "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
       name: "Lorem ipsum",
-      designation: "VP of Technology at FutureNet",
+      designation: "Lorem, ipsum dolor sit amet",
       src: "/maquette/about-me2.png",
     },
   ];
