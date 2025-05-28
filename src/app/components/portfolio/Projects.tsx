@@ -8,38 +8,31 @@ const Projects = () => {
   const testimonials = [
     {
       quote:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-      name: "Sarah Chen",
-      designation: "Lorem, ipsum dolor sit amet",
-      src: "/maquette/about-me2.png",
+        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+      name: "Lorem dolor", //Adlou A. Kondo
+      designation: "Lorem ipsum dolor", //CEO at Friym
+      src: "/maquette/about-me2.png", ///files/Adlou-A-KONDO.jpg
     },
     {
       quote:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-      name: "Lorem ipsum",
-      designation: "Lorem, ipsum dolor sit amet",
-      src: "/maquette/about-me2.png",
+        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+      name: "Lorem dolor", //Godwin K. ADJAHOUINOU
+      designation: "Lorem ipsum dolor", //CEO at Explotel
+      src: "/maquette/about-me2.png", ///files/Godwin-K-ADJAHOUINOU.png
     },
     {
       quote:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-      name: "Lorem ipsum",
-      designation: "Lorem, ipsum dolor sit amet",
-      src: "/maquette/about-me2.png",
+        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+      name: "Lorem dolor", //Mr Aristide
+      designation: "Lorem ipsum dolor", //CEO at Carrefoot
+      src: "/maquette/about-me2.png", ///files/Mr-Aristide.png
     },
     {
       quote:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-      name: "Lorem ipsum",
-      designation: "Lorem, ipsum dolor sit amet",
-      src: "/maquette/about-me2.png",
-    },
-    {
-      quote:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-      name: "Lorem ipsum",
-      designation: "Lorem, ipsum dolor sit amet",
-      src: "/maquette/about-me2.png",
+        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+      name: "Lorem dolor", //Arnaud F. LOKONON
+      designation: "Lorem ipsum dolor", //Full Stack Developer
+      src: "/maquette/about-me2.png", ///files/Arnaud-F-LOKONON.jpg
     },
   ];
 

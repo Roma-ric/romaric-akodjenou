@@ -319,7 +319,7 @@ const About = () => {
                                     </div>
                                 </div>
                             </div>
-                            <Link href="/file/CV.pdf" target="_blank" className='mt-2 scr_0:mx-auto'>
+                            <Link href="/files/CV.pdf" target="_blank" className='mt-2 scr_0:mx-auto'>
                                 <div className="inline-flex items-center text-lg scr_4:text-md text-black dark:text-white rounded-full bg-transparent border-2 border-yellow-500 bg-yellow-500 transition-colors duration-300 cursor-pointer px-6 scr_4:px-4 py-2 scr_4:py-1">
                                     <div className="rounded-full p-2 pl-0 flex items-center justify-center">
                                         <Download />
