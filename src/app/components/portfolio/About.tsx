@@ -20,7 +20,7 @@ const About = () => {
                             Full Stack Developer
                         </span>
                         <span className="text-end">
-                            Sep 2024 - Mar 2025
+                            Sep 2024 - May 2025
                         </span>
                     </div>
                     <div className='pl-4'>
@@ -244,12 +244,12 @@ const About = () => {
                 <div className='hidden mt-10 relative scr_4_0:hidden scr_4_3:-mr-3 mr-24 scr_2_0:mr-0'>
                     <div className='border-[6px] rounded-[0px_70px_0px_70px] lg-max:rounded-[0%_70px_0%_70px] overflow-hidden border-yellow-500'>
                         <img
-                            src="file/profile-white.png"
+                            src="files/profile-white.png"
                             alt="Romaric AKODJENOU"
                             className="w-[27.5rem] h-[27.5rem] border block dark:hidden object-cover z-30"
                         />
                         <img
-                            src="file/profile-black.png"
+                            src="files/profile-black.png"
                             alt="Romaric AKODJENOU"
                             className="w-[27.5rem] h-[27.5rem] hidden dark:block object-cover z-30"
                         />
@@ -258,14 +258,14 @@ const About = () => {
                 <div className="w-1/2 hidden scr_4_0:flex scr_2_0:w-full scr_2_0:pb-4 scr_2_0:justify-center z-40 py-10 justify-start bg-transparent items-center relative p-8">
                     <div className="w-full h-full scr_2_0:shadow-none scr_2_0:hidden scr_2_0:dark:block scr_2_0:bg-transparent shadow-[0_0_7px_rgba(0,0,0,0.9)] hidden dark:block max-w-md rounded-[30px] overflow-hidden bg-black">
                         <img
-                            src="file/profile-black.png"
+                            src="files/profile-black.png"
                             alt="Romaric AKODJENOU"
                             className="w-full h-full object-cover scr_2_0:mx-auto scr_2_0:w-[16.875rem] scr_2_0:h-[16.875rem] scr_4:w-[14.875rem] scr_4:h-[14.875rem] scr_2_0:border-[4px] scr_2_0:border-[#252525] scr_2_0:rounded-full"
                         />
                     </div>
                     <div className="w-full h-full scr_2_0:shadow-none scr_2_0:block scr_2_0:dark:hidden scr_2_0:bg-transparent  shadow-[0_0_7px_rgba(0,0,0,0.9)] block dark:hidden max-w-md rounded-[30px] overflow-hidden bg-black">
                         <img
-                            src="file/profile-white.png"
+                            src="files/profile-white.png"
                             alt="Romaric AKODJENOU"
                             className="w-full h-full object-cover scr_2_0:mx-auto scr_2_0:w-[16.875rem] scr_2_0:h-[16.875rem] scr_4:w-[14.875rem] scr_4:h-[14.875rem] scr_2_0:border-[4px] scr_2_0:border-[#252525] scr_2_0:rounded-full"
                         />

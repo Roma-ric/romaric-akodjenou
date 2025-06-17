@@ -7,12 +7,12 @@ const Footer = () => {
 
       <div className='mx-auto relative rounded-full p-1 bg-transparent -mt-[6.7rem]'>
         <img
-          src="file/profile-white.png"
+          src="files/profile-white.png"
           alt="Romaric AKODJENOU"
           className="w-[5rem] h-[5rem] rounded-full border-4 block dark:hidden object-cover z-30"
         />
         <img
-          src="file/profile-black.png"
+          src="files/profile-black.png"
           alt="Romaric AKODJENOU"
           className="w-[5rem] h-[5rem] rounded-full border-4 hidden dark:block object-cover z-30"
         />

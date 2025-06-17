@@ -125,7 +125,7 @@ export const AnimatedTestimonials = ({
               opacity: 0,
             }}
             transition={{
-              duration: 0.2,
+              duration: 0.0,
               ease: "easeInOut",
             }}
           >
@@ -150,7 +150,7 @@ export const AnimatedTestimonials = ({
                     y: 0,
                   }}
                   transition={{
-                    duration: 0.2,
+                    duration: 0.0,
                     ease: "easeInOut",
                     delay: 0.02 * index,
                   }}

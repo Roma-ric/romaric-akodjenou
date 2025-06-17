@@ -17,20 +17,20 @@ const Hero = () => {
         <div className="w-1/2 scr_4_0:hidden scr_2_0:w-full scr_2_0:justify-center z-40 flex py-10 scr_2_0:pb-0 justify-start bg-transparent items-center relative p-8">
           <div className="w-full h-full scr_2_0:shadow-none scr_2_0:block scr_2_0:dark:hidden scr_2_0:bg-transparent shadow-[0_0_7px_rgba(0,0,0,0.9)] hidden dark:block max-w-md rounded-[30px] overflow-hidden bg-black">
             <img
-              src="file/profile-black.png"
+              src="files/profile-black.png"
               alt="Romaric AKODJENOU"
               className="w-full h-full object-cover scr_2_0:mx-auto scr_2_0:w-[16.875rem] scr_2_0:h-[16.875rem] scr_4:w-[14.875rem] scr_4:h-[14.875rem] scr_2_0:border-[4px] scr_2_0:border-[#252525] scr_2_0:rounded-full"
             />
           </div>
           <div className="w-full h-full scr_2_0:shadow-none scr_2_0:hidden scr_2_0:dark:block scr_2_0:bg-transparent  shadow-[0_0_7px_rgba(0,0,0,0.9)] block dark:hidden max-w-md rounded-[30px] overflow-hidden bg-black">
             <img
-              src="file/profile-white.png"
+              src="files/profile-white.png"
               alt="Romaric AKODJENOU"
               className="w-full h-full object-cover scr_2_0:mx-auto scr_2_0:w-[16.875rem] scr_2_0:h-[16.875rem] scr_4:w-[14.875rem] scr_4:h-[14.875rem] scr_2_0:border-[4px] scr_2_0:border-[#252525] scr_2_0:rounded-full"
             />
           </div>
         </div>
-:
+
         {/* Section texte */}
         <div className="w-1/2 scr_2_0:w-full scr_2_0:items-center scr_2_0:mr-0 flex flex-col justify-center p-8 scr_2_0:pt-0 mr-20 text-black dark:text-white">
           <div className='scr_2_0:flex scr_2_0:flex-col scr_2_0:items-center'>
