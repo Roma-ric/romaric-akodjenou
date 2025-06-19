@@ -17,7 +17,7 @@ type SectionData = {
 export const useActiveSection = (
   sectionsData: SectionData[],
   options = {
-    threshold: 0.2,           
+    threshold: 0.1,           
     rootMargin: '-40px 0px',  
     debugMode: false,         
   }

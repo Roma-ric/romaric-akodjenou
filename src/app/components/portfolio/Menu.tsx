@@ -72,11 +72,11 @@ export const portfolio_menu = [
 
 const Menu = () => {
 
-    const current_anchor = useActiveSection(portfolio_menu);
+    let current_anchor = useActiveSection(portfolio_menu);
 
     return (
         <div className="fixed scr_3:hidden right-4 top-1/2 -translate-y-1/2 flex flex-col items-end gap-4 z-50">
-            {portfolio_menu.map((item, index) => (
+            {portfolio_menu.sort((a, b) => a.id - b.id).map((item, index) => (
                 <Link key={index} href={item?.endpoint} onClick={() => navigateToSection(item?.endpoint)}>
                     <div className={`group w-max transform transition-transform duration-300 hover:-translate-y-1 ${current_anchor === item?.endpoint ? 'bg-yellow-500 hover:bg-yellow-500' : 'bg-black dark:bg-zinc-700'} flex justify-end items-center hover:bg-yellow-500 dark:hover:bg-yellow-500 p-3.5 rounded-full cursor-pointer`}>
                         <span className="hidden group-hover:inline-block mr-4 text-white"> {item?.tooltip} </span>

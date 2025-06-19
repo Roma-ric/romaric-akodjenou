@@ -16,9 +16,7 @@ const Blog = () => {
       title: "Lorem Ipsum Dolor Sit Amet",
       description: (
         <>
-          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam, perferendis dignissimos nulla enim cumque, eaque aut nemo eveniet quaerat excepturi!
-          </p>
         </>
       ),
       date: "2025/02/18",
@@ -29,9 +27,7 @@ const Blog = () => {
       title: "Lorem Ipsum Dolor Sit Amet",
       description: (
         <>
-          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam, perferendis dignissimos nulla enim cumque, eaque aut nemo eveniet quaerat excepturi!
-          </p>
         </>
       ),
       date: "2025/02/27",
@@ -42,9 +38,7 @@ const Blog = () => {
       title: "Lorem Ipsum Dolor Sit Amet",
       description: (
         <>
-          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam, perferendis dignissimos nulla enim cumque, eaque aut nemo eveniet quaerat excepturi!
-          </p>
         </>
       ),
       date: "2025/01/13",

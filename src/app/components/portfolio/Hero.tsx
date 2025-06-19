@@ -38,7 +38,7 @@ const Hero = () => {
               <span className="mr-4 scr_4:hidden">—</span>
               I&apos;M ROMARIC AKODJENOU.
             </h1>
-            <h2 className="text-4xl font-bold mb-6">
+            <h2 className="text-4xl font-bold mb-6 pointer-events-none">
               <RotatingText
                 texts={['FRONT-END DEVELOPER', 'FULL-STACK DEVELOPER', 'FREELANCER', 'API DEVELOPER']}
                 mainClassName="px-2 text-4xl scr_2_0:text-3xl  bg-yellow-500 w-max overflow-hidden justify-center rounded-lg"

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 type Testimonial = {
-  quote: string;
+  testimonie: string;
   name: string;
   designation: string;
   src: string;
@@ -103,7 +103,7 @@ export const AnimatedTestimonials = ({
                   width={500}
                   height={500}
                   draggable={false}
-                  className="h-full w-full scr_2_1:aspect-square rounded-3xl object-cover object-center"
+                  className="h-full w-full rounded-3xl object-cover"
                 />
               </motion.div>
             ))}
@@ -136,7 +136,7 @@ export const AnimatedTestimonials = ({
               {testimonials[active].designation}
             </p>
             <motion.p className="text-lg text-gray-500 mt-8 dark:text-neutral-300">
-              {testimonials[active].quote.split(" ").map((word, index) => (
+              {testimonials[active].testimonie.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
                   initial={{
@@ -164,15 +164,15 @@ export const AnimatedTestimonials = ({
           <div className="flex gap-4 pt-12">
             <button
               onClick={handlePrev}
-              className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+              className="h-9 w-9 rounded-full border bg-neutral-800 dark:bg-neutral-800 flex items-center justify-center group/button"
             >
-              <IconArrowLeft className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
+              <IconArrowLeft className="h-5 w-5 text-white dark:text-neutral-400 group-hover/button:rotate-12 transition-transform duration-300" />
             </button>
             <button
               onClick={handleNext}
-              className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
+              className="h-9 w-9 rounded-full border bg-neutral-800 dark:bg-neutral-800 flex items-center justify-center group/button"
             >
-              <IconArrowRight className="h-5 w-5 text-black dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
+              <IconArrowRight className="h-5 w-5 text-white dark:text-neutral-400 group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>
           </div>
         </div>

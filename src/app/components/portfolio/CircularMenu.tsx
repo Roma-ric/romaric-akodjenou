@@ -248,7 +248,7 @@ const CircularMenu = ({
     }
   };
 
-  const current_anchor = useActiveSection(portfolio_menu);
+  let current_anchor = useActiveSection(portfolio_menu);
 
   return (
     <div className="fixed z-50 bottom-7 left-1/2 scr_3:block hidden -translate-x-1/2" ref={containerRef} onMouseMove={handleMouseMove}>
@@ -316,7 +316,7 @@ const CircularMenu = ({
       </motion.button>
 
       <AnimatePresence>
-        {portfolio_menu.map((item, i) => (
+        {portfolio_menu.sort((a, b) => b.id - a.id).map((item, i) => (
           <Link key={i} href={item?.endpoint} onClick={() => navigateToSection(item?.endpoint)}>
             <div key={i} className="absolute left-0 top-0 z-40">
               <Popover>
