@@ -248,7 +248,7 @@ const CircularMenu = ({
     }
   };
 
-  let current_anchor = useActiveSection(portfolio_menu);
+  const current_anchor = useActiveSection(portfolio_menu);
 
   return (
     <div className="fixed z-50 bottom-7 left-1/2 scr_3:block hidden -translate-x-1/2" ref={containerRef} onMouseMove={handleMouseMove}>

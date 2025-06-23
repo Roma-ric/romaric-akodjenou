@@ -72,7 +72,7 @@ export const portfolio_menu = [
 
 const Menu = () => {
 
-    let current_anchor = useActiveSection(portfolio_menu);
+    const current_anchor = useActiveSection(portfolio_menu);
 
     return (
         <div className="fixed scr_3:hidden right-4 top-1/2 -translate-y-1/2 flex flex-col items-end gap-4 z-50">
