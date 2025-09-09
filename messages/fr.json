@@ -1,0 +1,266 @@
+{
+    "HeroSection": {
+        "title": "ROMARIC AKODJENOU.",
+        "profile": {
+            "0": "DÉVELOPPEUR FRONT-END",
+            "1": "DÉVELOPPEUR FULL-STACK",
+            "2": "FREELANCE",
+            "3": "DÉVELOPPEUR D'API"
+        },
+        "description": "Je suis un développeur full-stack spécialisé dans la création d’interfaces web modernes et performantes. Axé sur l’innovation et l’efficacité, je conçois des solutions adaptées aux besoins des utilisateurs afin d’améliorer leur expérience au quotidien.",
+        "moreText": "EN SAVOIR PLUS"
+    },
+    "AboutSection": {
+        "title": "À PROPOS",
+        "backtitle": "RESUME",
+        "subtitle": "Informations personnelles",
+        "personalInfo": {
+            "firstName": {
+                "label": "Prénom",
+                "value": "Romaric"
+            },
+            "lastName": {
+                "label": "Nom",
+                "value": "AKODJENOU"
+            },
+            "birthdate": {
+                "label": "Date de naissance",
+                "value": "09 septembre 2003"
+            },
+            "nationality": {
+                "label": "Nationalité",
+                "value": "Béninoise"
+            },
+            "address": {
+                "label": "Adresse",
+                "value": "Abomey-Calavi, Bénin"
+            },
+            "freelance": {
+                "label": "Freelance",
+                "value": "Disponible"
+            },
+            "phone": {
+                "label": "Téléphone",
+                "value": "+229 0166474345"
+            },
+            "email": {
+                "label": "Email",
+                "value": "romaricakodjenou54@gmail.com"
+            },
+            "languages": {
+                "label": "Langues",
+                "value": "Français, Anglais"
+            }
+        },
+        "downloadText": "TÉLÉCHARGER MON CV",
+        "stats": {
+            "yearsOfExperience": {
+                "value": 2,
+                "label": "années d’expérience"
+            },
+            "completedProjects": {
+                "value": 8,
+                "label": "projets réalisés"
+            },
+            "happyCustomers": {
+                "value": 4,
+                "label": "clients satisfaits"
+            }
+        },
+        "experiences": {
+            "title": "Expériences",
+            "simam": {
+                "company": "SIMAM SARL",
+                "position": "Développeur Front End",
+                "period": "Juil 2025 - Présent",
+                "responsibilities": {
+                    "0": "Création de modèles web.",
+                    "1": "Développement de sites vitrines et d’applications web.",
+                    "2": "Intégration d’API REST."
+                }
+            },
+            "explotel": {
+                "company": "Explotel",
+                "position": "Développeur Full Stack",
+                "period": "Sep 2024 - Mai 2025",
+                "responsibilities": {
+                    "0": "Développement d’interfaces utilisateurs réactives et interactives.",
+                    "1": "Intégration d’API REST."
+                }
+            },
+            "fidevo": {
+                "company": "Fidevo",
+                "position": "Développeur Front End",
+                "period": "Mai 2024 - Présent",
+                "responsibilities": {
+                    "0": "Développement d’interfaces utilisateurs réactives et interactives.",
+                    "1": "Intégration d’API REST."
+                }
+            },
+            "romas": {
+                "company": "ROMAS Technologie",
+                "position": "Développeur Full Stack",
+                "period": "Mar 2024 - Juin 2024",
+                "responsibilities": {
+                    "0": "Développement d’une application de gestion des employés pour une entreprise (demandes, congés, permissions, etc.).",
+                    "1": "Développement d’une application d’automatisation et d’optimisation du processus d’archivage.",
+                    "2": "Création et intégration d’API REST.",
+                    "3": "Débogage et tests de diverses applications."
+                }
+            },
+            "payPlus": {
+                "company": "PayPlus Africa",
+                "position": "Développeur Front End",
+                "period": "Août 2023 - Sep 2023",
+                "responsibilities": {
+                    "0": "Développement d’un module d’interface utilisateur pour une application e-commerce."
+                }
+            }
+        },
+        "skills": {
+            "title": "Compétences techniques",
+            "html": "HTML",
+            "css": "CSS",
+            "javascript": "JavaScript",
+            "typescript": "TypeScript",
+            "bootstrap": "Bootstrap",
+            "tailwind": "Tailwind CSS",
+            "reactjs": "React.js",
+            "vuejs": "Vue.js",
+            "nextjs": "Next.js",
+            "nodejs": "Node.js",
+            "expressjs": "Express.js",
+            "mongodb": "MongoDB",
+            "mysql": "MySQL"
+        }
+    },
+    "ServicesSection": {
+        "title": "SERVICES",
+        "backtitle": "OFFERINGS",
+        "services": {
+            "dev": {
+                "title": "Développement d’applications web",
+                "description": "Développement de sites web réactifs et interactifs en utilisant les technologies JavaScript côté frontend et backend."
+            },
+            "api": {
+                "title": "Création et utilisation d’API REST",
+                "description": "Conception et mise en œuvre d’interfaces API robustes pour permettre une communication efficace entre différents systèmes."
+            },
+            "integration": {
+                "title": "Intégration web",
+                "description": "Conversion de maquettes de design (PSD, Figma, XD) en sites web fonctionnels et responsives avec un code propre et optimisé."
+            },
+            "template": {
+                "title": "Intégration et utilisation de templates",
+                "description": "Utilisation et personnalisation de modèles pour accélérer le développement et maintenir une cohérence visuelle."
+            },
+            "doc": {
+                "title": "Rédaction de documentation technique",
+                "description": "Création de documentations claires et complètes pour faciliter la compréhension et la maintenance des applications."
+            },
+            "maintenance": {
+                "title": "Maintenance informatique",
+                "description": "Support technique et maintenance logicielle afin d’assurer une performance et une fiabilité continues."
+            }
+        }
+    },
+    "ProjectsSection": {
+        "title": "PORTFOLIO",
+        "backtitle": "WORKS",
+        "subtitle": "Projets",
+        "projects": {
+            "portfolio": {
+                "title": "Portfolio",
+                "description": "Mon portfolio."
+            }
+        },
+        "testimonials": {
+            "0": {
+                "quote": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, modi consequuntur reprehenderit nulla praesentium.",
+                "name": "Lorem dolor",
+                "position": "Lorem ipsum dolor"
+            },
+            "1": {
+                "quote": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, modi consequuntur reprehenderit nulla praesentium.",
+                "name": "Lorem dolor",
+                "position": "Lorem ipsum dolor"
+            },
+            "2": {
+                "quote": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, modi consequuntur reprehenderit nulla praesentium.",
+                "name": "Lorem dolor",
+                "position": "Lorem ipsum dolor"
+            },
+            "3": {
+                "quote": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, modi consequuntur reprehenderit nulla praesentium.",
+                "name": "Lorem dolor",
+                "position": "Lorem ipsum dolor"
+            }
+        }
+    },
+    "ContactSection": {
+        "title": "CONTACT",
+        "backtitle": "LET'S TALK",
+        "subtitle": "Discutons ensemble",
+        "description": "J’aimerais avoir de vos nouvelles. Merci de remplir ce formulaire ou de m’envoyer un e-mail.",
+        "contactMethods": {
+            "email": {
+                "type": "Email",
+                "value": "romaricakodjenou54@gmail.com"
+            },
+            "phone": {
+                "type": "Téléphone",
+                "value": "+229 0166474345",
+                "description": "Du lundi au vendredi de 8h à 17h."
+            }
+        },
+        "socialLinks": {
+            "facebook": "Facebook",
+            "linkedin": "LinkedIn",
+            "github": "GitHub",
+            "whatsapp": "WhatsApp",
+            "gmail": "Gmail"
+        },
+        "formNotice": "Ce formulaire ne fonctionne pas",
+        "formFields": {
+            "firstName": "Prénom",
+            "lastName": "Nom",
+            "email": "Adresse e-mail",
+            "message": "Message",
+            "submitButton": "Envoyer le message"
+        }
+    },
+    "BlogSection": {
+        "title": "BLOG",
+        "backtitle": "POSTS",
+        "posts": {
+            "0": {
+                "title": "Lorem Ipsum Dolor Sit Amet",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam.",
+                "date": "2025/02/18"
+            },
+            "1": {
+                "title": "Lorem Ipsum Dolor Sit Amet",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam.",
+                "date": "2025/02/27"
+            },
+            "2": {
+                "title": "Lorem Ipsum Dolor Sit Amet",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam.",
+                "date": "2025/01/13"
+            }
+        }
+    },
+    "Language": {
+        "title": "Langues",
+        "french": "Français",
+        "english": "Anglais"
+    },
+    "MenuSection": {
+        "home": "Accueil",
+        "about": "À propos",
+        "services": "Services",
+        "projects": "Projects",
+        "contact": "Contact",
+        "blog": "Blog"
+    }
+}

@@ -3,7 +3,7 @@ import Social from './Social';
 
 const Footer = () => {
   return (
-    <div className=" pt-16 pb-8 scr_3:pb-24 bg-black bg-opacity-10 dark:bg-transparent flex flex-col">
+    <div className=" pt-16 pb-8 border-t scr_3:pb-24 bg-black/5 dark:bg-transparent flex flex-col">
 
       <div className='mx-auto relative pointer-events-none rounded-full p-1 bg-transparent -mt-[6.7rem]'>
         <img
@@ -21,7 +21,7 @@ const Footer = () => {
       <div className='mx-auto mb-4'>
         <Social />
       </div>
-      <p className='text-center text-xs font-semibold'> © {(new Date()).getFullYear()} Romaric AKODJENOU. </p>
+      <p className='text-center text-xs'> © {(new Date()).getFullYear()} Romaric AKODJENOU. </p>
 
     </div>
   );

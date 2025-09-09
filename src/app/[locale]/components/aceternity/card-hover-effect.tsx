@@ -11,7 +11,7 @@ import {
   DialogTrigger,
 } from "../ui/dialog"
 import { Carousel } from "./carousel";
-import { cn } from "../../../lib/utils";
+import { cn } from "../../../../lib/utils";
 
 interface HoverEffectProps {
   items: {

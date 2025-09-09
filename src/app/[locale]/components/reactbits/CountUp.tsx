@@ -99,7 +99,7 @@ export default function CountUp({
                 </p>
                 <div className="text-lg flex items-start space-x-2">
                     <hr className="w-6 py-[0.05rem] bg-stone-500" />
-                    <span className="uppercase max-w-[50%] -mt-2">{label}</span>
+                    <span className="uppercase font-medium max-w-[50%] -mt-2">{label}</span>
                 </div>
             </div>
         </div>

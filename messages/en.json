@@ -1,0 +1,266 @@
+{
+    "HeroSection": {
+        "title": "I'M ROMARIC AKODJENOU.",
+        "profile": {
+            "0": "FRONT-END DEVELOPER",
+            "1": "FULL-STACK DEVELOPER",
+            "2": "FREELANCER",
+            "3": "API DEVELOPER"
+        },
+        "description": "I am a full-stack developer specializing in creating modern and high-performance web interfaces. Focused on innovation and efficiency, I design solutions tailored to users' needs to enhance their daily experience.",
+        "moreText": "MORE ABOUT ME"
+    },
+    "AboutSection": {
+        "title": "ABOUT ME",
+        "backtitle": "RESUME",
+        "subtitle": "Personal infos",
+        "personalInfo": {
+            "firstName": {
+                "label": "First Name",
+                "value": "Romaric"
+            },
+            "lastName": {
+                "label": "Last Name",
+                "value": "AKODJENOU"
+            },
+            "birthdate": {
+                "label": "Birthdate",
+                "value": "09 September 2003"
+            },
+            "nationality": {
+                "label": "Nationality",
+                "value": "Beninese"
+            },
+            "address": {
+                "label": "Adress",
+                "value": "Abomey-Calavi, Benin"
+            },
+            "freelance": {
+                "label": "Freelance",
+                "value": "Available"
+            },
+            "phone": {
+                "label": "Phone",
+                "value": "+229 0166474345"
+            },
+            "email": {
+                "label": "Email",
+                "value": "romaricakodjenou54@gmail.com"
+            },
+            "languages": {
+                "label": "Languages",
+                "value": "French, English"
+            }
+        },
+        "downloadText": "DOWNLOAD MY CV",
+        "stats": {
+            "yearsOfExperience": {
+                "value": 2,
+                "label": "years of experience"
+            },
+            "completedProjects": {
+                "value": 8,
+                "label": "completed projects"
+            },
+            "happyCustomers": {
+                "value": 4,
+                "label": "Happy customers"
+            }
+        },
+        "experiences": {
+            "title": "Experiences",
+            "simam": {
+                "company": "SIMAM SARL",
+                "position": "Front End Developer",
+                "period": "Jul 2025 - Present",
+                "responsibilities": {
+                    "0": "Creation of web template.",
+                    "1": "Development of showcase site and web application.",
+                    "2": "REST API integration."
+                }
+            },
+            "explotel": {
+                "company": "Explotel",
+                "position": "Full Stack Developer",
+                "period": "Sep 2024 - May 2025",
+                "responsibilities": {
+                    "0": "Development of responsive and interactive user interfaces.",
+                    "1": "Integration of REST APIs."
+                }
+            },
+            "fidevo": {
+                "company": "Fidevo",
+                "position": "Front End Developer",
+                "period": "May 2024 - Present",
+                "responsibilities": {
+                    "0": "Development of responsive and interactive user interfaces.",
+                    "1": "Integration of REST APIs."
+                }
+            },
+            "romas": {
+                "company": "ROMAS Technologie",
+                "position": "Full Stack Developer",
+                "period": "Mar 2024 - Jun 2024",
+                "responsibilities": {
+                    "0": "Development of an employee management application for a company (requests, leaves, permissions, etc.).",
+                    "1": "Development of an automation and optimization application for the archiving process.",
+                    "2": "Creation and integration of REST APIs.",
+                    "3": "Debugging and testing various applications."
+                }
+            },
+            "payPlus": {
+                "company": "PayPlus Africa",
+                "position": "Front End Developer",
+                "period": "Aug 2023 - Sep 2023",
+                "responsibilities": {
+                    "0": "Development of a user interface module for an e-commerce application."
+                }
+            }
+        },
+        "skills": {
+            "title": "Skills",
+            "html": "HTML",
+            "css": "CSS",
+            "javascript": "JavaScript",
+            "typescript": "TypeScript",
+            "bootstrap": "Bootstrap",
+            "tailwind": "Tailwind CSS",
+            "reactjs": "React.js",
+            "vuejs": "Vue.js",
+            "nextjs": "Next.js",
+            "nodejs": "Node.js",
+            "expressjs": "Express.js",
+            "mongodb": "MongoDB",
+            "mysql": "MySQL"
+        }
+    },
+    "ServicesSection": {
+        "title": "SERVICES",
+        "backtitle": "OFFERINGS",
+        "services": {
+            "dev": {
+                "title": "Web Application Development",
+                "description": "Development of responsive and interactive websites using both frontend and backend JavaScript technologies."
+            },
+            "api": {
+                "title": "Creation and Use of REST APIs",
+                "description": "Design and implementation of robust API interfaces to enable efficient communication between different systems."
+            },
+            "integration": {
+                "title": "Web Integration",
+                "description": "Converting design mockups (PSD, Figma, XD) into functional, responsive websites with clean and optimized code."
+            },
+            "template": {
+                "title": "Template Integration and Usage",
+                "description": "Use and customization of templates to speed up development and maintain visual consistency."
+            },
+            "doc": {
+                "title": "Technical Documentation Writing",
+                "description": "Creation of clear and comprehensive documentation to facilitate understanding and maintenance of applications."
+            },
+            "maintenance": {
+                "title": "IT Maintenance",
+                "description": "Technical support and maintenance of software to ensure continuous performance and reliability."
+            }
+        }
+    },
+    "ProjectsSection": {
+        "title": "PORTFOLIO",
+        "backtitle": "WORKS",
+        "subtitle": "Projects",
+        "projects": {
+            "portfolio": {
+                "title": "Portfolio",
+                "description": "My portfolio."
+            }
+        },
+        "testimonials": {
+            "0": {
+                "quote": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+                "name": "Lorem dolor",
+                "position": "Lorem ipsum dolor"
+            },
+            "1": {
+                "quote": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+                "name": "Lorem dolor",
+                "position": "Lorem ipsum dolor"
+            },
+            "2": {
+                "quote": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+                "name": "Lorem dolor",
+                "position": "Lorem ipsum dolor"
+            },
+            "3": {
+                "quote": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+                "name": "Lorem dolor",
+                "position": "Lorem ipsum dolor"
+            }
+        }
+    },
+    "ContactSection": {
+        "title": "CONTACT",
+        "backtitle": "LET'S TALK",
+        "subtitle": "Chat with me",
+        "description": "I'd love to hear from you. Please fill out this form or shoot me an email.",
+        "contactMethods": {
+            "email": {
+                "type": "Email",
+                "value": "romaricakodjenou54@gmail.com"
+            },
+            "phone": {
+                "type": "Phone",
+                "value": "+229 0166474345",
+                "description": "Mon-Fri from 8am to 5pm."
+            }
+        },
+        "socialLinks": {
+            "facebook": "Facebook",
+            "linkedin": "LinkedIn",
+            "github": "GitHub",
+            "whatsapp": "WhatsApp",
+            "gmail": "Gmail"
+        },
+        "formNotice": "This form is not working",
+        "formFields": {
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email address",
+            "message": "Message",
+            "submitButton": "Send message"
+        }
+    },
+    "BlogSection": {
+        "title": "BLOG",
+        "backtitle": "POSTS",
+        "posts": {
+            "0": {
+                "title": "Lorem Ipsum Dolor Sit Amet",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam, perferendis dignissimos nulla enim cumque, eaque aut nemo eveniet quaerat excepturi!",
+                "date": "2025/02/18"
+            },
+            "1": {
+                "title": "Lorem Ipsum Dolor Sit Amet",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam, perferendis dignissimos nulla enim cumque, eaque aut nemo eveniet quaerat excepturi!",
+                "date": "2025/02/27"
+            },
+            "2": {
+                "title": "Lorem Ipsum Dolor Sit Amet",
+                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam, perferendis dignissimos nulla enim cumque, eaque aut nemo eveniet quaerat excepturi!",
+                "date": "2025/01/13"
+            }
+        }
+    },
+    "Language": {
+        "title": "Languages",
+        "french": "French",
+        "english": "English"
+    },
+    "MenuSection": {
+        "home": "Home",
+        "about": "About",
+        "services": "Services",
+        "projects": "Projects",
+        "contact": "Contact",
+        "blog": "Blog"
+    }
+}

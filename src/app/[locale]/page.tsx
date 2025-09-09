@@ -49,7 +49,7 @@ export default function Home() {
       <Contact />
 
       {/* Blog */}
-      <Blog />
+      {/* <Blog /> */}
 
       {/* Footer */}
       <Footer />
