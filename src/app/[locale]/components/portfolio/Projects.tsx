@@ -1,6 +1,5 @@
 import React from "react";
 import SectionTitle from "./SectionTitle";
-import { AnimatedTestimonials } from "../aceternity/animated-testimonials";
 import { HoverEffect } from "../aceternity/card-hover-effect";
 import { useTranslations } from "next-intl";
 
@@ -21,36 +20,36 @@ const Projects = () => {
     },
   ];
 
-  const testimonials = [
-    {
-      testimonie:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-      name: "Lorem dolor", //Adlou A. Kondo
-      designation: "Lorem ipsum dolor", //CEO at Friym
-      src: "/maquette/blog1.png", //files/Adlou-A-KONDO.jpg
-    },
-    {
-      testimonie:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-      name: "Lorem dolor", //Arnaud F. LOKONON
-      designation: "Lorem ipsum dolor", //Full Stack Developer
-      src: "/maquette/blog1.png", //files/Arnaud-F-LOKONON.jpg
-    },
-    {
-      testimonie:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-      name: "Lorem dolor", //Godwin K. ADJAHOUINOU
-      designation: "Lorem ipsum dolor", //CEO at Explotel
-      src: "/maquette/blog1.png", //files/Godwin-K-ADJAHOUINOU.png
-    },
-    {
-      testimonie:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-      name: "Lorem dolor", //Mr Aristide
-      designation: "Lorem ipsum dolor", //CEO at Carrefoot
-      src: "/maquette/blog1.png", //files/Mr-Aristide.png
-    },
-  ];
+  // const testimonials = [
+  //   {
+  //     testimonie:
+  //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+  //     name: "Lorem dolor", //Adlou A. Kondo
+  //     designation: "Lorem ipsum dolor", //CEO at Friym
+  //     src: "/maquette/blog1.png", //files/Adlou-A-KONDO.jpg
+  //   },
+  //   {
+  //     testimonie:
+  //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+  //     name: "Lorem dolor", //Arnaud F. LOKONON
+  //     designation: "Lorem ipsum dolor", //Full Stack Developer
+  //     src: "/maquette/blog1.png", //files/Arnaud-F-LOKONON.jpg
+  //   },
+  //   {
+  //     testimonie:
+  //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+  //     name: "Lorem dolor", //Godwin K. ADJAHOUINOU
+  //     designation: "Lorem ipsum dolor", //CEO at Explotel
+  //     src: "/maquette/blog1.png", //files/Godwin-K-ADJAHOUINOU.png
+  //   },
+  //   {
+  //     testimonie:
+  //       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
+  //     name: "Lorem dolor", //Mr Aristide
+  //     designation: "Lorem ipsum dolor", //CEO at Carrefoot
+  //     src: "/maquette/blog1.png", //files/Mr-Aristide.png
+  //   },
+  // ];
 
   return (
     <div

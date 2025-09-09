@@ -6,7 +6,6 @@ import About from './components/portfolio/About';
 import { useEffect } from "react";
 import Projects from './components/portfolio/Projects';
 import Contact from './components/portfolio/Contact';
-import Blog from './components/portfolio/Blog';
 import Services from './components/portfolio/Services';
 import { useRouter } from 'next/navigation';
 import Footer from './components/portfolio/Footer';
