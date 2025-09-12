@@ -9,7 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "../ui/dialog"
+} from "../ui/dialog";
 import { Carousel } from "./carousel";
 import { cn } from "../../../../lib/utils";
 
@@ -23,10 +23,7 @@ interface HoverEffectProps {
   className?: string;
 }
 
-export const HoverEffect = ({
-  items,
-  className,
-}: HoverEffectProps) => {
+export const HoverEffect = ({ items, className }: HoverEffectProps) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
@@ -43,7 +40,6 @@ export const HoverEffect = ({
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
-
           <Dialog>
             <DialogTrigger>
               <AnimatePresence>
@@ -84,13 +80,15 @@ export const HoverEffect = ({
             </DialogContent>
           </Dialog>
           <Card>
-            <Image
-              src={item?.fileSrc}
-              width={500}
-              height={500}
-              className="w-full h-full aspect-square object-cover"
-              alt=""
-            />
+            <div className="w-full h-full">
+              <Image
+                src={item?.fileSrc}
+                fill
+                priority
+                className="object-center object-cover"
+                alt=""
+              />
+            </div>
           </Card>
         </div>
       ))}
