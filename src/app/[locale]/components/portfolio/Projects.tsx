@@ -18,6 +18,12 @@ const Projects = () => {
       link: "https://romaric-akodjenou.vercel.app",
       fileSrc: "/realisation/my-portfolio.png",
     },
+    {
+      title: t("projects.timer.title"),
+      description: t("projects.timer.description"),
+      link: "https://nexus-timer.vercel.app/",
+      fileSrc: "/realisation/timer.png",
+    },
   ];
 
   // const testimonials = [

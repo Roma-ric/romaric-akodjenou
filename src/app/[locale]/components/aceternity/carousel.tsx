@@ -70,7 +70,7 @@ const Slide = ({ slide, index, current, handleSlideClick }: SlideProps) => {
     <div className="[transform-style:preserve-3d] h-ful w-fulll mx-auto">
       <li
         ref={slideRef}
-        className="flex flex-1 flex-col items-center justify-between relative text-center text-white opacity-100 transition-all duration-300 ease-in-out w-[70dvw] h-[90dvh] mx-auto z-10 "
+        className="flex flex-1 flex-col items-center justify-between relative text-center text-white opacity-100 transition-all duration-300 ease-in-out w-[70dvw] h-[90dvh]  scr_4:h-[70dvh] mx-auto z-10 "
         onClick={() => handleSlideClick(index)}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -202,13 +202,13 @@ export function Carousel({ slides, currentIndex }: CarouselProps) {
   }, [handleNextClick, handlePreviousClick]);
 
   return (
-    <div className="relative h-full">
+    <div className="relative h-full mx-auto">
       <div
-        className="relative w-full h-[90dvh]"
+        className="relative w-full h-[90dvh]  scr_4:h-[70dvh]"
         aria-labelledby={`carousel-heading-${id}`}
       >
         <ul
-          className="w-min mx-auto flex transition-transform duration-1000 ease-in-out"
+          className="w-min mx-auto gap-x-10 flex transition-transform duration-1000 ease-in-out"
           style={{
             transform: `translateX(-${current * (100 / slides.length)}%)`,
           }}

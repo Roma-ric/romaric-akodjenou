@@ -172,6 +172,10 @@
             "portfolio": {
                 "title": "Portfolio",
                 "description": "Mon portfolio."
+            },
+            "timer": {
+                "title": "Timer",
+                "description": "Minuteur pour gérer le temps et les tâches."
             }
         },
         "testimonials": {
