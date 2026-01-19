@@ -3,11 +3,9 @@
         "title": "ROMARIC AKODJENOU.",
         "profile": {
             "0": "DÉVELOPPEUR FRONT-END",
-            "1": "DÉVELOPPEUR FULL-STACK",
-            "2": "FREELANCE",
-            "3": "DÉVELOPPEUR D'API"
+            "1": "FREELANCE"
         },
-        "description": "Je suis un développeur full-stack spécialisé dans la création d’interfaces web modernes et performantes. Axé sur l’innovation et l’efficacité, je conçois des solutions adaptées aux besoins des utilisateurs afin d’améliorer leur expérience au quotidien.",
+        "description": "Je suis un développeur frontend spécialisé dans la création d’interfaces web modernes et performantes. Axé sur l’innovation et l’efficacité, je conçois des solutions adaptées aux besoins des utilisateurs afin d’améliorer leur expérience au quotidien.",
         "moreText": "EN SAVOIR PLUS"
     },
     "AboutSection": {
@@ -71,29 +69,29 @@
             "title": "Expériences",
             "simam": {
                 "company": "SIMAM SARL",
-                "position": "Développeur Front End",
-                "period": "Juil 2025 - Présent",
+                "position": "Développeur Frontend",
+                "period": "Juil 2025 - Nov 2025",
                 "responsibilities": {
                     "0": "Création de modèles web.",
                     "1": "Développement de sites vitrines et d’applications web.",
                     "2": "Intégration d’API REST."
                 }
             },
-            "explotel": {
-                "company": "Explotel",
-                "position": "Développeur Full Stack",
-                "period": "Sep 2024 - Mai 2025",
+            "carrefoot": {
+                "company": "Carréfoot",
+                "position": "Développeur Frontend",
+                "period": "Déc 2024 - Présent",
                 "responsibilities": {
-                    "0": "Développement d’interfaces utilisateurs réactives et interactives.",
+                    "0": "Développement template web et d'application web.",
                     "1": "Intégration d’API REST."
                 }
             },
             "fidevo": {
                 "company": "Fidevo",
-                "position": "Développeur Front End",
+                "position": "Développeur Frontend",
                 "period": "Mai 2024 - Présent",
                 "responsibilities": {
-                    "0": "Développement d’interfaces utilisateurs réactives et interactives.",
+                    "0": "Développement de site vitrine, d’interfaces utilisateurs réactives et interactives.",
                     "1": "Intégration d’API REST."
                 }
             },
@@ -110,7 +108,7 @@
             },
             "payPlus": {
                 "company": "PayPlus Africa",
-                "position": "Développeur Front End",
+                "position": "Développeur Frontend",
                 "period": "Août 2023 - Sep 2023",
                 "responsibilities": {
                     "0": "Développement d’un module d’interface utilisateur pour une application e-commerce."
@@ -129,9 +127,7 @@
             "vuejs": "Vue.js",
             "nextjs": "Next.js",
             "nodejs": "Node.js",
-            "expressjs": "Express.js",
-            "mongodb": "MongoDB",
-            "mysql": "MySQL"
+            "mongodb": "MongoDB"
         }
     },
     "ServicesSection": {
@@ -140,11 +136,7 @@
         "services": {
             "dev": {
                 "title": "Développement d’applications web",
-                "description": "Développement de sites web réactifs et interactifs en utilisant les technologies JavaScript côté frontend et backend."
-            },
-            "api": {
-                "title": "Création et utilisation d’API REST",
-                "description": "Conception et mise en œuvre d’interfaces API robustes pour permettre une communication efficace entre différents systèmes."
+                "description": "Développement de sites web réactifs et interactifs en utilisant les technologies JavaScript côté frontend."
             },
             "integration": {
                 "title": "Intégration web",
@@ -169,6 +161,26 @@
         "backtitle": "WORKS",
         "subtitle": "Projets",
         "projects": {
+            "brand": {
+                "title": "Friym Brand",
+                "description": "Site de présentation de la marque Friym."
+            },
+            "simam-cargo": {
+                "title": "Site vitrine",
+                "description": "Site de présentation pour les services de cargo et transport international."
+            },
+            "simam-immigration": {
+                "title": "Site vitrine",
+                "description": "Site informatif pour les services d'immigration."
+            },
+            "template-carrefoot-1": {
+                "title": "Template Carréfoot 1",
+                "description": "Template web de la plateforme Carréfoot."
+            },
+            "template-carrefoot-2": {
+                "title": "Template Carréfoot 2",
+                "description": "Template web de la plateforme Carréfoot."
+            },
             "portfolio": {
                 "title": "Portfolio",
                 "description": "Mon portfolio."

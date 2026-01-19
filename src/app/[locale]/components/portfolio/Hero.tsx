@@ -10,7 +10,7 @@ const Hero = () => {
 
   const hero = {
     title: t("title"),
-    profile: [t("profile.0"), t("profile.1"), t("profile.2"), t("profile.3")],
+    profile: [t("profile.0"), t("profile.1")],
     description: t("description"),
     moreText: t("moreText"),
   };

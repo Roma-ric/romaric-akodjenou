@@ -19,11 +19,6 @@ const Services = () => {
       description: t("services.dev.description"),
     },
     {
-      label: t("services.api.title"),
-      icon: <Server className="w-8 h-8" />,
-      description: t("services.api.description"),
-    },
-    {
       label: t("services.template.title"),
       icon: <LayoutTemplate className="w-8 h-8" />,
       description: t("services.template.description"),

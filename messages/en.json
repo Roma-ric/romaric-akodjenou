@@ -3,11 +3,9 @@
         "title": "I'M ROMARIC AKODJENOU.",
         "profile": {
             "0": "FRONT-END DEVELOPER",
-            "1": "FULL-STACK DEVELOPER",
-            "2": "FREELANCER",
-            "3": "API DEVELOPER"
+            "1": "FREELANCER"
         },
-        "description": "I am a full-stack developer specializing in creating modern and high-performance web interfaces. Focused on innovation and efficiency, I design solutions tailored to users' needs to enhance their daily experience.",
+        "description": "I am a frontend specializing in creating modern and high-performance web interfaces. Focused on innovation and efficiency, I design solutions tailored to users' needs to enhance their daily experience.",
         "moreText": "MORE ABOUT ME"
     },
     "AboutSection": {
@@ -71,26 +69,26 @@
             "title": "Experiences",
             "simam": {
                 "company": "SIMAM SARL",
-                "position": "Front End Developer",
-                "period": "Jul 2025 - Present",
+                "position": "Frontend Developer",
+                "period": "Jul 2025 - Nov 2025",
                 "responsibilities": {
                     "0": "Creation of web template.",
                     "1": "Development of showcase site and web application.",
                     "2": "REST API integration."
                 }
             },
-            "explotel": {
-                "company": "Explotel",
-                "position": "Full Stack Developer",
-                "period": "Sep 2024 - May 2025",
+            "carrefoot": {
+                "company": "Carréfoot",
+                "position": "Frontend Developer",
+                "period": "Dec 2024 - Present",
                 "responsibilities": {
-                    "0": "Development of responsive and interactive user interfaces.",
+                    "0": "Development of web templates and web applications.",
                     "1": "Integration of REST APIs."
                 }
             },
             "fidevo": {
                 "company": "Fidevo",
-                "position": "Front End Developer",
+                "position": "Frontend Developer",
                 "period": "May 2024 - Present",
                 "responsibilities": {
                     "0": "Development of responsive and interactive user interfaces.",
@@ -110,7 +108,7 @@
             },
             "payPlus": {
                 "company": "PayPlus Africa",
-                "position": "Front End Developer",
+                "position": "Frontend Developer",
                 "period": "Aug 2023 - Sep 2023",
                 "responsibilities": {
                     "0": "Development of a user interface module for an e-commerce application."
@@ -129,9 +127,7 @@
             "vuejs": "Vue.js",
             "nextjs": "Next.js",
             "nodejs": "Node.js",
-            "expressjs": "Express.js",
-            "mongodb": "MongoDB",
-            "mysql": "MySQL"
+            "mongodb": "MongoDB"
         }
     },
     "ServicesSection": {
@@ -140,11 +136,7 @@
         "services": {
             "dev": {
                 "title": "Web Application Development",
-                "description": "Development of responsive and interactive websites using both frontend and backend JavaScript technologies."
-            },
-            "api": {
-                "title": "Creation and Use of REST APIs",
-                "description": "Design and implementation of robust API interfaces to enable efficient communication between different systems."
+                "description": "Development of responsive and interactive websites using both frontend JavaScript technologies."
             },
             "integration": {
                 "title": "Web Integration",
@@ -169,6 +161,26 @@
         "backtitle": "WORKS",
         "subtitle": "Projects",
         "projects": {
+            "brand": {
+                "title": "Friym Brand",
+                "description": "Friym brand presentation website."
+            },
+            "simam-cargo": {
+                "title": "Showcase Website",
+                "description": "SIMAM Cargo showcase website."
+            },
+            "simam-immigration": {
+                "title": "Showcase Website",
+                "description": "SIMAM Immigration showcase website."
+            },
+            "template-carrefoot-1": {
+                "title": "Carréfoot Template 1",
+                "description": "Web template for Carréfoot platform."
+            },
+            "template-carrefoot-2": {
+                "title": "Carréfoot Template 2",
+                "description": "Web template for Carréfoot platform."
+            },
             "portfolio": {
                 "title": "Portfolio",
                 "description": "My portfolio."
