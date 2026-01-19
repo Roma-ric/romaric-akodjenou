@@ -21,7 +21,7 @@
     "framer-motion": "^12.4.7",
     "lucide-react": "^0.476.0",
     "mini-svg-data-uri": "^1.4.4",
-    "next": "15.1.7",
+    "next": "15.1.11",
     "next-intl": "^4.3.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
