@@ -2,7 +2,7 @@
 
 import React from "react";
 import SectionTitle from "./SectionTitle";
-import { Globe, Server, LayoutTemplate, FileText, PenTool } from "lucide-react";
+import { Globe, LayoutTemplate, FileText, PenTool } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const Services = () => {
