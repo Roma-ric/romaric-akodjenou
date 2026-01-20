@@ -28,14 +28,14 @@ const Hero = () => {
       <div className="relative w-full scr_2_0:overflow-y-auto scr_2_0:h-auto scr_2_0:flex-col z-40 h-screen flex">
         {/* Section photo */}
         <div className="w-1/2 scr_4_0:hidden scr_2_0:w-full scr_2_0:justify-center z-40 flex py-10 scr_2_0:pb-0 justify-start bg-transparent items-center relative p-8">
-          <div className="w-full h-full scr_2_0:shadow-none scr_2_0:block scr_2_0:dark:hidden scr_2_0:bg-transparent shadow-[0_0_7px_rgba(0,0,0,0.9)] hidden dark:block max-w-md rounded-[30px] overflow-hidden bg-black">
+          <div className="w-full h-full scr_2_0:shadow-none scr_2_0:block scr_2_0:dark:hidden scr_2_0:bg-transparent shadow-[0_0_7px_rgba(0,0,0,0.9)] hidden dark:block max-w-md xl:max-w-[90%] rounded-[30px] overflow-hidden bg-black">
             <img
               src="files/profile-black.png"
               alt="Romaric AKODJENOU"
               className="w-full h-full object-cover scr_2_0:mx-auto scr_2_0:w-[16.875rem] scr_2_0:h-[16.875rem] scr_4:w-[14.875rem] scr_4:h-[14.875rem] scr_2_0:border-[4px] scr_2_0:border-[#252525] scr_2_0:rounded-full"
             />
           </div>
-          <div className="w-full h-full scr_2_0:shadow-none scr_2_0:hidden scr_2_0:dark:block scr_2_0:bg-transparent  shadow-[0_0_7px_rgba(0,0,0,0.9)] block dark:hidden max-w-md rounded-[30px] overflow-hidden bg-black">
+          <div className="w-full h-full scr_2_0:shadow-none scr_2_0:hidden scr_2_0:dark:block scr_2_0:bg-transparent  shadow-[0_0_7px_rgba(0,0,0,0.9)] block dark:hidden max-w-md xl:max-w-[90%] rounded-[30px] overflow-hidden bg-black">
             <img
               src="files/profile-white.png"
               alt="Romaric AKODJENOU"

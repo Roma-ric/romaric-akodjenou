@@ -519,12 +519,12 @@ const About = () => {
         <Timeline data={experience_data} />
       </div>
 
-      <div className="min-w-[22rem] w-[70%] scr_2_2:w-[88%] px-3 mx-auto">
+      <div className="min-w-[22rem] w-[70%] scr_2_2:w-[88%] px-3 mx-auto flex flex-col justify-center">
         <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-neutral-800 dark:text-neutral-200 mt-0">
           {about.skillsTitle}
         </h2>
-        <div className="w-[100%] mt-10 mx-auto">
-          <div className="grid grid-cols-5 scr_2:grid-cols-4 scr_2_2:grid-cols-3 scr_3_2:grid-cols-2 gap-5 max-w-6xl">
+        <div className="w-full mt-10">
+          <div className="grid grid-cols-5 scr_2:grid-cols-4 scr_2_2:grid-cols-3 scr_3_2:grid-cols-2 gap-5 max-w-[72rem] mx-auto">
             {skills.map((item, index) => (
               <Fragment key={index}>
                 <SkillCard name={item.name} logo={item.logo} />
