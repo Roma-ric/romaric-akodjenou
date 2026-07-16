@@ -86,6 +86,15 @@
                     "1": "Integration of REST APIs."
                 }
             },
+            "explotel": {
+                "company": "Explotel",
+                "position": "Full Stack Developer",
+                "period": "Sep 2024 - May 2025",
+                "responsibilities": {
+                    "0": "Development of web templates and web applications.",
+                    "1": "Integration of REST APIs."
+                }
+            },
             "fidevo": {
                 "company": "Fidevo",
                 "position": "Frontend Developer",
@@ -164,6 +173,10 @@
             "brand": {
                 "title": "Friym Brand",
                 "description": "Friym brand presentation website."
+            },
+            "founders": {
+                "title": "Friym Founders Sellers",
+                "description": "Seller search site for the Friym platform."
             },
             "simam-cargo": {
                 "title": "Showcase Website",

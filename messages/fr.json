@@ -82,7 +82,16 @@
                 "position": "Développeur Frontend",
                 "period": "Déc 2024 - Présent",
                 "responsibilities": {
-                    "0": "Développement template web et d'application web.",
+                    "0": "Développement de template web et d'application web.",
+                    "1": "Intégration d’API REST."
+                }
+            },
+            "explotel": {
+                "company": "Explotel",
+                "position": "Développeur Full Stack",
+                "period": "Sept 2024 - Mai 2025",
+                "responsibilities": {
+                    "0": "Développement de template web et d'application web.",
                     "1": "Intégration d’API REST."
                 }
             },
@@ -164,6 +173,10 @@
             "brand": {
                 "title": "Friym Brand",
                 "description": "Site de présentation de la marque Friym."
+            },
+            "founders": {
+                "title": "Friym Founders Sellers",
+                "description": "Site de recherche de vendeurs pour la plateforme Friym."
             },
             "simam-cargo": {
                 "title": "Site vitrine",

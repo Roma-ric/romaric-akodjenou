@@ -13,6 +13,12 @@ const Projects = () => {
 
   const projects = [
     {
+      title: t("projects.founders.title"),
+      description: t("projects.founders.description"),
+      link: "https://founders.friym.com",
+      fileSrc: "/realisation/founders-friym.png",
+    },
+    {
       title: t("projects.brand.title"),
       description: t("projects.brand.description"),
       link: "https://brand.friym.com",
@@ -33,7 +39,7 @@ const Projects = () => {
     {
       title: t("projects.template-carrefoot-1.title"),
       description: t("projects.template-carrefoot-1.description"),
-      link: "https://v2-carrefoot.vercel.app",
+      link: "https://v2-template.vercel.app",
       fileSrc: "/realisation/template-carrefoot-1.png",
     },
     {
