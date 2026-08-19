@@ -389,7 +389,7 @@ const About = () => {
     },
     {
       from: 0,
-      to: 4,
+      to: 6,
       label: t("stats.happyCustomers.label"),
       separator: ".",
       direction: "up",
