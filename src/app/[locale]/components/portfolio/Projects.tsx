@@ -30,30 +30,30 @@ const Projects = () => {
       link: "https://simam-cargo.vercel.app",
       fileSrc: "/realisation/simam-cargo.png",
     },
-    {
-      title: t("projects.simam-immigration.title"),
-      description: t("projects.simam-immigration.description"),
-      link: "https://simam-immigration.vercel.app",
-      fileSrc: "/realisation/simam-immigration.png",
-    },
-    {
-      title: t("projects.template-carrefoot-1.title"),
-      description: t("projects.template-carrefoot-1.description"),
-      link: "https://v2-template.vercel.app",
-      fileSrc: "/realisation/template-carrefoot-1.png",
-    },
+    // {
+    //   title: t("projects.simam-immigration.title"),
+    //   description: t("projects.simam-immigration.description"),
+    //   link: "https://simam-immigration.vercel.app",
+    //   fileSrc: "/realisation/simam-immigration.png",
+    // },
+    // {
+    //   title: t("projects.template-carrefoot-1.title"),
+    //   description: t("projects.template-carrefoot-1.description"),
+    //   link: "https://v2-template.vercel.app",
+    //   fileSrc: "/realisation/template-carrefoot-1.png",
+    // },
     {
       title: t("projects.template-carrefoot-2.title"),
       description: t("projects.template-carrefoot-2.description"),
       link: "https://vote.carrefoot.com",
       fileSrc: "/realisation/template-carrefoot-2.png",
     },
-    {
-      title: t("projects.portfolio.title"),
-      description: t("projects.portfolio.description"),
-      link: "https://romaric-akodjenou.vercel.app",
-      fileSrc: "/realisation/my-portfolio.png",
-    },
+    // {
+    //   title: t("projects.portfolio.title"),
+    //   description: t("projects.portfolio.description"),
+    //   link: "https://romaric-akodjenou.vercel.app",
+    //   fileSrc: "/realisation/my-portfolio.png",
+    // },
     {
       title: t("projects.timer.title"),
       description: t("projects.timer.description"),

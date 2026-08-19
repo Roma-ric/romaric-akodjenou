@@ -5,7 +5,7 @@
             "0": "FRONT-END DEVELOPER",
             "1": "FREELANCER"
         },
-        "description": "I am a frontend specializing in creating modern and high-performance web interfaces. Focused on innovation and efficiency, I design solutions tailored to users' needs to enhance their daily experience.",
+        "description": "I am a frontend developer specialized in creating modern and high-performance web interfaces. Focused on innovation and efficiency, I design solutions tailored to users' needs to enhance their daily experience.",
         "moreText": "MORE ABOUT ME"
     },
     "AboutSection": {
@@ -30,7 +30,7 @@
                 "value": "Beninese"
             },
             "address": {
-                "label": "Adress",
+                "label": "Address",
                 "value": "Abomey-Calavi, Benin"
             },
             "freelance": {
@@ -62,7 +62,7 @@
             },
             "happyCustomers": {
                 "value": 4,
-                "label": "Happy customers"
+                "label": "happy customers"
             }
         },
         "experiences": {
@@ -72,8 +72,8 @@
                 "position": "Frontend Developer",
                 "period": "Jul 2025 - Nov 2025",
                 "responsibilities": {
-                    "0": "Creation of web template.",
-                    "1": "Development of showcase site and web application.",
+                    "0": "Development of an immigration management application for Canada.",
+                    "1": "Development of a landing page for a goods shipping application from China to Benin and Togo, including a parcel declaration form.",
                     "2": "REST API integration."
                 }
             },
@@ -82,8 +82,9 @@
                 "position": "Frontend Developer",
                 "period": "Dec 2024 - Present",
                 "responsibilities": {
-                    "0": "Development of web templates and web applications.",
-                    "1": "Integration of REST APIs."
+                    "0": "Co-development of football activity platforms featuring news and voting.",
+                    "1": "Development of web templates.",
+                    "2": "REST API integration."
                 }
             },
             "explotel": {
@@ -91,33 +92,35 @@
                 "position": "Full Stack Developer",
                 "period": "Sep 2024 - May 2025",
                 "responsibilities": {
-                    "0": "Development of web templates and web applications.",
-                    "1": "Integration of REST APIs."
+                    "0": "Co-development of an online ticketing platform allowing users to sell, search for and book tickets.",
+                    "1": "REST API integration."
                 }
             },
             "fidevo": {
-                "company": "Fidevo",
+                "company": "Fidevo Group",
                 "position": "Frontend Developer",
                 "period": "May 2024 - Present",
                 "responsibilities": {
-                    "0": "Development of responsive and interactive user interfaces.",
-                    "1": "Integration of REST APIs."
+                    "0": "Co-development of the web version of the Friym social commerce platform.",
+                    "1": "Development of the Friym brand presentation website.",
+                    "2": "Implementation of web interfaces from Figma designs.",
+                    "3": "REST API integration."
                 }
             },
             "romas": {
                 "company": "ROMAS Technologie",
-                "position": "Full Stack Developer",
+                "position": "Academic Intern",
                 "period": "Mar 2024 - Jun 2024",
                 "responsibilities": {
-                    "0": "Development of an employee management application for a company (requests, leaves, permissions, etc.).",
-                    "1": "Development of an automation and optimization application for the archiving process.",
+                    "0": "Development of an employee management application for a company, including requests, leave and permissions.",
+                    "1": "Co-development of an application for automating and optimizing the archiving process.",
                     "2": "Creation and integration of REST APIs.",
-                    "3": "Debugging and testing various applications."
+                    "3": "Application debugging and functional testing."
                 }
             },
             "payPlus": {
                 "company": "PayPlus Africa",
-                "position": "Frontend Developer",
+                "position": "Academic Intern",
                 "period": "Aug 2023 - Sep 2023",
                 "responsibilities": {
                     "0": "Development of a user interface module for an e-commerce application."
@@ -125,18 +128,113 @@
             }
         },
         "skills": {
-            "title": "Skills",
-            "html": "HTML",
-            "css": "CSS",
-            "javascript": "JavaScript",
-            "typescript": "TypeScript",
-            "bootstrap": "Bootstrap",
-            "tailwind": "Tailwind CSS",
-            "reactjs": "React.js",
-            "vuejs": "Vue.js",
-            "nextjs": "Next.js",
-            "nodejs": "Node.js",
-            "mongodb": "MongoDB"
+            "title": "Technical Skills",
+            "web": {
+                "title": "Web Development",
+                "period": "Jan 2022 - Present",
+                "technologies": {
+                    "html": "HTML",
+                    "css": "CSS",
+                    "javascript": "JavaScript",
+                    "typescript": "TypeScript",
+                    "reactjs": "React.js",
+                    "nextjs": "Next.js",
+                    "reactQuery": "React Query",
+                    "zustand": "Zustand"
+                }
+            },
+            "ui": {
+                "title": "UI Libraries & Tools",
+                "technologies": {
+                    "figma": "Figma",
+                    "tailwind": "Tailwind CSS",
+                    "shadcn": "Shadcn/ui",
+                    "framerMotion": "Framer Motion"
+                }
+            },
+            "versioning": {
+                "title": "Version Control",
+                "technologies": {
+                    "git": "Git",
+                    "github": "GitHub",
+                    "gitlab": "GitLab"
+                }
+            },
+            "deployment": {
+                "title": "Deployment",
+                "technologies": {
+                    "github": "GitHub",
+                    "vercel": "Vercel",
+                    "continuousDeployment": "Continuous Deployment"
+                }
+            },
+            "documentation": {
+                "title": "Technical Documentation",
+                "technologies": {
+                    "markdown": "Markdown"
+                }
+            }
+        },
+        "education": {
+            "title": "Education",
+            "professionalBachelor": {
+                "degree": "Professional Bachelor's Degree in Management Information Systems",
+                "period": "Oct 2021 - Jul 2024",
+                "institution": "Institut Universitaire de Technologie (IUT), University of Parakou, Benin"
+            },
+            "computerMaintenance": {
+                "degree": "Computer Maintenance Training (Software)",
+                "period": "Aug 2022 - Sep 2022",
+                "institution": "AGEMA-BENIN, Calavi, Benin"
+            },
+            "baccalaureate": {
+                "degree": "Scientific Baccalaureate, Series D",
+                "period": "Oct 2018 - Jun 2021",
+                "institution": "CEG1 AKPRO-MISSÉRÉTÉ, Benin"
+            }
+        },
+        "languages": {
+            "title": "Languages",
+            "french": {
+                "label": "French",
+                "level": "Fluent"
+            },
+            "english": {
+                "label": "English",
+                "level": "Intermediate"
+            }
+        },
+        "hobbies": {
+            "title": "Hobbies & Interests",
+            "items": {
+                "music": "Music",
+                "programming": "Programming",
+                "animeManga": "Anime / Manga"
+            }
+        },
+        "qualities": {
+            "title": "Personal Qualities",
+            "items": {
+                "teamwork": "Teamwork",
+                "analysis": "Strong analytical skills",
+                "frontendPassion": "Passionate about frontend JavaScript technologies",
+                "learning": "Strong learning ability"
+            }
+        },
+        "references": {
+            "title": "References",
+            "abdulKondo": {
+                "name": "Abdul A. KONDO",
+                "position": "CEO - Fidevo",
+                "location": "Porto-Novo",
+                "phone": "+2290190757450"
+            },
+            "arnaudLokonon": {
+                "name": "Arnaud F. LOKONON",
+                "position": "Full Stack Developer - PayPlus",
+                "location": "Cotonou",
+                "phone": "+2290168947612"
+            }
         }
     },
     "ServicesSection": {
@@ -145,23 +243,23 @@
         "services": {
             "dev": {
                 "title": "Web Application Development",
-                "description": "Development of responsive and interactive websites using both frontend JavaScript technologies."
+                "description": "Development of responsive and interactive websites using frontend JavaScript technologies."
             },
             "integration": {
                 "title": "Web Integration",
-                "description": "Converting design mockups (PSD, Figma, XD) into functional, responsive websites with clean and optimized code."
+                "description": "Converting design mockups such as PSD, Figma and XD into functional and responsive websites with clean and optimized code."
             },
             "template": {
-                "title": "Template Integration and Usage",
-                "description": "Use and customization of templates to speed up development and maintain visual consistency."
+                "title": "Template Integration & Customization",
+                "description": "Using and customizing templates to accelerate development and maintain visual consistency."
             },
             "doc": {
-                "title": "Technical Documentation Writing",
-                "description": "Creation of clear and comprehensive documentation to facilitate understanding and maintenance of applications."
+                "title": "Technical Documentation",
+                "description": "Creation of clear and comprehensive documentation to facilitate application understanding and maintenance."
             },
             "maintenance": {
                 "title": "IT Maintenance",
-                "description": "Technical support and maintenance of software to ensure continuous performance and reliability."
+                "description": "Technical support and software maintenance to ensure continuous performance and reliability."
             }
         }
     },
@@ -176,61 +274,40 @@
             },
             "founders": {
                 "title": "Friym Founders Sellers",
-                "description": "Seller search site for the Friym platform."
+                "description": "Seller search website for the Friym platform."
             },
             "simam-cargo": {
-                "title": "Showcase Website",
-                "description": "SIMAM Cargo showcase website."
+                "title": "SIMAM Cargo",
+                "description": "Landing page for a goods shipping application from China to Benin and Togo with a parcel declaration form."
             },
             "simam-immigration": {
-                "title": "Showcase Website",
-                "description": "SIMAM Immigration showcase website."
+                "title": "SIMAM Immigration",
+                "description": "Immigration management application for Canada."
             },
             "template-carrefoot-1": {
                 "title": "Carréfoot Template 1",
-                "description": "Web template for Carréfoot platform."
+                "description": "Web template developed for Carréfoot."
             },
             "template-carrefoot-2": {
                 "title": "Carréfoot Template 2",
-                "description": "Web template for Carréfoot platform."
+                "description": "Web template developed for Carréfoot."
             },
             "portfolio": {
                 "title": "Portfolio",
-                "description": "My portfolio."
+                "description": "Romaric AKODJENOU's personal portfolio."
             },
             "timer": {
                 "title": "Timer",
                 "description": "Timer for managing time and tasks."
             }
         },
-        "testimonials": {
-            "0": {
-                "quote": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-                "name": "Lorem dolor",
-                "position": "Lorem ipsum dolor"
-            },
-            "1": {
-                "quote": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-                "name": "Lorem dolor",
-                "position": "Lorem ipsum dolor"
-            },
-            "2": {
-                "quote": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-                "name": "Lorem dolor",
-                "position": "Lorem ipsum dolor"
-            },
-            "3": {
-                "quote": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium Lorem, ipsum dolor sit amet consectetur adipisicing elit. non, modi consequuntur reprehenderit nulla praesentium.",
-                "name": "Lorem dolor",
-                "position": "Lorem ipsum dolor"
-            }
-        }
+        "testimonials": {}
     },
     "ContactSection": {
         "title": "CONTACT",
         "backtitle": "LET'S TALK",
         "subtitle": "Chat with me",
-        "description": "I'd love to hear from you. Please fill out this form or shoot me an email.",
+        "description": "I'd love to hear from you. Please fill out this form or send me an email.",
         "contactMethods": {
             "email": {
                 "type": "Email",
@@ -239,7 +316,7 @@
             "phone": {
                 "type": "Phone",
                 "value": "+229 0166474345",
-                "description": "Mon-Fri from 8am to 5pm."
+                "description": "Monday to Friday, 8am to 5pm."
             }
         },
         "socialLinks": {
@@ -261,23 +338,7 @@
     "BlogSection": {
         "title": "BLOG",
         "backtitle": "POSTS",
-        "posts": {
-            "0": {
-                "title": "Lorem Ipsum Dolor Sit Amet",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam, perferendis dignissimos nulla enim cumque, eaque aut nemo eveniet quaerat excepturi!",
-                "date": "2025/02/18"
-            },
-            "1": {
-                "title": "Lorem Ipsum Dolor Sit Amet",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam, perferendis dignissimos nulla enim cumque, eaque aut nemo eveniet quaerat excepturi!",
-                "date": "2025/02/27"
-            },
-            "2": {
-                "title": "Lorem Ipsum Dolor Sit Amet",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam, perferendis dignissimos nulla enim cumque, eaque aut nemo eveniet quaerat excepturi!",
-                "date": "2025/01/13"
-            }
-        }
+        "posts": {}
     },
     "Language": {
         "title": "Languages",

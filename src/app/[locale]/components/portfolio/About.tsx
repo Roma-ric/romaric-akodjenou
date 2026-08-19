@@ -92,6 +92,7 @@ const About = () => {
             <ul className="list-disc">
               <li>{t("experiences.carrefoot.responsibilities.0")}</li>
               <li> {t("experiences.carrefoot.responsibilities.1")} </li>
+              <li> {t("experiences.carrefoot.responsibilities.2")} </li>
             </ul>
           </div>
         </div>
@@ -126,6 +127,8 @@ const About = () => {
             <ul className="list-disc">
               <li>{t("experiences.fidevo.responsibilities.0")}</li>
               <li> {t("experiences.fidevo.responsibilities.1")} </li>
+              <li> {t("experiences.fidevo.responsibilities.2")} </li>
+              <li> {t("experiences.fidevo.responsibilities.3")} </li>
             </ul>
           </div>
         </div>
@@ -144,6 +147,7 @@ const About = () => {
               <li>{t("experiences.romas.responsibilities.0")}</li>
               <li> {t("experiences.romas.responsibilities.1")} </li>
               <li> {t("experiences.romas.responsibilities.2")} </li>
+              <li> {t("experiences.romas.responsibilities.3")} </li>
             </ul>
           </div>
         </div>
@@ -459,14 +463,14 @@ const About = () => {
                       {about.personalInfo.lastName.value}
                     </span>
                   </div>
-                  <div className="flex space-x-3">
+                  {/* <div className="flex space-x-3">
                     <span className="text-stone-500 dark:text-stone-400 whitespace-nowrap">
                       {about.personalInfo.birthdate.label} :
                     </span>
                     <span className="font-semibold whitespace-nowrap ">
                       {about.personalInfo.birthdate.value}
                     </span>
-                  </div>
+                  </div> */}
                   <div className="flex space-x-3">
                     <span className="text-stone-500 dark:text-stone-400 whitespace-nowrap">
                       {about.personalInfo.nationality.label} :

@@ -72,8 +72,8 @@
                 "position": "Développeur Frontend",
                 "period": "Juil 2025 - Nov 2025",
                 "responsibilities": {
-                    "0": "Création de modèles web.",
-                    "1": "Développement de sites vitrines et d’applications web.",
+                    "0": "Développement d'une application de gestion d'immigration au Canada.",
+                    "1": "Développement du landing page d'une application d'expédition de marchandises de la Chine vers le Bénin et le Togo dotée d'un formulaire de déclaration de colis.",
                     "2": "Intégration d’API REST."
                 }
             },
@@ -82,8 +82,9 @@
                 "position": "Développeur Frontend",
                 "period": "Déc 2024 - Présent",
                 "responsibilities": {
-                    "0": "Développement de template web et d'application web.",
-                    "1": "Intégration d’API REST."
+                    "0": "Co-développement de plateformes d'activités football (actualités, vote).",
+                    "1": "Développement de template web.",
+                    "2": "Intégration d’API REST."
                 }
             },
             "explotel": {
@@ -91,52 +92,149 @@
                 "position": "Développeur Full Stack",
                 "period": "Sept 2024 - Mai 2025",
                 "responsibilities": {
-                    "0": "Développement de template web et d'application web.",
-                    "1": "Intégration d’API REST."
+                    "0": "Co-développement d'une plateforme de billetterie en ligne permettant aux utilisateurs de vendre, de rechercher et de réserver des tickets.",
+                    "1": "Intégration d'API REST."
                 }
             },
             "fidevo": {
-                "company": "Fidevo",
+                "company": "Fidevo Group",
                 "position": "Développeur Frontend",
                 "period": "Mai 2024 - Présent",
                 "responsibilities": {
-                    "0": "Développement de site vitrine, d’interfaces utilisateurs réactives et interactives.",
-                    "1": "Intégration d’API REST."
+                    "0": "Co-développement de la version web de la plateforme de commerce social Friym.",
+                    "1": "Développement du site de présentation de la marque Friym.",
+                    "2": "Implémentation d'interfaces web à partir de maquettes Figma.",
+                    "3": "Intégration d’API REST."
                 }
             },
             "romas": {
                 "company": "ROMAS Technologie",
-                "position": "Développeur Full Stack",
+                "position": "Stage académique",
                 "period": "Mar 2024 - Juin 2024",
                 "responsibilities": {
-                    "0": "Développement d’une application de gestion des employés pour une entreprise (demandes, congés, permissions, etc.).",
-                    "1": "Développement d’une application d’automatisation et d’optimisation du processus d’archivage.",
+                    "0": "Développement d’une application de gestion du personnel d’une entreprise (demandes, congés, permissions, etc.).",
+                    "1": "Co-développement d’une application d’automatisation et d’optimisation du processus d’archivage.",
                     "2": "Création et intégration d’API REST.",
-                    "3": "Débogage et tests de diverses applications."
+                    "3": "Débogage et vérification fonctionnelle des applications."
                 }
             },
             "payPlus": {
                 "company": "PayPlus Africa",
-                "position": "Développeur Frontend",
+                "position": "Stage académique",
                 "period": "Août 2023 - Sep 2023",
                 "responsibilities": {
-                    "0": "Développement d’un module d’interface utilisateur pour une application e-commerce."
+                    "0": "Développement d’un module d’interface utilisateur pour une application d’e-commerce."
                 }
             }
         },
         "skills": {
             "title": "Compétences techniques",
-            "html": "HTML",
-            "css": "CSS",
-            "javascript": "JavaScript",
-            "typescript": "TypeScript",
-            "bootstrap": "Bootstrap",
-            "tailwind": "Tailwind CSS",
-            "reactjs": "React.js",
-            "vuejs": "Vue.js",
-            "nextjs": "Next.js",
-            "nodejs": "Node.js",
-            "mongodb": "MongoDB"
+            "web": {
+                "title": "Développement Web",
+                "period": "Janv 2022 - Présent",
+                "technologies": {
+                    "html": "HTML",
+                    "css": "CSS",
+                    "javascript": "JavaScript",
+                    "typescript": "TypeScript",
+                    "reactjs": "React.js",
+                    "nextjs": "Next.js",
+                    "reactQuery": "React Query",
+                    "zustand": "Zustand"
+                }
+            },
+            "ui": {
+                "title": "Librairies & Outils UI",
+                "technologies": {
+                    "figma": "Figma",
+                    "tailwind": "Tailwind CSS",
+                    "shadcn": "Shadcn/ui",
+                    "framerMotion": "Framer Motion"
+                }
+            },
+            "versioning": {
+                "title": "Versioning",
+                "technologies": {
+                    "git": "Git",
+                    "github": "GitHub",
+                    "gitlab": "GitLab"
+                }
+            },
+            "deployment": {
+                "title": "Déploiement",
+                "technologies": {
+                    "github": "GitHub",
+                    "vercel": "Vercel",
+                    "continuousDeployment": "Déploiement continu"
+                }
+            },
+            "documentation": {
+                "title": "Documentation technique",
+                "technologies": {
+                    "markdown": "Markdown"
+                }
+            }
+        },
+        "education": {
+            "title": "Formations",
+            "professionalBachelor": {
+                "degree": "Licence professionnelle en Informatique de Gestion",
+                "period": "Oct 2021 - Juil 2024",
+                "institution": "Institut Universitaire de Technologie (IUT), Université de Parakou (Bénin)"
+            },
+            "computerMaintenance": {
+                "degree": "Formation en Maintenance Informatique (Software)",
+                "period": "Août 2022 - Sep 2022",
+                "institution": "AGEMA-BENIN, Calavi (Bénin)"
+            },
+            "baccalaureate": {
+                "degree": "Baccalauréat série D (BAC D)",
+                "period": "Oct 2018 - Juin 2021",
+                "institution": "CEG1 AKPRO-MISSÉRÉTÉ (Bénin)"
+            }
+        },
+        "languages": {
+            "title": "Langues",
+            "french": {
+                "label": "Français",
+                "level": "Courant"
+            },
+            "english": {
+                "label": "Anglais",
+                "level": "Intermédiaire"
+            }
+        },
+        "hobbies": {
+            "title": "Hobbies et centres d'intérêt",
+            "items": {
+                "music": "Musique",
+                "programming": "Programmation",
+                "animeManga": "Animé / Manga"
+            }
+        },
+        "qualities": {
+            "title": "Qualités",
+            "items": {
+                "teamwork": "Capacité à travailler en équipe",
+                "analysis": "Bonne capacité d’analyse",
+                "frontendPassion": "Passionné par les technologies frontend JS",
+                "learning": "Bonne capacité d'apprentissage"
+            }
+        },
+        "references": {
+            "title": "Références",
+            "abdulKondo": {
+                "name": "Abdul A. KONDO",
+                "position": "CEO - Fidevo",
+                "location": "Porto-Novo",
+                "phone": "+2290190757450"
+            },
+            "arnaudLokonon": {
+                "name": "Arnaud F. LOKONON",
+                "position": "Développeur Fullstack - PayPlus",
+                "location": "Cotonou",
+                "phone": "+2290168947612"
+            }
         }
     },
     "ServicesSection": {
@@ -179,52 +277,31 @@
                 "description": "Site de recherche de vendeurs pour la plateforme Friym."
             },
             "simam-cargo": {
-                "title": "Site vitrine",
-                "description": "Site de présentation pour les services de cargo et transport international."
+                "title": "SIMAM Cargo",
+                "description": "Landing page pour une application d'expédition de marchandises de la Chine vers le Bénin et le Togo avec formulaire de déclaration de colis."
             },
             "simam-immigration": {
-                "title": "Site vitrine",
-                "description": "Site informatif pour les services d'immigration."
+                "title": "SIMAM Immigration",
+                "description": "Application de gestion d'immigration au Canada."
             },
             "template-carrefoot-1": {
                 "title": "Template Carréfoot 1",
-                "description": "Template web de la plateforme Carréfoot."
+                "description": "Template web développé pour Carréfoot."
             },
             "template-carrefoot-2": {
                 "title": "Template Carréfoot 2",
-                "description": "Template web de la plateforme Carréfoot."
+                "description": "Template web développé pour Carréfoot."
             },
             "portfolio": {
                 "title": "Portfolio",
-                "description": "Mon portfolio."
+                "description": "Portfolio personnel de Romaric AKODJENOU."
             },
             "timer": {
                 "title": "Timer",
                 "description": "Minuteur pour gérer le temps et les tâches."
             }
         },
-        "testimonials": {
-            "0": {
-                "quote": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, modi consequuntur reprehenderit nulla praesentium.",
-                "name": "Lorem dolor",
-                "position": "Lorem ipsum dolor"
-            },
-            "1": {
-                "quote": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, modi consequuntur reprehenderit nulla praesentium.",
-                "name": "Lorem dolor",
-                "position": "Lorem ipsum dolor"
-            },
-            "2": {
-                "quote": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, modi consequuntur reprehenderit nulla praesentium.",
-                "name": "Lorem dolor",
-                "position": "Lorem ipsum dolor"
-            },
-            "3": {
-                "quote": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, modi consequuntur reprehenderit nulla praesentium.",
-                "name": "Lorem dolor",
-                "position": "Lorem ipsum dolor"
-            }
-        }
+        "testimonials": {}
     },
     "ContactSection": {
         "title": "CONTACT",
@@ -261,23 +338,7 @@
     "BlogSection": {
         "title": "BLOG",
         "backtitle": "POSTS",
-        "posts": {
-            "0": {
-                "title": "Lorem Ipsum Dolor Sit Amet",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam.",
-                "date": "2025/02/18"
-            },
-            "1": {
-                "title": "Lorem Ipsum Dolor Sit Amet",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam.",
-                "date": "2025/02/27"
-            },
-            "2": {
-                "title": "Lorem Ipsum Dolor Sit Amet",
-                "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil mollitia delectus nisi repellendus maxime optio vero fugit ullam.",
-                "date": "2025/01/13"
-            }
-        }
+        "posts": {}
     },
     "Language": {
         "title": "Langues",
@@ -288,7 +349,7 @@
         "home": "Accueil",
         "about": "À propos",
         "services": "Services",
-        "projects": "Projects",
+        "projects": "Projets",
         "contact": "Contact",
         "blog": "Blog"
     }
