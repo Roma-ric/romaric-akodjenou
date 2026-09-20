@@ -6,7 +6,15 @@
             "1": "FREELANCE"
         },
         "description": "Je construis des interfaces web rapides, solides et sans fioritures. Pas de jargon, pas de templates recyclés : du code propre, pensé pour l’utilisateur et livré dans les temps.",
-        "moreText": "MON PARCOURS"
+        "moreText": "MON PARCOURS",
+        "tags": {
+            "0": "DÉVELOPPEUR FRONT-END",
+            "1": "REACT & NEXT.JS",
+            "2": "FREELANCE DISPONIBLE",
+            "3": "CODE PROPRE",
+            "4": "PIXEL PERFECT",
+            "5": "BASÉ AU BÉNIN"
+        }
     },
     "AboutSection": {
         "title": "À PROPOS",

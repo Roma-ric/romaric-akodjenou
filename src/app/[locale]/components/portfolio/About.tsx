@@ -406,6 +406,7 @@ const About = () => {
         text={about.title}
         percentage={50}
         backgroundText="RESUME"
+        number="01"
       />
 
       <div className="min-w-[22rem] w-[70%] scr_2_2:w-[88%] px-3 scr_2_0:flex-col flex justify-center items-center mx-auto mt-10 scr_2_2:mt-0">

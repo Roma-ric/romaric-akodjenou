@@ -102,6 +102,7 @@ const Projects = () => {
         text={projectsData.title}
         percentage={50}
         backgroundText="WORKS"
+        number="03"
       />
 
       <div className="w-[70%] scr_2_2:w-[88%] scr_4:w-[95%] px-3 mx-auto">

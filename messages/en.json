@@ -6,7 +6,15 @@
             "1": "FREELANCER"
         },
         "description": "I build web interfaces that are fast, solid, and free of fluff. No jargon, no recycled templates — clean code, designed for the user and shipped on time.",
-        "moreText": "MY JOURNEY"
+        "moreText": "MY JOURNEY",
+        "tags": {
+            "0": "FRONT-END DEVELOPER",
+            "1": "REACT & NEXT.JS",
+            "2": "AVAILABLE FOR FREELANCE",
+            "3": "CLEAN CODE",
+            "4": "PIXEL PERFECT",
+            "5": "BASED IN BENIN"
+        }
     },
     "AboutSection": {
         "title": "ABOUT ME",

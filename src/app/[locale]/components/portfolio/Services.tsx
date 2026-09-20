@@ -70,6 +70,7 @@ const Services = () => {
         text={serviceData.title}
         percentage={50}
         backgroundText="OFFERINGS"
+        number="02"
       />
 
       <div className="w-[70%] scr_2_2:w-[88%] scr_4:w-[95%] px-3 grid grid-cols-3 scr_2:grid-cols-2 scr_3_0:grid-cols-1 gap-5 mx-auto mt-20">

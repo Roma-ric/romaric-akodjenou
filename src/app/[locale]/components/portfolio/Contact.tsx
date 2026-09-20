@@ -74,6 +74,7 @@ const Contact = () => {
         text={contactData.title}
         percentage={50}
         backgroundText="LET'S TALK"
+        number="04"
       />
 
       <div className="w-[70%] scr_2_2:w-[88%] scr_4:w-[95%] px-3 mx-auto mt-5">

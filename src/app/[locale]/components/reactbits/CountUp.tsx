@@ -91,7 +91,7 @@ export default function CountUp({
     }, [springValue, separator]);
 
     return (
-        <div className="brutal-card">
+        <div className="brutal-card brutal-marks">
             <div className="flex flex-col pl-10 py-5">
                 <p className="min-w-10 max-w-10 text-5xl font-display font-bold text-accent">
                     <span ref={ref}/>

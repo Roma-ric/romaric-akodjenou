@@ -9,6 +9,7 @@ const Hero = () => {
   const t = useTranslations("HeroSection");
 
   const profile = [t("profile.0"), t("profile.1")];
+  const nameWords = t("title").replace(/\.$/, "").split(" ");
 
   return (
     <div
@@ -24,7 +25,7 @@ const Hero = () => {
       <div className="relative w-full scr_2_0:overflow-y-auto scr_2_0:h-auto scr_2_0:flex-col z-40 h-screen flex">
         {/* Section photo */}
         <div className="w-1/2 scr_4_0:hidden scr_2_0:w-full scr_2_0:justify-center z-40 flex py-10 scr_2_0:pb-0 justify-start bg-transparent items-center relative p-8">
-          <div className="w-full h-full max-w-md xl:max-w-[90%] scr_2_0:max-w-none scr_2_0:w-[16.875rem] scr_2_0:h-[16.875rem] scr_4:w-[14.875rem] scr_4:h-[14.875rem] scr_2_0:mx-auto brutal-border brutal-shadow rounded-none overflow-hidden bg-foreground rotate-[-1.5deg]">
+          <div className="w-full h-full max-w-md xl:max-w-[90%] scr_2_0:max-w-none scr_2_0:w-[16.875rem] scr_2_0:h-[16.875rem] scr_4:w-[14.875rem] scr_4:h-[14.875rem] scr_2_0:mx-auto brutal-border brutal-shadow brutal-marks rounded-none overflow-hidden bg-foreground rotate-[-1.5deg]">
             <img
               src="/files/profile-bg.png"
               alt={t("title")}
@@ -36,17 +37,30 @@ const Hero = () => {
         {/* Section texte */}
         <div className="w-1/2 scr_2_0:w-full scr_2_0:items-center scr_2_0:mr-0 flex flex-col justify-center p-8 scr_2_0:pt-0 mr-20 text-foreground">
           <div className="scr_2_0:flex scr_2_0:flex-col scr_2_0:items-center">
-            {/* Nom */}
-            <h1 className="scr_4:text-center whitespace-nowrap brutal-tag items-center text-lg scr_2_0:text-base font-bold mb-4">
-              <span className="mr-4 scr_4:hidden text-accent">—</span>
-              {t("title")}
+            {/* Kicker numéroté */}
+            <div className="brutal-kicker mb-5 scr_2_0:mx-auto">
+              <span>N°00</span>
+              <span aria-hidden="true">—</span>
+              <span>HOME</span>
+            </div>
+
+            {/* Nom : titre géant en poster */}
+            <h1 className="scr_4:text-center font-display font-black uppercase leading-[0.85] text-7xl scr_2_0:text-6xl scr_4:text-5xl scr_4_2:text-4xl mb-6">
+              {nameWords.map((word, index) => (
+                <span key={index} className="block">
+                  {word}
+                  {index === nameWords.length - 1 && (
+                    <span className="text-accent">.</span>
+                  )}
+                </span>
+              ))}
             </h1>
 
             {/* Profil */}
-            <h2 className="text-5xl scr_2_0:text-4xl scr_4:text-2xl font-display font-bold mb-6 pointer-events-none uppercase leading-none scr_4:leading-tight">
+            <h2 className="text-4xl scr_2_0:text-3xl scr_4:text-2xl font-display font-bold mb-6 pointer-events-none uppercase leading-none scr_4:leading-tight">
               <RotatingText
                 texts={profile}
-                mainClassName="px-3 py-1 text-5xl scr_2_0:text-4xl scr_4:text-2xl bg-accent text-accent-foreground brutal-border brutal-shadow-sm w-max max-w-[85vw] overflow-hidden justify-center rounded-none"
+                mainClassName="px-3 py-1 text-4xl scr_2_0:text-3xl scr_4:text-xl bg-accent text-accent-foreground brutal-border brutal-shadow-sm w-max max-w-[85vw] overflow-hidden justify-center rounded-none"
                 staggerFrom="first"
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}

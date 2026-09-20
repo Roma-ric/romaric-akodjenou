@@ -148,4 +148,53 @@
   .brutal-tag {
     @apply font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground;
   }
+
+  .brutal-kicker {
+    @apply inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.25em] text-accent brutal-border bg-foreground text-background px-3 py-1 w-max;
+  }
+
+  /* Print-style registration marks in the accent color, for a signature flourish on key elements */
+  .brutal-marks {
+    position: relative;
+  }
+
+  .brutal-marks::before,
+  .brutal-marks::after {
+    content: "+";
+    position: absolute;
+    font-family: var(--font-space-grotesk), monospace;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: hsl(var(--accent));
+    pointer-events: none;
+  }
+
+  .brutal-marks::before {
+    top: -0.7rem;
+    left: -0.7rem;
+  }
+
+  .brutal-marks::after {
+    bottom: -0.7rem;
+    right: -0.7rem;
+  }
+
+  .marquee-track {
+    animation: brutal-marquee 22s linear infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+}
+
+@keyframes brutal-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
