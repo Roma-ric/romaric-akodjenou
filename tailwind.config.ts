@@ -16,6 +16,11 @@ export default {
 	darkMode: ["class"],
 	theme: {
 		extend: {
+			fontFamily: {
+				sans: ["var(--font-archivo)", "sans-serif"],
+				display: ["var(--font-space-grotesk)", "sans-serif"],
+				mono: ["var(--font-space-grotesk)", "monospace"],
+			},
 			colors: {
 				gray: 'var(--gray)',
 				primary: {
@@ -148,6 +153,10 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			boxShadow: {
+				brutal: '6px 6px 0 0 hsl(var(--brutal-shadow-color))',
+				'brutal-sm': '4px 4px 0 0 hsl(var(--brutal-shadow-color))',
 			}
 		}
 	},
