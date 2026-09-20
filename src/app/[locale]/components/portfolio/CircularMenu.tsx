@@ -55,7 +55,7 @@ const CircularMenu = ({
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white"
+          className="h-6 w-6 "
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -76,7 +76,7 @@ const CircularMenu = ({
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white"
+          className="h-6 w-6 "
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -97,7 +97,7 @@ const CircularMenu = ({
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white"
+          className="h-6 w-6 "
           fill="none"
           stroke="currentColor"
           strokeLinecap="round"
@@ -118,7 +118,7 @@ const CircularMenu = ({
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white"
+          className="h-6 w-6 "
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -139,7 +139,7 @@ const CircularMenu = ({
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white"
+          className="h-6 w-6 "
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -160,7 +160,7 @@ const CircularMenu = ({
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white"
+          className="h-6 w-6 "
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -445,7 +445,7 @@ const CircularMenu = ({
       </AnimatePresence>
 
       <motion.button
-        className="relative flex h-12 w-12 bg-gradient-to-br from-[#18181B] to-[#27272A] items-center justify-center rounded-full text-white shadow-lg overflow-hidden z-50"
+        className="relative flex h-12 w-12 bg-foreground text-background brutal-border brutal-shadow-sm items-center justify-center rounded-none overflow-hidden z-50"
         onClick={() => setIsOpen(!isOpen)}
         animate={{
           rotate: isOpen ? 180 : 0,
@@ -489,10 +489,10 @@ const CircularMenu = ({
                 <Popover>
                   <PopoverTrigger asChild>
                     <motion.div
-                      className={`flex h-10 w-10 items-center justify-center rounded-full text-white shadow-lg overflow-hidden ${
+                      className={`flex h-10 w-10 items-center justify-center rounded-none brutal-border overflow-hidden ${
                         current_anchor === item?.endpoint
-                          ? "bg-yellow-500 hover:bg-yellow-500"
-                          : "bg-black dark:bg-zinc-700"
+                          ? "bg-accent text-accent-foreground"
+                          : "bg-foreground text-background"
                       }`}
                       custom={i}
                       variants={menuVariants}
@@ -564,7 +564,7 @@ const CircularMenu = ({
                   <PopoverContent
                     sideOffset={5}
                     side="top"
-                    className={`w-max hidden py-1.5 uppercase -mr-2 -mt-5 bg-black text-white dark:bg-white dark:text-black`}
+                    className={`w-max hidden py-1.5 font-display font-bold uppercase -mr-2 -mt-5 rounded-none brutal-border bg-foreground text-background`}
                   >
                     <p>{item.tooltip}</p>
                   </PopoverContent>

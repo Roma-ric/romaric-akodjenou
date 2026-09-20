@@ -76,24 +76,24 @@ const Services = () => {
         {services?.map((item, index) => (
           <div
             key={index}
-            className="rounded-lg h-full w-full p-4 overflow-hidden bg-black/[0.8] dark:bg-white dark:bg-opacity-10 border border-transparent dark:border-white/[0.2] group relative z-20"
+            className="brutal-card brutal-interactive rounded-none h-full w-full p-4 overflow-hidden bg-foreground text-background group relative z-20"
           >
             <div className="relative z-50">
               <div className="p-4">
                 <div className="relative w-max">
-                  <div className="bg-yellow-500/[0.4] z-30 text-yellow-500 p-2.5 w-max rounded-md">
+                  <div className="bg-accent z-30 text-accent-foreground brutal-border p-2.5 w-max rounded-none">
                     {item?.icon}
                   </div>
-                  <div className="absolute top-0 bg-white/[0.1] group-hover:skew-x-0  transform transition-transform duration-300 scale-105 group-hover:scale-100 group-hover:skew-y-0 -skew-x-12 group-hover:mx-0 group-hover:mt-0 mx-1 -mt-2 skew-y-12 z-20 p-2.5 w-max rounded-md">
+                  <div className="absolute top-0 bg-background/[0.15] group-hover:skew-x-0  transform transition-transform duration-300 scale-105 group-hover:scale-100 group-hover:skew-y-0 -skew-x-12 group-hover:mx-0 group-hover:mt-0 mx-1 -mt-2 skew-y-12 z-20 p-2.5 w-max rounded-none">
                     <div className="opacity-0">{item?.icon}</div>
                   </div>
                 </div>
                 <div className="mt-3">
-                  <h2 className="text-xl font-bold text-white dark:text-white/[0.8] mb-2">
+                  <h2 className="text-xl font-display font-bold mb-2">
                     {" "}
                     {item?.label}{" "}
                   </h2>
-                  <p className="text-white">{item?.description}</p>
+                  <p>{item?.description}</p>
                 </div>
               </div>
             </div>

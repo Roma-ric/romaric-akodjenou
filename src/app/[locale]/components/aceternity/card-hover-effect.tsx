@@ -36,7 +36,7 @@ export const HoverEffect = ({ items, className }: HoverEffectProps) => {
             <AnimatePresence>
               {hoveredIndex === idx && (
                 <motion.div
-                  className="absolute z-30 cursor-pointer px-4 flex flex-col pb-4 justify-end text-center h-full w-full bg-neutral-800/[0.7] rounded-xl"
+                  className="absolute z-30 cursor-pointer px-4 flex flex-col pb-4 justify-end text-center h-full w-full bg-foreground/[0.75] rounded-none"
                   layoutId=""
                   initial={{ opacity: 0 }}
                   animate={{
@@ -48,12 +48,12 @@ export const HoverEffect = ({ items, className }: HoverEffectProps) => {
                     transition: { duration: 0.15, delay: 0.05 },
                   }}
                 >
-                  <div className="py-2 px-4 w-full flex justify-between rounded-lg text-start bg-white dark:bg-white dark:text-black">
+                  <div className="py-2 px-4 w-full flex justify-between rounded-none brutal-border text-start bg-background text-foreground">
                     <div className="flex-1">
-                      <h1 className="font-bold text-xl"> {item?.title} </h1>
+                      <h1 className="font-display font-bold text-xl"> {item?.title} </h1>
                       <p> {item?.description} </p>
                     </div>
-                    <div className="w-8 h-8 cursor-pointer flex justify-center items-center bg-yellow-500 rounded-full text-white">
+                    <div className="w-8 h-8 shrink-0 cursor-pointer flex justify-center items-center bg-accent brutal-border rounded-none text-accent-foreground">
                       <CircleArrowOutUpRight className="w-5 h-5 -ml-[0.05rem] -mb-0.5" />
                     </div>
                   </div>
@@ -88,7 +88,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-xl z-20 aspect-square h-full w-full overflow-hidden bg-black border border-dashed dark:border-white/[0.35] group-hover:border-slate-700 relative",
+        "rounded-none z-20 aspect-square h-full w-full overflow-hidden bg-foreground brutal-border brutal-shadow group-hover:translate-x-[3px] group-hover:translate-y-[3px] group-hover:shadow-brutal-sm transition-transform duration-150 ease-out relative",
         className,
       )}
     >

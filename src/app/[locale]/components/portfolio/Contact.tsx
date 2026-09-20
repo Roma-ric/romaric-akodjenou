@@ -80,10 +80,10 @@ const Contact = () => {
         <section className="w-full">
           <div className="pb-12 mx-auto w-full">
             <div>
-              <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-neutral-800 dark:text-neutral-200 mt-16 scr_2_0:mt-10">
+              <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-foreground mt-16 scr_2_0:mt-10">
                 {contactData.subtitle}
               </h2>
-              <p className="mt-3 text-gray-500 dark:text-gray-400">
+              <p className="mt-3 text-muted-foreground">
                 {contactData.description}
               </p>
             </div>
@@ -93,15 +93,14 @@ const Contact = () => {
                 <div className="grid grid-cols-[minmax(16rem,1fr] scr_2_1:grid-cols-2 scr_3_1:grid-cols-1 gap-8 h-max mb-5">
                   {contactMethods.map((method, index) => (
                     <a href={method.link} key={index}>
-                      <div className="bg-black/[0.8] dark:bg-white/[0.1] rounded-lg p-5 border">
-                        <span className="inline-block p-3 text-yellow-500 rounded-full bg-yellow-100/[0.1] dark:bg-gray-800">
+                      <div className="brutal-card brutal-interactive rounded-none p-5 bg-foreground text-background">
+                        <span className="inline-block p-3 text-accent-foreground rounded-none brutal-border bg-accent">
                           {method.icon}
                         </span>
-                        <h2 className="mt-4 text-base font-medium text-white">
+                        <h2 className="mt-4 text-base font-display font-medium">
                           {method.title}
                         </h2>
-                        {/* <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">{method.description}</p> */}
-                        <p className="mt-2 text-sm text-yellow-500 dark:text-yellow-400">
+                        <p className="mt-2 text-sm text-accent">
                           {method.contact}
                         </p>
                       </div>
@@ -113,60 +112,60 @@ const Contact = () => {
                 </div>
               </div>
 
-              <div className="p-4 py-6 scr_3_1:w-full bg-black/[0.8] dark:bg-white/[0.1] border rounded-lg bg-gray-50 dark:bg-gray-800">
-                <p className="pb-2 font-semibold text-white ">
+              <div className="p-4 py-6 scr_3_1:w-full brutal-card rounded-none bg-card">
+                <p className="pb-2 font-display font-semibold">
                   {" "}
                   {contactData.formNotice}{" "}
                 </p>
                 <form className="">
                   <div className="-mx-2 flex scr_3_1:flex-col">
                     <div className="flex-1 px-2">
-                      <label className="block mb-2 text-sm text-white">
+                      <label className="block mb-2 text-sm">
                         {contactData.formFields.firstName}
                       </label>
                       <input
                         type="text"
                         placeholder={contactData.formFields.firstName}
-                        className="block w-full text-black px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                        className="block w-full px-5 py-2.5 mt-2 bg-background text-foreground placeholder-muted-foreground brutal-border rounded-none focus:outline-none focus:ring-2 focus:ring-accent"
                       />
                     </div>
 
                     <div className="flex-1 px-2">
-                      <label className="block mb-2 text-sm text-white">
+                      <label className="block mb-2 text-sm">
                         {contactData.formFields.lastName}
                       </label>
                       <input
                         type="text"
                         placeholder={contactData.formFields.lastName}
-                        className="block w-full text-black px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                        className="block w-full px-5 py-2.5 mt-2 bg-background text-foreground placeholder-muted-foreground brutal-border rounded-none focus:outline-none focus:ring-2 focus:ring-accent"
                       />
                     </div>
                   </div>
 
                   <div className="mt-4">
-                    <label className="block mb-2 text-sm text-white">
+                    <label className="block mb-2 text-sm">
                       {contactData.formFields.email}
                     </label>
                     <input
                       type="email"
                       placeholder="adress@example.com"
-                      className="block w-full text-black px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                      className="block w-full px-5 py-2.5 mt-2 bg-background text-foreground placeholder-muted-foreground brutal-border rounded-none focus:outline-none focus:ring-2 focus:ring-accent"
                     />
                   </div>
 
                   <div className="w-full mt-4">
-                    <label className="block mb-2 text-sm text-white">
+                    <label className="block mb-2 text-sm">
                       {contactData.formFields.message}
                     </label>
                     <textarea
-                      className="block w-full text-black h-32 px-5 py-2.5 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-yellow-400 dark:focus:border-yellow-400 focus:ring-yellow-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                      className="block w-full h-32 px-5 py-2.5 mt-2 bg-background text-foreground placeholder-muted-foreground brutal-border rounded-none focus:outline-none focus:ring-2 focus:ring-accent"
                       placeholder="Message"
                     ></textarea>
                   </div>
 
                   <button
                     disabled
-                    className="w-full px-6 py-3 mt-4 text-black text-sm font-medium tracking-wide dark:text-white capitalize transition-colors duration-300 transform bg-yellow-500 rounded-lg hover:bg-yellow-400 focus:outline-none focus:ring focus:ring-yellow-300 focus:ring-opacity-50"
+                    className="brutal-btn w-full mt-4 text-sm disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {contactData.formFields.submitButton}
                   </button>

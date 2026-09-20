@@ -105,7 +105,7 @@ const Projects = () => {
       />
 
       <div className="w-[70%] scr_2_2:w-[88%] scr_4:w-[95%] px-3 mx-auto">
-        <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-neutral-800 dark:text-neutral-200 mt-16 scr_2_0:mt-7">
+        <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-foreground mt-16 scr_2_0:mt-7">
           {projectsData.subtitle}
         </h2>
         <div className="mt-0 scr_2_0:-mt-7">
@@ -114,7 +114,7 @@ const Projects = () => {
       </div>
 
       {/* <div className="w-[70%] scr_2_2:w-[88%] px-3 mx-auto mt-10 scr_2_0:mt-0 z-40">
-        <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-neutral-800 dark:text-neutral-200 mt-16 scr_2_0:mt-10">
+        <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-foreground mt-16 scr_2_0:mt-10">
           Testimonials
         </h2>
         <AnimatedTestimonials testimonials={testimonials} />
