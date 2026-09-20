@@ -26,8 +26,8 @@ const ScrollToTop = () => {
     return (
         <button
             onClick={() => scrollToTop()}
-            className={`fixed ${isVisible ? 'block' : 'hidden'} right-0 bottom-0 p-2 bg-black dark:bg-white rounded-full focus:outline-none focus:ring-0 z-50 m-5`}>
-            <ArrowUp className="w-5 h-5 text-white dark:text-black" />
+            className={`fixed ${isVisible ? 'block' : 'hidden'} right-0 bottom-0 p-2 bg-foreground text-background brutal-border brutal-shadow-sm brutal-interactive rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent z-50 m-5`}>
+            <ArrowUp className="w-5 h-5" />
         </button>
     );
 };

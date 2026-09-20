@@ -25,7 +25,7 @@ const Menu = () => {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white"
+          className="h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -46,7 +46,7 @@ const Menu = () => {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white"
+          className="h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -67,7 +67,7 @@ const Menu = () => {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white"
+          className="h-6 w-6"
           fill="none"
           stroke="currentColor"
           strokeLinecap="round"
@@ -88,7 +88,7 @@ const Menu = () => {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white"
+          className="h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -109,7 +109,7 @@ const Menu = () => {
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 text-white"
+          className="h-6 w-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -130,7 +130,7 @@ const Menu = () => {
     //   icon: (
     //     <svg
     //       xmlns="http://www.w3.org/2000/svg"
-    //       className="h-6 w-6 text-white"
+    //       className="h-6 w-6"
     //       fill="none"
     //       viewBox="0 0 24 24"
     //       stroke="currentColor"
@@ -159,13 +159,13 @@ const Menu = () => {
             onClick={() => navigateToSection(item?.endpoint)}
           >
             <div
-              className={`group w-max transform transition-transform duration-300 hover:-translate-y-1 ${
+              className={`group w-max brutal-border brutal-shadow-sm brutal-interactive ${
                 current_anchor === item?.endpoint
-                  ? "bg-yellow-500 hover:bg-yellow-500"
-                  : "bg-black dark:bg-zinc-700"
-              } flex justify-end items-center hover:bg-yellow-500 dark:hover:bg-yellow-500 p-3.5 rounded-full cursor-pointer`}
+                  ? "bg-accent text-accent-foreground"
+                  : "bg-foreground text-background"
+              } flex justify-end items-center hover:bg-accent hover:text-accent-foreground p-3.5 rounded-none cursor-pointer`}
             >
-              <span className="hidden group-hover:inline-block uppercase mr-4 text-white">
+              <span className="hidden group-hover:inline-block font-display font-bold uppercase mr-4">
                 {" "}
                 {item?.tooltip}{" "}
               </span>

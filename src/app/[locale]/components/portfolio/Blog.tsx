@@ -54,6 +54,7 @@ const Blog = () => {
         text={"BLOG"}
         percentage={50}
         backgroundText='POSTS'
+        number="05"
       />
 
       <div className='w-[70%] scr_2_2:w-[88%] scr_4:w-[95%] px-3 mx-auto mt-20'>

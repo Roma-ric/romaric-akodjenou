@@ -5,13 +5,21 @@
             "0": "FRONT-END DEVELOPER",
             "1": "FREELANCER"
         },
-        "description": "I am a frontend developer specialized in creating modern and high-performance web interfaces. Focused on innovation and efficiency, I design solutions tailored to users' needs to enhance their daily experience.",
-        "moreText": "MORE ABOUT ME"
+        "description": "I build web interfaces that are fast, solid, and free of fluff. No jargon, no recycled templates — clean code, designed for the user and shipped on time.",
+        "moreText": "MY JOURNEY",
+        "tags": {
+            "0": "FRONT-END DEVELOPER",
+            "1": "REACT & NEXT.JS",
+            "2": "AVAILABLE FOR FREELANCE",
+            "3": "CLEAN CODE",
+            "4": "PIXEL PERFECT",
+            "5": "BASED IN BENIN"
+        }
     },
     "AboutSection": {
         "title": "ABOUT ME",
         "backtitle": "RESUME",
-        "subtitle": "Personal infos",
+        "subtitle": "Spec sheet",
         "personalInfo": {
             "firstName": {
                 "label": "First Name",
@@ -242,43 +250,43 @@
         "backtitle": "OFFERINGS",
         "services": {
             "dev": {
-                "title": "Web Application Development",
-                "description": "Development of responsive and interactive websites using frontend JavaScript technologies."
+                "title": "Custom Web Development",
+                "description": "Fast, responsive sites and applications, built without bloat. From prototype to shipped product."
             },
             "integration": {
                 "title": "Web Integration",
-                "description": "Converting design mockups such as PSD, Figma and XD into functional and responsive websites with clean and optimized code."
+                "description": "Your Figma, PSD or XD mockups become clean, responsive, production-ready code. Pixel-perfect, no shortcuts."
             },
             "template": {
-                "title": "Template Integration & Customization",
-                "description": "Using and customizing templates to accelerate development and maintain visual consistency."
+                "title": "Template Customization",
+                "description": "I adapt and customize existing templates to move faster without sacrificing visual consistency or code quality."
             },
             "doc": {
                 "title": "Technical Documentation",
-                "description": "Creation of clear and comprehensive documentation to facilitate application understanding and maintenance."
+                "description": "Clear, structured documentation that saves the whole team time — not comments thrown randomly into the code."
             },
             "maintenance": {
                 "title": "IT Maintenance",
-                "description": "Technical support and software maintenance to ensure continuous performance and reliability."
+                "description": "Responsive support and ongoing maintenance to keep your applications stable, secure and performant."
             }
         }
     },
     "ProjectsSection": {
         "title": "PORTFOLIO",
         "backtitle": "WORKS",
-        "subtitle": "Projects",
+        "subtitle": "What I've built",
         "projects": {
             "brand": {
                 "title": "Friym Brand",
-                "description": "Friym brand presentation website."
+                "description": "Friym's brand showcase site, built to turn visitors into users."
             },
             "founders": {
                 "title": "Friym Founders Sellers",
-                "description": "Seller search website for the Friym platform."
+                "description": "Seller search platform for Friym."
             },
             "simam-cargo": {
                 "title": "SIMAM Cargo",
-                "description": "Landing page for a goods shipping application from China to Benin and Togo with a parcel declaration form."
+                "description": "Landing page for a goods shipping application from China to Benin and Togo, with a built-in parcel declaration form."
             },
             "simam-immigration": {
                 "title": "SIMAM Immigration",
@@ -306,8 +314,8 @@
     "ContactSection": {
         "title": "CONTACT",
         "backtitle": "LET'S TALK",
-        "subtitle": "Chat with me",
-        "description": "I'd love to hear from you. Please fill out this form or send me an email.",
+        "subtitle": "Let's talk about your project",
+        "description": "Got a project in mind? An opportunity worth grabbing? Write to me through the form or straight by email — I reply fast.",
         "contactMethods": {
             "email": {
                 "type": "Email",
@@ -326,7 +334,7 @@
             "whatsapp": "WhatsApp",
             "gmail": "Gmail"
         },
-        "formNotice": "This form is not working",
+        "formNotice": "Form under construction — reach me directly via the links alongside.",
         "formFields": {
             "firstName": "First Name",
             "lastName": "Last Name",

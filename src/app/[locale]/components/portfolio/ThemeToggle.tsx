@@ -9,13 +9,13 @@ export default function ThemeToggle(){
   return (
     <button
       onClick={toggleTheme}
-      className="fixed right-0 top-0 p-2 bg-black dark:bg-white rounded-full focus:outline-none focus:ring-0 z-50 m-5"
+      className="fixed right-0 top-0 p-2 bg-foreground text-background brutal-border brutal-shadow-sm brutal-interactive rounded-none focus:outline-none focus-visible:ring-2 focus-visible:ring-accent z-50 m-5"
       title={theme === 'dark' ? 'Passer au mode clair' : 'Passer au mode sombre'}
     >
       {theme === 'dark' ? (
-        <Sun className="h-5 w-5 text-black" />
+        <Sun className="h-5 w-5" />
       ) : (
-        <Moon className="h-5 w-5 text-white" />
+        <Moon className="h-5 w-5" />
       )}
     </button>
   );

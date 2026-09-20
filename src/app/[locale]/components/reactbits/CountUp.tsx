@@ -91,14 +91,14 @@ export default function CountUp({
     }, [springValue, separator]);
 
     return (
-        <div className="border rounded-md">
+        <div className="brutal-card brutal-marks">
             <div className="flex flex-col pl-10 py-5">
-                <p className="min-w-10 max-w-10 text-5xl font-bold text-yellow-500">
+                <p className="min-w-10 max-w-10 text-5xl font-display font-bold text-accent">
                     <span ref={ref}/>
                     <sup>+</sup>
                 </p>
                 <div className="text-lg flex items-start space-x-2">
-                    <hr className="w-6 py-[0.05rem] bg-stone-500" />
+                    <hr className="w-6 py-[0.05rem] bg-foreground border-0" />
                     <span className="uppercase font-medium max-w-[50%] -mt-2">{label}</span>
                 </div>
             </div>

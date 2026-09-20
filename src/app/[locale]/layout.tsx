@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./hooks/theme-context";
 import ThemeToggle from "./components/portfolio/ThemeToggle";
@@ -15,14 +15,16 @@ export const metadata: Metadata = {
   description: "le site officiel de Romaric AKODJENOU",
 };
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
 export default async function RootLayout({
@@ -40,7 +42,7 @@ export default async function RootLayout({
       </Head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
+        className={`${archivo.variable} ${spaceGrotesk.variable} antialiased relative`}
       >
         <NextIntlClientProvider>
           <ThemeProvider>

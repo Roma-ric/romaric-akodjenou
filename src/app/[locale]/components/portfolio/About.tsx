@@ -64,7 +64,7 @@ const About = () => {
       title: t("experiences.simam.company"),
       content: (
         <div>
-          <div className="text-neutral-800 space-x-5 flex justify-between dark:text-neutral-200 text-2xl scr_3_0:text-lg font-normal mb-4">
+          <div className="text-foreground space-x-5 flex justify-between text-2xl scr_3_0:text-lg font-normal mb-4">
             <span>{t("experiences.simam.position")}</span>
             <span className="text-end">{t("experiences.simam.period")}</span>
           </div>
@@ -82,7 +82,7 @@ const About = () => {
       title: t("experiences.carrefoot.company"),
       content: (
         <div>
-          <div className="text-neutral-800 space-x-5 flex justify-between dark:text-neutral-200 text-2xl scr_3_0:text-lg font-normal mb-4">
+          <div className="text-foreground space-x-5 flex justify-between text-2xl scr_3_0:text-lg font-normal mb-4">
             <span>{t("experiences.carrefoot.position")}</span>
             <span className="text-end">
               {t("experiences.carrefoot.period")}
@@ -102,7 +102,7 @@ const About = () => {
       title: t("experiences.explotel.company"),
       content: (
         <div>
-          <div className="text-neutral-800 space-x-5 flex justify-between dark:text-neutral-200 text-2xl scr_3_0:text-lg font-normal mb-4">
+          <div className="text-foreground space-x-5 flex justify-between text-2xl scr_3_0:text-lg font-normal mb-4">
             <span>{t("experiences.explotel.position")}</span>
             <span className="text-end">{t("experiences.explotel.period")}</span>
           </div>
@@ -119,7 +119,7 @@ const About = () => {
       title: t("experiences.fidevo.company"),
       content: (
         <div>
-          <div className="text-neutral-800 space-x-5 flex justify-between dark:text-neutral-200 text-2xl scr_3_0:text-lg font-normal mb-4">
+          <div className="text-foreground space-x-5 flex justify-between text-2xl scr_3_0:text-lg font-normal mb-4">
             <span>{t("experiences.fidevo.position")}</span>
             <span className="text-end">{t("experiences.fidevo.period")}</span>
           </div>
@@ -138,7 +138,7 @@ const About = () => {
       title: t("experiences.romas.company"),
       content: (
         <div>
-          <div className="text-neutral-800 space-x-5 flex justify-between dark:text-neutral-200 text-2xl scr_3_0:text-lg font-normal mb-4">
+          <div className="text-foreground space-x-5 flex justify-between text-2xl scr_3_0:text-lg font-normal mb-4">
             <span>{t("experiences.romas.position")}</span>
             <span className="text-end">{t("experiences.romas.period")}</span>
           </div>
@@ -157,7 +157,7 @@ const About = () => {
       title: t("experiences.payPlus.company"),
       content: (
         <div>
-          <div className="text-neutral-800 space-x-5 flex justify-between dark:text-neutral-200 text-2xl scr_3_0:text-lg font-normal mb-4">
+          <div className="text-foreground space-x-5 flex justify-between text-2xl scr_3_0:text-lg font-normal mb-4">
             <span>{t("experiences.payPlus.position")}</span>
             <span className="text-end">{t("experiences.payPlus.period")}</span>
           </div>
@@ -406,41 +406,30 @@ const About = () => {
         text={about.title}
         percentage={50}
         backgroundText="RESUME"
+        number="01"
       />
 
       <div className="min-w-[22rem] w-[70%] scr_2_2:w-[88%] px-3 scr_2_0:flex-col flex justify-center items-center mx-auto mt-10 scr_2_2:mt-0">
         <div className="hidden mt-10 relative scr_4_0:hidden scr_4_3:-mr-3 mr-24 scr_2_0:mr-0">
-          <div className="border-[6px] rounded-[0px_70px_0px_70px] lg-max:rounded-[0%_70px_0%_70px] overflow-hidden border-yellow-500">
+          <div className="brutal-border brutal-shadow rounded-none overflow-hidden rotate-[1.5deg]">
             <img
               src="files/profile-bg.png"
               alt="Romaric AKODJENOU"
-              className="w-[27.5rem] h-[27.5rem] border block dark:hidden object-cover z-30"
-            />
-            <img
-              src="files/profile-bg.png"
-              alt="Romaric AKODJENOU"
-              className="w-[27.5rem] h-[27.5rem] hidden dark:block object-cover z-30"
+              className="w-[27.5rem] h-[27.5rem] object-cover z-30"
             />
           </div>
         </div>
         <div className="w-1/2 hidden scr_4_0:flex scr_2_0:w-full scr_2_0:pb-4 scr_2_0:justify-center z-40 py-10 justify-start bg-transparent items-center relative p-8">
-          <div className="w-full h-full scr_2_0:shadow-none scr_2_0:hidden scr_2_0:dark:block scr_2_0:bg-transparent shadow-[0_0_7px_rgba(0,0,0,0.9)] hidden dark:block max-w-md rounded-[30px] overflow-hidden bg-black">
+          <div className="w-full h-full max-w-md scr_2_0:max-w-none scr_2_0:mx-auto scr_2_0:w-[16.875rem] scr_2_0:h-[16.875rem] scr_4:w-[14.875rem] scr_4:h-[14.875rem] brutal-border brutal-shadow rounded-none overflow-hidden bg-foreground">
             <img
               src="files/profile-bg.png"
               alt="Romaric AKODJENOU"
-              className="w-full h-full object-cover scr_2_0:mx-auto scr_2_0:w-[16.875rem] scr_2_0:h-[16.875rem] scr_4:w-[14.875rem] scr_4:h-[14.875rem] scr_2_0:border-[4px] scr_2_0:border-[#252525] scr_2_0:rounded-full"
-            />
-          </div>
-          <div className="w-full h-full scr_2_0:shadow-none scr_2_0:block scr_2_0:dark:hidden scr_2_0:bg-transparent  shadow-[0_0_7px_rgba(0,0,0,0.9)] block dark:hidden max-w-md rounded-[30px] overflow-hidden bg-black">
-            <img
-              src="files/profile-bg.png"
-              alt="Romaric AKODJENOU"
-              className="w-full h-full object-cover scr_2_0:mx-auto scr_2_0:w-[16.875rem] scr_2_0:h-[16.875rem] scr_4:w-[14.875rem] scr_4:h-[14.875rem] scr_2_0:border-[4px] scr_2_0:border-[#252525] scr_2_0:rounded-full"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
         <div className="flex flex-col w-full mt-7">
-          <h2 className="text-5xl s scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-center text-wrap text-neutral-800 dark:text-neutral-200">
+          <h2 className="text-5xl s scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-center text-wrap text-foreground">
             {about.subtitle}
           </h2>
           <div className="flex flex-row scr_0:flex-col w-full items-center mb-5 scr_2_2:items-start justify-between space-x-10 scr_2_2:space-x-0">
@@ -448,7 +437,7 @@ const About = () => {
               <div className="flex text-xl scr_2_2:w-full scr_3_1:flex-col scr_2_0:items-start scr_0:mx-auto scr_4:text-lg pt-5 space-x-5 scr_3_1:space-x-0">
                 <div className="flex flex-col text-lg scr_2_0:justify-center space-y-3.5 mb-4">
                   <div className="flex space-x-3">
-                    <span className="text-stone-500 dark:text-stone-400 whitespace-nowrap">
+                    <span className="text-muted-foreground whitespace-nowrap">
                       {about.personalInfo.firstName.label} :
                     </span>
                     <span className="text-start font-semibold whitespace-nowrap ">
@@ -456,7 +445,7 @@ const About = () => {
                     </span>
                   </div>
                   <div className="flex space-x-3">
-                    <span className="text-stone-500 dark:text-stone-400 whitespace-nowrap">
+                    <span className="text-muted-foreground whitespace-nowrap">
                       {about.personalInfo.lastName.label} :
                     </span>
                     <span className="font-semibold whitespace-nowrap ">
@@ -464,7 +453,7 @@ const About = () => {
                     </span>
                   </div>
                   {/* <div className="flex space-x-3">
-                    <span className="text-stone-500 dark:text-stone-400 whitespace-nowrap">
+                    <span className="text-muted-foreground whitespace-nowrap">
                       {about.personalInfo.birthdate.label} :
                     </span>
                     <span className="font-semibold whitespace-nowrap ">
@@ -472,7 +461,7 @@ const About = () => {
                     </span>
                   </div> */}
                   <div className="flex space-x-3">
-                    <span className="text-stone-500 dark:text-stone-400 whitespace-nowrap">
+                    <span className="text-muted-foreground whitespace-nowrap">
                       {about.personalInfo.nationality.label} :
                     </span>
                     <span className="font-semibold whitespace-nowrap ">
@@ -480,7 +469,7 @@ const About = () => {
                     </span>
                   </div>
                   <div className="flex space-x-3">
-                    <span className="text-stone-500 dark:text-stone-400 whitespace-nowrap">
+                    <span className="text-muted-foreground whitespace-nowrap">
                       {about.personalInfo.address.label} :
                     </span>
                     <span className="font-semibold whitespace-nowrap ">
@@ -490,7 +479,7 @@ const About = () => {
                 </div>
                 <div className="flex flex-col text-lg scr_2_0:justify-center space-y-3.5 mb-4">
                   <div className="flex space-x-3">
-                    <span className="text-stone-500 dark:text-stone-400 whitespace-nowrap">
+                    <span className="text-muted-foreground whitespace-nowrap">
                       {about.personalInfo.freelance.label} :
                     </span>
                     <span className="font-semibold whitespace-nowrap ">
@@ -498,7 +487,7 @@ const About = () => {
                     </span>
                   </div>
                   <div className="flex space-x-3">
-                    <span className="text-stone-500 dark:text-stone-400 whitespace-nowrap">
+                    <span className="text-muted-foreground whitespace-nowrap">
                       {about.personalInfo.phone.label} :
                     </span>
                     <span className="font-semibold whitespace-nowrap ">
@@ -506,7 +495,7 @@ const About = () => {
                     </span>
                   </div>
                   <div className="flex space-x-3">
-                    <span className="text-stone-500 dark:text-stone-400 whitespace-nowrap">
+                    <span className="text-muted-foreground whitespace-nowrap">
                       {about.personalInfo.email.label} :
                     </span>
                     <span className="font-semibold whitespace-nowrap ">
@@ -514,7 +503,7 @@ const About = () => {
                     </span>
                   </div>
                   <div className="flex space-x-3">
-                    <span className="text-stone-500 dark:text-stone-400 whitespace-nowrap">
+                    <span className="text-muted-foreground whitespace-nowrap">
                       {about.personalInfo.languages.label} :
                     </span>
                     <span className="font-semibold whitespace-nowrap ">
@@ -528,13 +517,9 @@ const About = () => {
                 target="_blank"
                 className="mt-2 scr_0:mx-auto"
               >
-                <div className="inline-flex items-center text-lg scr_4:text-md text-black dark:text-white rounded-full bg-transparent border-2 border-yellow-500 bg-yellow-500 transition-colors duration-300 cursor-pointer px-6 scr_4:px-4 py-2 scr_4:py-1">
-                  <div className="rounded-full p-2 pl-0 flex items-center justify-center">
-                    <Download />
-                  </div>
-                  <span className="ml-2 font-semibold ">
-                    {about.downloadText}{" "}
-                  </span>
+                <div className="brutal-btn text-lg scr_4:text-md px-6 scr_4:px-4 py-2 scr_4:py-1">
+                  <Download className="w-5 h-5" />
+                  <span>{about.downloadText}</span>
                 </div>
               </Link>
             </div>
@@ -556,14 +541,14 @@ const About = () => {
       </div>
 
       <div className="min-w-[22rem] w-[70%] scr_2_2:w-[88%] px-3  mx-auto">
-        <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-neutral-800 dark:text-neutral-200 mt-16">
+        <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-foreground mt-16">
           {about.experienceTitle}
         </h2>
         <Timeline data={experience_data} />
       </div>
 
       <div className="min-w-[22rem] w-[70%] scr_2_2:w-[88%] px-3 mx-auto flex flex-col justify-center">
-        <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-neutral-800 dark:text-neutral-200 mt-0">
+        <h2 className="text-5xl scr_2_0:text-4xl scr_2_2:text-3xl font-bold text-foreground mt-0">
           {about.skillsTitle}
         </h2>
         <div className="w-full mt-10">

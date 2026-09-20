@@ -9,10 +9,21 @@ import Contact from './components/portfolio/Contact';
 import Services from './components/portfolio/Services';
 import { useRouter } from 'next/navigation';
 import Footer from './components/portfolio/Footer';
+import Marquee from './components/portfolio/Marquee';
+import { useTranslations } from 'next-intl';
 
 export default function Home() {
 
   const router = useRouter();
+  const t = useTranslations('HeroSection');
+  const marqueeItems = [
+    t('tags.0'),
+    t('tags.1'),
+    t('tags.2'),
+    t('tags.3'),
+    t('tags.4'),
+    t('tags.5'),
+  ];
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.hash) {
@@ -34,6 +45,9 @@ export default function Home() {
       
       {/* Hero */}
       <Hero />
+
+      {/* Ticker */}
+      <Marquee items={marqueeItems} />
 
       {/* About */}
       <About />
