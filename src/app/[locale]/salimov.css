@@ -117,7 +117,7 @@
 .sal-home .cta { margin: 2.125rem auto 0; }
 
 /* ---------- Sections génériques ---------- */
-.sal-section { position: relative; background: var(--sal-bg); padding: 0 1.875rem; }
+.sal-section { position: relative; background: var(--sal-bg); padding: 0 1.875rem 5rem; }
 
 /* Bandeau à photo de fond (facts, testimonials, clients) */
 .sal-band {
@@ -205,7 +205,7 @@
 .sal-fact p { font-size: 1.0625rem; font-weight: 500; text-transform: capitalize; max-width: 7.5rem; line-height: 1.25; }
 
 /* ---------- Boîtes (contact, services) ---------- */
-.sal-boxes { display: flex; flex-direction: column; gap: 4.375rem; padding: 1.25rem 0 3.75rem; width: 100%; max-width: 33.625rem; margin: 0 auto; }
+.sal-boxes { display: flex; flex-direction: column; gap: 4.375rem; padding: 3.5rem 0 3rem; width: 100%; max-width: 33.625rem; margin: 0 auto; }
 .sal-box {
   position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;
   padding: 3.75rem 1.5rem 1.875rem; border-radius: 1.25rem; background: var(--sal-card); min-height: 10.25rem;
@@ -387,8 +387,9 @@
    ORDINATEUR : sections horizontales
    ========================================================================= */
 @media (min-width: 1025px) and (hover: hover) {
-  /* Toute la mise en page (en rem) suit la hauteur de la fenêtre : 900 px = taille d'origine */
-  html { font-size: clamp(10px, calc(100vh / 56.25), 20px); }
+  /* La mise en page (en rem) suit la hauteur de la fenêtre, de façon atténuée : 900 px = taille d'origine,
+     640 px ≈ 86 %, 1080 px ≈ 110 % */
+  html { font-size: clamp(12.5px, calc(8px + 0.89vh), 20px); }
   .sal-progress { display: block; }
   .sal-scroller {
     display: flex; height: 100vh; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: none;
@@ -421,7 +422,7 @@
 
   .sal-curve-l > :first-child > .sal-title:first-child, .sal-curve-l > .sal-title:first-child { margin-left: 15rem; }
   .sal-section, .sal-band, .sal-copyright, .sal-home { height: 100vh; min-height: 0; flex: none; }
-  .sal-section { display: flex; align-items: center; padding: 0; }
+  .sal-section { display: flex; align-items: center; padding: 5.5rem 0 4.5rem; box-sizing: border-box; }
   .sal-band { padding: 0; }
 
   /* Courbes de séparation entre sections sombres et bandeaux */
@@ -433,12 +434,13 @@
 
   /* Home */
   .sal-home { width: 100vw; min-width: 100vw; padding: 0; text-align: left; }
-  .sal-home h1 .line { padding: 0 12.5rem 0; line-height: 10rem; }
+  .sal-home-inner { position: static; display: flex; align-items: center; gap: 3.5rem; }
+  .sal-home h1 .line { padding: 0 0.75rem 0 0; line-height: 10rem; }
   .sal-home h1 .word { text-shadow: 0.5rem 0.5rem var(--sal-fg), 1.25rem 1.25rem var(--sal-card); }
   .sal-home h1 .line:first-child .word { text-shadow: 0.5rem 0.5rem var(--sal-accent), 1.25rem 1.25rem var(--sal-card); }
   .sal-home .intro {
-    text-align: left; position: absolute; left: 38.75rem; top: 10.5rem; margin: 0; width: 13.75rem; height: 9.375rem;
-    display: flex; flex-direction: column; justify-content: center; font-size: 1.125rem; line-height: 1.875rem;
+    text-align: left; position: static; margin: 0; width: 15rem; height: auto; flex: none;
+    display: block; font-size: 1.125rem; line-height: 1.9rem;
   }
   .sal-home .cta { position: absolute; right: 3.75rem; top: calc(50% - 1.875rem); margin: 0; }
 
@@ -504,7 +506,8 @@
   .sal-services .sal-box > .icon { left: 1.875rem; }
   .sal-services .sal-boxes { flex-wrap: nowrap; padding-right: 12rem; }
   .sal-contact { padding-right: 12rem; }
-  .sal-form-wrap { width: 28rem; max-width: none; margin: 0 0 0 4.5rem; flex: none; }
+  .sal-form-wrap { width: 30rem; max-width: none; margin: 0 0 0 4.5rem; flex: none; align-self: center; }
+  .sal-form textarea { max-height: 7rem; }
 
   /* Portfolio */
   .sal-portfolio { flex-direction: row; padding: 0 12rem 0 0; }
@@ -589,8 +592,10 @@
 .sal-switcher .toggle svg { width: 22px; height: 22px; }
 
 /* ---------- Formulaire de contact ---------- */
-.sal-form-wrap { width: 100%; max-width: 538px; margin: 0 auto 60px; }
-.sal-form { background: var(--sal-card); border: 1px solid var(--sal-card-border); box-shadow: var(--sal-card-shadow); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.sal-form-wrap { width: 100%; max-width: 538px; margin: 0 auto; }
+.sal-form { background: var(--sal-card); border: 1px solid var(--sal-card-border); box-shadow: var(--sal-card-shadow); border-radius: 20px; padding: 1.5rem 1.75rem; display: flex; flex-direction: column; gap: 0.8rem; }
+.sal-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+@media (max-width: 539px) { .sal-form .row { grid-template-columns: 1fr; } }
 .sal-form h4 { font-size: 1.3rem; font-weight: 600; }
 .sal-form .field { display: flex; flex-direction: column; gap: 0.4rem; }
 .sal-form label { font-size: 0.95rem; color: var(--sal-muted); }

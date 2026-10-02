@@ -80,14 +80,16 @@ export default function ContactForm() {
     <form className="sal-form" onSubmit={submit} noValidate>
       <h4>{t("title")}</h4>
 
-      {field("name", t("name"), (
-        <input {...common("name")} type="text" autoComplete="name" maxLength={CONTACT_LIMITS.name} />
-      ))}
-      {field("email", t("email"), (
-        <input {...common("email")} type="email" autoComplete="email" maxLength={CONTACT_LIMITS.email} />
-      ))}
+      <div className="row">
+        {field("name", t("name"), (
+          <input {...common("name")} type="text" autoComplete="name" maxLength={CONTACT_LIMITS.name} />
+        ))}
+        {field("email", t("email"), (
+          <input {...common("email")} type="email" autoComplete="email" maxLength={CONTACT_LIMITS.email} />
+        ))}
+      </div>
       {field("message", t("message"), (
-        <textarea {...common("message")} rows={5} maxLength={CONTACT_LIMITS.message} />
+        <textarea {...common("message")} rows={4} maxLength={CONTACT_LIMITS.message} />
       ))}
 
       {/* Piège à robots : invisible pour les humains */}

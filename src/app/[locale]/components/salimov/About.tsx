@@ -1,4 +1,4 @@
-import { Briefcase, Building2, Clock, Download, GraduationCap } from "lucide-react";
+import { Briefcase, Building2, Clock, Download } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { getAge, siteConfig } from "@/config/site";
@@ -6,7 +6,6 @@ import Reveal from "./Reveal";
 import { skills } from "./skills";
 
 const experienceKeys = ["simam", "carrefoot", "explotel", "fidevo", "romas", "payPlus"] as const;
-const educationKeys = ["professionalBachelor", "computerMaintenance", "baccalaureate"] as const;
 
 export default function About() {
   const t = useTranslations("AboutSection");
@@ -32,14 +31,6 @@ export default function About() {
       place: t(`experiences.${key}.company`),
       icon: <Building2 aria-hidden="true" />,
       mark: <Briefcase aria-hidden="true" />,
-    })),
-    ...educationKeys.map((key) => ({
-      key,
-      title: t(`education.${key}.degree`),
-      period: t(`education.${key}.period`),
-      place: t(`education.${key}.institution`),
-      icon: <GraduationCap aria-hidden="true" />,
-      mark: <GraduationCap aria-hidden="true" />,
     })),
   ];
 
