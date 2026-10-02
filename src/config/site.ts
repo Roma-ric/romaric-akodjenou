@@ -11,7 +11,7 @@ export const siteConfig = {
   email: "romaricakodjenou54@gmail.com",
   phone: "+229 0166474345",
   phoneHref: "tel:+2290166474345",
-  birthDate: "2003-09-09",
+  birthDate: "2003-09-07",
   // Noms propres : pas de traduction
   clients: ["SIMAM SARL", "Carréfoot", "Explotel", "Fidevo Group", "ROMAS Technologie", "PayPlus Africa"],
 } as const;
