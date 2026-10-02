@@ -242,8 +242,8 @@
 .sal-slide .details .meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.125rem; color: var(--sal-muted); }
 .sal-slide .details .meta b { color: var(--sal-fg); font-weight: 500; }
 .sal-slide .details .sal-btn { margin-top: 0.75rem; }
-.sal-nav { display: flex; gap: 0.875rem; margin-top: 0.5rem; }
-.sal-dots { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
+.sal-nav { display: flex; justify-content: center; gap: 0.875rem; margin-top: 0.5rem; }
+.sal-dots { display: flex; justify-content: center; gap: 0.75rem; margin-top: 1.25rem; }
 .sal-dots button {
   width: 0.75rem; height: 0.75rem; border-radius: 0.375rem; border: 0; padding: 0; cursor: pointer;
   background: var(--sal-fg); opacity: 0.45; transition: 0.3s;
