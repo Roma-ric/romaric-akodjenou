@@ -14,8 +14,8 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - **Sections** : Home, About (infos, compétences, CV), Facts, Services, Portfolio, Testimonials, Contact, Clients, Blog et page article, Copyright ; toutes construites, les sections sans contenu pourront être masquées à la fin
 
 ## 1. Sécurité
-- [ ] Mettre à jour `next` (vulnérabilité critique) et lancer `npm audit fix` (12 vulnérabilités, dont `next-intl` et `postcss`)
-- [ ] Ignorer `.env*` dans `.gitignore` et retirer `.env` du suivi Git
+- [x] Mettre à jour `next` (vulnérabilité critique) et lancer `npm audit fix` (12 vulnérabilités, dont `next-intl` et `postcss`)
+- [x] Ignorer `.env*` dans `.gitignore` et retirer `.env` du suivi Git
 
 ## 2. SEO
 - [ ] Rendre `page.tsx` côté serveur (garder `'use client'` uniquement dans les composants interactifs)
