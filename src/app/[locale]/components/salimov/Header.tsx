@@ -1,12 +1,12 @@
 'use client'
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
-import { scrollToSection } from "@/lib/scroll";
+import { saveScrollPosition, scrollToSection } from "@/lib/scroll";
 import { useActiveSection } from "../../hooks/useActiveSection";
 import { useTheme } from "../../hooks/theme-context";
 
@@ -18,6 +18,13 @@ export function LanguageToggle() {
   const pathname = usePathname();
   const t = useTranslations("Language");
 
+  // Précharge la page de l'autre langue dès l'affichage : le clic n'attend alors plus le réseau
+  useEffect(() => {
+    routing.locales
+      .filter((l) => l !== locale)
+      .forEach((l) => router.prefetch(pathname, { locale: l }));
+  }, [locale, pathname, router]);
+
   return (
     <div role="group" aria-label={t("title")} className="tools">
       {routing.locales.map((l) => (
@@ -27,7 +34,12 @@ export function LanguageToggle() {
           className="sal-tool"
           aria-current={l === locale}
           lang={l}
-          onClick={() => router.replace(`${pathname}${window.location.hash}`, { locale: l })}
+          onClick={() => {
+            saveScrollPosition();
+            // Sans ancre : Next.js ferait défiler vers `#section` et écraserait la position restaurée.
+            // L'ancre revient d'elle-même quand la page défile (useActiveSection).
+            router.replace(pathname, { locale: l });
+          }}
         >
           {l.toUpperCase()}
         </button>

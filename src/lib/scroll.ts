@@ -54,3 +54,51 @@ export function getVisiblePanelId(): string | null {
   }
   return best?.id ?? null;
 }
+
+// ---- Conservation de la position au changement de langue ----
+const POSITION_KEY = "sal-scroll-position";
+
+/** Mémorise la section affichée et la progression dans cette section (le texte change de largeur d'une langue à l'autre). */
+export function saveScrollPosition() {
+  const scroller = getScroller();
+  if (!scroller) return;
+  const atEnd = scroller.scrollLeft >= scroller.scrollWidth - scroller.clientWidth - 2;
+  const panel = getPanels().find(
+    (p) => scroller.scrollLeft >= p.offsetLeft && scroller.scrollLeft < p.offsetLeft + p.offsetWidth,
+  );
+  if (!panel) return;
+  try {
+    sessionStorage.setItem(
+      POSITION_KEY,
+      JSON.stringify({ id: panel.id, atEnd, fraction: (scroller.scrollLeft - panel.offsetLeft) / panel.offsetWidth }),
+    );
+  } catch {
+    /* stockage indisponible : on retombera sur l'ancre de l'URL */
+  }
+}
+
+/**
+ * Lit (et efface) la position mémorisée. Retourne une fonction qui replace la page, ou null
+ * s'il n'y a rien à restaurer. La fonction peut être rappelée : la mise en page se
+ * stabilise juste après l'affichage (polices, images), donc la position est recalée.
+ */
+export function takeSavedScrollPosition(): (() => number | null) | null {
+  try {
+    const raw = sessionStorage.getItem(POSITION_KEY);
+    if (!raw) return null;
+    sessionStorage.removeItem(POSITION_KEY);
+    const { id, fraction, atEnd } = JSON.parse(raw) as { id: string; fraction: number; atEnd?: boolean };
+    return () => {
+      const panel = document.getElementById(id);
+      const scroller = getScroller();
+      if (!panel || !scroller) return null;
+      const left = atEnd
+        ? scroller.scrollWidth - scroller.clientWidth // en bout de page : on y reste
+        : panel.offsetLeft + fraction * panel.offsetWidth;
+      scroller.scrollTo({ left, behavior: "instant" });
+      return scroller.scrollLeft;
+    };
+  } catch {
+    return null;
+  }
+}
