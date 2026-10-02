@@ -135,22 +135,13 @@ export const skills: { name: string; logo: ReactNode }[] = [
         className="sal-skill-svg"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 256 256"
+        fill="none"
         stroke="currentColor"
+        strokeWidth={32}
+        strokeLinecap="round"
+        strokeLinejoin="round"
       >
-        <defs>
-          <style>
-            {
-              ".st1{stroke-linecap:round;stroke-linejoin:round;stroke-width:32px}"
-            }
-          </style>
-        </defs>
-        <path
-          d="M0 0h256v256H0z"
-          style={{
-            fill: "none",
-          }}
-        />
-        <path d="m208 128-80 80M192 40 40 192" className="st1" />
+        <path d="M208 128l-80 80M192 40L40 192" />
       </svg>
     ),
   },
