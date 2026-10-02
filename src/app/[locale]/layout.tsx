@@ -1,20 +1,22 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Livvic } from "next/font/google";
 import "./globals.css";
+import "./salimov.css";
 import { ThemeProvider } from "./hooks/theme-context";
-import ThemeToggle from "./components/portfolio/ThemeToggle";
-import ScrollToTop from "./components/portfolio/ScrollToTop";
 import type { Metadata } from "next";
-import Menu from "./components/portfolio/Menu";
-import CircularMenu from "./components/portfolio/CircularMenu";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import LanguageSwitcher from "./components/language-switcher";
 import { routing } from "@/i18n/routing";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const livvic = Livvic({
+  variable: "--font-livvic",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -23,7 +25,7 @@ const geistMono = Geist_Mono({
 });
 
 // Script exécuté avant l'hydratation pour appliquer le thème sans flash
-const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})();`;
+const themeScript = `(function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})();`;
 
 type Props = {
   children: React.ReactNode;
@@ -71,30 +73,11 @@ export default async function RootLayout({ children, params }: Props) {
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
+        className={`${geistSans.variable} ${geistMono.variable} ${livvic.variable} antialiased relative`}
       >
         <NextIntlClientProvider>
           <ThemeProvider>
             {children}
-
-            <ThemeToggle />
-
-            <div className="fixed left-5 top-5 z-50">
-              <LanguageSwitcher />
-            </div>
-
-            {/* Menu navigation latéral */}
-            <Menu />
-
-            {/* Menu navigation horizontale */}
-            <CircularMenu
-              position="bottom"
-              area={180}
-              side="end"
-              radius={100}
-            />
-
-            <ScrollToTop />
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>

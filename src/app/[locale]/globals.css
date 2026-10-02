@@ -86,25 +86,3 @@
     @apply bg-background text-foreground;
   }
 }
-/* Écran de chargement : ligne qui se remplit puis rideau qui disparaît */
-@keyframes preloader-fill {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-@keyframes preloader-out {
-  to { opacity: 0; visibility: hidden; }
-}
-
-.preloader {
-  animation: preloader-out 0.5s ease 1s forwards;
-}
-
-.preloader-line {
-  animation: preloader-fill 0.9s ease-in-out forwards;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .preloader { animation-duration: 0.01s; animation-delay: 0s; }
-  .preloader-line { animation: none; }
-}

@@ -18,14 +18,16 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - [x] URL par section (`#about`, `#contact`…), liens directs et bouton retour du navigateur
 - [x] Écran de chargement (CSS pur)
 - [x] Section Home : grand titre animé, accroche, bouton rond
-- [ ] Section About : mise en page horizontale (infos, compétences en losanges, CV en frise)
-- [ ] Section Facts (compteurs sur fond photo)
-- [ ] Section Portfolio en carrousel (fiche projet à côté du visuel)
-- [ ] Sections Testimonials, Clients, Blog + page article
-- [ ] Contact : cartes et formulaire fonctionnel
-- [ ] Séparateurs en biais entre les sections
+- [x] Section About : mise en page Salimov (infos, compétences en losanges, parcours en frise)
+- [x] Section Facts (compteurs en losanges sur bandeau)
+- [x] Section Portfolio en carrousel (fiche projet à côté du visuel)
+- [x] Sections Services, Testimonials, Clients, Blog (contenu d'exemple à remplacer)
+- [ ] Page article du blog (`/blog` et `/blog/[slug]`)
+- [x] Contact : cartes Salimov (téléphone, adresse, e-mail, réseaux)
+- [ ] Contact : formulaire fonctionnel (choisir le service d'envoi)
+- [x] Séparateurs en courbe entre sections et bandeaux
 - [ ] Sélecteur de couleur d'accent (réservé au propriétaire)
-- [ ] Menu : adapter le menu latéral/circulaire à la navigation horizontale
+- [x] Menu : en-tête Salimov (menu, e-mail, langue, thème) et menu mobile
 
 ## 1. Sécurité
 - [x] Mettre à jour `next` (vulnérabilité critique) et lancer `npm audit fix` (12 vulnérabilités, dont `next-intl` et `postcss`)
@@ -40,24 +42,24 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 
 ## 3. Fonctionnalités
 - [ ] Brancher le formulaire de contact (envoi réel, validation, retour utilisateur)
-- [ ] Statistiques : utiliser `stats.*.value` des traductions au lieu des valeurs en dur (`About.tsx`)
+- [x] Statistiques : utiliser `stats.*.value` des traductions au lieu des valeurs en dur (`About.tsx`)
 - [ ] Blog : remplir la page `/[locale]/blog` ou la supprimer ; retirer les témoignages *lorem ipsum*
-- [ ] Traduire les textes de fond des sections (« LET'S TALK », « WORKS », « OFFERINGS »…)
+- [x] Traduire les textes de fond des sections (« LET'S TALK », « WORKS », « OFFERINGS »…)
 - [x] Utiliser le `Link` de `src/i18n/navigation.ts` au lieu de `next/link`
 
 ## 4. Performance
-- [ ] Convertir les captures `public/realisation` en WebP/AVIF et passer à `next/image`
+- [ ] (images servies via `next/image` ; reste à convertir/alléger les sources) Convertir les captures `public/realisation` en WebP/AVIF et passer à `next/image`
 - [ ] Sortir `public/maquette`, les `desktop.ini` et les images non utilisées de `public/`
 - [x] Supprimer le flash de thème au chargement (script inline ou `next-themes`)
 
 ## 5. Qualité du code
 - [x] Remplacer le script `next lint` par `eslint .` et aligner `eslint-config-next` sur Next 16
-- [ ] Factoriser `About.tsx` (expériences et compétences générées à partir de données)
+- [x] Factoriser `About.tsx` (expériences et compétences générées à partir de données)
 - [x] Supprimer le code mort (bloc commenté de `page.tsx`, icône « settings » cachée, `<img>` dupliquées du Hero)
-- [ ] Nettoyer les classes Tailwind contradictoires (Contact)
-- [ ] Renommer les breakpoints personnalisés (`scr_*`) de façon sémantique
+- [x] Nettoyer les classes Tailwind contradictoires (Contact)
+- [ ] Supprimer les breakpoints personnalisés `scr_*` de `tailwind.config.ts` (plus utilisés)
 - [ ] Rédiger un vrai `README.md`
 
 ## 6. Accessibilité et vie privée
-- [ ] Ajouter des `aria-label` aux liens-icônes, menus et au sélecteur de thème
-- [ ] Décider de l'affichage de la date de naissance complète et du numéro de téléphone
+- [x] Ajouter des `aria-label` aux liens-icônes, menus et au sélecteur de thème
+- [x] Date de naissance remplacée par l'âge ; numéro de téléphone conservé (à confirmer)

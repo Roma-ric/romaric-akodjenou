@@ -1,11 +1,8 @@
-import { useState, useEffect, JSX } from 'react';
-import { SCROLLER_ID, getVisiblePanelId } from '@/lib/scroll';
+import { useState, useEffect, useMemo } from 'react';
+import { SCROLLER_ID, getPanels, getVisiblePanelId } from '@/lib/scroll';
 
 type SectionData = {
-  id: number;
-  tooltip: string;
   endpoint: string;
-  icon: JSX.Element;
 };
 
 /**
@@ -20,15 +17,22 @@ export const useActiveSection = (sectionsData: SectionData[]): string => {
     sectionsData[0]?.endpoint || '#home',
   );
 
+  const key = sectionsData.map((s) => s.endpoint).join('|');
+  const endpoints = useMemo(() => key.split('|').filter(Boolean), [key]);
+
   useEffect(() => {
-    const known = new Set(sectionsData.map((s) => s.endpoint));
+    const known = new Set(endpoints);
     let frame = 0;
 
     const update = () => {
       frame = 0;
-      const id = getVisiblePanelId();
-      if (!id) return;
-      const anchor = `#${id}`;
+      const visibleId = getVisiblePanelId();
+      if (!visibleId) return;
+      // Un bandeau sans entrée de menu reste rattaché à la section précédente
+      const panels = getPanels();
+      let index = panels.findIndex((panel) => panel.id === visibleId);
+      while (index > 0 && !known.has(`#${panels[index].id}`)) index -= 1;
+      const anchor = `#${panels[Math.max(index, 0)]?.id ?? visibleId}`;
       if (!known.has(anchor)) return;
       setActiveAnchor((prev) => {
         if (prev !== anchor) window.history.replaceState(null, '', anchor);
@@ -52,7 +56,7 @@ export const useActiveSection = (sectionsData: SectionData[]): string => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', onScroll);
     };
-  }, [sectionsData]);
+  }, [endpoints]);
 
   return activeAnchor;
 };

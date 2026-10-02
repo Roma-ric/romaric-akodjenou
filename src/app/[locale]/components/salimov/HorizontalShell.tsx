@@ -6,8 +6,8 @@ import { SCROLLER_ID, DESKTOP_QUERY, scrollToSection } from "@/lib/scroll";
 type Panel = {
   id: string;
   node: ReactNode;
-  /** Classes de largeur du panneau sur ordinateur (par défaut : plein écran). */
-  widthClass?: string;
+  /** `band` = bandeau à fond décoratif ; `dark` = section sur fond uni. */
+  kind: "dark" | "band";
 };
 
 /**
@@ -29,7 +29,7 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
       if (!bar) return;
       const max = scroller.scrollWidth - scroller.clientWidth;
       const ratio = max > 0 ? scroller.scrollLeft / max : 0;
-      bar.style.transform = `scaleX(${Math.min(1, Math.max(0.04, ratio))})`;
+      bar.style.left = `calc((100% - 27px) * ${Math.min(1, Math.max(0, ratio))})`;
     };
 
     const onWheel = (e: WheelEvent) => {
@@ -73,32 +73,27 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
         ref={scrollerRef}
         className="lg:flex lg:h-screen lg:overflow-x-auto lg:overflow-y-hidden lg:overscroll-x-none lg:[scrollbar-width:none] lg:[&::-webkit-scrollbar]:hidden"
       >
-        {panels.map(({ id, node, widthClass }) => (
-          <div
-            key={id}
-            id={id}
-            data-panel
-            className={`${widthClass ?? "lg:w-screen"} lg:h-screen lg:shrink-0 lg:overflow-y-auto lg:overflow-x-hidden lg:pb-16`}
-          >
-            {node}
-          </div>
-        ))}
+        {panels.map(({ id, node, kind }, i) => {
+          // Courbes de raccord entre une section sombre et un bandeau voisin
+          const curveRight = kind === "dark" && panels[i + 1]?.kind === "band";
+          const curveLeft = kind === "dark" && panels[i - 1]?.kind === "band";
+          return (
+            <div
+              key={id}
+              id={id}
+              data-panel
+              className={`relative lg:w-max lg:shrink-0 lg:h-screen ${curveRight ? "sal-curve-r" : ""} ${curveLeft ? "sal-curve-l" : ""}`}
+            >
+              {node}
+            </div>
+          );
+        })}
       </div>
 
       {/* Progression du défilement (ordinateur uniquement) */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed bottom-6 left-1/2 z-40 hidden w-[min(60vw,48rem)] -translate-x-1/2 items-center gap-3 lg:flex"
-      >
-        <span className="text-xs uppercase tracking-widest text-yellow-500">
-          Scroll
-        </span>
-        <div className="h-2 flex-1 overflow-hidden rounded-full bg-black/10 dark:bg-white/10">
-          <div
-            ref={progressRef}
-            className="h-full origin-left rounded-full bg-yellow-500"
-            style={{ transform: "scaleX(0.04)" }}
-          />
+      <div aria-hidden="true" className="sal-progress">
+        <div className="rail">
+          <div ref={progressRef} className="dragger" />
         </div>
       </div>
     </>

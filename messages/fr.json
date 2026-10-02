@@ -10,7 +10,8 @@
         "greeting": "Bonjour",
         "iAm": "Je suis",
         "firstName": "Romaric",
-        "photoAlt": "Portrait de Romaric AKODJENOU"
+        "photoAlt": "Portrait de Romaric AKODJENOU",
+        "intro": "Développeur front-end et freelance basé à Abomey-Calavi, au Bénin"
     },
     "AboutSection": {
         "title": "À PROPOS",
@@ -52,6 +53,10 @@
             "languages": {
                 "label": "Langues",
                 "value": "Français, Anglais"
+            },
+            "age": {
+                "label": "Âge",
+                "value": "{age} ans"
             }
         },
         "downloadText": "TÉLÉCHARGER MON CV",
@@ -67,6 +72,9 @@
             "happyCustomers": {
                 "value": 4,
                 "label": "clients satisfaits"
+            },
+            "technologies": {
+                "label": "technologies maîtrisées"
             }
         },
         "experiences": {
@@ -239,7 +247,10 @@
                 "location": "Cotonou",
                 "phone": "+2290168947612"
             }
-        }
+        },
+        "skillsTitle": "Mes compétences",
+        "resumeTitle": "Mon parcours",
+        "photoAlt": "Portrait de Romaric AKODJENOU"
     },
     "ServicesSection": {
         "title": "SERVICES",
@@ -305,7 +316,10 @@
                 "description": "Minuteur pour gérer le temps et les tâches."
             }
         },
-        "testimonials": {}
+        "testimonials": {},
+        "preview": "Voir le site",
+        "next": "Projet suivant",
+        "previous": "Projet précédent"
     },
     "ContactSection": {
         "title": "CONTACT",
@@ -337,12 +351,32 @@
             "email": "Adresse e-mail",
             "message": "Message",
             "submitButton": "Envoyer le message"
-        }
+        },
+        "followMe": "Suivez-moi"
     },
     "BlogSection": {
-        "title": "BLOG",
+        "title": "Derniers articles",
         "backtitle": "POSTS",
-        "posts": {}
+        "posts": {
+            "0": {
+                "category": "design",
+                "title": "Article à venir",
+                "excerpt": "Un premier article sur le développement front-end arrive bientôt.",
+                "date": "Bientôt"
+            },
+            "1": {
+                "category": "développement",
+                "title": "Article à venir",
+                "excerpt": "Notes et enseignements tirés de projets web concrets.",
+                "date": "Bientôt"
+            },
+            "2": {
+                "category": "essentiel",
+                "title": "Article à venir",
+                "excerpt": "Conseils pour des interfaces rapides, accessibles et maintenables.",
+                "date": "Bientôt"
+            }
+        }
     },
     "Language": {
         "title": "Langues",
@@ -355,7 +389,8 @@
         "services": "Services",
         "projects": "Projets",
         "contact": "Contact",
-        "blog": "Blog"
+        "blog": "Blog",
+        "label": "Navigation principale"
     },
     "Metadata": {
         "title": "Romaric AKODJENOU – Développeur Front-end & Freelance",
@@ -366,5 +401,26 @@
     },
     "ScrollToTop": {
         "label": "Retour à l'accueil"
+    },
+    "Copyright": {
+        "design": "Design inspiré de"
+    },
+    "ClientsSection": {
+        "title": "Entreprises avec lesquelles j'ai travaillé"
+    },
+    "TestimonialsSection": {
+        "title": "Témoignages",
+        "items": {
+            "0": {
+                "text": "Témoignage d'exemple : remplacez ce texte par une vraie citation de client.",
+                "name": "Nom du client",
+                "job": "Poste, Entreprise"
+            },
+            "1": {
+                "text": "Témoignage d'exemple : remplacez ce texte par une vraie citation de client.",
+                "name": "Nom du client",
+                "job": "Poste, Entreprise"
+            }
+        }
     }
 }
