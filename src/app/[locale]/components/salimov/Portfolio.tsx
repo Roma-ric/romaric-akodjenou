@@ -68,7 +68,7 @@ export default function Portfolio() {
             <ChevronDown aria-hidden="true" />
           </button>
           <a className="sal-btn sal-btn-nav" href={project.link} target="_blank" rel="noopener noreferrer">
-            <span>{t("preview")} <ArrowUpRight size={16} aria-hidden="true" /></span>
+            <span>{t("previewShort")} <ArrowUpRight size={16} aria-hidden="true" /></span>
           </a>
           <button type="button" className="sal-round" onClick={() => go(index - 1)} aria-label={t("previous")}>
             <ChevronUp aria-hidden="true" />
