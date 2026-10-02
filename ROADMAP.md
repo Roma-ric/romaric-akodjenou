@@ -3,6 +3,16 @@
 Corrections issues de l'audit du portfolio, à traiter au fil du développement de la prochaine version.
 Cocher chaque point une fois corrigé.
 
+## Décisions – refonte inspirée de Salimov
+
+Modèle de référence : template « Salimov – Horizontal Personal Portfolio » (dépôt `Roma-ric/salimov-template`).
+La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwind, Framer Motion), sans copier le CSS ni les images du template.
+
+- **Navigation** : défilement horizontal sur ordinateur, vertical sous 1024 px, avec une URL par section
+- **Thème** : mode clair/sombre conservé, bilingue FR/EN conservé
+- **Couleur d'accent** : sélecteur de couleur développé, mais réservé au propriétaire et caché sur le site public
+- **Sections** : Home, About (infos, compétences, CV), Facts, Services, Portfolio, Testimonials, Contact, Clients, Blog et page article, Copyright ; toutes construites, les sections sans contenu pourront être masquées à la fin
+
 ## 1. Sécurité
 - [ ] Mettre à jour `next` (vulnérabilité critique) et lancer `npm audit fix` (12 vulnérabilités, dont `next-intl` et `postcss`)
 - [ ] Ignorer `.env*` dans `.gitignore` et retirer `.env` du suivi Git
