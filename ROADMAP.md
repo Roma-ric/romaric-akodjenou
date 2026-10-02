@@ -33,6 +33,9 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - [x] Mobile/tablette : Home centrée, marges latérales, courbes de raccord, connecteurs et icônes en filigrane dans le parcours, losanges des compteurs en colonne, infos sur deux colonnes
 - [x] Mode horizontal réservé aux écrans > 1024 px avec pointeur (les tablettes tactiles restent en vertical)
 - [x] En-tête sans collision entre 1025 et 1240 px (e-mail masqué, déjà dans Contact)
+- [x] Mise à l'échelle selon la hauteur de la fenêtre (rem) : plus de chevauchement avec l'en-tête sur portable (testé 1181×640)
+- [x] Défilement horizontal : molette partout (en-tête compris), unités Firefox, flèches du clavier, animation fluide
+- [x] Cartes détachées du fond (contour + ombre), infos sous le nom, carrousel avec flèches/pastilles visibles, icônes sociales visibles au survol
 - [ ] Tester sur de vrais appareils (iPhone, iPad, Android) : rendu et gestes
 
 ## 1. Sécurité

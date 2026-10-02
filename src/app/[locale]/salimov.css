@@ -10,19 +10,21 @@
   --sal-accent-fg: #111;
   --sal-accent-text: #b27700;
   --sal-bg: #f4f4f4;
-  --sal-card: #e6e6e6;
-  --sal-card-2: #d6d6d6;
+  --sal-card: #e2e2e2;
+  --sal-card-2: #d2d2d2;
+  --sal-card-border: rgba(0, 0, 0, 0.12);
+  --sal-card-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
   --sal-fg: #111;
   --sal-muted: rgba(0, 0, 0, 0.62);
   --sal-line: #cfcfcf;
   --sal-rail: rgba(0, 0, 0, 0.08);
   --sal-band-overlay: rgba(255, 255, 255, 0.78);
-  --sal-band-card: rgba(255, 255, 255, 0.72);
+  --sal-band-card: rgba(255, 255, 255, 0.92);
 
   background: var(--sal-bg);
   color: var(--sal-fg);
   font-family: var(--font-livvic), "Livvic", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .dark .sal {
@@ -30,6 +32,8 @@
   --sal-bg: #0b0b0b;
   --sal-card: #222;
   --sal-card-2: #2c2c2c;
+  --sal-card-border: rgba(255, 255, 255, 0.1);
+  --sal-card-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
   --sal-fg: #fff;
   --sal-muted: rgba(255, 255, 255, 0.7);
   --sal-line: #333;
@@ -46,262 +50,265 @@
 /* ---------- Apparition au défilement ---------- */
 .js .sal-reveal {
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(1.625rem);
   transition: opacity 0.8s ease, transform 0.8s ease;
   transition-delay: var(--d, 0s);
 }
-.js .sal-reveal.sal-left { transform: translateX(-46px); }
-.js .sal-reveal.sal-right { transform: translateX(46px); }
+.js .sal-reveal.sal-left { transform: translateX(-2.875rem); }
+.js .sal-reveal.sal-right { transform: translateX(2.875rem); }
 .js .sal-reveal.is-in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .js .sal-reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* ---------- Titre vertical de section ---------- */
-.sal-title { text-align: center; padding: 70px 0 40px; }
+.sal-title { text-align: center; padding: 4.375rem 0 2.5rem; }
 .sal-title h3 {
-  font-size: 40px; line-height: 1.15; font-weight: 800; letter-spacing: 2px;
+  font-size: 2.5rem; line-height: 1.15; font-weight: 800; letter-spacing: 0.125rem;
 }
 
 /* ---------- Boutons ---------- */
 .sal-btn {
-  display: inline-flex; align-items: center; gap: 10px; position: relative; overflow: hidden;
-  border: 0; border-radius: 40px; padding: 14px 36px; font: inherit; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 0.625rem; position: relative; overflow: hidden;
+  border: 0; border-radius: 2.5rem; padding: 0.875rem 2.25rem; font: inherit; font-weight: 500;
   text-transform: capitalize; cursor: pointer; background: var(--sal-card); color: var(--sal-fg);
 }
-.sal-btn span { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 10px; }
+.sal-btn span { position: relative; z-index: 2; display: inline-flex; align-items: center; gap: 0.625rem; }
 .sal-btn::before {
   content: ""; position: absolute; z-index: 1; top: 0; left: 0; height: 130%; width: 0;
   background: var(--sal-accent); transition: width 0.5s;
 }
 .sal-btn:hover { color: var(--sal-accent-fg); }
-.sal-btn:hover::before { width: calc(100% + 100px); }
+.sal-btn:hover::before { width: calc(100% + 6.25rem); }
 
 /* Bouton rond animé (flèche) */
 .sal-round {
   display: grid; place-items: center; position: relative; overflow: hidden; border: 0;
-  width: 60px; height: 60px; border-radius: 50%; cursor: pointer;
+  width: 3.75rem; height: 3.75rem; border-radius: 50%; cursor: pointer;
   background: var(--sal-accent); color: var(--sal-accent-fg);
   transition: transform 0.3s, background 0.3s;
 }
 .sal-round:hover { transform: scale(1.08); }
 .sal-round:focus-visible, .sal-btn:focus-visible, .sal a:focus-visible {
-  outline: 2px solid var(--sal-accent); outline-offset: 3px;
+  outline: 0.125rem solid var(--sal-accent); outline-offset: 0.1875rem;
 }
-.sal-round svg { width: 26px; height: 26px; }
+.sal-round svg { width: 1.625rem; height: 1.625rem; }
 
 /* ---------- Home ---------- */
 .sal-home {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  padding: 110px 30px 70px; position: relative; text-align: center;
+  padding: 6.875rem 1.875rem 4.375rem; position: relative; text-align: center;
 }
 .sal-home-inner { position: relative; }
 .sal-home h1 {
-  font-size: clamp(54px, 15vw, 150px); line-height: 1.05; font-weight: 800;
+  font-size: clamp(3.375rem, 15vw, 9.375rem); line-height: 1.05; font-weight: 800;
   position: relative; z-index: 1;
 }
-.sal-home h1 .line { display: block; overflow: hidden; padding: 0 12px 6px; position: relative; }
+.sal-home h1 .line { display: block; overflow: hidden; padding: 0 0.75rem 0.375rem; position: relative; }
 .sal-home h1 .word {
   display: block; letter-spacing: 0.06em; -webkit-text-fill-color: transparent;
-  text-shadow: 5px 5px var(--sal-fg), 12px 12px var(--sal-card);
+  text-shadow: 0.3125rem 0.3125rem var(--sal-fg), 0.75rem 0.75rem var(--sal-card);
 }
-.sal-home h1 .line:first-child .word { text-shadow: 5px 5px var(--sal-accent), 12px 12px var(--sal-card); }
+.sal-home h1 .line:first-child .word { text-shadow: 0.3125rem 0.3125rem var(--sal-accent), 0.75rem 0.75rem var(--sal-card); }
 .sal-home .intro {
-  position: relative; max-width: 360px; margin: 22px auto 0; font-size: 18px; line-height: 30px;
+  position: relative; max-width: 22.5rem; margin: 1.375rem auto 0; font-size: 1.125rem; line-height: 1.875rem;
   color: var(--sal-fg);
 }
-.sal-home .cta { margin: 34px auto 0; }
+.sal-home .cta { margin: 2.125rem auto 0; }
 
 /* ---------- Sections génériques ---------- */
-.sal-section { position: relative; background: var(--sal-bg); padding: 0 30px; }
+.sal-section { position: relative; background: var(--sal-bg); padding: 0 1.875rem; }
 
 /* Bandeau à photo de fond (facts, testimonials, clients) */
 .sal-band {
   position: relative; display: flex; align-items: center; justify-content: center;
-  padding: 110px 30px; background-color: var(--sal-bg);
+  padding: 6.875rem 1.875rem; background-color: var(--sal-bg);
   background-image:
     radial-gradient(circle at 18% 25%, rgba(255, 180, 0, 0.22), transparent 42%),
     radial-gradient(circle at 85% 80%, rgba(255, 180, 0, 0.12), transparent 40%),
-    repeating-linear-gradient(135deg, rgba(128, 128, 128, 0.07) 0 2px, transparent 2px 26px);
+    repeating-linear-gradient(135deg, rgba(128, 128, 128, 0.07) 0 0.125rem, transparent 0.125rem 1.625rem);
 }
 .sal-band::before { content: ""; position: absolute; inset: 0; background: var(--sal-band-overlay); }
 .sal-band > * { position: relative; }
 
 /* ---------- About ---------- */
-.sal-about { display: flex; flex-direction: column; align-items: center; padding: 30px 30px 40px; }
+.sal-about { display: flex; flex-direction: column; align-items: center; padding: 1.875rem 1.875rem 2.5rem; }
 .sal-about .info { display: flex; flex-direction: column; align-items: center; }
 .sal-photo {
-  position: relative; overflow: hidden; width: 100%; max-width: 380px; border-radius: 24px;
+  position: relative; overflow: hidden; width: 100%; max-width: 23.75rem; border-radius: 1.5rem;
   aspect-ratio: 380 / 470;
 }
 .sal-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.sal-name { font-size: 40px; line-height: 1.15; font-weight: 700; margin: 26px 0 8px; text-align: center; }
+.sal-name { font-size: 2.5rem; line-height: 1.15; font-weight: 700; margin: 1.625rem 0 0.5rem; text-align: center; }
 .sal-name span { display: block; }
 .sal-name span:first-child { color: var(--sal-accent-text); }
-.sal-infos-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 50px; }
+.sal-infos-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 3.125rem; }
 .sal-infos { display: flex; flex-direction: column; white-space: normal; }
-.sal-infos li { line-height: 44px; padding-left: 26px; position: relative; }
+.sal-infos li { line-height: 2.75rem; padding-left: 1.625rem; position: relative; }
 .sal-infos li::before {
-  content: ""; position: absolute; left: 0; top: 19px; width: 8px; height: 8px; border-radius: 50%;
+  content: ""; position: absolute; left: 0; top: 1.1875rem; width: 0.5rem; height: 0.5rem; border-radius: 50%;
   background: var(--sal-accent);
 }
-.sal-infos li span:first-child { color: var(--sal-muted); margin-right: 7px; }
+.sal-infos li span:first-child { color: var(--sal-muted); margin-right: 0.4375rem; }
 .sal-infos li span:nth-child(2), .sal-infos li a { font-weight: 500; }
 .sal-infos li a { color: var(--sal-accent-text); }
 .sal-infos li a:hover { text-decoration: underline; }
 
-.sal-skills-content { display: flex; flex-wrap: wrap; justify-content: center; gap: 50px 30px; max-width: 560px; margin: 0 auto; }
-.sal-skill { display: flex; flex-direction: column; align-items: center; width: 100px; }
+.sal-skills-content { display: flex; flex-wrap: wrap; justify-content: center; gap: 3.125rem 1.875rem; max-width: 35rem; margin: 0 auto; }
+.sal-skill { display: flex; flex-direction: column; align-items: center; width: 6.25rem; }
 .sal-skill .diamond {
-  width: 80px; height: 80px; display: grid; place-items: center; border-radius: 26px;
+  width: 5rem; height: 5rem; display: grid; place-items: center; border-radius: 1.625rem;
   background: var(--sal-card); transform: rotate(45deg); color: var(--sal-accent-text);
 }
 .sal-skill .diamond > * { transform: rotate(-45deg); }
-.sal-skill-svg { width: 34px; height: 34px; }
-.sal-skill h4 { margin-top: 34px; font-size: 16px; font-weight: 500; text-align: center; }
+.sal-skill-svg { width: 2.125rem; height: 2.125rem; }
+.sal-skill h4 { margin-top: 2.125rem; font-size: 1rem; font-weight: 500; text-align: center; }
 
 /* Frise du parcours */
-.sal-timeline { display: flex; flex-direction: column; gap: 32px; width: 100%; max-width: 538px; }
+.sal-timeline { display: flex; flex-direction: column; gap: 2rem; width: 100%; max-width: 33.625rem; }
 .sal-card {
-  position: relative; overflow: hidden; border-radius: 20px; padding: 32px; background: var(--sal-card);
+  position: relative; overflow: hidden; border-radius: 1.25rem; padding: 2rem; background: var(--sal-card);
 }
-.sal-card h4 { font-size: 21px; font-weight: 600; line-height: 1.3; margin-bottom: 16px; color: var(--sal-accent-text); }
-.sal-card p { display: flex; gap: 10px; align-items: baseline; margin-bottom: 8px; font-size: 17px; font-weight: 500; }
+.sal-card h4 { font-size: 1.3125rem; font-weight: 600; line-height: 1.3; margin-bottom: 1rem; color: var(--sal-accent-text); }
+.sal-card p { display: flex; gap: 0.625rem; align-items: baseline; margin-bottom: 0.5rem; font-size: 1.0625rem; font-weight: 500; }
 .sal-card p:last-child { margin-bottom: 0; }
-.sal-card svg { width: 16px; height: 16px; flex: none; position: relative; top: 2px; }
+.sal-card svg { width: 1rem; height: 1rem; flex: none; position: relative; top: 0.125rem; }
 
 @media not all and (min-width: 1025px) and (hover: hover) {
   .sal-timeline .step { position: relative; }
   .sal-timeline .step:last-child { display: none; }
   .sal-timeline .step:nth-last-child(2) .sal-card::after { display: none; }
   .sal-timeline .sal-card::after {
-    content: ""; position: absolute; left: 50%; top: 100%; width: 4px; height: 32px;
+    content: ""; position: absolute; left: 50%; top: 100%; width: 0.25rem; height: 2rem;
     transform: translateX(-50%); background: var(--sal-card); z-index: 1;
   }
   .sal-timeline .sal-card { overflow: visible; }
 }
 .sal-card .mark {
-  position: absolute; right: 14px; top: 50%; width: 90px; height: 90px; transform: translateY(-50%);
+  position: absolute; right: 0.875rem; top: 50%; width: 5.625rem; height: 5.625rem; transform: translateY(-50%);
   opacity: 0.07; pointer-events: none;
 }
 .sal-card .mark svg { width: 100%; height: 100%; }
 .sal-card { overflow: hidden; }
 
 /* ---------- Facts ---------- */
-.sal-facts-grid { display: flex; flex-direction: column; align-items: center; gap: 0; padding: 70px 0; }
-.sal-fact-wrap { display: grid; place-items: center; position: relative; margin: 38px 0; }
-.sal-fact-wrap:nth-child(odd) { left: -60px; }
-.sal-fact-wrap:nth-child(even) { left: 60px; }
+.sal-facts-grid { display: flex; flex-direction: column; align-items: center; gap: 0; padding: 4.375rem 0; }
+.sal-fact-wrap { display: grid; place-items: center; position: relative; margin: 2.375rem 0; }
+.sal-fact-wrap:nth-child(odd) { left: -3.75rem; }
+.sal-fact-wrap:nth-child(even) { left: 3.75rem; }
 .sal-fact {
-  width: 170px; height: 170px; display: grid; place-items: center; text-align: center;
-  background: var(--sal-band-card); border-radius: 34px; transform: rotate(45deg); margin: 0 auto;
+  width: 10.625rem; height: 10.625rem; display: grid; place-items: center; text-align: center;
+  background: var(--sal-band-card); border-radius: 2.125rem; transform: rotate(45deg); margin: 0 auto;
 }
 .sal-fact > div { transform: rotate(-45deg); }
-.sal-fact h3 { font-size: 46px; font-weight: 700; margin-bottom: 4px; color: var(--sal-accent-text); }
-.sal-fact p { font-size: 17px; font-weight: 500; text-transform: capitalize; max-width: 120px; line-height: 1.25; }
+.sal-fact h3 { font-size: 2.875rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--sal-accent-text); }
+.sal-fact p { font-size: 1.0625rem; font-weight: 500; text-transform: capitalize; max-width: 7.5rem; line-height: 1.25; }
 
 /* ---------- Boîtes (contact, services) ---------- */
-.sal-boxes { display: flex; flex-direction: column; gap: 70px; padding: 20px 0 60px; width: 100%; max-width: 538px; margin: 0 auto; }
+.sal-boxes { display: flex; flex-direction: column; gap: 4.375rem; padding: 1.25rem 0 3.75rem; width: 100%; max-width: 33.625rem; margin: 0 auto; }
 .sal-box {
   position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;
-  padding: 60px 24px 30px; border-radius: 20px; background: var(--sal-card); min-height: 164px;
+  padding: 3.75rem 1.5rem 1.875rem; border-radius: 1.25rem; background: var(--sal-card); min-height: 10.25rem;
 }
 .sal-box > .icon {
-  position: absolute; top: -37px; width: 74px; height: 74px; border-radius: 50%; display: grid;
-  place-items: center; background: var(--sal-card); border: 3px solid var(--sal-bg);
+  position: absolute; top: -2.3125rem; width: 4.625rem; height: 4.625rem; border-radius: 50%; display: grid;
+  place-items: center; background: var(--sal-card); border: 0.1875rem solid var(--sal-bg);
   color: var(--sal-accent-text);
 }
-.sal-box > .icon svg { width: 26px; height: 26px; }
-.sal-box .small { display: block; margin-bottom: 5px; color: var(--sal-muted); font-size: 17px; }
-.sal-box p, .sal-box a.value { font-size: 19px; font-weight: 500; word-break: break-word; }
-.sal-box h4 { font-size: 21px; font-weight: 600; margin-bottom: 12px; }
-.sal-box .desc { font-size: 16px; line-height: 1.6; color: var(--sal-muted); font-weight: 400; }
-.sal-social { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; margin-top: 6px; }
+.sal-box > .icon svg { width: 1.625rem; height: 1.625rem; }
+.sal-box .small { display: block; margin-bottom: 0.3125rem; color: var(--sal-muted); font-size: 1.0625rem; }
+.sal-box p, .sal-box a.value { font-size: 1.1875rem; font-weight: 500; word-break: break-word; }
+.sal-box h4 { font-size: 1.3125rem; font-weight: 600; margin-bottom: 0.75rem; }
+.sal-box .desc { font-size: 1rem; line-height: 1.6; color: var(--sal-muted); font-weight: 400; }
+.sal-social { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem 0.875rem; margin-top: 0.375rem; }
 .sal-social a {
-  display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; transition: 0.3s;
+  display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; transition: 0.3s;
 }
-.sal-social a:hover { background: var(--sal-accent); color: var(--sal-accent-fg); }
-.sal-social-svg { width: 20px; height: 20px; }
+.sal-social a:hover, .sal-copyright .sal-social a:hover { background: var(--sal-accent); color: var(--sal-accent-fg); }
+.sal-social a:hover svg { color: var(--sal-accent-fg); fill: currentColor; }
+.sal-social-svg { width: 1.25rem; height: 1.25rem; }
 
 /* ---------- Portfolio ---------- */
-.sal-portfolio { display: flex; flex-direction: column; align-items: center; padding-bottom: 80px; }
-.sal-slide { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+.sal-portfolio { display: flex; flex-direction: column; align-items: center; padding-bottom: 5rem; }
+.sal-slide { display: flex; flex-direction: column; align-items: center; gap: 1.75rem; }
 .sal-slide .shot {
-  position: relative; display: block; width: 100%; max-width: 538px; aspect-ratio: 650 / 450;
-  overflow: hidden; border-radius: 20px; background: var(--sal-card);
+  position: relative; display: block; width: 100%; max-width: 33.625rem; aspect-ratio: 650 / 450;
+  overflow: hidden; border-radius: 1.25rem; background: var(--sal-card);
 }
 .sal-slide .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.sal-slide .details { width: 100%; max-width: 538px; }
-.sal-slide .details h4 { font-size: 30px; line-height: 1.15; font-weight: 700; margin-bottom: 14px; }
-.sal-slide .details p { color: var(--sal-muted); line-height: 1.7; margin-bottom: 8px; }
-.sal-slide .details .meta { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; color: var(--sal-muted); }
+.sal-slide .details { width: 100%; max-width: 33.625rem; }
+.sal-slide .details h4 { font-size: 1.875rem; line-height: 1.15; font-weight: 700; margin-bottom: 0.875rem; }
+.sal-slide .details p { color: var(--sal-muted); line-height: 1.7; margin-bottom: 0.5rem; }
+.sal-slide .details .meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.125rem; color: var(--sal-muted); }
 .sal-slide .details .meta b { color: var(--sal-fg); font-weight: 500; }
-.sal-slide .details .sal-btn { margin-top: 12px; }
-.sal-nav { display: flex; gap: 14px; margin-top: 8px; }
-.sal-dots { display: flex; gap: 12px; margin-top: 20px; }
+.sal-slide .details .sal-btn { margin-top: 0.75rem; }
+.sal-nav { display: flex; gap: 0.875rem; margin-top: 0.5rem; }
+.sal-dots { display: flex; gap: 0.75rem; margin-top: 1.25rem; }
 .sal-dots button {
-  width: 10px; height: 10px; border-radius: 6px; border: 0; padding: 0; cursor: pointer;
-  background: var(--sal-fg); opacity: 0.35; transition: 0.3s;
+  width: 0.75rem; height: 0.75rem; border-radius: 0.375rem; border: 0; padding: 0; cursor: pointer;
+  background: var(--sal-fg); opacity: 0.45; transition: 0.3s;
 }
-.sal-dots button[aria-current="true"] { width: 35px; background: var(--sal-accent); opacity: 1; }
+.sal-dots button[aria-current="true"] { width: 2.5rem; background: var(--sal-accent); opacity: 1; }
 
 /* ---------- Témoignages ---------- */
-.sal-quotes { display: flex; flex-direction: column; gap: 70px; max-width: 538px; width: 100%; padding-top: 30px; }
-.sal-quote { position: relative; padding: 0 0 50px; }
+.sal-quotes { display: flex; flex-direction: column; gap: 4.375rem; max-width: 33.625rem; width: 100%; padding-top: 1.875rem; }
+.sal-quote { position: relative; padding: 0 0 3.125rem; }
 .sal-quote::before {
-  content: "”"; position: absolute; top: -70px; left: -6px; z-index: 2; font-size: 150px;
+  content: "”"; position: absolute; top: -4.375rem; left: -0.375rem; z-index: 2; font-size: 9.375rem;
   line-height: 1; color: var(--sal-accent-text);
 }
 .sal-quote blockquote {
-  margin: 0; display: flex; flex-direction: column; padding: 40px; border-radius: 20px;
-  background: var(--sal-band-card); min-height: 280px;
+  margin: 0; display: flex; flex-direction: column; padding: 2.5rem; border-radius: 1.25rem;
+  background: var(--sal-band-card); min-height: 17.5rem;
 }
-.sal-quote .text { font-size: 19px; line-height: 36px; font-style: italic; margin-bottom: 30px; }
-.sal-quote .person { margin-top: auto; font-weight: 500; font-size: 16px; color: var(--sal-accent-text); }
-.sal-quote .job { font-size: 14px; color: var(--sal-muted); }
+.sal-quote .text { font-size: 1.1875rem; line-height: 2.25rem; font-style: italic; margin-bottom: 1.875rem; }
+.sal-quote .person { margin-top: auto; font-weight: 500; font-size: 1rem; color: var(--sal-accent-text); }
+.sal-quote .job { font-size: 0.875rem; color: var(--sal-muted); }
 .sal-quote .avatar {
-  position: absolute; right: 16px; bottom: 0; width: 90px; height: 90px; border-radius: 50%;
-  display: grid; place-items: center; font-size: 30px; font-weight: 700; background: var(--sal-card);
-  border: 4px solid var(--sal-card-2); color: var(--sal-accent-text);
+  position: absolute; right: 1rem; bottom: 0; width: 5.625rem; height: 5.625rem; border-radius: 50%;
+  display: grid; place-items: center; font-size: 1.875rem; font-weight: 700; background: var(--sal-card);
+  border: 0.25rem solid var(--sal-card-2); color: var(--sal-accent-text);
 }
 
 /* ---------- Clients ---------- */
-.sal-clients { max-width: 900px; width: 100%; text-align: center; }
-.sal-clients h3 { font-size: 40px; line-height: 1.2; font-weight: 700; margin-bottom: 46px; }
-.sal-clients ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.sal-clients { max-width: 56.25rem; width: 100%; text-align: center; }
+.sal-clients h3 { font-size: 2.5rem; line-height: 1.2; font-weight: 700; margin-bottom: 2.875rem; }
+.sal-clients ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 .sal-clients li {
-  display: grid; place-items: center; min-height: 100px; padding: 16px; border-radius: 20px;
-  background: var(--sal-band-card); font-size: 20px; font-weight: 600; letter-spacing: 0.02em;
+  display: grid; place-items: center; min-height: 6.25rem; padding: 1rem; border-radius: 1.25rem;
+  background: var(--sal-band-card); font-size: 1.25rem; font-weight: 600; letter-spacing: 0.02em;
 }
 
 /* ---------- Blog ---------- */
-.sal-posts { display: flex; flex-direction: column; gap: 50px; padding: 20px 0 70px; }
-.sal-post { position: relative; border-radius: 20px; background: var(--sal-card); width: 100%; max-width: 538px; margin: 0 auto; }
-.sal-post a { display: block; border-radius: 20px; }
-.sal-post .img-holder { display: block; overflow: hidden; border-radius: 20px 20px 0 0; }
-.sal-post img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s; display: block; }
+.sal-posts { display: flex; flex-direction: column; gap: 3.125rem; padding: 1.25rem 0 4.375rem; }
+.sal-post { position: relative; border-radius: 1.25rem; background: var(--sal-card); width: 100%; max-width: 33.625rem; margin: 0 auto; }
+.sal-post a { display: block; border-radius: 1.25rem; }
+.sal-post .img-holder { display: block; overflow: hidden; border-radius: 1.25rem 1.25rem 0 0; }
+.sal-post img { width: 100%; height: 13.75rem; object-fit: cover; transition: transform 0.5s; display: block; }
 .sal-post a:hover img { transform: scale(1.12); }
-.sal-post .content { display: block; position: relative; padding: 35px 30px 30px; border-radius: 0 0 20px 20px; }
+.sal-post .content { display: block; position: relative; padding: 2.1875rem 1.875rem 1.875rem; border-radius: 0 0 1.25rem 1.25rem; }
 .sal-post .category {
-  position: absolute; top: -14px; left: 30px; height: 28px; line-height: 28px; padding: 0 20px;
-  border-radius: 20px; text-transform: uppercase; font-size: 13px; font-weight: 500;
+  position: absolute; top: -0.875rem; left: 1.875rem; height: 1.75rem; line-height: 1.75rem; padding: 0 1.25rem;
+  border-radius: 1.25rem; text-transform: uppercase; font-size: 0.8125rem; font-weight: 500;
   background: var(--sal-accent); color: var(--sal-accent-fg);
 }
-.sal-post .title { display: block; font-size: 22px; line-height: 32px; font-weight: 600; }
-.sal-post .excerpt { margin-top: 14px; line-height: 30px; opacity: 0.8; }
-.sal-post .meta { margin-top: 18px; font-size: 13px; opacity: 0.7; display: flex; gap: 15px; }
+.sal-post .title { display: block; font-size: 1.375rem; line-height: 2rem; font-weight: 600; }
+.sal-post .excerpt { margin-top: 0.875rem; line-height: 1.875rem; opacity: 0.8; }
+.sal-post .meta { margin-top: 1.125rem; font-size: 0.8125rem; opacity: 0.7; display: flex; gap: 0.9375rem; }
 
 /* ---------- Copyright ---------- */
 .sal-copyright {
   background: var(--sal-card); display: flex; flex-direction: column; align-items: center;
-  justify-content: center; text-align: center; padding: 50px 24px 60px; gap: 6px;
+  justify-content: center; text-align: center; padding: 3.125rem 1.5rem 3.75rem; gap: 0.375rem;
 }
-.sal-copyright span { display: block; line-height: 32px; color: var(--sal-muted); white-space: normal; }
-.sal-copyright a:hover { color: var(--sal-accent-text); }
+.sal-copyright span { display: block; line-height: 2rem; color: var(--sal-muted); white-space: normal; }
+.sal-copyright > span a:hover { color: var(--sal-accent-text); }
 
 /* ---------- En-tête ---------- */
 .sal-header { position: fixed; z-index: 111; top: 0; left: 0; right: 0; pointer-events: none; }
 .sal-header > * { pointer-events: auto; }
+.sal-header .bar { pointer-events: none; }
+.sal-header .bar nav, .sal-header .bar .right { pointer-events: auto; }
 .sal-header .bar { display: none; }
 .sal-toggle {
   position: fixed; top: 22px; right: 22px; z-index: 1112; width: 54px; height: 54px; border-radius: 50%;
@@ -370,16 +377,18 @@
 
 /* Courbes de raccord en vertical (mobile / tablette) */
 .sal-curve-r::after, .sal-curve-l::before {
-  content: ""; position: absolute; left: 0; right: 0; height: 40px; z-index: 6;
+  content: ""; position: absolute; left: 0; right: 0; height: 2.5rem; z-index: 6;
   background: var(--sal-bg); pointer-events: none;
 }
-.sal-curve-r::after { bottom: -39px; clip-path: ellipse(50% 100% at 50% 0); }
-.sal-curve-l::before { top: -39px; clip-path: ellipse(50% 100% at 50% 100%); }
+.sal-curve-r::after { bottom: -2.4375rem; clip-path: ellipse(50% 100% at 50% 0); }
+.sal-curve-l::before { top: -2.4375rem; clip-path: ellipse(50% 100% at 50% 100%); }
 
 /* =========================================================================
    ORDINATEUR : sections horizontales
    ========================================================================= */
 @media (min-width: 1025px) and (hover: hover) {
+  /* Toute la mise en page (en rem) suit la hauteur de la fenêtre : 900 px = taille d'origine */
+  html { font-size: clamp(10px, calc(100vh / 56.25), 20px); }
   .sal-progress { display: block; }
   .sal-scroller {
     display: flex; height: 100vh; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: none;
@@ -405,68 +414,71 @@
   .sal-header .mail { white-space: nowrap; }
 
   .sal-title {
-    writing-mode: vertical-rl; transform: rotate(180deg); height: 100vh; margin: 0 150px; padding: 0;
+    writing-mode: vertical-rl; transform: rotate(180deg); height: 100vh; margin: 0 11rem; padding: 6rem 0;
     display: flex; align-items: center; justify-content: center; flex: none;
   }
-  .sal-title h3 { font-size: 60px; line-height: 65px; white-space: nowrap; }
+  .sal-title h3 { font-size: 3.75rem; line-height: 4.0625rem; white-space: nowrap; }
 
+  .sal-curve-l > :first-child > .sal-title:first-child, .sal-curve-l > .sal-title:first-child { margin-left: 15rem; }
   .sal-section, .sal-band, .sal-copyright, .sal-home { height: 100vh; min-height: 0; flex: none; }
   .sal-section { display: flex; align-items: center; padding: 0; }
   .sal-band { padding: 0; }
 
   /* Courbes de séparation entre sections sombres et bandeaux */
   .sal-curve-r::after, .sal-curve-l::before {
-    top: 0; bottom: auto; height: 100%; width: 80px;
+    top: 0; bottom: auto; height: 100%; width: 5rem;
   }
-  .sal-curve-r::after { left: auto; right: -79px; clip-path: ellipse(100% 50% at 0 50%); }
-  .sal-curve-l::before { right: auto; left: -79px; clip-path: ellipse(100% 50% at 100% 50%); }
+  .sal-curve-r::after { left: auto; right: -4.9375rem; clip-path: ellipse(100% 50% at 0 50%); }
+  .sal-curve-l::before { right: auto; left: -4.9375rem; clip-path: ellipse(100% 50% at 100% 50%); }
 
   /* Home */
   .sal-home { width: 100vw; min-width: 100vw; padding: 0; text-align: left; }
-  .sal-home h1 .line { padding: 0 200px 0; line-height: 160px; }
-  .sal-home h1 .word { text-shadow: 8px 8px var(--sal-fg), 20px 20px var(--sal-card); }
-  .sal-home h1 .line:first-child .word { text-shadow: 8px 8px var(--sal-accent), 20px 20px var(--sal-card); }
+  .sal-home h1 .line { padding: 0 12.5rem 0; line-height: 10rem; }
+  .sal-home h1 .word { text-shadow: 0.5rem 0.5rem var(--sal-fg), 1.25rem 1.25rem var(--sal-card); }
+  .sal-home h1 .line:first-child .word { text-shadow: 0.5rem 0.5rem var(--sal-accent), 1.25rem 1.25rem var(--sal-card); }
   .sal-home .intro {
-    text-align: left; position: absolute; left: 620px; top: 168px; margin: 0; width: 220px; height: 150px;
-    display: flex; flex-direction: column; justify-content: center; font-size: 18px; line-height: 30px;
+    text-align: left; position: absolute; left: 38.75rem; top: 10.5rem; margin: 0; width: 13.75rem; height: 9.375rem;
+    display: flex; flex-direction: column; justify-content: center; font-size: 1.125rem; line-height: 1.875rem;
   }
-  .sal-home .cta { position: absolute; right: 60px; top: calc(50% - 30px); margin: 0; }
+  .sal-home .cta { position: absolute; right: 3.75rem; top: calc(50% - 1.875rem); margin: 0; }
 
   /* About */
-  .sal-about { flex-direction: row; padding: 0 0 0 150px; width: max-content; }
+  .sal-about { flex-direction: row; padding: 0 0 0 11rem; width: max-content; }
   .sal-about .info { flex-direction: row; align-items: flex-start; }
-  .sal-photo { width: 380px; max-width: none; height: 470px; aspect-ratio: auto; flex: none; }
-  .sal-about .name-block { align-self: flex-start; margin-top: 45px; margin-left: 40px; }
-  .sal-name { font-size: 70px; line-height: 80px; margin: 0; text-align: left; }
-  .sal-infos-wrap { display: flex; flex-wrap: nowrap; justify-content: flex-start; margin: 45px 0 0 100px; gap: 0 75px; }
+  .sal-photo { width: 23.75rem; max-width: none; height: 29.375rem; aspect-ratio: auto; flex: none; }
+  .sal-about .name-block { align-self: flex-start; margin-top: 1.5rem; margin-left: 3rem; }
+  .sal-name { font-size: 4.375rem; line-height: 5rem; margin: 0; text-align: left; }
+  .sal-infos-wrap { display: flex; flex-wrap: nowrap; justify-content: flex-start; margin: 2.5rem 0 0; gap: 0 3.5rem; }
   .sal-infos { white-space: nowrap; }
-  .sal-about-block { display: flex; align-items: center; min-height: 460px; }
+  .sal-about-block { display: flex; align-items: center; min-height: 28.75rem; }
   .sal-skills-content {
     max-width: none; margin: 0;
-    display: grid; grid-template-rows: repeat(2, auto); grid-auto-flow: column; gap: 60px 80px;
+    display: grid; grid-template-rows: repeat(2, auto); grid-auto-flow: column; gap: 3.75rem 5rem;
     flex-wrap: nowrap; justify-content: start;
   }
-  .sal-skill .diamond { width: 100px; height: 100px; border-radius: 30px; }
-  .sal-skill-svg { width: 38px; height: 38px; }
-  .sal-skill h4 { margin-top: 40px; font-size: 18px; }
-  .sal-resume { padding-right: 150px; }
-  .sal-resume .sal-title { margin-right: 60px; }
+  .sal-skill .diamond { width: 6.25rem; height: 6.25rem; border-radius: 1.875rem; }
+  .sal-skill-svg { width: 2.375rem; height: 2.375rem; }
+  .sal-skill h4 { margin-top: 2.5rem; font-size: 1.125rem; }
+  .sal-resume { padding-right: 12rem; }
+  .sal-resume .sal-title { margin-right: 4rem; }
   .sal-timeline {
     position: relative; display: flex; flex-direction: row; align-items: center; gap: 0;
-    width: max-content; max-width: none; height: 100vh; padding-left: 40px;
+    width: max-content; max-width: none; height: 100vh; padding-left: 2.5rem;
   }
-  .sal-timeline .step { position: relative; width: 174px; height: 3px; background: var(--sal-card); flex: none; }
+  .sal-timeline .step { position: relative; width: 10.875rem; height: 0.1875rem; background: var(--sal-card); flex: none; }
   .sal-timeline .step::after {
-    content: ""; position: absolute; top: 50%; right: -9px; width: 12px; height: 12px; border-radius: 3px;
+    content: ""; position: absolute; top: 50%; right: -0.5625rem; width: 0.75rem; height: 0.75rem; border-radius: 0.1875rem;
     transform: translateY(-50%) rotate(45deg); background: var(--sal-accent);
   }
-  .sal-timeline .step:last-child { width: 60px; }
+  .sal-timeline .step:last-child { width: 3.75rem; }
   .sal-timeline .step:last-child::after { display: none; }
-  .sal-timeline .step .sal-card { position: absolute; left: 18px; width: 300px; }
-  .sal-timeline .step:nth-child(odd) .sal-card { bottom: 36px; }
-  .sal-timeline .step:nth-child(even) .sal-card { top: 36px; }
+  .sal-timeline .step .sal-card { position: absolute; left: 1.125rem; width: 21rem; padding: 1.6rem 1.9rem; }
+  .sal-timeline .step .sal-card h4 { font-size: 1.2rem; margin-bottom: 0.9rem; }
+  .sal-timeline .step .sal-card p { font-size: 1rem; margin-bottom: 0.4rem; }
+  .sal-timeline .step:nth-child(odd) .sal-card { bottom: 2.25rem; }
+  .sal-timeline .step:nth-child(even) .sal-card { top: 2.25rem; }
   .sal-timeline .step .sal-card::after {
-    content: ""; position: absolute; left: calc(50% - 15px); width: 0; height: 0; border: 15px solid transparent;
+    content: ""; position: absolute; left: calc(50% - 0.9375rem); width: 0; height: 0; border: 0.9375rem solid transparent;
   }
   .sal-timeline .step:nth-child(odd) .sal-card::after { top: 100%; border-top-color: var(--sal-card); }
   .sal-timeline .step:nth-child(even) .sal-card::after { bottom: 100%; border-bottom-color: var(--sal-card); }
@@ -474,64 +486,64 @@
 
   /* Facts */
   .sal-band { align-items: center; }
-  .sal-facts { padding: 0 210px; }
+  .sal-facts { padding: 0 13.125rem; }
   .sal-facts-grid { flex-direction: row; align-items: center; gap: 0; padding: 0; }
-  .sal-fact { width: 200px; height: 200px; border-radius: 40px; margin: 0; }
+  .sal-fact { width: 12.5rem; height: 12.5rem; border-radius: 2.5rem; margin: 0; }
   .sal-fact-wrap { margin: 0; left: 0 !important; }
-  .sal-fact-wrap + .sal-fact-wrap { margin-left: 30px; }
-  .sal-fact-wrap:nth-child(odd) { margin-top: -200px; }
-  .sal-fact-wrap:nth-child(even) { margin-top: 200px; }
-  .sal-fact h3 { font-size: 60px; margin-bottom: 7px; }
-  .sal-fact p { font-size: 20px; max-width: 150px; }
+  .sal-fact-wrap + .sal-fact-wrap { margin-left: 1.875rem; }
+  .sal-fact-wrap:nth-child(odd) { margin-top: -12.5rem; }
+  .sal-fact-wrap:nth-child(even) { margin-top: 12.5rem; }
+  .sal-fact h3 { font-size: 3.75rem; margin-bottom: 0.4375rem; }
+  .sal-fact p { font-size: 1.25rem; max-width: 9.375rem; }
 
   /* Services / contact (boîtes) */
-  .sal-boxes { flex-direction: row; flex-wrap: wrap; gap: 70px 75px; width: auto; max-width: none; margin: 0; padding: 40px 0 0; align-content: center; }
+  .sal-boxes { flex-direction: row; flex-wrap: wrap; gap: 4.375rem 4.6875rem; width: auto; max-width: none; margin: 0; padding: 2.5rem 0 0; align-content: center; }
   .sal-boxes.cols-2 { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, auto); }
-  .sal-box { min-width: 320px; }
-  .sal-services .sal-box { width: 330px; min-width: 0; min-height: 280px; align-items: flex-start; text-align: left; padding: 60px 30px 30px; }
-  .sal-services .sal-box > .icon { left: 30px; }
-  .sal-services .sal-boxes { flex-wrap: nowrap; padding-right: 150px; }
-  .sal-contact { padding-right: 150px; }
+  .sal-box { min-width: 20rem; }
+  .sal-services .sal-box { width: 20.625rem; min-width: 0; min-height: 17.5rem; align-items: flex-start; text-align: left; padding: 3.75rem 1.875rem 1.875rem; }
+  .sal-services .sal-box > .icon { left: 1.875rem; }
+  .sal-services .sal-boxes { flex-wrap: nowrap; padding-right: 12rem; }
+  .sal-contact { padding-right: 12rem; }
 
   /* Portfolio */
-  .sal-portfolio { flex-direction: row; padding: 0 250px 0 0; }
+  .sal-portfolio { flex-direction: row; padding: 0 12rem 0 0; }
   .sal-carousel { position: relative; display: flex; align-items: center; height: 100vh; }
-  .sal-slide { flex-direction: row; gap: 40px; align-items: center; }
-  .sal-slide .shot { width: 650px; max-width: none; aspect-ratio: auto; height: 450px; }
-  .sal-slide .details { width: 360px; max-width: none; }
-  .sal-slide .details h4 { font-size: 38px; line-height: 40px; margin-bottom: 22px; }
-  .sal-nav { position: absolute; right: -180px; top: calc(50% - 75px); flex-direction: column; margin: 0; }
-  .sal-dots { position: absolute; bottom: 90px; left: 0; right: 0; justify-content: center; margin: 0; }
+  .sal-slide { flex-direction: row; gap: 2.5rem; align-items: center; }
+  .sal-slide .shot { width: 40.625rem; max-width: none; aspect-ratio: auto; height: 28.125rem; }
+  .sal-slide .details { width: 22.5rem; max-width: none; }
+  .sal-slide .details h4 { font-size: 2.375rem; line-height: 2.5rem; margin-bottom: 1.375rem; }
+  .sal-nav { position: absolute; left: 43.125rem; top: calc(50% + 14.0625rem - 3.75rem); flex-direction: row; gap: 0.9rem; margin: 0; }
+  .sal-dots { position: absolute; left: 0; width: 40.625rem; top: calc(50% + 14.0625rem + 1.8rem); justify-content: center; margin: 0; }
 
   /* Témoignages */
-  .sal-quotes { flex-direction: row; gap: 90px; max-width: none; width: auto; padding: 0 180px; }
-  .sal-quote { width: 390px; }
+  .sal-quotes { flex-direction: row; gap: 5.625rem; max-width: none; width: auto; padding: 0 11.25rem; }
+  .sal-quote { width: 24.375rem; }
 
   /* Clients */
-  .sal-clients { padding: 0 180px; width: 1200px; max-width: none; }
+  .sal-clients { padding: 0 11.25rem; width: 75rem; max-width: none; }
   .sal-clients ul { grid-template-columns: repeat(3, 1fr); }
 
   /* Blog */
-  .sal-posts { flex-direction: row; gap: 75px; padding: 0 150px 0 0; }
-  .sal-post { width: 360px; max-width: none; margin: 0; }
-  .sal-post img { height: 200px; }
-  .sal-post .title { font-size: 20px; }
+  .sal-posts { flex-direction: row; gap: 4.6875rem; padding: 0 12rem 0 0; }
+  .sal-post { width: 22.5rem; max-width: none; margin: 0; }
+  .sal-post img { height: 12.5rem; }
+  .sal-post .title { font-size: 1.25rem; }
 
   /* Copyright */
-  .sal-copyright { width: 360px; padding: 0 50px; }
+  .sal-copyright { width: 22.5rem; padding: 0 3.125rem; }
 }
 
 /* Petits écrans */
 @media (min-width: 768px) {
-  .sal-name { font-size: 55px; line-height: 65px; }
+  .sal-name { font-size: 3.4375rem; line-height: 4.0625rem; }
 }
 @media (max-width: 767px) {
   .sal-infos-wrap { flex-direction: column; gap: 0; align-items: flex-start; width: max-content; max-width: 100%; margin: 0 auto; }
-  .sal-title h3 { font-size: 34px; }
-  .sal-name { font-size: 34px; }
-  .sal-card { padding: 26px; }
-  .sal-clients h3 { font-size: 32px; }
-  .sal-quote blockquote { padding: 28px; }
+  .sal-title h3 { font-size: 2.125rem; }
+  .sal-name { font-size: 2.125rem; }
+  .sal-card { padding: 1.625rem; }
+  .sal-clients h3 { font-size: 2rem; }
+  .sal-quote blockquote { padding: 1.75rem; }
 }
 @media (max-width: 479px) {
   .sal-clients ul { grid-template-columns: 1fr; }
@@ -540,4 +552,20 @@
 /* Bureau étroit : l'e-mail est déjà dans la section Contact */
 @media (min-width: 1025px) and (hover: hover) and (max-width: 1239px) {
   .sal-header .mail { display: none; }
+}
+
+/* Cartes : contour et ombre pour bien les détacher du fond */
+.sal-card, .sal-box, .sal-post, .sal-fact, .sal-quote blockquote, .sal-clients li, .sal-skill .diamond {
+  border: 1px solid var(--sal-card-border);
+  box-shadow: var(--sal-card-shadow);
+}
+.sal-box > .icon { border-color: var(--sal-bg); box-shadow: 0 0 0 1px var(--sal-card-border); }
+.sal-btn { border: 1px solid var(--sal-card-border); }
+.sal-copyright { border-left: 1px solid var(--sal-card-border); }
+/* Dans les bandeaux, les cartes sont plus claires que le fond : contour plus marqué en clair */
+.sal-band .sal-fact, .sal-band .sal-quote blockquote, .sal-band .sal-clients li {
+  border-color: rgba(0, 0, 0, 0.14);
+}
+.dark .sal .sal-band .sal-fact, .dark .sal .sal-band .sal-quote blockquote, .dark .sal .sal-band .sal-clients li {
+  border-color: rgba(255, 255, 255, 0.14);
 }

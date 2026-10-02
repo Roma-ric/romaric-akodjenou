@@ -62,7 +62,6 @@ export default function About() {
             <Reveal as="span">{t("personalInfo.firstName.value")}</Reveal>
             <Reveal as="span" delay={0.15}>{t("personalInfo.lastName.value")}</Reveal>
           </h2>
-        </div>
 
         <div className="sal-infos-wrap">
           <ul className="sal-infos">
@@ -86,6 +85,7 @@ export default function About() {
               </a>
             </Reveal>
           </ul>
+        </div>
         </div>
       </div>
 
