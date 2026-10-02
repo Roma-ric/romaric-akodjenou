@@ -418,7 +418,8 @@
     writing-mode: vertical-rl; transform: rotate(180deg); height: 100vh; margin: 0 11rem; padding: 6rem 0;
     display: flex; align-items: center; justify-content: center; flex: none;
   }
-  .sal-title h3 { font-size: 3.75rem; line-height: 4.0625rem; white-space: nowrap; }
+  /* Un titre trop long pour la hauteur passe sur deux colonnes au lieu de toucher l'en-tête */
+  .sal-title h3 { font-size: 3.75rem; line-height: 4.0625rem; white-space: normal; max-height: calc(100vh - 14rem); }
 
   .sal-curve-l > :first-child > .sal-title:first-child, .sal-curve-l > .sal-title:first-child { margin-left: 15rem; }
   .sal-section, .sal-band, .sal-copyright, .sal-home { height: 100vh; min-height: 0; flex: none; }
@@ -506,7 +507,7 @@
   .sal-services .sal-box > .icon { left: 1.875rem; }
   .sal-services .sal-boxes { flex-wrap: nowrap; padding-right: 12rem; }
   .sal-contact { padding-right: 12rem; }
-  .sal-form-wrap { width: 30rem; max-width: none; margin: 0 0 0 4.5rem; flex: none; align-self: center; }
+  .sal-contact .sal-form-wrap { width: 30rem; max-width: none; margin: 0 0 0 6rem; flex: none; align-self: center; }
   .sal-form textarea { max-height: 7rem; }
 
   /* Portfolio */
