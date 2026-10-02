@@ -11,9 +11,9 @@ type Panel = {
 };
 
 /**
- * Ordinateur : les panneaux sont alignés horizontalement, la molette fait
- * défiler vers la droite (sauf si le panneau a encore du contenu vertical à
- * montrer). Mobile / tablette : empilement vertical classique.
+ * Ordinateur : les panneaux sont alignés horizontalement et la molette fait
+ * défiler vers la droite (les panneaux n'ont pas de défilement vertical).
+ * Mobile / tablette : empilement vertical classique.
  */
 export default function HorizontalShell({ panels }: { panels: Panel[] }) {
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -74,14 +74,6 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
       if (!media.matches || e.ctrlKey) return;
       // Geste horizontal natif (trackpad) : on laisse faire
       if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-
-      const panel = (e.target as HTMLElement | null)?.closest?.<HTMLElement>("[data-panel]") ?? null;
-      if (panel && panel.scrollHeight > panel.clientHeight + 1) {
-        const atTop = panel.scrollTop <= 0;
-        const atBottom =
-          panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 1;
-        if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) return;
-      }
 
       e.preventDefault();
       // Firefox envoie des « lignes » (deltaMode 1) : on les convertit en pixels
