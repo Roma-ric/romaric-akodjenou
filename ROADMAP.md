@@ -22,11 +22,11 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - [x] Section Facts (compteurs en losanges sur bandeau)
 - [x] Section Portfolio en carrousel (fiche projet à côté du visuel)
 - [x] Sections Services, Testimonials, Clients, Blog (contenu d'exemple à remplacer)
-- [ ] Page article du blog (`/blog` et `/blog/[slug]`)
+- [x] Pages du blog (`/blog` et `/blog/[slug]`, articles dans `src/content/posts.ts`)
 - [x] Contact : cartes Salimov (téléphone, adresse, e-mail, réseaux)
-- [ ] Contact : formulaire fonctionnel (choisir le service d'envoi)
+- [x] Contact : formulaire fonctionnel (route `/api/contact`, envoi via Resend : il reste à renseigner `RESEND_API_KEY`)
 - [x] Séparateurs en courbe entre sections et bandeaux
-- [ ] Sélecteur de couleur d'accent (réservé au propriétaire)
+- [x] Sélecteur de couleur d'accent (visible seulement avec `NEXT_PUBLIC_COLOR_SWITCHER=true`)
 - [x] Menu : en-tête Salimov (menu, e-mail, langue, thème) et menu mobile
 
 ## Responsivité (comparée au template Salimov)
@@ -50,9 +50,9 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - [x] Ajouter `generateStaticParams` et `setRequestLocale` pour pré-rendre `/en` et `/fr`
 
 ## 3. Fonctionnalités
-- [ ] Brancher le formulaire de contact (envoi réel, validation, retour utilisateur)
+- [x] Brancher le formulaire de contact (envoi réel, validation, retour utilisateur)
 - [x] Statistiques : utiliser `stats.*.value` des traductions au lieu des valeurs en dur (`About.tsx`)
-- [ ] Blog : remplir la page `/[locale]/blog` ou la supprimer ; retirer les témoignages *lorem ipsum*
+- [ ] Blog : remplacer les articles « à venir » par de vrais articles ; remplacer les témoignages d'exemple
 - [x] Traduire les textes de fond des sections (« LET'S TALK », « WORKS », « OFFERINGS »…)
 - [x] Utiliser le `Link` de `src/i18n/navigation.ts` au lieu de `next/link`
 
@@ -67,7 +67,7 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - [x] Supprimer le code mort (bloc commenté de `page.tsx`, icône « settings » cachée, `<img>` dupliquées du Hero)
 - [x] Nettoyer les classes Tailwind contradictoires (Contact)
 - [ ] Supprimer les breakpoints personnalisés `scr_*` de `tailwind.config.ts` (plus utilisés)
-- [ ] Rédiger un vrai `README.md`
+- [x] Rédiger un vrai `README.md`
 
 ## 6. Accessibilité et vie privée
 - [x] Ajouter des `aria-label` aux liens-icônes, menus et au sélecteur de thème

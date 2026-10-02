@@ -344,39 +344,16 @@
             "whatsapp": "WhatsApp",
             "gmail": "Gmail"
         },
-        "formNotice": "This form is not working",
-        "formFields": {
-            "firstName": "First Name",
-            "lastName": "Last Name",
-            "email": "Email address",
-            "message": "Message",
-            "submitButton": "Send message"
-        },
         "followMe": "Follow me"
     },
     "BlogSection": {
         "title": "Latest Posts",
-        "backtitle": "POSTS",
-        "posts": {
-            "0": {
-                "category": "design",
-                "title": "Article coming soon",
-                "excerpt": "A first post about front-end development is on its way. Stay tuned.",
-                "date": "Coming soon"
-            },
-            "1": {
-                "category": "development",
-                "title": "Article coming soon",
-                "excerpt": "Notes and lessons learned from real-world web projects.",
-                "date": "Coming soon"
-            },
-            "2": {
-                "category": "essentials",
-                "title": "Article coming soon",
-                "excerpt": "Tips for building fast, accessible and maintainable interfaces.",
-                "date": "Coming soon"
-            }
-        }
+        "back": "Back to blog",
+        "backHome": "Back to home",
+        "comingSoon": "Coming soon",
+        "readMore": "Read the article",
+        "metaTitle": "Blog",
+        "metaDescription": "Articles on front-end development, design and web projects by Romaric AKODJENOU."
     },
     "Language": {
         "title": "Languages",
@@ -421,6 +398,28 @@
                 "name": "Client name",
                 "job": "Position, Company"
             }
+        }
+    },
+    "ColorSwitcher": {
+        "title": "Color switcher"
+    },
+    "ContactForm": {
+        "title": "Send me a message",
+        "name": "Your name",
+        "email": "Your email",
+        "message": "Your message",
+        "send": "Send",
+        "sending": "Sending…",
+        "mailSubject": "Message from your portfolio",
+        "success": "Thank you! Your message has been sent. I'll get back to you soon.",
+        "error": "Something went wrong. Please try again or write to me by email.",
+        "rateLimited": "Too many messages in a short time. Please try again in a few minutes.",
+        "notConfigured": "The form is not available right now.",
+        "writeByMail": "Write to me by email",
+        "errors": {
+            "name": "Please enter your name.",
+            "email": "Please enter a valid email address.",
+            "message": "Your message must be at least 10 characters."
         }
     }
 }

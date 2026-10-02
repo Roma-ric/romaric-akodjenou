@@ -1,6 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import { siteConfig } from "@/config/site";
 import About from "./components/salimov/About";
+import ColorSwitcher from "./components/salimov/ColorSwitcher";
 import Blog from "./components/salimov/Blog";
 import Clients from "./components/salimov/Clients";
 import Contact from "./components/salimov/Contact";
@@ -48,6 +49,7 @@ export default async function Page({
       <Preloader />
       <Header sections={visible.filter((p) => p.kind === "dark" && p.id !== "copyright").map((p) => p.id)} />
       <HashScroll />
+      {process.env.NEXT_PUBLIC_COLOR_SWITCHER === "true" && <ColorSwitcher />}
       <HorizontalShell panels={visible} />
     </div>
   );

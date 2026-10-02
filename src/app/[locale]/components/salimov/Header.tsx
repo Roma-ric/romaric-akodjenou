@@ -12,7 +12,7 @@ import { useTheme } from "../../hooks/theme-context";
 
 type Item = { id: string; label: string };
 
-function LanguageToggle() {
+export function LanguageToggle() {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -36,7 +36,7 @@ function LanguageToggle() {
   );
 }
 
-function ThemeButton() {
+export function ThemeButton() {
   const { toggleTheme } = useTheme();
   const t = useTranslations("ThemeToggle");
 

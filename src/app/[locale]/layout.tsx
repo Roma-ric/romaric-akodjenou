@@ -7,6 +7,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { ACCENT_STORAGE_KEY, accents, foregroundFor } from "@/config/accents";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,10 @@ const geistMono = Geist_Mono({
 
 // Script exécuté avant l'hydratation pour appliquer le thème sans flash
 const themeScript = `(function(){document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})();`;
+
+// Couleur d'accent choisie par le propriétaire (sélecteur), appliquée avant le premier affichage
+const accentMap = Object.fromEntries(accents.map((a) => [a.id, [a.color, a.text, foregroundFor(a.color)]]));
+const accentScript = `(function(){try{var m=${JSON.stringify(accentMap)};var v=m[localStorage.getItem('${ACCENT_STORAGE_KEY}')];if(v){var s=document.documentElement.style;s.setProperty('--sal-user-accent',v[0]);s.setProperty('--sal-user-accent-text',v[1]);s.setProperty('--sal-user-accent-fg',v[2])}}catch(e){}})();`;
 
 type Props = {
   children: React.ReactNode;
@@ -69,7 +74,7 @@ export default async function RootLayout({ children, params }: Props) {
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: themeScript + accentScript }} />
       </head>
 
       <body

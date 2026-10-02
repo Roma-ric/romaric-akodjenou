@@ -6,9 +6,9 @@
 
 /* ---------- Variables (sombre = design d'origine, clair = variante) ---------- */
 .sal {
-  --sal-accent: #ffb400;
-  --sal-accent-fg: #111;
-  --sal-accent-text: #b27700;
+  --sal-accent: var(--sal-user-accent, #ffb400);
+  --sal-accent-fg: var(--sal-user-accent-fg, #111);
+  --sal-accent-text: var(--sal-user-accent-text, #b27700);
   --sal-bg: #f4f4f4;
   --sal-card: #e2e2e2;
   --sal-card-2: #d2d2d2;
@@ -28,7 +28,7 @@
 }
 
 .dark .sal {
-  --sal-accent-text: #ffb400;
+  --sal-accent-text: var(--sal-accent);
   --sal-bg: #0b0b0b;
   --sal-card: #222;
   --sal-card-2: #2c2c2c;
@@ -43,7 +43,7 @@
 }
 
 .sal a { color: inherit; text-decoration: none; }
-.sal ul, .sal ol { list-style: none; margin: 0; padding: 0; }
+:where(.sal) :where(ul, ol) { list-style: none; margin: 0; padding: 0; }
 :where(.sal) :where(h1, h2, h3, h4, p) { margin: 0; }
 .sal-accent { color: var(--sal-accent-text); }
 
@@ -499,11 +499,12 @@
   /* Services / contact (boîtes) */
   .sal-boxes { flex-direction: row; flex-wrap: wrap; gap: 4.375rem 4.6875rem; width: auto; max-width: none; margin: 0; padding: 2.5rem 0 0; align-content: center; }
   .sal-boxes.cols-2 { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, auto); }
-  .sal-box { min-width: 20rem; }
+  .sal-box { min-width: 22rem; }
   .sal-services .sal-box { width: 20.625rem; min-width: 0; min-height: 17.5rem; align-items: flex-start; text-align: left; padding: 3.75rem 1.875rem 1.875rem; }
   .sal-services .sal-box > .icon { left: 1.875rem; }
   .sal-services .sal-boxes { flex-wrap: nowrap; padding-right: 12rem; }
   .sal-contact { padding-right: 12rem; }
+  .sal-form-wrap { width: 28rem; max-width: none; margin: 0 0 0 4.5rem; flex: none; }
 
   /* Portfolio */
   .sal-portfolio { flex-direction: row; padding: 0 12rem 0 0; }
@@ -547,6 +548,8 @@
 }
 @media (max-width: 479px) {
   .sal-clients ul { grid-template-columns: 1fr; }
+  .sal-box p, .sal-box a.value { font-size: 15.5px; }
+  .sal-box { padding-left: 14px; padding-right: 14px; }
 }
 
 /* Bureau étroit : l'e-mail est déjà dans la section Contact */
@@ -569,3 +572,57 @@
 .dark .sal .sal-band .sal-fact, .dark .sal .sal-band .sal-quote blockquote, .dark .sal .sal-band .sal-clients li {
   border-color: rgba(255, 255, 255, 0.14);
 }
+
+/* ---------- Sélecteur de couleur (propriétaire) ---------- */
+.sal-switcher { position: fixed; left: 0; top: 150px; z-index: 1200; display: flex; align-items: flex-start; transform: translateX(-100%); transition: transform 0.4s; }
+.sal-switcher.open { transform: none; }
+.sal-switcher .panel { background: var(--sal-card); border: 1px solid var(--sal-card-border); border-radius: 0 0 14px 0; padding: 18px 20px 20px; }
+.sal-switcher h4 { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
+.sal-switcher ul { display: grid; grid-template-columns: repeat(3, 28px); gap: 10px; }
+.sal-switcher .panel button { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; }
+.sal-switcher .panel button[aria-pressed="true"] { border-color: var(--sal-fg); }
+.sal-switcher .toggle {
+  position: absolute; left: 100%; top: 0; width: 50px; height: 50px; border: 0; cursor: pointer;
+  display: grid; place-items: center; background: var(--sal-card); color: var(--sal-fg);
+  border-radius: 0 12px 12px 0; border: 1px solid var(--sal-card-border); border-left: 0;
+}
+.sal-switcher .toggle svg { width: 22px; height: 22px; }
+
+/* ---------- Formulaire de contact ---------- */
+.sal-form-wrap { width: 100%; max-width: 538px; margin: 0 auto 60px; }
+.sal-form { background: var(--sal-card); border: 1px solid var(--sal-card-border); box-shadow: var(--sal-card-shadow); border-radius: 20px; padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+.sal-form h4 { font-size: 1.3rem; font-weight: 600; }
+.sal-form .field { display: flex; flex-direction: column; gap: 0.4rem; }
+.sal-form label { font-size: 0.95rem; color: var(--sal-muted); }
+.sal-form input, .sal-form textarea {
+  width: 100%; font: inherit; color: var(--sal-fg); background: var(--sal-bg); border: 1px solid var(--sal-card-border);
+  border-radius: 12px; padding: 0.75rem 1rem; resize: vertical;
+}
+.sal-form input:focus, .sal-form textarea:focus { outline: 2px solid var(--sal-accent); outline-offset: 1px; }
+.sal-form [aria-invalid="true"] { border-color: #e5484d; }
+.sal-form .err { font-size: 0.85rem; color: #e5484d; }
+.sal-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.sal-form .sal-btn { align-self: flex-start; background: var(--sal-accent); color: var(--sal-accent-fg); }
+.sal-form .sal-btn::before { background: var(--sal-fg); }
+.sal-form .sal-btn:hover { color: var(--sal-bg); }
+.sal-form .sal-btn:disabled { opacity: 0.6; cursor: progress; }
+.sal-form .status { min-height: 1.4em; font-size: 0.95rem; }
+.sal-form .status.success { color: #2e9e5b; }
+.sal-form .status.error, .sal-form .status.rate_limited, .sal-form .status.not_configured { color: #e5484d; }
+.sal-form .status a { text-decoration: underline; }
+
+/* ---------- Pages du blog (défilement vertical) ---------- */
+.sal-blogpage { min-height: 100vh; }
+.sal-blogbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 30px; }
+.sal-blogbar a.back { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; }
+.sal-blogbar a.back:hover { color: var(--sal-accent-text); }
+.sal-blogbar .tools { display: flex; align-items: center; gap: 8px; }
+.sal-blogpage h1.page-title { font-size: clamp(2.4rem, 7vw, 4.4rem); font-weight: 700; text-align: center; margin: 3.5rem 0; }
+.sal-bloggrid { display: grid; gap: 50px 30px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); max-width: 1152px; margin: 0 auto; padding: 0 30px 100px; }
+.sal-bloggrid .sal-post { width: auto; max-width: none; margin: 0; }
+.sal-article { max-width: 700px; margin: 0 auto; padding: 0 30px 100px; }
+.sal-article .banner { display: grid; place-items: center; height: 260px; border-radius: 12px; margin-bottom: 30px; color: var(--sal-accent-fg); background: linear-gradient(135deg, var(--sal-accent), #ff7a00); }
+.sal-article .cat { display: inline-block; height: 28px; line-height: 28px; padding: 0 20px; border-radius: 20px; text-transform: uppercase; font-size: 13px; font-weight: 500; background: var(--sal-accent); color: var(--sal-accent-fg); }
+.sal-article h1 { font-size: clamp(2rem, 6vw, 2.6rem); line-height: 1.25; font-weight: 700; margin: 18px 0 14px; }
+.sal-article .meta { display: flex; gap: 15px; font-size: 14px; color: var(--sal-muted); margin-bottom: 30px; }
+.sal-article .body p { font-size: 18px; line-height: 1.9; margin-bottom: 1.2em; }

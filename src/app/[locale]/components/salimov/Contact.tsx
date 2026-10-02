@@ -1,6 +1,7 @@
 import { Mail, MapPin, Phone, Share2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { siteConfig } from "@/config/site";
+import ContactForm from "./ContactForm";
 import Reveal from "./Reveal";
 import { social } from "./social";
 
@@ -44,6 +45,10 @@ export default function Contact() {
           </ul>
         </Reveal>
       </ul>
+
+      <Reveal className="sal-form-wrap" delay={0.2}>
+        <ContactForm />
+      </Reveal>
     </section>
   );
 }
