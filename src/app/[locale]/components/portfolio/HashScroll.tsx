@@ -1,21 +1,14 @@
 'use client'
 
 import { useEffect } from "react";
+import { scrollToSection } from "@/lib/scroll";
 
-// Fait défiler jusqu'à la section ciblée par le hash de l'URL au chargement
+// Au chargement, rejoint directement la section ciblée par le hash de l'URL
 export default function HashScroll() {
   useEffect(() => {
-    const hash = window.location.hash.substring(1);
-    if (!hash) return;
-
-    const timer = setTimeout(() => {
-      const element = document.getElementById(hash);
-      if (element) {
-        const y = element.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }, 100);
-
+    const id = window.location.hash.substring(1);
+    if (!id) return;
+    const timer = setTimeout(() => scrollToSection(id, "instant"), 50);
     return () => clearTimeout(timer);
   }, []);
 

@@ -6,7 +6,11 @@
             "1": "FREELANCE"
         },
         "description": "Je suis un développeur frontend spécialisé dans la création d’interfaces web modernes et performantes. Axé sur l’innovation et l’efficacité, je conçois des solutions adaptées aux besoins des utilisateurs afin d’améliorer leur expérience au quotidien.",
-        "moreText": "EN SAVOIR PLUS"
+        "moreText": "EN SAVOIR PLUS",
+        "greeting": "Bonjour",
+        "iAm": "Je suis",
+        "firstName": "Romaric",
+        "photoAlt": "Portrait de Romaric AKODJENOU"
     },
     "AboutSection": {
         "title": "À PROPOS",
@@ -359,5 +363,8 @@
     },
     "ThemeToggle": {
         "label": "Changer de thème"
+    },
+    "ScrollToTop": {
+        "label": "Retour à l'accueil"
     }
 }

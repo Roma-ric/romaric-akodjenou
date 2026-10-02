@@ -13,6 +13,20 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - **Couleur d'accent** : sélecteur de couleur développé, mais réservé au propriétaire et caché sur le site public
 - **Sections** : Home, About (infos, compétences, CV), Facts, Services, Portfolio, Testimonials, Contact, Clients, Blog et page article, Copyright ; toutes construites, les sections sans contenu pourront être masquées à la fin
 
+## Refonte Salimov – avancement
+- [x] Navigation horizontale sur ordinateur (conteneur, molette, barre de progression), vertical sous 1024 px
+- [x] URL par section (`#about`, `#contact`…), liens directs et bouton retour du navigateur
+- [x] Écran de chargement (CSS pur)
+- [x] Section Home : grand titre animé, accroche, bouton rond
+- [ ] Section About : mise en page horizontale (infos, compétences en losanges, CV en frise)
+- [ ] Section Facts (compteurs sur fond photo)
+- [ ] Section Portfolio en carrousel (fiche projet à côté du visuel)
+- [ ] Sections Testimonials, Clients, Blog + page article
+- [ ] Contact : cartes et formulaire fonctionnel
+- [ ] Séparateurs en biais entre les sections
+- [ ] Sélecteur de couleur d'accent (réservé au propriétaire)
+- [ ] Menu : adapter le menu latéral/circulaire à la navigation horizontale
+
 ## 1. Sécurité
 - [x] Mettre à jour `next` (vulnérabilité critique) et lancer `npm audit fix` (12 vulnérabilités, dont `next-intl` et `postcss`)
 - [x] Ignorer `.env*` dans `.gitignore` et retirer `.env` du suivi Git
@@ -39,7 +53,7 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 ## 5. Qualité du code
 - [x] Remplacer le script `next lint` par `eslint .` et aligner `eslint-config-next` sur Next 16
 - [ ] Factoriser `About.tsx` (expériences et compétences générées à partir de données)
-- [ ] Supprimer le code mort (bloc commenté de `page.tsx`, icône « settings » cachée, `<img>` dupliquées du Hero)
+- [x] Supprimer le code mort (bloc commenté de `page.tsx`, icône « settings » cachée, `<img>` dupliquées du Hero)
 - [ ] Nettoyer les classes Tailwind contradictoires (Contact)
 - [ ] Renommer les breakpoints personnalisés (`scr_*`) de façon sémantique
 - [ ] Rédiger un vrai `README.md`

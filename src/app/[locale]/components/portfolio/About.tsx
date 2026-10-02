@@ -400,7 +400,6 @@ const About = () => {
   return (
     <div
       className=" min-h-screen  py-16 bg-transparent flex flex-col overflow-hidden"
-      id="about"
     >
       <SectionTitle
         text={about.title}

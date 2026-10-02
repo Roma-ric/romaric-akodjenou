@@ -96,7 +96,6 @@ const Projects = () => {
   return (
     <div
       className=" min-h-screen py-16 scr_4_0:pb-0   bg-transparent flex flex-col overflow-hidden"
-      id="projects"
     >
       <SectionTitle
         text={projectsData.title}

@@ -6,7 +6,11 @@
             "1": "FREELANCER"
         },
         "description": "I am a frontend developer specialized in creating modern and high-performance web interfaces. Focused on innovation and efficiency, I design solutions tailored to users' needs to enhance their daily experience.",
-        "moreText": "MORE ABOUT ME"
+        "moreText": "MORE ABOUT ME",
+        "greeting": "Hello",
+        "iAm": "I am",
+        "firstName": "Romaric",
+        "photoAlt": "Portrait of Romaric AKODJENOU"
     },
     "AboutSection": {
         "title": "ABOUT ME",
@@ -359,5 +363,8 @@
     },
     "ThemeToggle": {
         "label": "Toggle theme"
+    },
+    "ScrollToTop": {
+        "label": "Back to home"
     }
 }

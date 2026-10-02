@@ -68,7 +68,6 @@ const Contact = () => {
   return (
     <div
       className=" min-h-screen   py-16 bg-transparent flex flex-col overflow-hidden"
-      id="contact"
     >
       <SectionTitle
         text={contactData.title}
