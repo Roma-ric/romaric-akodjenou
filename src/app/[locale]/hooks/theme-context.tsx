@@ -1,6 +1,7 @@
 'use client'
 
-import { createContext, useCallback, useContext, useSyncExternalStore, ReactNode } from 'react';
+import { createContext, useCallback, useContext, useLayoutEffect, useSyncExternalStore, ReactNode } from 'react';
+import { ACCENT_STORAGE_KEY, applyAccent } from '@/config/accents';
 
 type Theme = 'light' | 'dark';
 
@@ -49,8 +50,33 @@ const getSnapshot = (): Theme =>
 
 const getServerSnapshot = (): Theme => 'light';
 
+function readStored(key: string): string | null {
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  // Un changement de langue recrée la balise <html> : elle perd alors les classes et
+  // variables posées par le script d'initialisation. On les réapplique avant l'affichage
+  // (sans effet au premier chargement, où elles sont déjà en place).
+  useLayoutEffect(() => {
+    const root = document.documentElement;
+    root.classList.add('js');
+
+    const stored = readStored('theme');
+    const dark =
+      stored === 'dark' ||
+      (stored !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    root.classList.toggle('dark', dark);
+
+    const accent = readStored(ACCENT_STORAGE_KEY);
+    if (accent) applyAccent(accent);
+  }, []);
 
   const toggleTheme = useCallback((): void => {
     const next: Theme = getSnapshot() === 'dark' ? 'light' : 'dark';
