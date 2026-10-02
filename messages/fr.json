@@ -421,5 +421,8 @@
             "email": "Veuillez saisir une adresse e-mail valide.",
             "message": "Votre message doit contenir au moins 10 caractères."
         }
+    },
+    "ScrollBar": {
+        "label": "Position dans la page (glisser ou cliquer pour défiler)"
     }
 }

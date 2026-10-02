@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, type ReactNode } from "react";
+import { useTranslations } from "next-intl";
 import { SCROLLER_ID, DESKTOP_QUERY, NAVIGATE_EVENT, scrollToSection } from "@/lib/scroll";
 
 type Panel = {
@@ -16,7 +17,9 @@ type Panel = {
  * Mobile / tablette : empilement vertical classique.
  */
 export default function HorizontalShell({ panels }: { panels: Panel[] }) {
+  const t = useTranslations("ScrollBar");
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const railRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,6 +33,7 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
       const max = scroller.scrollWidth - scroller.clientWidth;
       const ratio = max > 0 ? scroller.scrollLeft / max : 0;
       bar.style.left = `calc((100% - 27px) * ${Math.min(1, Math.max(0, ratio))})`;
+      railRef.current?.setAttribute("aria-valuenow", String(Math.round(ratio * 100)));
     };
 
     // Défilement fluide : on accumule une cible et on s'en rapproche à chaque image.
@@ -106,6 +110,49 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
     window.addEventListener("wheel", onWheel, { passive: false });
     window.addEventListener("keydown", onKeyDown);
     window.addEventListener(NAVIGATE_EVENT, stop);
+    // Indicateur « Scroll » : on peut saisir la poignée pour la faire glisser,
+    // ou cliquer sur la barre pour aller à cet endroit.
+    const rail = railRef.current;
+    const handle = progressRef.current;
+    let dragging = false;
+    let grabOffset = 0;
+    const ratioAt = (clientX: number) => {
+      if (!rail || !handle) return 0;
+      const box = rail.getBoundingClientRect();
+      const free = box.width - handle.offsetWidth;
+      return free > 0 ? Math.min(1, Math.max(0, (clientX - box.left - grabOffset) / free)) : 0;
+    };
+    const onPointerDown = (e: PointerEvent) => {
+      if (!media.matches || e.button !== 0 || !handle) return;
+      stop();
+      if (handle.contains(e.target as Node)) {
+        dragging = true;
+        grabOffset = e.clientX - handle.getBoundingClientRect().left;
+        rail?.setPointerCapture(e.pointerId);
+        handle.classList.add("dragging");
+        document.body.style.userSelect = "none";
+        e.preventDefault();
+      } else {
+        // Clic sur la barre : on y glisse en douceur, poignée centrée sous le curseur
+        grabOffset = handle.offsetWidth / 2;
+        scroller.scrollTo({ left: ratioAt(e.clientX) * maxScroll(), behavior: "smooth" });
+      }
+    };
+    const onPointerMove = (e: PointerEvent) => {
+      if (dragging) scroller.scrollLeft = ratioAt(e.clientX) * maxScroll();
+    };
+    const onPointerEnd = (e: PointerEvent) => {
+      if (!dragging) return;
+      dragging = false;
+      handle?.classList.remove("dragging");
+      document.body.style.userSelect = "";
+      if (rail?.hasPointerCapture(e.pointerId)) rail.releasePointerCapture(e.pointerId);
+    };
+    rail?.addEventListener("pointerdown", onPointerDown);
+    rail?.addEventListener("pointermove", onPointerMove);
+    rail?.addEventListener("pointerup", onPointerEnd);
+    rail?.addEventListener("pointercancel", onPointerEnd);
+
     scroller.addEventListener("scroll", updateProgress, { passive: true });
     window.addEventListener("hashchange", onHashChange);
     updateProgress();
@@ -114,6 +161,11 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener(NAVIGATE_EVENT, stop);
+      rail?.removeEventListener("pointerdown", onPointerDown);
+      rail?.removeEventListener("pointermove", onPointerMove);
+      rail?.removeEventListener("pointerup", onPointerEnd);
+      rail?.removeEventListener("pointercancel", onPointerEnd);
+      document.body.style.userSelect = "";
       stop();
       scroller.removeEventListener("scroll", updateProgress);
       window.removeEventListener("hashchange", onHashChange);
@@ -144,9 +196,20 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
         })}
       </div>
 
-      {/* Progression du défilement (ordinateur uniquement) */}
-      <div aria-hidden="true" className="sal-progress">
-        <div className="rail">
+      {/* Progression du défilement (ordinateur uniquement) : poignée à faire glisser */}
+      <div className="sal-progress">
+        <div
+          ref={railRef}
+          className="rail"
+          role="scrollbar"
+          aria-orientation="horizontal"
+          aria-controls={SCROLLER_ID}
+          aria-label={t("label")}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={0}
+          tabIndex={0}
+        >
           <div ref={progressRef} className="dragger" />
         </div>
       </div>

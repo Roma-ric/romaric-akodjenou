@@ -421,5 +421,8 @@
             "email": "Please enter a valid email address.",
             "message": "Your message must be at least 10 characters."
         }
+    },
+    "ScrollBar": {
+        "label": "Page position (drag or click to scroll)"
     }
 }

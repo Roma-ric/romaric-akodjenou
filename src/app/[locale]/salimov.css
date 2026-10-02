@@ -364,10 +364,17 @@
   display: none; position: fixed; bottom: 32px; left: 0; right: 0; margin: 0 auto; z-index: 40;
   width: calc(100vw - 300px); pointer-events: none;
 }
-.sal-progress .rail { position: relative; height: 8px; border-radius: 4px; background: var(--sal-rail); }
+.sal-progress .rail { position: relative; height: 8px; border-radius: 4px; background: var(--sal-rail); pointer-events: auto; cursor: pointer; touch-action: none; }
+/* zone de saisie plus large que la barre visible */
+.sal-progress .rail::before { content: ""; position: absolute; inset: -14px 0; }
+.sal-progress .rail:focus-visible { outline: 2px solid var(--sal-accent); outline-offset: 4px; }
 .sal-progress .dragger {
   position: absolute; top: 0; left: 0; width: 27px; height: 8px; border-radius: 4px; background: var(--sal-accent);
+  cursor: grab; transition: top 0.15s, height 0.15s;
 }
+.sal-progress .dragger::before { content: ""; position: absolute; inset: -12px -8px; }
+.sal-progress .dragger:hover, .sal-progress .dragger.dragging { top: -2px; height: 12px; }
+.sal-progress .dragger.dragging { cursor: grabbing; }
 .sal-progress .dragger::after {
   content: "Scroll"; position: absolute; top: -26px; left: -4px; font-size: 13px; letter-spacing: 0.3px;
   color: var(--sal-accent-text);
