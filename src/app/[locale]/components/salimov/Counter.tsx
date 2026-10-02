@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { getScroller } from "@/lib/scroll";
 
 // Compteur animé de 0 à `to`, lancé quand il devient visible
-export default function Counter({ to, duration = 1500 }: { to: number; duration?: number }) {
+export default function Counter({ to, prefix = "", duration = 1500 }: { to: number; prefix?: string; duration?: number }) {
   const ref = useRef<HTMLHeadingElement>(null);
   const [value, setValue] = useState(0);
 
@@ -38,5 +38,5 @@ export default function Counter({ to, duration = 1500 }: { to: number; duration?
     };
   }, [to, duration]);
 
-  return <h3 ref={ref} aria-label={String(to)}>{value}</h3>;
+  return <h3 ref={ref} aria-label={`${prefix}${to}`}>{prefix}{value}</h3>;
 }

@@ -66,12 +66,14 @@
                 "label": "years of experience"
             },
             "completedProjects": {
-                "value": 8,
-                "label": "completed projects"
+                "value": 9,
+                "label": "completed projects",
+                "prefix": "+"
             },
             "happyCustomers": {
                 "value": 4,
-                "label": "happy customers"
+                "label": "happy customers",
+                "prefix": "+"
             }
         },
         "experiences": {
