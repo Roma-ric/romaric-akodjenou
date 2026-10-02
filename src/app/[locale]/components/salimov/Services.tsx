@@ -14,7 +14,7 @@ export default function Services() {
   const t = useTranslations("ServicesSection");
 
   return (
-    <section className="sal-section sal-services" style={{ flexWrap: "wrap" }}>
+    <section className="sal-section sal-services">
       <div className="sal-title">
         <Reveal as="h3" from="left">{t("title")}</Reveal>
       </div>

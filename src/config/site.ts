@@ -13,7 +13,7 @@ export const siteConfig = {
   phoneHref: "tel:+2290166474345",
   birthDate: "2003-09-09",
   // Noms propres : pas de traduction
-  clients: ["SIMAM SARL", "Carréfoot", "Explotel", "Fidevo Group", "ROMAS Technologie", "PayPlus Africa", "Friym"],
+  clients: ["SIMAM SARL", "Carréfoot", "Explotel", "Fidevo Group", "ROMAS Technologie", "PayPlus Africa"],
 } as const;
 
 export function getAge(birthDate: string, now = new Date()): number {

@@ -515,7 +515,7 @@
   .sal-services .sal-boxes { flex-wrap: nowrap; padding-right: 12rem; }
   .sal-contact { padding-right: 12rem; }
   .sal-contact .sal-form-wrap { width: 30rem; max-width: none; margin: 0 0 0 6rem; flex: none; align-self: center; }
-  .sal-form textarea { max-height: 7rem; }
+
 
   /* Portfolio */
   .sal-portfolio { flex-direction: row; padding: 0 12rem 0 0; }
@@ -609,7 +609,7 @@
 .sal-form label { font-size: 0.95rem; color: var(--sal-muted); }
 .sal-form input, .sal-form textarea {
   width: 100%; font: inherit; color: var(--sal-fg); background: var(--sal-bg); border: 1px solid var(--sal-card-border);
-  border-radius: 12px; padding: 0.75rem 1rem; resize: vertical;
+  border-radius: 12px; padding: 0.75rem 1rem; resize: none;
 }
 .sal-form input:focus, .sal-form textarea:focus { outline: 2px solid var(--sal-accent); outline-offset: 1px; }
 .sal-form [aria-invalid="true"] { border-color: #e5484d; }

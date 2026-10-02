@@ -72,9 +72,6 @@
             "happyCustomers": {
                 "value": 4,
                 "label": "happy customers"
-            },
-            "technologies": {
-                "label": "technologies mastered"
             }
         },
         "experiences": {

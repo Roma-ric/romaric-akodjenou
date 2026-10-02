@@ -1,7 +1,6 @@
 import { useTranslations } from "next-intl";
 import Counter from "./Counter";
 import Reveal from "./Reveal";
-import { skills } from "./skills";
 
 export default function Facts() {
   const t = useTranslations("AboutSection.stats");
@@ -10,7 +9,6 @@ export default function Facts() {
     { to: t.raw("yearsOfExperience.value"), label: t("yearsOfExperience.label") },
     { to: t.raw("completedProjects.value"), label: t("completedProjects.label") },
     { to: t.raw("happyCustomers.value"), label: t("happyCustomers.label") },
-    { to: String(skills.length), label: t("technologies.label") },
   ];
 
   return (
