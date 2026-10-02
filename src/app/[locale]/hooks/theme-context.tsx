@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import { createContext, useCallback, useContext, useSyncExternalStore, ReactNode } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -15,59 +15,52 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-export function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme | null>(null);
+// Source de vérité : la classe `dark` de <html>, posée avant l'hydratation
+// par le script du layout. Le contexte ne fait que la refléter.
+function subscribe(onChange: () => void) {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
 
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const savedTheme = localStorage.getItem('theme') as Theme | null;
-
-    if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
-      setTheme(savedTheme);
-    } else {
-      const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(systemPrefersDark ? 'dark' : 'light');
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const handleSystemChange = (e: MediaQueryListEvent) => {
+    let stored: string | null = null;
+    try {
+      stored = localStorage.getItem('theme');
+    } catch {
+      /* stockage indisponible */
     }
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || theme === null) return;
-
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
+    if (!stored) {
+      document.documentElement.classList.toggle('dark', e.matches);
     }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-
-    const handleChange = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    };
-
-    mediaQuery.addEventListener('change', handleChange);
-
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
-
-  const toggleTheme = (): void => {
-    setTheme(prevTheme => {
-      if (prevTheme === 'light') return 'dark';
-      return 'light';
-    });
   };
+  mediaQuery.addEventListener('change', handleSystemChange);
 
-  if (theme === null) {
-    return null;
-  }
+  return () => {
+    observer.disconnect();
+    mediaQuery.removeEventListener('change', handleSystemChange);
+  };
+}
+
+const getSnapshot = (): Theme =>
+  document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+
+const getServerSnapshot = (): Theme => 'light';
+
+export function ThemeProvider({ children }: ThemeProviderProps) {
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+
+  const toggleTheme = useCallback((): void => {
+    const next: Theme = getSnapshot() === 'dark' ? 'light' : 'dark';
+    document.documentElement.classList.toggle('dark', next === 'dark');
+    try {
+      localStorage.setItem('theme', next);
+    } catch {
+      /* stockage indisponible : le thème reste valable pour la session */
+    }
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -78,7 +71,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
 export function useTheme(): ThemeContextType {
   const context = useContext(ThemeContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;

@@ -352,5 +352,12 @@
         "projects": "Projets",
         "contact": "Contact",
         "blog": "Blog"
+    },
+    "Metadata": {
+        "title": "Romaric AKODJENOU – Développeur Front-end & Freelance",
+        "description": "Portfolio de Romaric AKODJENOU, développeur front-end et freelance basé au Bénin : interfaces web modernes, rapides et accessibles."
+    },
+    "ThemeToggle": {
+        "label": "Changer de thème"
     }
 }

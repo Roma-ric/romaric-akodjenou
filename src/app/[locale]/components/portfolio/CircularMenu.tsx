@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useId, useMemo } from "react";
 import {
   motion,
   AnimatePresence,
@@ -178,12 +178,11 @@ const CircularMenu = ({
 
   const [isOpen, setIsOpen] = useState<boolean>(opened);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const [activePath, setActivePath] = useState<string>("");
   const containerRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const menuId = useRef(`menu-${Math.random().toString(36).substr(2, 9)}`);
+  const menuId = useRef(`menu-${useId().replace(/[^a-zA-Z0-9_-]/g, "")}`);
 
   const pathSpring = useSpring(0, { stiffness: 100, damping: 30 });
 
@@ -315,10 +314,10 @@ const CircularMenu = ({
     mouseY.set(e.clientY - rect.top);
   };
 
-  useEffect(() => {
-    if (portfolio_menu.length <= 1) return;
+  const activePath = useMemo(() => {
+    if (portfolio_menu.length <= 1) return "";
 
-    const pathData = [];
+    const pathData: string[] = [];
     const adjustedRadius = radius;
 
     switch (position) {
@@ -341,7 +340,7 @@ const CircularMenu = ({
         }
     }
 
-    setActivePath(pathData.join(" "));
+    return pathData.join(" ");
   }, [portfolio_menu.length, area, position, radius]);
 
   const getCircularMenuItemPosition = (index: number) => {

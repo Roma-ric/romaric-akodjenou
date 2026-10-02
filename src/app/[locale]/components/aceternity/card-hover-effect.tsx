@@ -1,3 +1,5 @@
+"use client";
+
 import { AnimatePresence, motion } from "framer-motion";
 import { CircleArrowOutUpRight } from "lucide-react";
 import Image from "next/image";

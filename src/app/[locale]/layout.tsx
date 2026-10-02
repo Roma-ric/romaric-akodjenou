@@ -2,18 +2,15 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./hooks/theme-context";
 import ThemeToggle from "./components/portfolio/ThemeToggle";
-import Head from "next/head";
 import ScrollToTop from "./components/portfolio/ScrollToTop";
 import type { Metadata } from "next";
 import Menu from "./components/portfolio/Menu";
 import CircularMenu from "./components/portfolio/CircularMenu";
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import { notFound } from "next/navigation";
 import LanguageSwitcher from "./components/language-switcher";
-
-export const metadata: Metadata = {
-  title: "Romaric AKODJENOU",
-  description: "le site officiel de Romaric AKODJENOU",
-};
+import { routing } from "@/i18n/routing";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,19 +22,53 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
+// Script exécuté avant l'hydratation pour appliquer le thème sans flash
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}if(t==='dark')document.documentElement.classList.add('dark')}catch(e){}})();`;
+
+type Props = {
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
-}>) {
+};
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params,
+}: Pick<Props, "params">): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const baseUrl = process.env.NEXT_PUBLIC_APP_LINK;
+
+  return {
+    metadataBase: baseUrl ? new URL(baseUrl) : undefined,
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: `/${locale}`,
+      languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}`])),
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      type: "website",
+      locale,
+      images: ["/files/profile-bg.png"],
+    },
+  };
+}
+
+export default async function RootLayout({ children, params }: Props) {
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) notFound();
+  setRequestLocale(locale);
 
   return (
-    <html lang="en">
-      <Head>
-        <title>Romaric AKODJENOU</title>
-        <meta name="description" content="Portfolio - Romaric AKODJENOU" />
-      </Head>
+    <html lang={locale} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
 
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
@@ -50,30 +81,6 @@ export default async function RootLayout({
 
             <div className="fixed left-5 top-5 z-50">
               <LanguageSwitcher />
-            </div>
-
-            {/* Icône settings */}
-            <div className="fixed top-4 left-4 z-40 hidden bg-black ring ring-white dark:bg-white p-2 rounded-full cursor-pointer">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-white dark:text-black"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
             </div>
 
             {/* Menu navigation latéral */}

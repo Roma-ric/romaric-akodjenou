@@ -58,9 +58,8 @@ export const AnimatedTestimonials = ({
     }
   }, [autoplay]);
 
-  const randomRotateY = () => {
-    return Math.floor(Math.random() * 21) - 10;
-  };
+  // Rotation déterministe (-10° à 10°) : pas de valeur aléatoire pendant le rendu
+  const rotateFor = (index: number) => ((index * 7 + 3) % 21) - 10;
   return (
     <div className="mx-auto antialiased font-sans px-4 py-20  scr_2_0:pt-10">
       <div className="flex scr_2_1:flex-col space-x-16 scr_2_1:space-x-0 w-full">
@@ -73,13 +72,13 @@ export const AnimatedTestimonials = ({
                   opacity: 0,
                   scale: 0.9,
                   z: -100,
-                  rotate: randomRotateY(),
+                  rotate: rotateFor(index),
                 }}
                 animate={{
                   opacity: isActive(index) ? 1 : 0.7,
                   scale: isActive(index) ? 1 : 0.95,
                   z: isActive(index) ? 0 : -100,
-                  rotate: isActive(index) ? 0 : randomRotateY(),
+                  rotate: isActive(index) ? 0 : rotateFor(index),
                   zIndex: isActive(index)
                     ? 999
                     : testimonials.length + 2 - index,
@@ -89,7 +88,7 @@ export const AnimatedTestimonials = ({
                   opacity: 0,
                   scale: 0.9,
                   z: 100,
-                  rotate: randomRotateY(),
+                  rotate: rotateFor(index),
                 }}
                 transition={{
                   duration: 0.4,

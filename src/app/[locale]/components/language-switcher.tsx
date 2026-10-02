@@ -7,6 +7,7 @@ import {
   NavigationMenuTrigger,
 } from "./ui/navigation-menu";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function LanguageSwitcher() {
   const t = useTranslations("Language");
@@ -28,14 +29,14 @@ export default function LanguageSwitcher() {
               <ul className="grid w-[100px] gap-4">
                 <li>
                   <NavigationMenuLink asChild>
-                    <a href="/fr">
+                    <Link href="/" locale="fr">
                       <div className="font-medium">{data.french}</div>
-                    </a>
+                    </Link>
                   </NavigationMenuLink>
                   <NavigationMenuLink asChild>
-                    <a href="/en">
+                    <Link href="/" locale="en">
                       <div className="font-medium">{data.english}</div>
-                    </a>
+                    </Link>
                   </NavigationMenuLink>
                 </li>
               </ul>
