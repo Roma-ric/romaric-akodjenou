@@ -71,7 +71,7 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
       <div
         id={SCROLLER_ID}
         ref={scrollerRef}
-        className="lg:flex lg:h-screen lg:overflow-x-auto lg:overflow-y-hidden lg:overscroll-x-none lg:[scrollbar-width:none] lg:[&::-webkit-scrollbar]:hidden"
+        className="sal-scroller"
       >
         {panels.map(({ id, node, kind }, i) => {
           // Courbes de raccord entre une section sombre et un bandeau voisin
@@ -82,7 +82,7 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
               key={id}
               id={id}
               data-panel
-              className={`relative lg:w-max lg:shrink-0 lg:h-screen ${curveRight ? "sal-curve-r" : ""} ${curveLeft ? "sal-curve-l" : ""}`}
+              className={`sal-panel ${curveRight ? "sal-curve-r" : ""} ${curveLeft ? "sal-curve-l" : ""}`}
             >
               {node}
             </div>

@@ -1,4 +1,4 @@
-import { Building2, Clock, Download, GraduationCap } from "lucide-react";
+import { Briefcase, Building2, Clock, Download, GraduationCap } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { getAge, siteConfig } from "@/config/site";
@@ -31,6 +31,7 @@ export default function About() {
       period: t(`experiences.${key}.period`),
       place: t(`experiences.${key}.company`),
       icon: <Building2 aria-hidden="true" />,
+      mark: <Briefcase aria-hidden="true" />,
     })),
     ...educationKeys.map((key) => ({
       key,
@@ -38,6 +39,7 @@ export default function About() {
       period: t(`education.${key}.period`),
       place: t(`education.${key}.institution`),
       icon: <GraduationCap aria-hidden="true" />,
+      mark: <GraduationCap aria-hidden="true" />,
     })),
   ];
 
@@ -108,9 +110,10 @@ export default function About() {
           <Reveal as="h3" from="left">{t("resumeTitle")}</Reveal>
         </div>
         <ol className="sal-timeline">
-          {steps.map(({ key, title, period, place, icon }, i) => (
+          {steps.map(({ key, title, period, place, icon, mark }, i) => (
             <li className="step" key={key}>
               <Reveal className="sal-card" delay={0.05 * (i % 3)}>
+                <span className="mark">{mark}</span>
                 <h4>{title}</h4>
                 <p><Clock aria-hidden="true" /> <span>{period}</span></p>
                 <p>{icon} <span>{place}</span></p>

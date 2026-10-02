@@ -29,6 +29,12 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - [ ] Sélecteur de couleur d'accent (réservé au propriétaire)
 - [x] Menu : en-tête Salimov (menu, e-mail, langue, thème) et menu mobile
 
+## Responsivité (comparée au template Salimov)
+- [x] Mobile/tablette : Home centrée, marges latérales, courbes de raccord, connecteurs et icônes en filigrane dans le parcours, losanges des compteurs en colonne, infos sur deux colonnes
+- [x] Mode horizontal réservé aux écrans > 1024 px avec pointeur (les tablettes tactiles restent en vertical)
+- [x] En-tête sans collision entre 1025 et 1240 px (e-mail masqué, déjà dans Contact)
+- [ ] Tester sur de vrais appareils (iPhone, iPad, Android) : rendu et gestes
+
 ## 1. Sécurité
 - [x] Mettre à jour `next` (vulnérabilité critique) et lancer `npm audit fix` (12 vulnérabilités, dont `next-intl` et `postcss`)
 - [x] Ignorer `.env*` dans `.gitignore` et retirer `.env` du suivi Git

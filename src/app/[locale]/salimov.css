@@ -40,7 +40,7 @@
 
 .sal a { color: inherit; text-decoration: none; }
 .sal ul, .sal ol { list-style: none; margin: 0; padding: 0; }
-.sal h1, .sal h2, .sal h3, .sal h4, .sal p { margin: 0; }
+:where(.sal) :where(h1, h2, h3, h4, p) { margin: 0; }
 .sal-accent { color: var(--sal-accent-text); }
 
 /* ---------- Apparition au défilement ---------- */
@@ -58,7 +58,7 @@
 }
 
 /* ---------- Titre vertical de section ---------- */
-.sal-title { text-align: center; padding: 70px 30px 40px; }
+.sal-title { text-align: center; padding: 70px 0 40px; }
 .sal-title h3 {
   font-size: 40px; line-height: 1.15; font-weight: 800; letter-spacing: 2px;
 }
@@ -93,7 +93,7 @@
 /* ---------- Home ---------- */
 .sal-home {
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
-  padding: 110px 20px 70px; position: relative;
+  padding: 110px 30px 70px; position: relative; text-align: center;
 }
 .sal-home-inner { position: relative; }
 .sal-home h1 {
@@ -107,18 +107,18 @@
 }
 .sal-home h1 .line:first-child .word { text-shadow: 5px 5px var(--sal-accent), 12px 12px var(--sal-card); }
 .sal-home .intro {
-  position: relative; max-width: 360px; margin: 16px 12px 0; font-size: 18px; line-height: 30px;
+  position: relative; max-width: 360px; margin: 22px auto 0; font-size: 18px; line-height: 30px;
   color: var(--sal-fg);
 }
-.sal-home .cta { margin: 34px 12px 0; }
+.sal-home .cta { margin: 34px auto 0; }
 
 /* ---------- Sections génériques ---------- */
-.sal-section { position: relative; background: var(--sal-bg); }
+.sal-section { position: relative; background: var(--sal-bg); padding: 0 30px; }
 
 /* Bandeau à photo de fond (facts, testimonials, clients) */
 .sal-band {
   position: relative; display: flex; align-items: center; justify-content: center;
-  padding: 90px 24px; background-color: var(--sal-bg);
+  padding: 110px 30px; background-color: var(--sal-bg);
   background-image:
     radial-gradient(circle at 18% 25%, rgba(255, 180, 0, 0.22), transparent 42%),
     radial-gradient(circle at 85% 80%, rgba(255, 180, 0, 0.12), transparent 40%),
@@ -128,16 +128,17 @@
 .sal-band > * { position: relative; }
 
 /* ---------- About ---------- */
-.sal-about { display: flex; flex-direction: column; align-items: center; padding: 30px 24px 40px; }
+.sal-about { display: flex; flex-direction: column; align-items: center; padding: 30px 30px 40px; }
 .sal-about .info { display: flex; flex-direction: column; align-items: center; }
 .sal-photo {
   position: relative; overflow: hidden; width: 100%; max-width: 380px; border-radius: 24px;
   aspect-ratio: 380 / 470;
 }
 .sal-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.sal-name { font-size: 40px; line-height: 1.15; font-weight: 700; margin: 30px 0 10px; text-align: center; }
+.sal-name { font-size: 40px; line-height: 1.15; font-weight: 700; margin: 26px 0 8px; text-align: center; }
 .sal-name span { display: block; }
 .sal-name span:first-child { color: var(--sal-accent-text); }
+.sal-infos-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 50px; }
 .sal-infos { display: flex; flex-direction: column; white-space: normal; }
 .sal-infos li { line-height: 44px; padding-left: 26px; position: relative; }
 .sal-infos li::before {
@@ -149,7 +150,7 @@
 .sal-infos li a { color: var(--sal-accent-text); }
 .sal-infos li a:hover { text-decoration: underline; }
 
-.sal-skills-content { display: flex; flex-wrap: wrap; justify-content: center; gap: 50px 30px; }
+.sal-skills-content { display: flex; flex-wrap: wrap; justify-content: center; gap: 50px 30px; max-width: 560px; margin: 0 auto; }
 .sal-skill { display: flex; flex-direction: column; align-items: center; width: 100px; }
 .sal-skill .diamond {
   width: 80px; height: 80px; display: grid; place-items: center; border-radius: 26px;
@@ -169,19 +170,38 @@
 .sal-card p:last-child { margin-bottom: 0; }
 .sal-card svg { width: 16px; height: 16px; flex: none; position: relative; top: 2px; }
 
+@media not all and (min-width: 1025px) and (hover: hover) {
+  .sal-timeline .step { position: relative; }
+  .sal-timeline .step:last-child { display: none; }
+  .sal-timeline .step:nth-last-child(2) .sal-card::after { display: none; }
+  .sal-timeline .sal-card::after {
+    content: ""; position: absolute; left: 50%; top: 100%; width: 4px; height: 32px;
+    transform: translateX(-50%); background: var(--sal-card); z-index: 1;
+  }
+  .sal-timeline .sal-card { overflow: visible; }
+}
+.sal-card .mark {
+  position: absolute; right: 14px; top: 50%; width: 90px; height: 90px; transform: translateY(-50%);
+  opacity: 0.07; pointer-events: none;
+}
+.sal-card .mark svg { width: 100%; height: 100%; }
+.sal-card { overflow: hidden; }
+
 /* ---------- Facts ---------- */
-.sal-facts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px 30px; padding: 20px 0; }
-.sal-fact-wrap { display: grid; place-items: center; }
+.sal-facts-grid { display: flex; flex-direction: column; align-items: center; gap: 0; padding: 70px 0; }
+.sal-fact-wrap { display: grid; place-items: center; position: relative; margin: 38px 0; }
+.sal-fact-wrap:nth-child(odd) { left: -60px; }
+.sal-fact-wrap:nth-child(even) { left: 60px; }
 .sal-fact {
-  width: 140px; height: 140px; display: grid; place-items: center; text-align: center;
-  background: var(--sal-band-card); border-radius: 30px; transform: rotate(45deg); margin: 0 auto;
+  width: 170px; height: 170px; display: grid; place-items: center; text-align: center;
+  background: var(--sal-band-card); border-radius: 34px; transform: rotate(45deg); margin: 0 auto;
 }
 .sal-fact > div { transform: rotate(-45deg); }
-.sal-fact h3 { font-size: 40px; font-weight: 700; margin-bottom: 4px; color: var(--sal-accent-text); }
-.sal-fact p { font-size: 15px; font-weight: 500; text-transform: capitalize; max-width: 110px; line-height: 1.25; }
+.sal-fact h3 { font-size: 46px; font-weight: 700; margin-bottom: 4px; color: var(--sal-accent-text); }
+.sal-fact p { font-size: 17px; font-weight: 500; text-transform: capitalize; max-width: 120px; line-height: 1.25; }
 
 /* ---------- Boîtes (contact, services) ---------- */
-.sal-boxes { display: flex; flex-direction: column; gap: 70px; padding: 20px 0 40px; width: 100%; max-width: 538px; }
+.sal-boxes { display: flex; flex-direction: column; gap: 70px; padding: 20px 0 60px; width: 100%; max-width: 538px; margin: 0 auto; }
 .sal-box {
   position: relative; display: flex; flex-direction: column; align-items: center; text-align: center;
   padding: 60px 24px 30px; border-radius: 20px; background: var(--sal-card); min-height: 164px;
@@ -204,14 +224,14 @@
 .sal-social-svg { width: 20px; height: 20px; }
 
 /* ---------- Portfolio ---------- */
-.sal-portfolio { display: flex; flex-direction: column; align-items: center; padding-bottom: 60px; }
+.sal-portfolio { display: flex; flex-direction: column; align-items: center; padding-bottom: 80px; }
 .sal-slide { display: flex; flex-direction: column; align-items: center; gap: 28px; }
 .sal-slide .shot {
-  position: relative; display: block; width: min(538px, calc(100vw - 48px)); aspect-ratio: 650 / 450;
+  position: relative; display: block; width: 100%; max-width: 538px; aspect-ratio: 650 / 450;
   overflow: hidden; border-radius: 20px; background: var(--sal-card);
 }
 .sal-slide .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.sal-slide .details { width: min(538px, calc(100vw - 48px)); }
+.sal-slide .details { width: 100%; max-width: 538px; }
 .sal-slide .details h4 { font-size: 30px; line-height: 1.15; font-weight: 700; margin-bottom: 14px; }
 .sal-slide .details p { color: var(--sal-muted); line-height: 1.7; margin-bottom: 8px; }
 .sal-slide .details .meta { display: flex; align-items: center; gap: 8px; margin-bottom: 18px; color: var(--sal-muted); }
@@ -226,7 +246,7 @@
 .sal-dots button[aria-current="true"] { width: 35px; background: var(--sal-accent); opacity: 1; }
 
 /* ---------- Témoignages ---------- */
-.sal-quotes { display: flex; flex-direction: column; gap: 70px; max-width: 538px; }
+.sal-quotes { display: flex; flex-direction: column; gap: 70px; max-width: 538px; width: 100%; padding-top: 30px; }
 .sal-quote { position: relative; padding: 0 0 50px; }
 .sal-quote::before {
   content: "”"; position: absolute; top: -70px; left: -6px; z-index: 2; font-size: 150px;
@@ -255,8 +275,8 @@
 }
 
 /* ---------- Blog ---------- */
-.sal-posts { display: flex; flex-direction: column; gap: 50px; padding: 20px 0 0; }
-.sal-post { position: relative; border-radius: 20px; background: var(--sal-card); width: min(538px, calc(100vw - 48px)); }
+.sal-posts { display: flex; flex-direction: column; gap: 50px; padding: 20px 0 70px; }
+.sal-post { position: relative; border-radius: 20px; background: var(--sal-card); width: 100%; max-width: 538px; margin: 0 auto; }
 .sal-post a { display: block; border-radius: 20px; }
 .sal-post .img-holder { display: block; overflow: hidden; border-radius: 20px 20px 0 0; }
 .sal-post img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s; display: block; }
@@ -346,11 +366,27 @@
   color: var(--sal-accent-text);
 }
 
+.sal-panel { position: relative; }
+
+/* Courbes de raccord en vertical (mobile / tablette) */
+.sal-curve-r::after, .sal-curve-l::before {
+  content: ""; position: absolute; left: 0; right: 0; height: 40px; z-index: 6;
+  background: var(--sal-bg); pointer-events: none;
+}
+.sal-curve-r::after { bottom: -39px; clip-path: ellipse(50% 100% at 50% 0); }
+.sal-curve-l::before { top: -39px; clip-path: ellipse(50% 100% at 50% 100%); }
+
 /* =========================================================================
    ORDINATEUR : sections horizontales
    ========================================================================= */
-@media (min-width: 1024px) {
+@media (min-width: 1025px) and (hover: hover) {
   .sal-progress { display: block; }
+  .sal-scroller {
+    display: flex; height: 100vh; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: none;
+    scrollbar-width: none;
+  }
+  .sal-scroller::-webkit-scrollbar { display: none; }
+  .sal-panel { width: max-content; flex: none; height: 100vh; }
   .sal-toggle, .sal-overlay { display: none; }
 
   .sal-header .bar { display: flex; justify-content: space-between; align-items: flex-start; padding: 30px; }
@@ -366,6 +402,7 @@
   .sal-header .mail { font-size: 18px; font-weight: 500; }
   .sal-header .mail span { color: var(--sal-accent-text); }
   .sal-header .tools { display: flex; align-items: center; gap: 8px; }
+  .sal-header .mail { white-space: nowrap; }
 
   .sal-title {
     writing-mode: vertical-rl; transform: rotate(180deg); height: 100vh; margin: 0 150px; padding: 0;
@@ -374,23 +411,23 @@
   .sal-title h3 { font-size: 60px; line-height: 65px; white-space: nowrap; }
 
   .sal-section, .sal-band, .sal-copyright, .sal-home { height: 100vh; min-height: 0; flex: none; }
-  .sal-section { display: flex; align-items: center; }
+  .sal-section { display: flex; align-items: center; padding: 0; }
+  .sal-band { padding: 0; }
 
   /* Courbes de séparation entre sections sombres et bandeaux */
   .sal-curve-r::after, .sal-curve-l::before {
-    content: ""; position: absolute; top: 0; height: 100%; width: 80px; z-index: 6;
-    background: var(--sal-bg); pointer-events: none;
+    top: 0; bottom: auto; height: 100%; width: 80px;
   }
-  .sal-curve-r::after { right: -79px; clip-path: ellipse(100% 50% at 0 50%); }
-  .sal-curve-l::before { left: -79px; clip-path: ellipse(100% 50% at 100% 50%); }
+  .sal-curve-r::after { left: auto; right: -79px; clip-path: ellipse(100% 50% at 0 50%); }
+  .sal-curve-l::before { right: auto; left: -79px; clip-path: ellipse(100% 50% at 100% 50%); }
 
   /* Home */
-  .sal-home { width: 100vw; min-width: 100vw; padding: 0; }
+  .sal-home { width: 100vw; min-width: 100vw; padding: 0; text-align: left; }
   .sal-home h1 .line { padding: 0 200px 0; line-height: 160px; }
   .sal-home h1 .word { text-shadow: 8px 8px var(--sal-fg), 20px 20px var(--sal-card); }
   .sal-home h1 .line:first-child .word { text-shadow: 8px 8px var(--sal-accent), 20px 20px var(--sal-card); }
   .sal-home .intro {
-    position: absolute; left: 620px; top: 168px; margin: 0; width: 220px; height: 150px;
+    text-align: left; position: absolute; left: 620px; top: 168px; margin: 0; width: 220px; height: 150px;
     display: flex; flex-direction: column; justify-content: center; font-size: 18px; line-height: 30px;
   }
   .sal-home .cta { position: absolute; right: 60px; top: calc(50% - 30px); margin: 0; }
@@ -401,10 +438,11 @@
   .sal-photo { width: 380px; max-width: none; height: 470px; aspect-ratio: auto; flex: none; }
   .sal-about .name-block { align-self: flex-start; margin-top: 45px; margin-left: 40px; }
   .sal-name { font-size: 70px; line-height: 80px; margin: 0; text-align: left; }
-  .sal-infos-wrap { display: flex; margin: 45px 0 0 100px; gap: 75px; }
+  .sal-infos-wrap { display: flex; flex-wrap: nowrap; justify-content: flex-start; margin: 45px 0 0 100px; gap: 0 75px; }
   .sal-infos { white-space: nowrap; }
   .sal-about-block { display: flex; align-items: center; min-height: 460px; }
   .sal-skills-content {
+    max-width: none; margin: 0;
     display: grid; grid-template-rows: repeat(2, auto); grid-auto-flow: column; gap: 60px 80px;
     flex-wrap: nowrap; justify-content: start;
   }
@@ -437,8 +475,9 @@
   /* Facts */
   .sal-band { align-items: center; }
   .sal-facts { padding: 0 210px; }
-  .sal-facts-grid { display: flex; align-items: center; gap: 0; padding: 0; }
+  .sal-facts-grid { flex-direction: row; align-items: center; gap: 0; padding: 0; }
   .sal-fact { width: 200px; height: 200px; border-radius: 40px; margin: 0; }
+  .sal-fact-wrap { margin: 0; left: 0 !important; }
   .sal-fact-wrap + .sal-fact-wrap { margin-left: 30px; }
   .sal-fact-wrap:nth-child(odd) { margin-top: -200px; }
   .sal-fact-wrap:nth-child(even) { margin-top: 200px; }
@@ -446,7 +485,7 @@
   .sal-fact p { font-size: 20px; max-width: 150px; }
 
   /* Services / contact (boîtes) */
-  .sal-boxes { flex-direction: row; flex-wrap: wrap; gap: 70px 75px; width: auto; max-width: none; padding: 40px 0 0; align-content: center; }
+  .sal-boxes { flex-direction: row; flex-wrap: wrap; gap: 70px 75px; width: auto; max-width: none; margin: 0; padding: 40px 0 0; align-content: center; }
   .sal-boxes.cols-2 { display: grid; grid-auto-flow: column; grid-template-rows: repeat(2, auto); }
   .sal-box { min-width: 320px; }
   .sal-services .sal-box { width: 330px; min-width: 0; min-height: 280px; align-items: flex-start; text-align: left; padding: 60px 30px 30px; }
@@ -458,14 +497,14 @@
   .sal-portfolio { flex-direction: row; padding: 0 250px 0 0; }
   .sal-carousel { position: relative; display: flex; align-items: center; height: 100vh; }
   .sal-slide { flex-direction: row; gap: 40px; align-items: center; }
-  .sal-slide .shot { width: 650px; aspect-ratio: auto; height: 450px; }
-  .sal-slide .details { width: 360px; }
+  .sal-slide .shot { width: 650px; max-width: none; aspect-ratio: auto; height: 450px; }
+  .sal-slide .details { width: 360px; max-width: none; }
   .sal-slide .details h4 { font-size: 38px; line-height: 40px; margin-bottom: 22px; }
   .sal-nav { position: absolute; right: -180px; top: calc(50% - 75px); flex-direction: column; margin: 0; }
   .sal-dots { position: absolute; bottom: 90px; left: 0; right: 0; justify-content: center; margin: 0; }
 
   /* Témoignages */
-  .sal-quotes { flex-direction: row; gap: 90px; max-width: none; padding: 0 180px; }
+  .sal-quotes { flex-direction: row; gap: 90px; max-width: none; width: auto; padding: 0 180px; }
   .sal-quote { width: 390px; }
 
   /* Clients */
@@ -474,7 +513,7 @@
 
   /* Blog */
   .sal-posts { flex-direction: row; gap: 75px; padding: 0 150px 0 0; }
-  .sal-post { width: 360px; }
+  .sal-post { width: 360px; max-width: none; margin: 0; }
   .sal-post img { height: 200px; }
   .sal-post .title { font-size: 20px; }
 
@@ -483,14 +522,22 @@
 }
 
 /* Petits écrans */
+@media (min-width: 768px) {
+  .sal-name { font-size: 55px; line-height: 65px; }
+}
 @media (max-width: 767px) {
+  .sal-infos-wrap { flex-direction: column; gap: 0; align-items: flex-start; width: max-content; max-width: 100%; margin: 0 auto; }
   .sal-title h3 { font-size: 34px; }
   .sal-name { font-size: 34px; }
   .sal-card { padding: 26px; }
   .sal-clients h3 { font-size: 32px; }
   .sal-quote blockquote { padding: 28px; }
-  .sal-facts-grid { gap: 70px 10px; padding: 50px 0; }
 }
 @media (max-width: 479px) {
   .sal-clients ul { grid-template-columns: 1fr; }
+}
+
+/* Bureau étroit : l'e-mail est déjà dans la section Contact */
+@media (min-width: 1025px) and (hover: hover) and (max-width: 1239px) {
+  .sal-header .mail { display: none; }
 }

@@ -3,7 +3,9 @@
 // verticalement de façon classique.
 
 export const SCROLLER_ID = "scroller";
-export const DESKTOP_QUERY = "(min-width: 1024px)";
+// Horizontal uniquement sur grand écran avec un vrai pointeur : les tablettes tactiles
+// restent en défilement vertical (un balayage vertical n'y ferait pas défiler le conteneur).
+export const DESKTOP_QUERY = "(min-width: 1025px) and (hover: hover)";
 
 export const isDesktop = () =>
   typeof window !== "undefined" && window.matchMedia(DESKTOP_QUERY).matches;
