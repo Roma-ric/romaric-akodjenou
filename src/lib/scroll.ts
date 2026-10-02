@@ -7,6 +7,9 @@ export const SCROLLER_ID = "scroller";
 // restent en défilement vertical (un balayage vertical n'y ferait pas défiler le conteneur).
 export const DESKTOP_QUERY = "(min-width: 1025px) and (hover: hover)";
 
+// Annonce une navigation par menu : le défilement fluide de la molette doit s'arrêter
+export const NAVIGATE_EVENT = "sal:navigate";
+
 export const isDesktop = () =>
   typeof window !== "undefined" && window.matchMedia(DESKTOP_QUERY).matches;
 
@@ -22,6 +25,7 @@ export function scrollToSection(
 ) {
   const element = document.getElementById(id);
   if (!element) return;
+  window.dispatchEvent(new Event(NAVIGATE_EVENT));
 
   const scroller = getScroller();
   if (scroller) {

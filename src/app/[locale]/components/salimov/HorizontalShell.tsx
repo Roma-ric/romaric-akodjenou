@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, type ReactNode } from "react";
-import { SCROLLER_ID, DESKTOP_QUERY, scrollToSection } from "@/lib/scroll";
+import { SCROLLER_ID, DESKTOP_QUERY, NAVIGATE_EVENT, scrollToSection } from "@/lib/scroll";
 
 type Panel = {
   id: string;
@@ -32,31 +32,38 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
       bar.style.left = `calc((100% - 27px) * ${Math.min(1, Math.max(0, ratio))})`;
     };
 
-    // Défilement fluide : on accumule une cible et on s'en rapproche à chaque image
+    // Défilement fluide : on accumule une cible et on s'en rapproche à chaque image.
+    // La position courante est suivie en décimal (le navigateur arrondit scrollLeft,
+    // ce qui empêchait la boucle de se terminer).
     let target = 0;
-    let expected = 0;
+    let current = 0;
     let frame = 0;
     const maxScroll = () => scroller.scrollWidth - scroller.clientWidth;
+    const stop = () => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = 0;
+    };
     const step = () => {
-      // Quelqu'un d'autre a fait défiler (menu, ancre, clavier natif) : on s'efface
-      if (Math.abs(scroller.scrollLeft - expected) > 3) {
+      // Quelqu'un d'autre a fait défiler (clavier natif, barre…) : on s'efface
+      if (Math.abs(scroller.scrollLeft - current) > 3) {
         frame = 0;
         return;
       }
-      const diff = target - scroller.scrollLeft;
-      if (Math.abs(diff) < 1.5) {
+      const diff = target - current;
+      if (Math.abs(diff) < 0.5) {
+        current = target;
         scroller.scrollLeft = target;
         frame = 0;
         return;
       }
-      scroller.scrollLeft += diff * 0.2;
-      expected = scroller.scrollLeft;
+      current += diff * 0.2;
+      scroller.scrollLeft = current;
       frame = requestAnimationFrame(step);
     };
     const scrollByAmount = (amount: number) => {
       if (!frame) {
-        target = scroller.scrollLeft;
-        expected = scroller.scrollLeft;
+        current = scroller.scrollLeft;
+        target = current;
       }
       target = Math.round(Math.min(maxScroll(), Math.max(0, target + amount)));
       if (!frame) frame = requestAnimationFrame(step);
@@ -106,6 +113,7 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
 
     window.addEventListener("wheel", onWheel, { passive: false });
     window.addEventListener("keydown", onKeyDown);
+    window.addEventListener(NAVIGATE_EVENT, stop);
     scroller.addEventListener("scroll", updateProgress, { passive: true });
     window.addEventListener("hashchange", onHashChange);
     updateProgress();
@@ -113,7 +121,8 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
     return () => {
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("keydown", onKeyDown);
-      if (frame) cancelAnimationFrame(frame);
+      window.removeEventListener(NAVIGATE_EVENT, stop);
+      stop();
       scroller.removeEventListener("scroll", updateProgress);
       window.removeEventListener("hashchange", onHashChange);
     };
