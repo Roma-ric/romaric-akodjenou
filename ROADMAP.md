@@ -57,8 +57,8 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - [x] Utiliser le `Link` de `src/i18n/navigation.ts` au lieu de `next/link`
 
 ## 4. Performance
-- [ ] (images servies via `next/image` ; reste à convertir/alléger les sources) Convertir les captures `public/realisation` en WebP/AVIF et passer à `next/image`
-- [ ] Sortir `public/maquette`, les `desktop.ini` et les images non utilisées de `public/`
+- [x] Captures `public/realisation` converties en WebP (5,5 Mo → 0,57 Mo) et servies via `next/image`
+- [x] `public/maquette`, `desktop.ini` et fichiers non utilisés supprimés (`public/` : 8,3 Mo → 1,1 Mo)
 - [x] Supprimer le flash de thème au chargement (script inline ou `next-themes`)
 
 ## 5. Qualité du code
@@ -66,7 +66,7 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - [x] Factoriser `About.tsx` (expériences et compétences générées à partir de données)
 - [x] Supprimer le code mort (bloc commenté de `page.tsx`, icône « settings » cachée, `<img>` dupliquées du Hero)
 - [x] Nettoyer les classes Tailwind contradictoires (Contact)
-- [ ] Supprimer les breakpoints personnalisés `scr_*` de `tailwind.config.ts` (plus utilisés)
+- [x] Breakpoints personnalisés `scr_*` supprimés de `tailwind.config.ts`
 - [x] Rédiger un vrai `README.md`
 
 ## 6. Accessibilité et vie privée

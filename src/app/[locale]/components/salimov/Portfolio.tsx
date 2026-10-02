@@ -7,11 +7,11 @@ import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const projects = [
-  { key: "founders", link: "https://founders.friym.com", src: "/realisation/founders-friym.png" },
-  { key: "brand", link: "https://brand.friym.com", src: "/realisation/brand-friym.png" },
-  { key: "simam-cargo", link: "https://simam-cargo.vercel.app", src: "/realisation/simam-cargo.png" },
-  { key: "template-carrefoot-2", link: "https://vote.carrefoot.com", src: "/realisation/template-carrefoot-2.png" },
-  { key: "timer", link: "https://nexus-timer.vercel.app/", src: "/realisation/timer.png" },
+  { key: "founders", link: "https://founders.friym.com", src: "/realisation/founders-friym.webp" },
+  { key: "brand", link: "https://brand.friym.com", src: "/realisation/brand-friym.webp" },
+  { key: "simam-cargo", link: "https://simam-cargo.vercel.app", src: "/realisation/simam-cargo.webp" },
+  { key: "template-carrefoot-2", link: "https://vote.carrefoot.com", src: "/realisation/template-carrefoot-2.webp" },
+  { key: "timer", link: "https://nexus-timer.vercel.app/", src: "/realisation/timer.webp" },
 ] as const;
 
 export default function Portfolio() {

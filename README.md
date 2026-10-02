@@ -38,7 +38,7 @@ Sans `RESEND_API_KEY`, le formulaire propose un repli « Écrivez-moi par e-mail
 | masquer une section (Facts, Services, Témoignages, Clients, Blog) | `src/config/site.ts` → `sections` |
 | changer e-mail, téléphone, date de naissance, clients | `src/config/site.ts` |
 | modifier les textes | `messages/fr.json` et `messages/en.json` |
-| ajouter un projet au portfolio | `src/app/[locale]/components/salimov/Portfolio.tsx` + image dans `public/realisation/` |
+| ajouter un projet au portfolio | `src/app/[locale]/components/salimov/Portfolio.tsx` + capture en WebP (≈ 1300 px de large) dans `public/realisation/` |
 | ajouter une compétence | `src/app/[locale]/components/salimov/skills.tsx` |
 | publier un article | `src/content/posts.ts` (passer `placeholder` à `false`, renseigner `date`) |
 | changer les couleurs / la mise en page | `src/app/[locale]/salimov.css` |
