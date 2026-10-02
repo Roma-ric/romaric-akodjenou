@@ -63,7 +63,8 @@
         "stats": {
             "yearsOfExperience": {
                 "value": 2,
-                "label": "années d’expérience"
+                "label": "années d’expérience",
+                "prefix": "+"
             },
             "completedProjects": {
                 "value": 9,
