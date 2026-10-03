@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { Figma, GitBranch, Github, Gitlab, Triangle } from "lucide-react";
 
 // Ordre et contenu = section « Compétences techniques » du CV (lecture par colonnes de 2).
@@ -95,10 +95,15 @@ export const skills: { name: string; logo: ReactNode }[] = [
   },
   {
     name: "Zustand",
-    // Mascotte officielle (dépôt pmndrs/zustand) : illustration en couleurs, posée sur une pastille d'accent
-    // pour rester lisible dans les deux thèmes
-    // eslint-disable-next-line @next/next/no-img-element -- petit SVG statique, rien à optimiser
-    logo: <img className="sal-skill-svg sal-skill-img" src="/logos/zustand.svg" alt="" />,
+    // Logo officiel monochrome (devicon). Tracé trop lourd (57 Ko) pour être embarqué ici :
+    // servi comme fichier et teint par masque CSS, il prend la couleur du thème comme les autres
+    logo: (
+      <span
+        className="sal-skill-svg sal-skill-mask"
+        style={{ "--logo": "url(/logos/zustand.svg)" } as CSSProperties}
+        aria-hidden="true"
+      />
+    ),
   },
   {
     name: "Tailwind CSS",

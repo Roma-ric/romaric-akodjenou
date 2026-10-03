@@ -179,7 +179,7 @@ fonctionnel, pages du blog, sélecteur d'accent, socle SEO/i18n, sécurité des 
 des images, changement de langue instantané, contenu aligné sur le nouveau CV (compétences, compteurs
 « +9 projets », « +4 clients », « +2 années d'expérience »). Nettoyage des restes de l'ancienne version
 (Aceternity / shadcn), changement de langue sur place sans langue dans l'adresse, bouton de langue unique
-et outils fixes sur mobile, logos TypeScript / Zustand officiels, parcours du plus récent au plus ancien
+et outils fixes sur mobile, logos TypeScript / Zustand officiels (monochromes), parcours du plus récent au plus ancien
 (2026-10-03).
 
 **Branches** : `master` (principale), branche de travail actuelle `claude/eager-carson-jpgevo`.
@@ -214,12 +214,16 @@ l'agent doit, dans le même commit ou juste après :
 
 ### Journal
 
+- 2026-10-03 — Logo Zustand : la mascotte en couleurs est remplacée par le logo officiel monochrome (devicon),
+  servi depuis `public/logos/zustand.svg` et teint par masque CSS (`.sal-skill-mask`) pour suivre la couleur
+  du thème comme les autres icônes (skills.tsx, salimov.css).
+
 - 2026-10-03 — Langue : changement sur place sans navigation (`LocaleProvider`, ancrage du défilement), plus
   de langue dans l'adresse (`localePrefix: "never"`, cookie 1 an, anciennes adresses redirigées), sitemap et
   canonical sans langue, sections et pages du blog passées en composants client, clés React stables.
   En-tête : bouton de langue unique, outils (langue, thème) rendus une fois et fixés sur mobile, barre du blog
   collante. Flèche de la Home vers le bas sur mobile/tablette, logo TypeScript officiel (suit le thème),
-  mascotte officielle Zustand (`public/logos/zustand.svg`, pastille d'accent), parcours trié (postes en cours,
+  mascotte officielle Zustand (remplacée ensuite, voir plus haut), parcours trié (postes en cours,
   puis date de fin). Vérifié dans Chrome (ordinateur et mobile) : même document, aucune requête, élément
   regardé immobile, formulaire conservé.
 

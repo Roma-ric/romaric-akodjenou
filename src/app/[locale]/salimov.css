@@ -164,8 +164,8 @@
 }
 .sal-skill .diamond > * { transform: rotate(-45deg); }
 .sal-skill-svg { width: 2.125rem; height: 2.125rem; }
-/* Logo illustré (Zustand) : pastille d'accent, comme le logo Next.js */
-.sal-skill-img { width: 2.625rem; height: 2.625rem; padding: 0.25rem; border-radius: 50%; background: var(--sal-accent); }
+/* Logo servi comme fichier (Zustand) : teint par masque, il suit la couleur du texte comme les SVG */
+.sal-skill-mask { display: block; background: currentColor; -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
 .sal-skill h4 { margin-top: 2.125rem; font-size: 1rem; font-weight: 500; text-align: center; }
 
 /* Frise du parcours */
@@ -486,7 +486,6 @@
   }
   .sal-skill .diamond { width: 6.25rem; height: 6.25rem; border-radius: 1.875rem; }
   .sal-skill-svg { width: 2.375rem; height: 2.375rem; }
-  .sal-skill-img { width: 2.875rem; height: 2.875rem; }
   .sal-skill h4 { margin-top: 2.5rem; font-size: 1.125rem; }
   .sal-resume { padding-right: 12rem; }
   .sal-resume .sal-title { margin-right: 4rem; }
