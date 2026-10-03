@@ -55,50 +55,36 @@ export function getVisiblePanelId(): string | null {
   return best?.id ?? null;
 }
 
-// ---- Conservation de la position au changement de langue ----
-const POSITION_KEY = "sal-scroll-position";
-
-/** Mémorise la section affichée et la progression dans cette section (le texte change de largeur d'une langue à l'autre). */
-export function saveScrollPosition() {
-  const scroller = getScroller();
-  if (!scroller) return;
-  const atEnd = scroller.scrollLeft >= scroller.scrollWidth - scroller.clientWidth - 2;
-  const panel = getPanels().find(
-    (p) => scroller.scrollLeft >= p.offsetLeft && scroller.scrollLeft < p.offsetLeft + p.offsetWidth,
-  );
-  if (!panel) return;
-  try {
-    sessionStorage.setItem(
-      POSITION_KEY,
-      JSON.stringify({ id: panel.id, atEnd, fraction: (scroller.scrollLeft - panel.offsetLeft) / panel.offsetWidth }),
-    );
-  } catch {
-    /* stockage indisponible : on retombera sur l'ancre de l'URL */
-  }
-}
+// ---- Ancrage du défilement (changement de langue sur place) ----
+export type ScrollAnchor = { element: Element; left: number; top: number };
 
 /**
- * Lit (et efface) la position mémorisée. Retourne une fonction qui replace la page, ou null
- * s'il n'y a rien à restaurer. La fonction peut être rappelée : la mise en page se
- * stabilise juste après l'affichage (polices, images), donc la position est recalée.
+ * Repère l'élément affiché au centre de l'écran et sa position. Les textes changent de
+ * longueur d'une langue à l'autre : on recale ensuite la page pour qu'il ne bouge pas.
  */
-export function takeSavedScrollPosition(): (() => number | null) | null {
-  try {
-    const raw = sessionStorage.getItem(POSITION_KEY);
-    if (!raw) return null;
-    sessionStorage.removeItem(POSITION_KEY);
-    const { id, fraction, atEnd } = JSON.parse(raw) as { id: string; fraction: number; atEnd?: boolean };
-    return () => {
-      const panel = document.getElementById(id);
-      const scroller = getScroller();
-      if (!panel || !scroller) return null;
-      const left = atEnd
-        ? scroller.scrollWidth - scroller.clientWidth // en bout de page : on y reste
-        : panel.offsetLeft + fraction * panel.offsetWidth;
-      scroller.scrollTo({ left, behavior: "instant" });
-      return scroller.scrollLeft;
-    };
-  } catch {
-    return null;
+export function captureScrollAnchor(): ScrollAnchor | null {
+  const candidates = document.elementsFromPoint(window.innerWidth / 2, window.innerHeight / 2);
+  // On ignore ce qui flotte au-dessus du contenu (en-tête, menu mobile ouvert…)
+  let element = candidates.find((el) => el.closest("[data-panel], main, article"));
+  if (!element) return null;
+  // Un morceau de texte se déplace dans son paragraphe : on prend le bloc qui le contient
+  while (element.parentElement && getComputedStyle(element).display.startsWith("inline")) {
+    element = element.parentElement;
+  }
+  const { left, top } = element.getBoundingClientRect();
+  return { element, left, top };
+}
+
+/** Replace la page pour que l'élément repéré retrouve sa position à l'écran. */
+export function restoreScrollAnchor(anchor: ScrollAnchor | null) {
+  if (!anchor?.element.isConnected) return;
+  const { left, top } = anchor.element.getBoundingClientRect();
+  const scroller = getScroller();
+  if (scroller) {
+    const dx = left - anchor.left;
+    if (Math.abs(dx) >= 1) scroller.scrollTo({ left: scroller.scrollLeft + dx, behavior: "instant" });
+  } else {
+    const dy = top - anchor.top;
+    if (Math.abs(dy) >= 1) window.scrollTo({ top: window.scrollY + dy, behavior: "instant" });
   }
 }

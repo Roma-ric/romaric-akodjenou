@@ -1,3 +1,5 @@
+'use client'
+
 import { FileText, Globe, LayoutTemplate, PenTool, Wrench } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Reveal from "./Reveal";

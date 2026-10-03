@@ -356,11 +356,6 @@
         "metaTitle": "Blog",
         "metaDescription": "Articles on front-end development, design and web projects by Romaric AKODJENOU."
     },
-    "Language": {
-        "title": "Languages",
-        "french": "French",
-        "english": "English"
-    },
     "MenuSection": {
         "home": "Home",
         "about": "About",

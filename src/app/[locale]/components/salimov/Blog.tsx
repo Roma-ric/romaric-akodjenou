@@ -1,3 +1,5 @@
+'use client'
+
 import { useTranslations } from "next-intl";
 import { posts } from "@/content/posts";
 import Reveal from "./Reveal";

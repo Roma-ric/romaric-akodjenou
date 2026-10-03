@@ -24,22 +24,32 @@ Une licence valide du template est nécessaire avant toute diffusion publique du
   sont alignées dans un conteneur `#scroller` ; la molette, les flèches, PageUp/PageDown, Début/Fin et
   une barre de progression déplaçable font défiler latéralement. Les trackpads gardent leur geste natif.
 - **Navigation verticale classique** sur mobile et tablettes tactiles.
-- **Une URL par section** (`/fr#about`, `/en#contact`…) : l'ancre suit le défilement, les liens
-  directs et le bouton « retour » fonctionnent.
+- **Pas de langue dans l'adresse** : `/`, `/blog`, `/blog/<slug>`. Le middleware choisit la langue d'après
+  le cookie `NEXT_LOCALE` (1 an), sinon le navigateur (`Accept-Language`), sinon l'anglais. Les anciennes
+  adresses `/fr/...` et `/en/...` redirigent vers `/...` en mémorisant la langue.
+- **Une ancre par section** (`/#about`, `/#contact`…) : l'ancre suit le défilement, les liens directs
+  fonctionnent.
 - **Mise à l'échelle** : sur grand écran, toute la mise en page (en `rem`) suit la hauteur de fenêtre.
 - **Thème clair / sombre** mémorisé (`localStorage.theme`), appliqué avant le premier rendu (pas de flash).
-- **Changement de langue instantané** : page de l'autre langue préchargée, position de défilement
-  conservée (`sessionStorage`), pas de rejeu de l'écran de chargement.
+- **Changement de langue sur place** (`src/i18n/LocaleProvider.tsx`) : un seul bouton (« FR » / « EN »,
+  la langue proposée), aucune navigation ni requête serveur. Les textes sont remplacés dans la page affichée
+  (textes de l'autre langue préchargés) ; formulaire, carrousel et animations déjà jouées sont conservés ;
+  l'élément au centre de l'écran est repéré puis recalé au pixel près (`captureScrollAnchor` /
+  `restoreScrollAnchor`). Met aussi à jour `<html lang>`, le titre/description de l'onglet et le cookie.
+- **Outils de l'en-tête** (langue, thème) rendus une seule fois : dans la barre sur ordinateur, fixés en haut
+  à droite à côté du bouton menu sur mobile/tablette (visibles même menu ouvert). Barre collante sur le blog.
 - **Écran de chargement** en CSS pur (joué une seule fois par page).
 - **Carrousel de projets** (Framer Motion, respecte `prefers-reduced-motion`).
 - **Compteurs animés** et apparitions au défilement (`Reveal`, `Counter`).
 - **Formulaire de contact** → `POST /api/contact` → envoi d'un e-mail texte brut via l'API **Resend**.
   Validation partagée client/serveur, champ piège anti-robots, limite 5 messages / 10 min / IP
   (en mémoire, par instance). Sans `RESEND_API_KEY` : réponse 503 et repli « Écrivez-moi par e-mail ».
-- **Blog** : `/[locale]/blog` et `/[locale]/blog/[slug]`, articles statiques dans `src/content/posts.ts`.
+- **Blog** : `/blog` et `/blog/[slug]`, articles statiques dans `src/content/posts.ts`.
   Les articles `placeholder` ne sont ni indexés ni dans le sitemap.
-- **SEO** : `generateMetadata` (titre, description, Open Graph, `alternates` par langue), `sitemap.xml`,
-  `robots.txt`, `<html lang>` dynamique, pré-rendu statique de `/en` et `/fr`.
+- **SEO** : `generateMetadata` (titre, description, Open Graph, canonical sans langue), `sitemap.xml`
+  (une adresse par page), `robots.txt`, `<html lang>` dynamique, pré-rendu statique des deux langues
+  (routes internes `/en`, `/fr`, servies par réécriture du middleware). Limite assumée : une seule adresse
+  pour deux langues, les moteurs indexent surtout l'anglais (pas de `hreflang` possible).
 - **Âge calculé** depuis la date de naissance ; la page d'accueil est régénérée chaque jour (`revalidate = 86400`).
 - **Sélecteur de couleur d'accent** (9 teintes) réservé au propriétaire, visible uniquement avec
   `NEXT_PUBLIC_COLOR_SWITCHER=true`, mémorisé dans le navigateur (`localStorage["sal-accent"]`).
@@ -63,7 +73,7 @@ Pas de base de données, pas de CMS, **pas de tests automatisés**.
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000 (redirige vers /en)
+npm run dev      # http://localhost:3000
 npm run build    # build de production
 npm run start
 npm run lint     # eslint .
@@ -79,13 +89,14 @@ Variables d'environnement : copier `.env.example` vers `.env.local` (jamais comm
 ```
 src/
 ├── proxy.ts                      # middleware next-intl (Next 16 : « proxy »), exclut api/_next/fichiers
-├── i18n/                         # routing (locales), request (chargement des messages), navigation (Link, useRouter…)
+├── i18n/                         # routing (locales, sans préfixe, cookie), request (messages), navigation (Link…),
+│                                 # LocaleProvider (changement de langue sur place)
 ├── config/
 │   ├── site.ts                   # sections affichées, e-mail, téléphone, date de naissance, clients, getAge()
 │   └── accents.ts                # palette d'accent, applyAccent(), foregroundFor()
 ├── content/posts.ts              # articles du blog (contenu localisé en dur)
 ├── lib/
-│   ├── scroll.ts                 # cœur de la navigation : DESKTOP_QUERY, scrollToSection, section visible, sauvegarde de position
+│   ├── scroll.ts                 # cœur de la navigation : DESKTOP_QUERY, scrollToSection, section visible, ancrage au changement de langue
 │   └── contact.ts                # validation du formulaire (partagée client/serveur)
 └── app/
     ├── robots.ts, sitemap.ts
@@ -111,7 +122,7 @@ public/                           # cv/ (PDF), files/ (photos), realisation/ (ca
    courbes de raccord entre un panneau `dark` et un `band` voisin.
 3. `Header` reçoit les ids des panneaux `dark` (hors copyright) pour construire le menu ;
    `useActiveSection` détecte la section visible et réécrit l'ancre de l'URL (`history.replaceState`).
-4. `HashScroll` place la page au chargement (position sauvegardée après changement de langue, sinon ancre).
+4. `HashScroll` place la page au chargement sur la section de l'ancre (`/#contact`).
 
 ## 6. Où modifier quoi
 
@@ -135,16 +146,24 @@ public/                           # cv/ (PDF), files/ (photos), realisation/ (ca
   à l'impératif ou descriptifs, comme dans l'historique.
 - **Toujours modifier `en.json` et `fr.json` ensemble** : les clés doivent rester identiques.
 - **Navigation interne** : utiliser `Link` / `useRouter` / `usePathname` de `@/i18n/navigation`, jamais `next/link`.
+- **Langue** : ne jamais changer de langue par navigation (`router.replace(..., { locale })`) : passer par
+  `useLocaleSwitch().switchLocale()`. Tout texte affiché doit venir d'un **composant client** (`useTranslations`
+  / `useLocale`), sinon il ne suivra pas le changement sur place. Les pages serveur ne gardent que
+  `generateMetadata`, `generateStaticParams` et la vérification `notFound()`.
+- **Clés React stables** : jamais un libellé traduit comme `key` (l'élément serait recréé au changement de
+  langue et rejouerait son animation) ; utiliser un identifiant.
+- **Dates** : formater avec `timeZone: "UTC"` (même jour côté serveur et navigateur, pas d'erreur d'hydratation).
 - **Défilement** : ne jamais coder un `window.scrollTo` à la main pour aller à une section ;
   passer par `scrollToSection()` de `src/lib/scroll.ts` (gère horizontal/vertical et stoppe le défilement fluide).
   La condition « mode horizontal » est **uniquement** `DESKTOP_QUERY` = `(min-width: 1025px) and (hover: hover)` ;
   le CSS utilise la même media query, les garder synchronisées.
 - Tout nouveau panneau doit passer par la liste de `page.tsx` (il reçoit `id` + `data-panel`) ;
-  sinon ni le menu, ni l'ancre, ni la restauration de position ne le voient.
-- **Composants serveur par défaut** : `'use client'` seulement pour les composants interactifs.
+  sinon ni le menu ni l'ancre ne le voient.
+- Les sections sont des composants client (pour suivre la langue) ; ce qui dépend du jour (âge) est calculé
+  dans `page.tsx` (serveur, régénéré chaque jour) et passé en prop, pour éviter un écart à l'hydratation.
 - **Thème** : la source de vérité est la classe `dark` sur `<html>`, posée par le script inline du layout.
-  Un changement de langue recrée `<html>` → `ThemeProvider` réapplique thème et accent dans un `useLayoutEffect`.
-  Ne pas casser ce mécanisme (flash ou perte du thème au changement de langue).
+  Une navigation qui change le segment `[locale]` recrée `<html>` → `ThemeProvider` réapplique thème et
+  accent dans un `useLayoutEffect`. Ne pas casser ce mécanisme (flash ou perte du thème).
 - **Stockage navigateur** : toujours entouré de `try/catch` (navigation privée).
 - **Formulaire** : les règles de validation vivent dans `src/lib/contact.ts` ; modifier là, pas en double.
   L'e-mail est envoyé en **texte brut** — ne pas introduire de HTML venant du visiteur.
@@ -158,7 +177,10 @@ public/                           # cv/ (PDF), files/ (photos), realisation/ (ca
 écran de chargement, responsive mobile/tablette/bureau étroit, mise à l'échelle), formulaire de contact
 fonctionnel, pages du blog, sélecteur d'accent, socle SEO/i18n, sécurité des dépendances, nettoyage
 des images, changement de langue instantané, contenu aligné sur le nouveau CV (compétences, compteurs
-« +9 projets », « +4 clients », « +2 années d'expérience »). Nettoyage des restes de l'ancienne version (Aceternity / shadcn) le 2026-10-03.
+« +9 projets », « +4 clients », « +2 années d'expérience »). Nettoyage des restes de l'ancienne version
+(Aceternity / shadcn), changement de langue sur place sans langue dans l'adresse, bouton de langue unique
+et outils fixes sur mobile, logos TypeScript / Zustand officiels, parcours du plus récent au plus ancien
+(2026-10-03).
 
 **Branches** : `master` (principale), branche de travail actuelle `claude/eager-carson-jpgevo`.
 
@@ -191,6 +213,15 @@ l'agent doit, dans le même commit ou juste après :
 4. Si `README.md` ou `ROADMAP.md` deviennent faux, les corriger aussi.
 
 ### Journal
+
+- 2026-10-03 — Langue : changement sur place sans navigation (`LocaleProvider`, ancrage du défilement), plus
+  de langue dans l'adresse (`localePrefix: "never"`, cookie 1 an, anciennes adresses redirigées), sitemap et
+  canonical sans langue, sections et pages du blog passées en composants client, clés React stables.
+  En-tête : bouton de langue unique, outils (langue, thème) rendus une fois et fixés sur mobile, barre du blog
+  collante. Flèche de la Home vers le bas sur mobile/tablette, logo TypeScript officiel (suit le thème),
+  mascotte officielle Zustand (`public/logos/zustand.svg`, pastille d'accent), parcours trié (postes en cours,
+  puis date de fin). Vérifié dans Chrome (ordinateur et mobile) : même document, aucune requête, élément
+  regardé immobile, formulaire conservé.
 
 - 2026-10-03 — Nettoyage des restes de l'ancienne version : notes `Portfolio - *.md`, `components.json`,
   `src/lib/utils.ts` (Home appelle `scrollToSection`), clé `ScrollToTop`, image distante Aceternity,

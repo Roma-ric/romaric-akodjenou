@@ -3,10 +3,11 @@ import "./globals.css";
 import "./salimov.css";
 import { ThemeProvider } from "./hooks/theme-context";
 import type { Metadata } from "next";
-import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { hasLocale } from "next-intl";
+import { getMessages, getTimeZone, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { LocaleProvider } from "@/i18n/LocaleProvider";
 import { ACCENT_STORAGE_KEY, accents, foregroundFor } from "@/config/accents";
 
 const geistSans = Geist({
@@ -52,10 +53,8 @@ export async function generateMetadata({
     metadataBase: baseUrl ? new URL(baseUrl) : undefined,
     title: t("title"),
     description: t("description"),
-    alternates: {
-      canonical: `/${locale}`,
-      languages: Object.fromEntries(routing.locales.map((l) => [l, `/${l}`])),
-    },
+    // Une seule adresse pour les deux langues (langue choisie par cookie)
+    alternates: { canonical: "/" },
     openGraph: {
       title: t("title"),
       description: t("description"),
@@ -70,6 +69,7 @@ export default async function RootLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
+  const [messages, timeZone] = await Promise.all([getMessages(), getTimeZone()]);
 
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -80,11 +80,11 @@ export default async function RootLayout({ children, params }: Props) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${livvic.variable} antialiased relative`}
       >
-        <NextIntlClientProvider>
+        <LocaleProvider locale={locale} messages={messages} timeZone={timeZone}>
           <ThemeProvider>
             {children}
           </ThemeProvider>
-        </NextIntlClientProvider>
+        </LocaleProvider>
       </body>
     </html>
   );

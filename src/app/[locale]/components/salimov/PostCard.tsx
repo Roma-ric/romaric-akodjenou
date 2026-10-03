@@ -1,3 +1,5 @@
+'use client'
+
 import { CalendarDays, Newspaper } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
@@ -8,7 +10,7 @@ export default function PostCard({ post }: { post: Post }) {
   const locale = useLocale() as "en" | "fr";
 
   const date = post.date
-    ? new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(new Date(post.date))
+    ? new Intl.DateTimeFormat(locale, { dateStyle: "medium", timeZone: "UTC" }).format(new Date(post.date))
     : t("comingSoon");
 
   return (

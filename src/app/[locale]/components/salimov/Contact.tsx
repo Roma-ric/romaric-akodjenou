@@ -1,3 +1,5 @@
+'use client'
+
 import { Mail, MapPin, Phone, Share2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { siteConfig } from "@/config/site";

@@ -61,7 +61,7 @@ function readStored(key: string): string | null {
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
-  // Un changement de langue recrée la balise <html> : elle perd alors les classes et
+  // Une navigation vers une page d'une autre langue recrée la balise <html> : elle perd alors les classes et
   // variables posées par le script d'initialisation. On les réapplique avant l'affichage
   // (sans effet au premier chargement, où elles sont déjà en place).
   useLayoutEffect(() => {

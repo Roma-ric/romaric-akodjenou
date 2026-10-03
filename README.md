@@ -46,7 +46,9 @@ Sans `RESEND_API_KEY`, le formulaire propose un repli « Écrivez-moi par e-mail
 ## Fonctionnement
 
 - **Défilement horizontal** sur grand écran avec souris ou pavé tactile (> 1024 px) ; défilement
-  vertical sur mobile et tablettes tactiles. Chaque section a son adresse (`/fr#about`).
+  vertical sur mobile et tablettes tactiles. Chaque section a son ancre (`/#about`).
+- **Langues** : pas de langue dans l'adresse ; elle est mémorisée dans un cookie (sinon celle du navigateur).
+  Le bouton « FR » / « EN » change la langue sur place, sans recharger ni faire bouger la page.
 - **Mise à l'échelle** : sur grand écran, toute la mise en page (en `rem`) suit la hauteur de la fenêtre.
 - **Thème** clair/sombre mémorisé, appliqué avant le premier affichage (pas de flash).
 - **Formulaire de contact** : `POST /api/contact` (validation, champ piège anti-robots,
