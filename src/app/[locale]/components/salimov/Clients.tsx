@@ -1,3 +1,5 @@
+'use client'
+
 import { useTranslations } from "next-intl";
 import { siteConfig } from "@/config/site";
 import Reveal from "./Reveal";

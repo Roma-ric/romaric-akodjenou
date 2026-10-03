@@ -11,12 +11,4 @@ export default defineConfig([
       "react/no-unescaped-entities": "off",
     },
   },
-  {
-    // Plugins Tailwind (boilerplate Aceternity) : API non typée
-    files: ["tailwind.config.ts"],
-    rules: {
-      "@typescript-eslint/no-require-imports": "off",
-      "@typescript-eslint/no-explicit-any": "off",
-    },
-  },
 ]);

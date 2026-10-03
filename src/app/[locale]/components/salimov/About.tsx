@@ -1,27 +1,23 @@
+'use client'
+
 import { Briefcase, Building2, Clock, Download } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { getAge, siteConfig } from "@/config/site";
 import Reveal from "./Reveal";
 import { skills } from "./skills";
 
-const experienceKeys = ["simam", "carrefoot", "explotel", "fidevo", "romas", "payPlus"] as const;
+// Du plus récent au plus ancien : postes en cours d'abord, puis par date de fin
+const experienceKeys = ["carrefoot", "fidevo", "simam", "explotel", "romas", "payPlus"] as const;
 
-export default function About() {
+// `age` est calculé sur le serveur (page régénérée chaque jour) : le client affiche la même valeur.
+export default function About({ age }: { age: number }) {
   const t = useTranslations("AboutSection");
-  const age = getAge(siteConfig.birthDate);
 
-  const infosA = [
-    [t("personalInfo.age.label"), t("personalInfo.age.value", { age })],
-    [t("personalInfo.nationality.label"), t("personalInfo.nationality.value")],
-    [t("personalInfo.freelance.label"), t("personalInfo.freelance.value")],
-    [t("personalInfo.languages.label"), t("personalInfo.languages.value")],
-  ];
-  const infosB = [
-    [t("personalInfo.address.label"), t("personalInfo.address.value")],
-    [t("personalInfo.phone.label"), t("personalInfo.phone.value")],
-    [t("personalInfo.email.label"), t("personalInfo.email.value")],
-  ];
+  // Clé stable (pas le libellé traduit) : au changement de langue, l'élément est conservé
+  const info = (key: "age" | "nationality" | "freelance" | "languages" | "address" | "phone" | "email") =>
+    [key, t(`personalInfo.${key}.label`), t(`personalInfo.${key}.value`, { age })] as const;
+  const infosA = [info("age"), info("nationality"), info("freelance"), info("languages")];
+  const infosB = [info("address"), info("phone"), info("email")];
 
   const steps = [
     ...experienceKeys.map((key) => ({
@@ -56,15 +52,15 @@ export default function About() {
 
         <div className="sal-infos-wrap">
           <ul className="sal-infos">
-            {infosA.map(([label, value], i) => (
-              <Reveal as="li" key={label} delay={0.1 * i}>
+            {infosA.map(([key, label, value], i) => (
+              <Reveal as="li" key={key} delay={0.1 * i}>
                 <span>{label} :</span> <span>{value}</span>
               </Reveal>
             ))}
           </ul>
           <ul className="sal-infos">
-            {infosB.map(([label, value], i) => (
-              <Reveal as="li" key={label} delay={0.1 * i}>
+            {infosB.map(([key, label, value], i) => (
+              <Reveal as="li" key={key} delay={0.1 * i}>
                 <span>{label} :</span> <span>{value}</span>
               </Reveal>
             ))}

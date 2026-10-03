@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 // Mémorise (pour la durée de la page) que l'écran de chargement a déjà été joué :
-// un changement de langue recrée la page sans rechargement, il ne doit pas le rejouer.
+// une navigation interne (retour depuis le blog) recrée la page sans rechargement, il ne doit pas le rejouer.
 let played = false;
 
 // Écran de chargement Salimov : ligne qui se remplit puis deux rideaux qui s'ouvrent.

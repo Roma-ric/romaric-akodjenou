@@ -1,17 +1,20 @@
 'use client'
 
 import { ArrowLeft } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { LanguageToggle, ThemeButton } from "./Header";
+import { LanguageSwitch, ThemeButton } from "./Header";
 
-export default function BlogBar({ backLabel, backHref }: { backLabel: string; backHref: "/" | "/blog" }) {
+export default function BlogBar({ back }: { back: "home" | "blog" }) {
+  const t = useTranslations("BlogSection");
+
   return (
     <div className="sal-blogbar">
-      <Link href={backHref} className="back">
-        <ArrowLeft size={18} aria-hidden="true" /> {backLabel}
+      <Link href={back === "home" ? "/" : "/blog"} className="back">
+        <ArrowLeft size={18} aria-hidden="true" /> {t(back === "home" ? "backHome" : "back")}
       </Link>
       <div className="tools">
-        <LanguageToggle />
+        <LanguageSwitch />
         <ThemeButton />
       </div>
     </div>

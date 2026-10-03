@@ -3,48 +3,42 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
+import { useLocaleSwitch, type AppLocale } from "@/i18n/LocaleProvider";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/config/site";
-import { saveScrollPosition, scrollToSection } from "@/lib/scroll";
+import { scrollToSection } from "@/lib/scroll";
 import { useActiveSection } from "../../hooks/useActiveSection";
 import { useTheme } from "../../hooks/theme-context";
 
 type Item = { id: string; label: string };
 
-export function LanguageToggle() {
-  const locale = useLocale();
-  const router = useRouter();
-  const pathname = usePathname();
-  const t = useTranslations("Language");
+// Libellé dans la langue proposée : c'est la personne qui la lit qui cliquera
+const SWITCH_LABELS: Record<AppLocale, string> = {
+  en: "Switch to English",
+  fr: "Passer en français",
+};
 
-  // Précharge la page de l'autre langue dès l'affichage : le clic n'attend alors plus le réseau
-  useEffect(() => {
-    routing.locales
-      .filter((l) => l !== locale)
-      .forEach((l) => router.prefetch(pathname, { locale: l }));
-  }, [locale, pathname, router]);
+/** Un seul bouton : il affiche la langue vers laquelle basculer (« FR » sur la version anglaise). */
+export function LanguageSwitch() {
+  const locale = useLocale();
+  const { switchLocale, preloadLocale } = useLocaleSwitch();
+  const target = routing.locales.find((l) => l !== locale) ?? routing.defaultLocale;
+
+  // Précharge les textes de l'autre langue dès l'affichage : le clic n'attend alors plus le réseau
+  useEffect(() => preloadLocale(target), [target, preloadLocale]);
 
   return (
-    <div role="group" aria-label={t("title")} className="tools">
-      {routing.locales.map((l) => (
-        <button
-          key={l}
-          type="button"
-          className="sal-tool"
-          aria-current={l === locale}
-          lang={l}
-          onClick={() => {
-            saveScrollPosition();
-            // Sans ancre : Next.js ferait défiler vers `#section` et écraserait la position restaurée.
-            // L'ancre revient d'elle-même quand la page défile (useActiveSection).
-            router.replace(pathname, { locale: l });
-          }}
-        >
-          {l.toUpperCase()}
-        </button>
-      ))}
-    </div>
+    <button
+      type="button"
+      className="sal-tool sal-lang"
+      lang={target}
+      aria-label={SWITCH_LABELS[target]}
+      title={SWITCH_LABELS[target]}
+      // Changement sur place : ni navigation, ni rechargement, la page ne bouge pas
+      onClick={() => void switchLocale(target)}
+    >
+      {target.toUpperCase()}
+    </button>
   );
 }
 
@@ -101,13 +95,13 @@ export default function Header({ sections }: { sections: string[] }) {
 
   return (
     <header className="sal-header">
-      {/* Ordinateur */}
+      {/* Ordinateur : barre complète. Mobile / tablette : seuls les outils restent, fixés à côté du bouton menu */}
       <div className="bar">
         <nav aria-label={t("label")}>{links}</nav>
         <div className="right">
           <p className="mail">Email : <span>{siteConfig.email}</span></p>
           <div className="tools">
-            <LanguageToggle />
+            <LanguageSwitch />
             <ThemeButton />
           </div>
         </div>
@@ -128,10 +122,6 @@ export default function Header({ sections }: { sections: string[] }) {
       </button>
       <nav id="sal-overlay" className={`sal-overlay${open ? " open" : ""}`} aria-label={t("label")} inert={!open}>
         {links}
-        <div className="tools">
-          <LanguageToggle />
-          <ThemeButton />
-        </div>
       </nav>
     </header>
   );

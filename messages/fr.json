@@ -356,11 +356,6 @@
         "metaTitle": "Blog",
         "metaDescription": "Articles sur le développement front-end, le design et les projets web, par Romaric AKODJENOU."
     },
-    "Language": {
-        "title": "Langues",
-        "french": "Français",
-        "english": "Anglais"
-    },
     "MenuSection": {
         "home": "Accueil",
         "about": "À propos",
@@ -376,9 +371,6 @@
     },
     "ThemeToggle": {
         "label": "Changer de thème"
-    },
-    "ScrollToTop": {
-        "label": "Retour à l'accueil"
     },
     "ClientsSection": {
         "title": "Entreprises avec lesquelles j'ai travaillé"
