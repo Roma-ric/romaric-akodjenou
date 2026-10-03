@@ -2,7 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { navigateToSection } from "@/lib/utils";
+import { scrollToSection } from "@/lib/scroll";
 
 export default function Home() {
   const t = useTranslations("HeroSection");
@@ -28,7 +28,7 @@ export default function Home() {
         <button
           type="button"
           className="sal-round cta"
-          onClick={() => navigateToSection("#about")}
+          onClick={() => scrollToSection("about")}
           aria-label={t("moreText")}
           title={t("moreText")}
         >
