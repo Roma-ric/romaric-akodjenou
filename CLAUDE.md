@@ -256,6 +256,8 @@ l'agent doit, dans le même commit ou juste après :
 
 ### Journal
 
+- 2026-10-04 — Atelier : badge « En cours » retiré du parcours (la date des postes en cours reste en couleur d'accent) (atelier/Experience.tsx, atelier.css, messages).
+
 - 2026-10-04 — Atelier mis en ligne : branche de travail envoyée sur `master` en avance rapide (CLAUDE.md).
 
 - 2026-10-04 — Blog : les pages `/blog` et `/blog/<slug>` suivent le modèle courant (`src/lib/template.ts`,

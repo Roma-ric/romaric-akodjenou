@@ -463,8 +463,7 @@
             "cv": "Download my CV"
         },
         "experience": {
-            "title": "Experience",
-            "current": "Current"
+            "title": "Experience"
         },
         "projects": {
             "title": "Selected work",

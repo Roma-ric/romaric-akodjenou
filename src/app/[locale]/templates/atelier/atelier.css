@@ -135,10 +135,6 @@
   border: 1px solid var(--atl-line-strong); background: transparent; color: var(--atl-fg);
 }
 .atl-icon-btn svg { width: 1.25rem; height: 1.25rem; }
-.atl-tag {
-  font-family: var(--atl-font-mono), monospace; font-size: 0.6875rem; padding: 0.125rem 0.5rem; border-radius: 999px;
-  background: var(--atl-accent-soft); color: var(--atl-accent-text);
-}
 
 /* ---------- Accueil ---------- */
 .atl-home { padding: 40px 16px 48px; display: flex; flex-direction: column; gap: 40px; }

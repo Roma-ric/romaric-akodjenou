@@ -18,10 +18,7 @@ export default function Experience({ num }: { num: string }) {
             <span className={`period${current ? " current" : ""}`}>{about(`${key}.period`)}</span>
             <div>
               <h3>{about(`${key}.position`)}</h3>
-              <p>
-                {about(`${key}.company`)}
-                {current && <span className="atl-tag">{t("current")}</span>}
-              </p>
+              <p>{about(`${key}.company`)}</p>
             </div>
           </Reveal>
         ))}
