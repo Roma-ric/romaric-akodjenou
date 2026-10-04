@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { Bricolage_Grotesque, DM_Sans, JetBrains_Mono } from "next/font/google";
 import { getAge, siteConfig } from "@/config/site";
 import DocumentMeta from "../../components/salimov/DocumentMeta";
 import HashScroll from "../../components/salimov/HashScroll";
@@ -14,13 +13,9 @@ import Projects from "./Projects";
 import Services from "./Services";
 import Shell from "./Shell";
 import Testimonials from "./Testimonials";
+import { atelierFonts } from "./fonts";
 import "./atelier.css";
 
-// Pas de préchargement : ces polices ne sont téléchargées que si ce modèle est affiché
-// (sinon elles seraient préchargées sur toutes les pages, même avec le modèle Classique).
-const display = Bricolage_Grotesque({ subsets: ["latin"], weight: ["500", "700", "800"], variable: "--atl-font-display", preload: false });
-const body = DM_Sans({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--atl-font-body", preload: false });
-const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--atl-font-mono", preload: false });
 
 type Panel = { id: string; node: (num: string) => ReactNode };
 
@@ -46,7 +41,7 @@ export default function AtelierTemplate({ tools }: { tools?: ReactNode }) {
     .map(({ id, node }, i) => ({ id, node: node(String(i + 1).padStart(2, "0")) }));
 
   return (
-    <div className={`atl ${display.variable} ${body.variable} ${mono.variable}`}>
+    <div className={`atl ${atelierFonts}`}>
       <DocumentMeta />
       <Chrome sections={visible.map((p) => p.id)} />
       <HashScroll />

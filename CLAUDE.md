@@ -116,6 +116,7 @@ src/
 ├── lib/
 │   ├── scroll.ts                 # cœur de la navigation : DESKTOP_QUERY, scrollToSection, section visible, ancrage au changement de langue
 │   ├── useHorizontalScroll.ts    # molette fluide, clavier, ancre : défilement horizontal commun aux modèles
+│   ├── template.ts               # currentTemplate() : modèle à afficher côté serveur (siteConfig ou cookie propriétaire)
 │   └── contact.ts                # validation du formulaire (partagée client/serveur)
 └── app/
     ├── robots.ts, sitemap.ts
@@ -125,10 +126,11 @@ src/
         ├── page.tsx              # page unique (Server Component) : choisit le modèle, ajoute le panneau propriétaire
         ├── templates/ClassicTemplate.tsx # modèle « Classique » : liste ordonnée des panneaux Salimov
         ├── templates/atelier/    # modèle « Atelier » : AtelierTemplate (liste des sections), Chrome (rail, menu,
-        │                         # outils), Shell (#scroller + règle), une section par fichier, atelier.css (scopé `.atl`)
+        │                         # outils), Shell (#scroller + règle), une section par fichier, BlogPages (pages du blog),
+        │                         # fonts.ts (polices), atelier.css (scopé `.atl`)
         ├── globals.css           # directives Tailwind + couleurs de base (body, bordures, contours)
         ├── salimov.css           # tout le design Salimov (variables, sections, responsive, échelle)
-        ├── blog/page.tsx, blog/[slug]/page.tsx
+        ├── blog/page.tsx, blog/[slug]/page.tsx  # affichent la version du modèle courant (`currentTemplate()`)
         ├── hooks/theme-context.tsx, hooks/useActiveSection.ts
         ├── components/OwnerPanel.tsx # panneau propriétaire (accent + modèle), commun à tous les modèles
         └── components/salimov/   # un composant par section + mécanique (HorizontalShell, HashScroll, Header, Reveal, Counter, Preloader)
@@ -225,7 +227,6 @@ et outils fixes sur mobile, logos TypeScript / Zustand officiels (monochromes), 
 - [ ] Atelier : tester sur de vrais appareils ; envoyer la branche sur `master` (nouvelle PR ou push direct).
 - [ ] Atelier : ses polices ne sont pas préchargées (`preload: false`, choisi quand Classique était publié) :
   léger changement de police au premier affichage ; à repasser à `true` si Atelier reste le modèle publié.
-- [ ] Pages `/blog` encore au style Classique.
 - [ ] Tester sur de vrais appareils (iPhone, iPad, Android) : rendu et gestes.
 - [ ] Remplacer les articles « à venir » du blog par de vrais articles.
 - [ ] Remplacer les témoignages d'exemple par de vrais témoignages.
@@ -254,6 +255,12 @@ l'agent doit, dans le même commit ou juste après :
 4. Si `README.md` ou `ROADMAP.md` deviennent faux, les corriger aussi.
 
 ### Journal
+
+- 2026-10-04 — Blog : les pages `/blog` et `/blog/<slug>` suivent le modèle courant (`src/lib/template.ts`,
+  `currentTemplate()` partagé avec la page d'accueil) ; version Atelier (`atelier/BlogPages.tsx` : barre fixe,
+  liste en cartes, article en colonne) ; polices d'Atelier regroupées dans `atelier/fonts.ts`. Classique :
+  l'article n'est plus collé à la barre (48 px d'espace). Vérifié dans Chromium (1366 et 390 px, deux modèles) ;
+  pages du blog toujours statiques sans le choix du modèle.
 
 - 2026-10-04 — Atelier publié : `siteConfig.template = "atelier"` (site public statique, sans panneau propriétaire,
   vérifié en 1366×768 et 390 px) ; espace ajouté dans le titre de l'accueil pour les lecteurs d'écran

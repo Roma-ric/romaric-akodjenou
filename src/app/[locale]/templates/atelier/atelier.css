@@ -401,3 +401,28 @@
 @media (min-width: 1025px) and (max-width: 1360px) and (hover: hover) {
   .atl-ruler .name { display: none; }
 }
+
+/* ---------- Pages autonomes (blog) : barre fixe à toutes les tailles, défilement vertical ---------- */
+.atl-page { max-width: 72rem; margin: 0 auto; padding: 96px 16px 80px; display: flex; flex-direction: column; gap: 28px; }
+.atl-page h1 { font-family: var(--atl-font-display), sans-serif; font-weight: 700; font-size: clamp(2.5rem, 8vw, 3.75rem); line-height: 1.05; letter-spacing: -0.03em; }
+.atl-back { align-self: flex-start; display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9375rem; font-weight: 500; color: var(--atl-muted) !important; }
+.atl-back:hover { color: var(--atl-fg) !important; }
+.atl-back svg { width: 1.125rem; height: 1.125rem; }
+.atl-article { max-width: 46rem; gap: 20px; }
+.atl-article .atl-kicker { margin-bottom: 0 !important; }
+.atl-article .meta { display: flex; align-items: center; gap: 0.5rem; font-family: var(--atl-font-mono), monospace; font-size: 0.8125rem; color: var(--atl-muted); padding-bottom: 20px; border-bottom: 1px solid var(--atl-line); }
+.atl-article .meta svg { width: 1rem; height: 1rem; }
+.atl-article .body p { font-size: 1.125rem; line-height: 1.85; color: var(--atl-body); margin-bottom: 1.2em; }
+@media (min-width: 640px) {
+  .atl-page { padding-left: 32px; padding-right: 32px; }
+  .atl-page .atl-posts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1025px) and (hover: hover) {
+  .atl.atl-standalone { height: auto; overflow: visible; }
+  .atl.atl-standalone::before { display: block; }
+  .atl-standalone .atl-monogram { left: 2rem; top: 10px; width: 44px; height: 44px; font-size: 17px; }
+  .atl-standalone .atl-tools { left: auto; right: 2rem; top: 10px; bottom: auto; flex-direction: row; gap: 8px; }
+  .atl-standalone .sal-tool { width: 44px; height: 44px; }
+  .atl-page { padding-top: 120px; }
+  .atl-page .atl-posts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
