@@ -4,7 +4,7 @@ import type { TemplateId } from "./templates";
 // Passer une section à `false` la masque (menu compris).
 export const siteConfig = {
   // Modèle de mise en page publié (voir src/config/templates.ts)
-  template: "classic" as TemplateId,
+  template: "atelier" as TemplateId,
   sections: {
     facts: true,
     services: true,

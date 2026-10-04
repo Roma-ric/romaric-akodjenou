@@ -60,8 +60,8 @@ Une licence valide du template est nécessaire avant toute diffusion publique du
     (lecture du cookie) : à réserver au local / à la préproduction. Sans lui, la page reste statique avec
     `siteConfig.template`.
 - **Modèles** (`src/config/templates.ts`), chargés à la demande par `page.tsx` :
-  - « Classique » (`classic`, la version Salimov en ligne) ;
-  - « Atelier » (`atelier`, `templates/atelier/`) : rail de numéros à gauche (monogramme « RA », outils langue /
+  - « Classique » (`classic`, la première version Salimov) ;
+  - « Atelier » (`atelier`, `templates/atelier/`, **modèle publié** depuis le 2026-10-04 sur la branche de travail) : rail de numéros à gauche (monogramme « RA », outils langue /
     thème en bas), sections côte à côte sur ordinateur avec une règle de progression en bas (un segment par
     section, rempli au défilement), barre fixe et menu plein écran sur mobile. Couleurs Salimov (jaune
     `#ffb400`, gris `#f4f4f4`, noir), polices Bricolage Grotesque / DM Sans / JetBrains Mono (sans
@@ -216,12 +216,16 @@ des images, changement de langue instantané, contenu aligné sur le nouveau CV 
 (Aceternity / shadcn), changement de langue sur place sans langue dans l'adresse, bouton de langue unique
 et outils fixes sur mobile, logos TypeScript / Zustand officiels (monochromes), parcours du plus récent au plus ancien
 (2026-10-03). Choix du modèle de mise en page réservé au propriétaire, page actuelle devenue le modèle
-« Classique » ; modèle « Atelier » intégré et sélectionnable par le propriétaire (2026-10-04).
+« Classique » ; modèle « Atelier » intégré, sélectionnable par le propriétaire, puis publié
+(`siteConfig.template = "atelier"`) sur la branche de travail (2026-10-04).
 
 **Branches** : `master` (principale), branche de travail actuelle `claude/eager-carson-jpgevo`.
 
 **Reste à faire** (voir aussi `ROADMAP.md`) :
-- [ ] Atelier : tester sur de vrais appareils, puis décider du modèle publié (`siteConfig.template`).
+- [ ] Atelier : tester sur de vrais appareils ; envoyer la branche sur `master` (nouvelle PR ou push direct).
+- [ ] Atelier : ses polices ne sont pas préchargées (`preload: false`, choisi quand Classique était publié) :
+  léger changement de police au premier affichage ; à repasser à `true` si Atelier reste le modèle publié.
+- [ ] Pages `/blog` encore au style Classique.
 - [ ] Tester sur de vrais appareils (iPhone, iPad, Android) : rendu et gestes.
 - [ ] Remplacer les articles « à venir » du blog par de vrais articles.
 - [ ] Remplacer les témoignages d'exemple par de vrais témoignages.
@@ -250,6 +254,10 @@ l'agent doit, dans le même commit ou juste après :
 4. Si `README.md` ou `ROADMAP.md` deviennent faux, les corriger aussi.
 
 ### Journal
+
+- 2026-10-04 — Atelier publié : `siteConfig.template = "atelier"` (site public statique, sans panneau propriétaire,
+  vérifié en 1366×768 et 390 px) ; espace ajouté dans le titre de l'accueil pour les lecteurs d'écran
+  (site.ts, atelier/Home.tsx).
 
 - 2026-10-04 — Modèle « Atelier » intégré (`templates/atelier/` : rail, règle de progression, sections, styles
   `atelier.css`, textes `Atelier.*`, catégories de projets) et rendu sélectionnable (`ready: true`). Données

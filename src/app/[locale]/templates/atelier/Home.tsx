@@ -19,7 +19,7 @@ export default function Home() {
     <section className="atl-home">
       <div className="atl-home-text">
         <h1>
-          {first}
+          {first}{" "}
           <br />
           {last}
           <span className="dot" aria-hidden="true">.</span>

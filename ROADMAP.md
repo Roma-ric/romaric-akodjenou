@@ -29,7 +29,8 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - [x] Sélecteur de couleur d'accent (visible seulement avec `NEXT_PUBLIC_COLOR_SWITCHER=true`)
 - [x] Choix du modèle de mise en page (visible seulement avec `NEXT_PUBLIC_TEMPLATE_SWITCHER=true`, modèle public dans `siteConfig.template`)
 - [x] Modèle « Atelier » intégré et sélectionnable (`src/app/[locale]/templates/atelier/`)
-- [ ] Atelier : tester sur de vrais appareils, puis décider du modèle publié (`siteConfig.template`)
+- [x] Atelier publié (`siteConfig.template = "atelier"`)
+- [ ] Atelier : tester sur de vrais appareils
 - [x] Menu : en-tête Salimov (menu, e-mail, langue, thème) et menu mobile
 
 ## Responsivité (comparée au template Salimov)
