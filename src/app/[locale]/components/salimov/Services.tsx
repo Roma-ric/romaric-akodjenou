@@ -2,15 +2,11 @@
 
 import { FileText, Globe, LayoutTemplate, PenTool, Wrench } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { serviceKeys } from "@/content/portfolio";
 import Reveal from "./Reveal";
 
-const services = [
-  { key: "dev", Icon: Globe },
-  { key: "template", Icon: LayoutTemplate },
-  { key: "doc", Icon: FileText },
-  { key: "integration", Icon: PenTool },
-  { key: "maintenance", Icon: Wrench },
-] as const;
+const icons = { dev: Globe, template: LayoutTemplate, doc: FileText, integration: PenTool, maintenance: Wrench };
+const services = serviceKeys.map((key) => ({ key, Icon: icons[key] }));
 
 export default function Services() {
   const t = useTranslations("ServicesSection");

@@ -5,7 +5,7 @@
 // Un modèle `ready: false` apparaît dans le panneau comme « bientôt » sans être sélectionnable.
 export const templates = [
   { id: "classic", ready: true },
-  { id: "atelier", ready: false },
+  { id: "atelier", ready: true },
 ] as const;
 
 export type TemplateId = (typeof templates)[number]["id"];

@@ -5,9 +5,8 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { skills } from "./skills";
+import { CV_PATH, PHOTO_PATH, experiences } from "@/content/portfolio";
 
-// Du plus récent au plus ancien : postes en cours d'abord, puis par date de fin
-const experienceKeys = ["carrefoot", "fidevo", "simam", "explotel", "romas", "payPlus"] as const;
 
 // `age` est calculé sur le serveur (page régénérée chaque jour) : le client affiche la même valeur.
 export default function About({ age }: { age: number }) {
@@ -20,7 +19,7 @@ export default function About({ age }: { age: number }) {
   const infosB = [info("address"), info("phone"), info("email")];
 
   const steps = [
-    ...experienceKeys.map((key) => ({
+    ...experiences.map(({ key }) => ({
       key,
       title: t(`experiences.${key}.position`),
       period: t(`experiences.${key}.period`),
@@ -36,7 +35,7 @@ export default function About({ age }: { age: number }) {
       <div className="info">
         <Reveal className="sal-photo">
           <Image
-            src="/files/profile-bg.png"
+            src={PHOTO_PATH}
             alt={t("photoAlt")}
             fill
             sizes="(min-width: 1024px) 380px, 90vw"
@@ -66,7 +65,7 @@ export default function About({ age }: { age: number }) {
             ))}
             <Reveal as="li" delay={0.3}>
               <span>CV :</span>{" "}
-              <a href="/cv/CV-de-Romaric-AKODJENOU.pdf" download>
+              <a href={CV_PATH} download>
                 <Download size={16} aria-hidden="true" style={{ display: "inline", marginRight: 6 }} />
                 {t("downloadText")}
               </a>

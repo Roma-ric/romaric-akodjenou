@@ -59,8 +59,16 @@ Une licence valide du template est nécessaire avant toute diffusion publique du
     `portfolio-template` (1 an) puis `router.refresh()`. Ce drapeau rend la page d'accueil dynamique
     (lecture du cookie) : à réserver au local / à la préproduction. Sans lui, la page reste statique avec
     `siteConfig.template`.
-- **Modèles** (`src/config/templates.ts`) : « Classique » (`classic`, la version Salimov en ligne) ;
-  « Atelier » (`atelier`) en préparation (`ready: false` : affiché « bientôt », non sélectionnable).
+- **Modèles** (`src/config/templates.ts`), chargés à la demande par `page.tsx` :
+  - « Classique » (`classic`, la version Salimov en ligne) ;
+  - « Atelier » (`atelier`, `templates/atelier/`) : rail de numéros à gauche (monogramme « RA », outils langue /
+    thème en bas), sections côte à côte sur ordinateur avec une règle de progression en bas (un segment par
+    section, rempli au défilement), barre fixe et menu plein écran sur mobile. Couleurs Salimov (jaune
+    `#ffb400`, gris `#f4f4f4`, noir), polices Bricolage Grotesque / DM Sans / JetBrains Mono (sans
+    préchargement). Sections : accueil, à propos (bio, chiffres, infos, compétences avec logos),
+    parcours, projets (cartes côte à côte ; une carte et précédent / « Voir » / suivant sur mobile), services,
+    témoignages*, clients*, blog*, contact (cartes + formulaire partagé). Maquettes : artifact
+    « Portfolio Romaric – maquettes ».
 
 ## 3. Stack
 
@@ -104,8 +112,10 @@ src/
 │   ├── templates.ts              # liste des modèles (id, ready), cookie du choix, isReadyTemplate(), saveTemplateChoice()
 │   └── accents.ts                # palette d'accent, applyAccent(), foregroundFor()
 ├── content/posts.ts              # articles du blog (contenu localisé en dur)
+├── content/portfolio.ts          # données communes aux modèles : expériences, projets, services, chemins CV / photo
 ├── lib/
 │   ├── scroll.ts                 # cœur de la navigation : DESKTOP_QUERY, scrollToSection, section visible, ancrage au changement de langue
+│   ├── useHorizontalScroll.ts    # molette fluide, clavier, ancre : défilement horizontal commun aux modèles
 │   └── contact.ts                # validation du formulaire (partagée client/serveur)
 └── app/
     ├── robots.ts, sitemap.ts
@@ -114,6 +124,8 @@ src/
         ├── layout.tsx            # <html lang>, métadonnées, scripts inline thème + accent (anti-flash), providers
         ├── page.tsx              # page unique (Server Component) : choisit le modèle, ajoute le panneau propriétaire
         ├── templates/ClassicTemplate.tsx # modèle « Classique » : liste ordonnée des panneaux Salimov
+        ├── templates/atelier/    # modèle « Atelier » : AtelierTemplate (liste des sections), Chrome (rail, menu,
+        │                         # outils), Shell (#scroller + règle), une section par fichier, atelier.css (scopé `.atl`)
         ├── globals.css           # directives Tailwind + couleurs de base (body, bordures, contours)
         ├── salimov.css           # tout le design Salimov (variables, sections, responsive, échelle)
         ├── blog/page.tsx, blog/[slug]/page.tsx
@@ -146,8 +158,10 @@ public/                           # cv/ (PDF), files/ (photos), realisation/ (ca
 | ajouter / activer un modèle | composant dans `src/app/[locale]/templates/`, entrée `renderers` de `page.tsx`, `ready: true` dans `src/config/templates.ts`, nom dans `OwnerPanel.templates.<id>` des messages |
 | e-mail, téléphone, date de naissance, liste des clients | `src/config/site.ts` |
 | textes (toutes langues) | `messages/en.json` **et** `messages/fr.json` |
-| ajouter un projet | `components/salimov/Portfolio.tsx` (tableau `projects`) + textes `ProjectsSection.projects.<key>` + capture WebP ≈ 1300 px dans `public/realisation/` |
-| expériences du parcours | `components/salimov/About.tsx` (`experienceKeys`) + `AboutSection.experiences.<key>` |
+| ajouter un projet | `src/content/portfolio.ts` (`projects`) + textes `ProjectsSection.projects.<key>` (dont `category`) + capture WebP ≈ 1300 px dans `public/realisation/` |
+| expériences du parcours | `src/content/portfolio.ts` (`experiences`, `current` = poste en cours) + `AboutSection.experiences.<key>` |
+| textes propres à Atelier (accroche, bio, titres) | `Atelier.*` dans les messages |
+| style d'Atelier | `src/app/[locale]/templates/atelier/atelier.css` |
 | compétences | `components/salimov/skills.tsx` (ordre = CV) |
 | réseaux sociaux | `components/salimov/social.tsx` |
 | chiffres clés | `AboutSection.stats.*.value` dans les messages |
@@ -172,8 +186,14 @@ public/                           # cv/ (PDF), files/ (photos), realisation/ (ca
   passer par `scrollToSection()` de `src/lib/scroll.ts` (gère horizontal/vertical et stoppe le défilement fluide).
   La condition « mode horizontal » est **uniquement** `DESKTOP_QUERY` = `(min-width: 1025px) and (hover: hover)` ;
   le CSS utilise la même media query, les garder synchronisées.
-- Tout nouveau panneau du modèle Classique doit passer par la liste de `templates/ClassicTemplate.tsx` (il reçoit `id` + `data-panel`) ;
-  sinon ni le menu ni l'ancre ne le voient.
+- Tout nouveau panneau doit passer par la liste de son modèle (`templates/ClassicTemplate.tsx` ou
+  `templates/atelier/AtelierTemplate.tsx`) : il reçoit `id` + `data-panel`, sinon ni le menu ni l'ancre ne le voient.
+- **Modèles** : les données communes vivent dans `src/content/portfolio.ts` et les textes dans les messages ;
+  un modèle n'en garde pas de copie. Les deux modèles utilisent `#scroller`, `scrollToSection` et
+  `useHorizontalScroll` : ne pas dupliquer la mécanique de défilement. Next.js regroupe les CSS des deux modèles
+  (scopées `.sal` / `.atl`) ; une police propre à un modèle doit avoir `preload: false`, sinon elle est
+  préchargée sur le site public même quand ce modèle n'est pas affiché.
+- `scrollToSection` respecte `scroll-margin-top` (barre fixe d'Atelier sur mobile).
 - Les sections sont des composants client (pour suivre la langue) ; ce qui dépend du jour (âge) est calculé
   dans `page.tsx` (serveur, régénéré chaque jour) et passé en prop, pour éviter un écart à l'hydratation.
 - **Thème** : la source de vérité est la classe `dark` sur `<html>`, posée par le script inline du layout.
@@ -196,12 +216,12 @@ des images, changement de langue instantané, contenu aligné sur le nouveau CV 
 (Aceternity / shadcn), changement de langue sur place sans langue dans l'adresse, bouton de langue unique
 et outils fixes sur mobile, logos TypeScript / Zustand officiels (monochromes), parcours du plus récent au plus ancien
 (2026-10-03). Choix du modèle de mise en page réservé au propriétaire, page actuelle devenue le modèle
-« Classique » (2026-10-04).
+« Classique » ; modèle « Atelier » intégré et sélectionnable par le propriétaire (2026-10-04).
 
 **Branches** : `master` (principale), branche de travail actuelle `claude/eager-carson-jpgevo`.
 
 **Reste à faire** (voir aussi `ROADMAP.md`) :
-- [ ] Modèle « Atelier » : maquettes en cours de validation, puis intégration et `ready: true`.
+- [ ] Atelier : tester sur de vrais appareils, puis décider du modèle publié (`siteConfig.template`).
 - [ ] Tester sur de vrais appareils (iPhone, iPad, Android) : rendu et gestes.
 - [ ] Remplacer les articles « à venir » du blog par de vrais articles.
 - [ ] Remplacer les témoignages d'exemple par de vrais témoignages.
@@ -230,6 +250,15 @@ l'agent doit, dans le même commit ou juste après :
 4. Si `README.md` ou `ROADMAP.md` deviennent faux, les corriger aussi.
 
 ### Journal
+
+- 2026-10-04 — Modèle « Atelier » intégré (`templates/atelier/` : rail, règle de progression, sections, styles
+  `atelier.css`, textes `Atelier.*`, catégories de projets) et rendu sélectionnable (`ready: true`). Données
+  partagées extraites dans `src/content/portfolio.ts`, défilement horizontal extrait dans
+  `src/lib/useHorizontalScroll.ts` (réutilisé par Classique), modèles chargés à la demande dans `page.tsx`,
+  `scrollToSection` respecte `scroll-margin-top`. Vérifié dans Chromium : 1366×768, 1181×640, 1920×1080 (sombre),
+  390 et 768 tactiles, sans débordement ni erreur ; molette, rail, clavier, menu mobile, carrousel, changement de
+  langue sur place et de modèle ; Classique inchangé (molette, menu, touche Début), build public statique avec les
+  mêmes 6 polices préchargées.
 
 - 2026-10-04 — Choix du modèle de mise en page : `src/config/templates.ts` (Classique prêt, Atelier en
   préparation), `siteConfig.template`, page actuelle déplacée dans `templates/ClassicTemplate.tsx`,

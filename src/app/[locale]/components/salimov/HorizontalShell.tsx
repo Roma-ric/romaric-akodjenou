@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
-import { SCROLLER_ID, DESKTOP_QUERY, NAVIGATE_EVENT, scrollToSection } from "@/lib/scroll";
+import { SCROLLER_ID, DESKTOP_QUERY, NAVIGATE_EVENT } from "@/lib/scroll";
+import { useHorizontalScroll } from "@/lib/useHorizontalScroll";
 
 type Panel = {
   id: string;
@@ -21,6 +22,7 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const railRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
+  useHorizontalScroll(scrollerRef);
 
   useEffect(() => {
     const scroller = scrollerRef.current;
@@ -36,80 +38,10 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
       railRef.current?.setAttribute("aria-valuenow", String(Math.round(ratio * 100)));
     };
 
-    // Défilement fluide : on accumule une cible et on s'en rapproche à chaque image.
-    // La position courante est suivie en décimal (le navigateur arrondit scrollLeft,
-    // ce qui empêchait la boucle de se terminer).
-    let target = 0;
-    let current = 0;
-    let frame = 0;
     const maxScroll = () => scroller.scrollWidth - scroller.clientWidth;
-    const stop = () => {
-      if (frame) cancelAnimationFrame(frame);
-      frame = 0;
-    };
-    const step = () => {
-      // Quelqu'un d'autre a fait défiler (clavier natif, barre…) : on s'efface
-      if (Math.abs(scroller.scrollLeft - current) > 3) {
-        frame = 0;
-        return;
-      }
-      const diff = target - current;
-      if (Math.abs(diff) < 0.5) {
-        current = target;
-        scroller.scrollLeft = target;
-        frame = 0;
-        return;
-      }
-      current += diff * 0.2;
-      scroller.scrollLeft = current;
-      frame = requestAnimationFrame(step);
-    };
-    const scrollByAmount = (amount: number) => {
-      if (!frame) {
-        current = scroller.scrollLeft;
-        target = current;
-      }
-      target = Math.round(Math.min(maxScroll(), Math.max(0, target + amount)));
-      if (!frame) frame = requestAnimationFrame(step);
-    };
+    // Interrompt le défilement fluide de la molette (voir useHorizontalScroll)
+    const stop = () => window.dispatchEvent(new Event(NAVIGATE_EVENT));
 
-    // Écouté sur la fenêtre : la molette fonctionne partout (en-tête, courbes, marges)
-    const onWheel = (e: WheelEvent) => {
-      if (!media.matches || e.ctrlKey) return;
-      // Geste horizontal natif (trackpad) : on laisse faire
-      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
-
-      e.preventDefault();
-      // Firefox envoie des « lignes » (deltaMode 1) : on les convertit en pixels
-      const unit = e.deltaMode === 1 ? 32 : e.deltaMode === 2 ? window.innerHeight : 1;
-      scrollByAmount(e.deltaY * unit * 1.6);
-    };
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (!media.matches || e.altKey || e.ctrlKey || e.metaKey) return;
-      const el = e.target as HTMLElement;
-      if (el.closest("input, textarea, select, [contenteditable]")) return;
-      const page = window.innerWidth * 0.8;
-      const moves: Record<string, number> = {
-        ArrowRight: 160, ArrowLeft: -160, PageDown: page, PageUp: -page,
-      };
-      if (e.key in moves) {
-        e.preventDefault();
-        scrollByAmount(moves[e.key]);
-      } else if (e.key === "Home" || e.key === "End") {
-        e.preventDefault();
-        scrollByAmount(e.key === "Home" ? -maxScroll() : maxScroll());
-      }
-    };
-
-    const onHashChange = () => {
-      const id = window.location.hash.substring(1);
-      if (id) scrollToSection(id);
-    };
-
-    window.addEventListener("wheel", onWheel, { passive: false });
-    window.addEventListener("keydown", onKeyDown);
-    window.addEventListener(NAVIGATE_EVENT, stop);
     // Indicateur « Scroll » : on peut saisir la poignée pour la faire glisser,
     // ou cliquer sur la barre pour aller à cet endroit.
     const rail = railRef.current;
@@ -154,21 +86,15 @@ export default function HorizontalShell({ panels }: { panels: Panel[] }) {
     rail?.addEventListener("pointercancel", onPointerEnd);
 
     scroller.addEventListener("scroll", updateProgress, { passive: true });
-    window.addEventListener("hashchange", onHashChange);
     updateProgress();
 
     return () => {
-      window.removeEventListener("wheel", onWheel);
-      window.removeEventListener("keydown", onKeyDown);
-      window.removeEventListener(NAVIGATE_EVENT, stop);
       rail?.removeEventListener("pointerdown", onPointerDown);
       rail?.removeEventListener("pointermove", onPointerMove);
       rail?.removeEventListener("pointerup", onPointerEnd);
       rail?.removeEventListener("pointercancel", onPointerEnd);
       document.body.style.userSelect = "";
-      stop();
       scroller.removeEventListener("scroll", updateProgress);
-      window.removeEventListener("hashchange", onHashChange);
     };
   }, []);
 

@@ -285,35 +285,43 @@
         "projects": {
             "brand": {
                 "title": "Friym Brand",
-                "description": "Site de présentation de la marque Friym."
+                "description": "Site de présentation de la marque Friym.",
+                "category": "Site vitrine"
             },
             "founders": {
                 "title": "Friym Founders Sellers",
-                "description": "Site de recherche de vendeurs pour la plateforme Friym."
+                "description": "Site de recherche de vendeurs pour la plateforme Friym.",
+                "category": "Plateforme"
             },
             "simam-cargo": {
                 "title": "SIMAM Cargo",
-                "description": "Landing page pour une application d'expédition de marchandises de la Chine vers le Bénin et le Togo avec formulaire de déclaration de colis."
+                "description": "Landing page pour une application d'expédition de marchandises de la Chine vers le Bénin et le Togo avec formulaire de déclaration de colis.",
+                "category": "Landing page"
             },
             "simam-immigration": {
                 "title": "SIMAM Immigration",
-                "description": "Application de gestion d'immigration au Canada."
+                "description": "Application de gestion d'immigration au Canada.",
+                "category": "Application"
             },
             "template-carrefoot-1": {
                 "title": "Template Carréfoot 1",
-                "description": "Template web développé pour Carréfoot."
+                "description": "Template web développé pour Carréfoot.",
+                "category": "Template"
             },
             "template-carrefoot-2": {
                 "title": "Template Carréfoot 2",
-                "description": "Template web développé pour Carréfoot."
+                "description": "Template web développé pour Carréfoot.",
+                "category": "Template"
             },
             "portfolio": {
                 "title": "Portfolio",
-                "description": "Portfolio personnel de Romaric AKODJENOU."
+                "description": "Portfolio personnel de Romaric AKODJENOU.",
+                "category": "Portfolio"
             },
             "timer": {
                 "title": "Timer",
-                "description": "Minuteur pour gérer le temps et les tâches."
+                "description": "Minuteur pour gérer le temps et les tâches.",
+                "category": "Application"
             }
         },
         "testimonials": {},
@@ -421,5 +429,65 @@
     },
     "ScrollBar": {
         "label": "Position dans la page (glisser ou cliquer pour défiler)"
+    },
+    "Atelier": {
+        "nav": {
+            "home": "Accueil",
+            "about": "À propos",
+            "experience": "Parcours",
+            "projects": "Projets",
+            "services": "Services",
+            "testimonials": "Témoignages",
+            "clients": "Clients",
+            "blog": "Blog",
+            "contact": "Contact",
+            "label": "Sections du site",
+            "menu": "Menu"
+        },
+        "scrollHint": "Molette ou ← →",
+        "home": {
+            "role": "Développeur front-end · Freelance",
+            "lead": "Spécialisé en React et Next.js, je transforme vos maquettes en interfaces web rapides, responsives et faciles à maintenir, de l’intégration à la mise en ligne.",
+            "projects": "Voir mes projets",
+            "cv": "Télécharger le CV",
+            "location": "Abomey-Calavi, Bénin"
+        },
+        "about": {
+            "title": "Qui suis-je ?",
+            "bio": {
+                "0": "Développeur front-end basé à Abomey-Calavi, au Bénin, je conçois des interfaces web modernes avec React, Next.js et TypeScript.",
+                "1": "J’accompagne aujourd’hui Fidevo Group et Carréfoot sur leurs sites, plateformes et applications : intégration de maquettes Figma, connexion aux API REST, création de templates et documentation technique.",
+                "2": "Mon objectif : un code propre et maintenable, et une expérience fluide pour chaque utilisateur."
+            },
+            "skills": "Compétences techniques",
+            "cv": "Télécharger mon CV"
+        },
+        "experience": {
+            "title": "Expériences",
+            "current": "En cours"
+        },
+        "projects": {
+            "title": "Réalisations",
+            "count": "{count, plural, one {# projet} other {# projets}}",
+            "position": "Projet {current} sur {total}"
+        },
+        "services": {
+            "title": "Ce que je fais"
+        },
+        "testimonials": {
+            "title": "Ils en parlent"
+        },
+        "clients": {
+            "title": "Ils m’ont fait confiance"
+        },
+        "blog": {
+            "title": "Articles",
+            "all": "Tous les articles"
+        },
+        "contact": {
+            "title": "Un projet en tête ?",
+            "lead": "Parlez-moi de votre besoin : site vitrine, application web ou intégration de maquettes. Je vous réponds par e-mail au plus vite.",
+            "networks": "Réseaux"
+        }
     }
 }

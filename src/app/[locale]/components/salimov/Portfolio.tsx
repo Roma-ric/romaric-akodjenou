@@ -5,14 +5,8 @@ import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { projects } from "@/content/portfolio";
 
-const projects = [
-  { key: "founders", link: "https://founders.friym.com", src: "/realisation/founders-friym.webp" },
-  { key: "brand", link: "https://brand.friym.com", src: "/realisation/brand-friym.webp" },
-  { key: "simam-cargo", link: "https://simam-cargo.vercel.app", src: "/realisation/simam-cargo.webp" },
-  { key: "template-carrefoot-2", link: "https://vote.carrefoot.com", src: "/realisation/template-carrefoot-2.webp" },
-  { key: "timer", link: "https://nexus-timer.vercel.app/", src: "/realisation/timer.webp" },
-] as const;
 
 export default function Portfolio() {
   const t = useTranslations("ProjectsSection");

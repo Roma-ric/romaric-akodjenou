@@ -31,7 +31,9 @@ export function scrollToSection(
   if (scroller) {
     scroller.scrollTo({ left: element.offsetLeft, behavior });
   } else {
-    const y = element.getBoundingClientRect().top + window.scrollY;
+    // Respecte `scroll-margin-top` (barre fixe du modèle au-dessus du contenu)
+    const margin = parseFloat(getComputedStyle(element).scrollMarginTop) || 0;
+    const y = element.getBoundingClientRect().top + window.scrollY - margin;
     window.scrollTo({ top: y, behavior });
   }
 }
