@@ -61,7 +61,7 @@ Une licence valide du template est nécessaire avant toute diffusion publique du
     `siteConfig.template`.
 - **Modèles** (`src/config/templates.ts`), chargés à la demande par `page.tsx` :
   - « Classique » (`classic`, la première version Salimov) ;
-  - « Atelier » (`atelier`, `templates/atelier/`, **modèle publié** depuis le 2026-10-04 sur la branche de travail) : rail de numéros à gauche (monogramme « RA », outils langue /
+  - « Atelier » (`atelier`, `templates/atelier/`, **modèle publié** sur `master` depuis le 2026-10-04) : rail de numéros à gauche (monogramme « RA », outils langue /
     thème en bas), sections côte à côte sur ordinateur avec une règle de progression en bas (un segment par
     section, rempli au défilement), barre fixe et menu plein écran sur mobile. Couleurs Salimov (jaune
     `#ffb400`, gris `#f4f4f4`, noir), polices Bricolage Grotesque / DM Sans / JetBrains Mono (sans
@@ -219,12 +219,12 @@ des images, changement de langue instantané, contenu aligné sur le nouveau CV 
 et outils fixes sur mobile, logos TypeScript / Zustand officiels (monochromes), parcours du plus récent au plus ancien
 (2026-10-03). Choix du modèle de mise en page réservé au propriétaire, page actuelle devenue le modèle
 « Classique » ; modèle « Atelier » intégré, sélectionnable par le propriétaire, puis publié
-(`siteConfig.template = "atelier"`) sur la branche de travail (2026-10-04).
+(`siteConfig.template = "atelier"`) et envoyé sur `master` (2026-10-04).
 
 **Branches** : `master` (principale), branche de travail actuelle `claude/eager-carson-jpgevo`.
 
 **Reste à faire** (voir aussi `ROADMAP.md`) :
-- [ ] Atelier : tester sur de vrais appareils ; envoyer la branche sur `master` (nouvelle PR ou push direct).
+- [ ] Atelier : tester sur de vrais appareils.
 - [ ] Atelier : ses polices ne sont pas préchargées (`preload: false`, choisi quand Classique était publié) :
   léger changement de police au premier affichage ; à repasser à `true` si Atelier reste le modèle publié.
 - [ ] Tester sur de vrais appareils (iPhone, iPad, Android) : rendu et gestes.
@@ -255,6 +255,8 @@ l'agent doit, dans le même commit ou juste après :
 4. Si `README.md` ou `ROADMAP.md` deviennent faux, les corriger aussi.
 
 ### Journal
+
+- 2026-10-04 — Atelier mis en ligne : branche de travail envoyée sur `master` en avance rapide (CLAUDE.md).
 
 - 2026-10-04 — Blog : les pages `/blog` et `/blog/<slug>` suivent le modèle courant (`src/lib/template.ts`,
   `currentTemplate()` partagé avec la page d'accueil) ; version Atelier (`atelier/BlogPages.tsx` : barre fixe,
