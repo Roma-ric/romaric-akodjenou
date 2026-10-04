@@ -51,8 +51,16 @@ Une licence valide du template est nécessaire avant toute diffusion publique du
   (routes internes `/en`, `/fr`, servies par réécriture du middleware). Limite assumée : une seule adresse
   pour deux langues, les moteurs indexent surtout l'anglais (pas de `hreflang` possible).
 - **Âge calculé** depuis la date de naissance ; la page d'accueil est régénérée chaque jour (`revalidate = 86400`).
-- **Sélecteur de couleur d'accent** (9 teintes) réservé au propriétaire, visible uniquement avec
-  `NEXT_PUBLIC_COLOR_SWITCHER=true`, mémorisé dans le navigateur (`localStorage["sal-accent"]`).
+- **Panneau de personnalisation** réservé au propriétaire (`components/OwnerPanel.tsx`, styles dans
+  `globals.css`, indépendants du modèle) :
+  - **couleur d'accent** (9 teintes), avec `NEXT_PUBLIC_COLOR_SWITCHER=true`, mémorisée dans le navigateur
+    (`localStorage["sal-accent"]`) ;
+  - **modèle de mise en page**, avec `NEXT_PUBLIC_TEMPLATE_SWITCHER=true`, mémorisé dans le cookie
+    `portfolio-template` (1 an) puis `router.refresh()`. Ce drapeau rend la page d'accueil dynamique
+    (lecture du cookie) : à réserver au local / à la préproduction. Sans lui, la page reste statique avec
+    `siteConfig.template`.
+- **Modèles** (`src/config/templates.ts`) : « Classique » (`classic`, la version Salimov en ligne) ;
+  « Atelier » (`atelier`) en préparation (`ready: false` : affiché « bientôt », non sélectionnable).
 
 ## 3. Stack
 
@@ -81,7 +89,7 @@ npx tsc --noEmit # vérification des types (pas de script dédié)
 ```
 
 Variables d'environnement : copier `.env.example` vers `.env.local` (jamais committé).
-`NEXT_PUBLIC_APP_LINK`, `NEXT_PUBLIC_COLOR_SWITCHER`, `RESEND_API_KEY`, `CONTACT_TO_EMAIL`,
+`NEXT_PUBLIC_APP_LINK`, `NEXT_PUBLIC_COLOR_SWITCHER`, `NEXT_PUBLIC_TEMPLATE_SWITCHER`, `RESEND_API_KEY`, `CONTACT_TO_EMAIL`,
 `CONTACT_FROM_EMAIL`, `RESEND_API_URL` (facultatif). Détail dans `README.md`.
 
 ## 5. Architecture
@@ -92,7 +100,8 @@ src/
 ├── i18n/                         # routing (locales, sans préfixe, cookie), request (messages), navigation (Link…),
 │                                 # LocaleProvider (changement de langue sur place)
 ├── config/
-│   ├── site.ts                   # sections affichées, e-mail, téléphone, date de naissance, clients, getAge()
+│   ├── site.ts                   # modèle publié, sections affichées, e-mail, téléphone, date de naissance, clients, getAge()
+│   ├── templates.ts              # liste des modèles (id, ready), cookie du choix, isReadyTemplate(), saveTemplateChoice()
 │   └── accents.ts                # palette d'accent, applyAccent(), foregroundFor()
 ├── content/posts.ts              # articles du blog (contenu localisé en dur)
 ├── lib/
@@ -103,19 +112,23 @@ src/
     ├── api/contact/route.ts      # envoi Resend, rate limit, honeypot
     └── [locale]/
         ├── layout.tsx            # <html lang>, métadonnées, scripts inline thème + accent (anti-flash), providers
-        ├── page.tsx              # page unique (Server Component) : liste ordonnée des panneaux
+        ├── page.tsx              # page unique (Server Component) : choisit le modèle, ajoute le panneau propriétaire
+        ├── templates/ClassicTemplate.tsx # modèle « Classique » : liste ordonnée des panneaux Salimov
         ├── globals.css           # directives Tailwind + couleurs de base (body, bordures, contours)
         ├── salimov.css           # tout le design Salimov (variables, sections, responsive, échelle)
         ├── blog/page.tsx, blog/[slug]/page.tsx
         ├── hooks/theme-context.tsx, hooks/useActiveSection.ts
-        └── components/salimov/   # un composant par section + mécanique (HorizontalShell, HashScroll, Header, Reveal, Counter, Preloader, ColorSwitcher)
+        ├── components/OwnerPanel.tsx # panneau propriétaire (accent + modèle), commun à tous les modèles
+        └── components/salimov/   # un composant par section + mécanique (HorizontalShell, HashScroll, Header, Reveal, Counter, Preloader)
 messages/en.json, messages/fr.json  # tous les textes (mêmes clés dans les deux fichiers)
 public/                           # cv/ (PDF), files/ (photos), realisation/ (captures WebP des projets)
 ```
 
 ### Flux de la page d'accueil
 
-1. `page.tsx` construit la liste des panneaux `{ id, kind: "dark" | "band", node }` dans l'ordre :
+0. `page.tsx` choisit le modèle (`siteConfig.template`, ou le cookie si `NEXT_PUBLIC_TEMPLATE_SWITCHER=true`)
+   et lui passe le panneau propriétaire (`tools`). Les étapes suivantes décrivent le modèle « Classique ».
+1. `templates/ClassicTemplate.tsx` construit la liste des panneaux `{ id, kind: "dark" | "band", node }` dans l'ordre :
    home → about → facts* → services* → projects → testimonials* → contact → clients* → blog* → copyright
    (`*` = masquable via `siteConfig.sections`).
 2. `HorizontalShell` les rend dans `#scroller`, chaque panneau avec `id` + `data-panel`, et ajoute les
@@ -129,6 +142,8 @@ public/                           # cv/ (PDF), files/ (photos), realisation/ (ca
 | Je veux… | Fichier |
 |---|---|
 | masquer une section | `src/config/site.ts` → `sections` |
+| modèle publié | `src/config/site.ts` → `template` |
+| ajouter / activer un modèle | composant dans `src/app/[locale]/templates/`, entrée `renderers` de `page.tsx`, `ready: true` dans `src/config/templates.ts`, nom dans `OwnerPanel.templates.<id>` des messages |
 | e-mail, téléphone, date de naissance, liste des clients | `src/config/site.ts` |
 | textes (toutes langues) | `messages/en.json` **et** `messages/fr.json` |
 | ajouter un projet | `components/salimov/Portfolio.tsx` (tableau `projects`) + textes `ProjectsSection.projects.<key>` + capture WebP ≈ 1300 px dans `public/realisation/` |
@@ -157,7 +172,7 @@ public/                           # cv/ (PDF), files/ (photos), realisation/ (ca
   passer par `scrollToSection()` de `src/lib/scroll.ts` (gère horizontal/vertical et stoppe le défilement fluide).
   La condition « mode horizontal » est **uniquement** `DESKTOP_QUERY` = `(min-width: 1025px) and (hover: hover)` ;
   le CSS utilise la même media query, les garder synchronisées.
-- Tout nouveau panneau doit passer par la liste de `page.tsx` (il reçoit `id` + `data-panel`) ;
+- Tout nouveau panneau du modèle Classique doit passer par la liste de `templates/ClassicTemplate.tsx` (il reçoit `id` + `data-panel`) ;
   sinon ni le menu ni l'ancre ne le voient.
 - Les sections sont des composants client (pour suivre la langue) ; ce qui dépend du jour (âge) est calculé
   dans `page.tsx` (serveur, régénéré chaque jour) et passé en prop, pour éviter un écart à l'hydratation.
@@ -171,7 +186,7 @@ public/                           # cv/ (PDF), files/ (photos), realisation/ (ca
 - **Secrets** : `.env*` est ignoré par Git ; ne jamais committer de clé.
 - Accessibilité : `aria-label` sur les boutons-icônes, `prefers-reduced-motion` respecté.
 
-## 8. État actuel (au 2026-10-03)
+## 8. État actuel (au 2026-10-04)
 
 **Fait** : refonte Salimov complète (toutes les sections, navigation horizontale, URL par section,
 écran de chargement, responsive mobile/tablette/bureau étroit, mise à l'échelle), formulaire de contact
@@ -180,11 +195,13 @@ des images, changement de langue instantané, contenu aligné sur le nouveau CV 
 « +9 projets », « +4 clients », « +2 années d'expérience »). Nettoyage des restes de l'ancienne version
 (Aceternity / shadcn), changement de langue sur place sans langue dans l'adresse, bouton de langue unique
 et outils fixes sur mobile, logos TypeScript / Zustand officiels (monochromes), parcours du plus récent au plus ancien
-(2026-10-03).
+(2026-10-03). Choix du modèle de mise en page réservé au propriétaire, page actuelle devenue le modèle
+« Classique » (2026-10-04).
 
 **Branches** : `master` (principale), branche de travail actuelle `claude/eager-carson-jpgevo`.
 
 **Reste à faire** (voir aussi `ROADMAP.md`) :
+- [ ] Modèle « Atelier » : maquettes en cours de validation, puis intégration et `ready: true`.
 - [ ] Tester sur de vrais appareils (iPhone, iPad, Android) : rendu et gestes.
 - [ ] Remplacer les articles « à venir » du blog par de vrais articles.
 - [ ] Remplacer les témoignages d'exemple par de vrais témoignages.
@@ -213,6 +230,12 @@ l'agent doit, dans le même commit ou juste après :
 4. Si `README.md` ou `ROADMAP.md` deviennent faux, les corriger aussi.
 
 ### Journal
+
+- 2026-10-04 — Choix du modèle de mise en page : `src/config/templates.ts` (Classique prêt, Atelier en
+  préparation), `siteConfig.template`, page actuelle déplacée dans `templates/ClassicTemplate.tsx`,
+  `ColorSwitcher` remplacé par `OwnerPanel` (accent + modèle, styles dans `globals.css`), drapeau
+  `NEXT_PUBLIC_TEMPLATE_SWITCHER` (cookie `portfolio-template`). Vérifié : build statique sans drapeau,
+  route dynamique avec ; panneau testé dans Chromium (FR/EN, Atelier non sélectionnable, cookie invalide ignoré).
 
 - 2026-10-03 — Logo Zustand : la mascotte en couleurs est remplacée par le logo officiel monochrome (devicon),
   servi depuis `public/logos/zustand.svg` et teint par masque CSS (`.sal-skill-mask`) pour suivre la couleur

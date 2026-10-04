@@ -27,6 +27,8 @@ La structure et l'esprit sont reproduits avec la stack actuelle (Next.js, Tailwi
 - [x] Contact : formulaire fonctionnel (route `/api/contact`, envoi via Resend : il reste à renseigner `RESEND_API_KEY`)
 - [x] Séparateurs en courbe entre sections et bandeaux
 - [x] Sélecteur de couleur d'accent (visible seulement avec `NEXT_PUBLIC_COLOR_SWITCHER=true`)
+- [x] Choix du modèle de mise en page (visible seulement avec `NEXT_PUBLIC_TEMPLATE_SWITCHER=true`, modèle public dans `siteConfig.template`)
+- [ ] Modèle « Atelier » (maquettes validées → intégration, puis `ready: true` dans `src/config/templates.ts`)
 - [x] Menu : en-tête Salimov (menu, e-mail, langue, thème) et menu mobile
 
 ## Responsivité (comparée au template Salimov)

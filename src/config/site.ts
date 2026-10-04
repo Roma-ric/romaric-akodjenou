@@ -1,6 +1,8 @@
 // Réglages du site : sections affichées et coordonnées publiques.
 // Passer une section à `false` la masque (menu compris).
 export const siteConfig = {
+  // Modèle de mise en page publié (voir src/config/templates.ts)
+  template: "classic",
   sections: {
     facts: true,
     services: true,

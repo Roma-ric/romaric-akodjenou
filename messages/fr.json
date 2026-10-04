@@ -390,8 +390,15 @@
             }
         }
     },
-    "ColorSwitcher": {
-        "title": "Couleur d'accent"
+    "OwnerPanel": {
+        "title": "Personnaliser",
+        "accent": "Couleur d'accent",
+        "template": "Modèle",
+        "soon": "bientôt",
+        "templates": {
+            "classic": "Classique",
+            "atelier": "Atelier"
+        }
     },
     "ContactForm": {
         "title": "Envoyez-moi un message",

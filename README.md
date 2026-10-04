@@ -25,6 +25,7 @@ Copier `.env.example` vers `.env.local` (jamais committé) :
 |---|---|
 | `NEXT_PUBLIC_APP_LINK` | URL publique du site (sitemap, robots, Open Graph) |
 | `NEXT_PUBLIC_COLOR_SWITCHER` | `true` affiche le sélecteur de couleur d'accent (propriétaire seulement) |
+| `NEXT_PUBLIC_TEMPLATE_SWITCHER` | `true` affiche le choix du modèle de mise en page (propriétaire seulement, page rendue à la demande) |
 | `RESEND_API_KEY` | Clé [Resend](https://resend.com) pour envoyer les messages du formulaire de contact |
 | `CONTACT_TO_EMAIL` | Adresse qui reçoit les messages (par défaut : l'e-mail de `src/config/site.ts`) |
 | `CONTACT_FROM_EMAIL` | Expéditeur (par défaut `Portfolio <onboarding@resend.dev>`) |
@@ -42,6 +43,7 @@ Sans `RESEND_API_KEY`, le formulaire propose un repli « Écrivez-moi par e-mail
 | ajouter une compétence | `src/app/[locale]/components/salimov/skills.tsx` |
 | publier un article | `src/content/posts.ts` (passer `placeholder` à `false`, renseigner `date`) |
 | changer les couleurs / la mise en page | `src/app/[locale]/salimov.css` |
+| changer le modèle publié / en ajouter un | `src/config/templates.ts`, `siteConfig.template` et `src/app/[locale]/templates/` |
 
 ## Fonctionnement
 

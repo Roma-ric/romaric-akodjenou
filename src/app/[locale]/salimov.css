@@ -606,21 +606,6 @@
   border-color: rgba(255, 255, 255, 0.14);
 }
 
-/* ---------- Sélecteur de couleur (propriétaire) ---------- */
-.sal-switcher { position: fixed; left: 0; top: 150px; z-index: 1200; display: flex; align-items: flex-start; transform: translateX(-100%); transition: transform 0.4s; }
-.sal-switcher.open { transform: none; }
-.sal-switcher .panel { background: var(--sal-card); border: 1px solid var(--sal-card-border); border-radius: 0 0 14px 0; padding: 18px 20px 20px; }
-.sal-switcher h4 { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
-.sal-switcher ul { display: grid; grid-template-columns: repeat(3, 28px); gap: 10px; }
-.sal-switcher .panel button { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor: pointer; }
-.sal-switcher .panel button[aria-pressed="true"] { border-color: var(--sal-fg); }
-.sal-switcher .toggle {
-  position: absolute; left: 100%; top: 0; width: 50px; height: 50px; border: 0; cursor: pointer;
-  display: grid; place-items: center; background: var(--sal-card); color: var(--sal-fg);
-  border-radius: 0 12px 12px 0; border: 1px solid var(--sal-card-border); border-left: 0;
-}
-.sal-switcher .toggle svg { width: 22px; height: 22px; }
-
 /* ---------- Formulaire de contact ---------- */
 .sal-form-wrap { width: 100%; max-width: 538px; margin: 0 auto; }
 .sal-form { background: var(--sal-card); border: 1px solid var(--sal-card-border); box-shadow: var(--sal-card-shadow); border-radius: 20px; padding: 1.5rem 1.75rem; display: flex; flex-direction: column; gap: 0.8rem; }
